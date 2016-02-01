@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DAMN : MonoBehaviour
+public class camera : MonoBehaviour
 {
     //
     // VARIABLES
     //
 
     public float turnSpeed = 4.0f;      // Speed of camera turning when mouse moves in along an axis
-    public float panSpeed = 4.0f;       // Speed of the camera when being panned
-    public float zoomSpeed = 4.0f;      // Speed of the camera going back and forth
+    public float panSpeed;       /// Speed of the camera when being panned ! adjusted with camera y position value !
+    public float zoomSpeed = 1000.0f;      // Speed of the camera going back and forth
 
     private Vector3 mouseOrigin;    // Position of cursor when mouse dragging starts
     private bool isPanning;     // Is the camera being panned?
@@ -46,10 +46,13 @@ public class DAMN : MonoBehaviour
         // Move the camera on it's XY plane
         if (isPanning)
         {
+            // camera movement speed adjustment according to current zoom level
+            panSpeed = 1.75f * transform.position.y;
             Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
-
             Vector3 move = new Vector3(pos.x * -panSpeed, pos.y * -panSpeed, 0);
             transform.Translate(move, Space.Self);
+            // prevent camera from keep moving unless there is further mouse movement
+            mouseOrigin = Input.mousePosition;
         }
 
         // Move the camera linearly along Z axis
@@ -57,8 +60,19 @@ public class DAMN : MonoBehaviour
         {
             Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
 
-            Vector3 move = pos.y * zoomSpeed * transform.forward;
-            transform.Translate(move, Space.World);
+            Vector3 move = pos.y * zoomSpeed * 8 * transform.forward;
+
+            /// When zooming in, prevent camera from getting too close to the ground(preventing it from go past the ground.)
+            if (transform.position.y + move.y < 10)
+            {
+                transform.position = new Vector3(transform.position.x + move.x, 10, transform.position.z + move.z);
+            }
+            else
+            {
+                transform.Translate(move, Space.World);
+            }
+            // prevent camera from keep moving unless there is further mouse movement
+            mouseOrigin = Input.mousePosition;
         }
     }
 }
