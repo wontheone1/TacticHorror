@@ -12,11 +12,11 @@ public class Grid : MonoBehaviour
 	public Vector3 gridWorldSize;
 	public float nodeRadius;
 	Node[,] grid;
-
 	float nodeDiameter;
 	int gridSizeX, gridSizeY;
+    Vector3 originalClickPos;
 
-	void Awake() {
+    void Awake() {
 		nodeDiameter = nodeRadius*2;
 		gridSizeX = Mathf.RoundToInt(gridWorldSize.x/nodeDiameter);
 		gridSizeY = Mathf.RoundToInt(gridWorldSize.z/nodeDiameter);
@@ -36,15 +36,23 @@ public class Grid : MonoBehaviour
             else 
                 activeUnit = playerUnits[currentUnitIndex + 1];
         }
+        
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
+            originalClickPos = transform.position;
+        }
+        if (Input.GetMouseButtonUp(0) && originalClickPos != null)
+        {
+            if (transform.position == originalClickPos)
             {
-                target = hit.point;
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit))
+                {
+                    target = hit.point;
+                }
+                activeUnit.RequestPath(target);
             }
-            activeUnit.RequestPath(target);
         }
     }
 
@@ -56,7 +64,7 @@ public class Grid : MonoBehaviour
 
 	void CreateGrid() {
 		grid = new Node[gridSizeX,gridSizeY];
-		Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x/2 - Vector3.forward * gridWorldSize.z/2;
+		Vector3 worldBottomLeft = Vector3.zero - Vector3.right * gridWorldSize.x/2 - Vector3.forward * gridWorldSize.z/2;
 
 		for (int x = 0; x < gridSizeX; x ++) {
 			for (int y = 0; y < gridSizeY; y ++) {
@@ -100,7 +108,7 @@ public class Grid : MonoBehaviour
 	}
 	
 	void OnDrawGizmos() {
-		Gizmos.DrawWireCube(transform.position,new Vector3(gridWorldSize.x, 1, gridWorldSize.z));
+		Gizmos.DrawWireCube(Vector3.zero, new Vector3(gridWorldSize.x, 1, gridWorldSize.z));
 		if (grid != null && displayGridGizmos) {
 			foreach (Node n in grid) {
 				Gizmos.color = (n.walkable)?Color.white:Color.red;
