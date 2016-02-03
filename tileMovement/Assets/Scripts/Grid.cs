@@ -38,6 +38,23 @@ public class Grid : MonoBehaviour
             else 
                 activeUnit = playerUnits[currentUnitIndex + 1];
         }
+		if (Input.GetMouseButtonDown(0)) 
+		{
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+			if(Physics.Raycast(ray,out hit))
+			{
+				for (int i = 0; i < playerUnits.Count; i++) {
+					if (playerUnits [i].transform == (hit.transform)) {
+						Debug.Log ("Unit selected");
+						activeUnit = playerUnits [i];
+					}
+				}
+				Debug.Log ("Target name: " + hit.transform.name);
+				//Destroy(GameObject.Find(hit.collider.gameObject.name));
+
+			}
+		}
         
         if (Input.GetMouseButtonDown(0))
         {
