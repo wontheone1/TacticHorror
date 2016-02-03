@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System;
+using System.Linq;
 
 public class Pathfinding : MonoBehaviour {
 	
@@ -88,13 +89,14 @@ public class Pathfinding : MonoBehaviour {
 	}
 
 	Vector3[] SimplifyPath(List<Node> path) {
-		List<Vector3> waypoints = new List<Vector3>();
+		HashSet<Vector3> waypoints = new HashSet<Vector3>();
 		Vector2 directionOld = Vector2.zero;
-
-		for (int i = 1; i < path.Count; i ++) {
+        waypoints.Add(path[0].worldPosition); /// add first path in case path.Count is just 1
+        for (int i = 1; i < path.Count; i ++) {
 			Vector2 directionNew = new Vector2(path[i-1].gridX - path[i].gridX,path[i-1].gridY - path[i].gridY);
 			if (directionNew != directionOld) {
-				waypoints.Add(path[i].worldPosition);
+                waypoints.Add(path[i - 1].worldPosition);
+                waypoints.Add(path[i].worldPosition);
 			}
 			directionOld = directionNew;
 		}
