@@ -49,6 +49,7 @@ public class Unit : MonoBehaviour
                     targetIndex++;
                     if (targetIndex >= path.Length)
                     {
+                        /// When finished moving, clear up 
                         targetIndex = 0;
                         path = new Vector3[0];
                         yield break;

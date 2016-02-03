@@ -77,20 +77,30 @@ public class Pathfinding : MonoBehaviour {
 	Vector3[] RetracePath(Node startNode, Node endNode) {
 		List<Node> path = new List<Node>();
 		Node currentNode = endNode;
-
 		while (currentNode != startNode) {
 			path.Add(currentNode);
 			currentNode = currentNode.parent;
 		}
-		Vector3[] waypoints = SimplifyPath(path);
-		Array.Reverse(waypoints);
-		return waypoints;
+        path.Add(startNode);
+
+        Vector3[] waypoints;
+        /// simplify path only when path has more than one node
+        if (path.Count > 1)
+	    {
+	        waypoints = SimplifyPath(path);
+	        Array.Reverse(waypoints);
+	    }
+	    else
+	    {
+            waypoints = new Vector3[]{path[0].worldPosition};
+        }
+	    return waypoints;
 
 	}
 
 	Vector3[] SimplifyPath(List<Node> path) {
 		HashSet<Vector3> waypoints = new HashSet<Vector3>();
-		Vector2 directionOld = Vector2.zero;
+		Vector2 directionOld = new Vector2(path[0].gridX - path[1].gridX, path[0].gridY - path[1].gridY);
         waypoints.Add(path[0].worldPosition); /// add first path in case path.Count is just 1
         for (int i = 1; i < path.Count; i ++) {
 			Vector2 directionNew = new Vector2(path[i-1].gridX - path[i].gridX,path[i-1].gridY - path[i].gridY);
