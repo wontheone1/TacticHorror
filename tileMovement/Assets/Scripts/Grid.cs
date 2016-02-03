@@ -58,13 +58,11 @@ public class Grid : MonoBehaviour
                     {
                         if (playerUnits[i].transform == (hit.transform))
                         {
-                            Debug.Log("Unit selected");
+                            Debug.Log("Unit selected " + hit.transform.name);
                             activeUnit = playerUnits[i];
                             unitSelected = true;
                         }
                     }
-                    Debug.Log("Target name: " + hit.transform.name);
-                    //Destroy(GameObject.Find(hit.collider.gameObject.name));
                 }
             }
         }
@@ -165,7 +163,7 @@ public class Grid : MonoBehaviour
             foreach (Node n in grid)
             {
                 Gizmos.color = (n.walkable) ? Color.white : Color.red;
-                Gizmos.DrawWireCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
+                Gizmos.DrawWireCube(n.worldPosition, new Vector3(1,0.1f,1) * (nodeDiameter - .1f));
             }
         }
     }
