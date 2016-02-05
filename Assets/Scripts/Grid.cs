@@ -7,23 +7,23 @@ public class Grid : MonoBehaviour
     public List<Unit> playerUnits;
     Unit activeUnit;
     bool unitSelected = false;
-    Vector3 target;
+    Vector2 target;
     public bool displayGridGizmos;
     public LayerMask unwalkableMask;
-    public Vector3 gridWorldSize;
+    public Vector2 gridWorldSize;
     public float nodeRadius;
     Node[,] grid;
     float nodeDiameter;
     int gridSizeX, gridSizeY;
-    Vector3 originalClickPos;
-    Vector3 worldBottomLeft;
+    Vector2 originalClickPos;
+    Vector2 worldBottomLeft;
 
     void Awake()
     {
         nodeDiameter = nodeRadius * 2;
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
         gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
-        worldBottomLeft = Vector3.zero - (Vector3.right * gridWorldSize.x / 2) - (Vector3.up * gridWorldSize.y / 2);
+        worldBottomLeft = Vector2.zero - (Vector2.right * gridWorldSize.x / 2) - (Vector2.up * gridWorldSize.y / 2);
         CreateGrid();
         activeUnit = playerUnits[0];
     }
@@ -48,11 +48,11 @@ public class Grid : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0) && originalClickPos != null)
         {
-            if (Vector3.Distance(Input.mousePosition, originalClickPos) < 0.05)
+            if (Vector2.Distance(Input.mousePosition, originalClickPos) < 0.05)
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit))
+                // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                if (hit.collider)
                 {
                     for (int i = 0; i < playerUnits.Count; i++)
                     {
@@ -72,13 +72,17 @@ public class Grid : MonoBehaviour
         {
             if (Vector3.Distance(Input.mousePosition, originalClickPos) < 0.05 && !unitSelected)
             {
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit))
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                if (hit.collider)
                 {
-                    target = hit.point;
+                    target = Input.mousePosition;
+                    Debug.Log("Input mouse position: " + Input.mousePosition);
+                    Debug.Log("collider name: " + hit.transform.name);
+                    Debug.Log("collider Position: " + hit.transform.position);
+                    activeUnit.RequestPath(target);
                 }
-                activeUnit.RequestPath(target);
+                    
+                
             }
         }
         unitSelected = false;
@@ -101,7 +105,7 @@ public class Grid : MonoBehaviour
         {
             for (int y = 0; y < gridSizeY; y++)
             {
-                Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
+                Vector3 worldPoint = worldBottomLeft + Vector2.right * (x * nodeDiameter + nodeRadius) + Vector2.up * (y * nodeDiameter + nodeRadius);
                 bool walkable = !(Physics.CheckSphere(worldPoint, nodeRadius, unwalkableMask));
                 grid[x, y] = new Node(walkable, worldPoint, x, y);
             }
@@ -133,9 +137,9 @@ public class Grid : MonoBehaviour
     }
 
 
-    public Node NodeFromWorldPoint(Vector3 worldPosition)
+    public Node NodeFromWorldPoint(Vector2 worldPosition)
     {
-        Vector3 localPosition = worldPosition - worldBottomLeft;
+        Vector2 localPosition = worldPosition - worldBottomLeft;
 
         float percentX = (localPosition.x) / gridWorldSize.x;
         float percentY = (localPosition.y) / gridWorldSize.y;
@@ -147,7 +151,7 @@ public class Grid : MonoBehaviour
 	    if (percentX == 1f)
             x = gridSizeX - 1;
         if (percentY == 1f)
-            x = gridSizeY - 1;
+            y = gridSizeY - 1;
         return grid[x, y];
     }
 

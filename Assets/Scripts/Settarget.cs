@@ -15,7 +15,6 @@ public class Settarget : MonoBehaviour
 			if (Physics.Raycast(ray, out hit))
 			{
 				newPosition = hit.point;
-				newPosition.z = -1;
 				transform.position = newPosition;
 			}
 		}
