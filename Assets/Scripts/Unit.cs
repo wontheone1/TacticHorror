@@ -4,7 +4,7 @@ using System.Collections;
 public class Unit : MonoBehaviour
 {
     public Vector3 target;
-    float speed = 10;
+    float speed = 0.5f;
     Vector3[] path;
     int targetIndex;
 
