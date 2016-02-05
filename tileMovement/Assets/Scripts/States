@@ -1,0 +1,72 @@
+using UnityEngine;
+using System.Collections;
+
+public class States : MonoBehaviour
+{
+    public enum Hell
+    {
+        Start,
+        PlayerTurn,
+        PlayerAnimation,
+        EnemyTurn,
+        Win,
+        Lose
+    }
+    private Hell currentState;
+
+    void Start()
+    {
+        currentState = Hell.Start;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        switch (currentState)
+        {
+            case (Hell.Start):
+                break;
+            case (Hell.PlayerTurn):
+                break;
+            case (Hell.PlayerAnimation):
+                break;
+            case (Hell.EnemyTurn):
+                break;
+            case (Hell.Win):
+                break;
+            case (Hell.Lose):
+                break;
+        }
+
+    }
+
+    void OnGui()
+    {
+        if (GUILayout.Button("GOD ASCENDS"))
+        {
+            if (currentState == Hell.Start)
+            {
+                currentState = Hell.PlayerTurn;
+
+            }
+            else if (currentState == Hell.PlayerTurn)
+            {
+                currentState = Hell.PlayerAnimation;
+
+            }
+            else if (currentState == Hell.PlayerAnimation)
+            {
+                currentState = Hell.EnemyTurn;
+            }
+            else if (currentState == Hell.EnemyTurn)
+            {
+                currentState = Hell.Win;
+            }
+            else if (currentState == Hell.Win)
+            {
+                currentState = Hell.Lose;
+            }
+        }
+    }
+}
+            
