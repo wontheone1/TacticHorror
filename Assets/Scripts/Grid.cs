@@ -8,16 +8,17 @@ public class Grid : MonoBehaviour
 	public List<Unit> enemyUnits;
     Unit activeUnit;
     bool unitSelected = false;
-    Vector3 target;
+    Vector2 target;
+    Vector3 mousePosition;
     public bool displayGridGizmos;
     public LayerMask unwalkableMask;
-    public Vector3 gridWorldSize;
+    public Vector2 gridWorldSize;
     public float nodeRadius;
     Node[,] grid;
     float nodeDiameter;
     int gridSizeX, gridSizeY;
-    Vector3 originalClickPos;
-    Vector3 worldBottomLeft;
+    Vector2 originalClickPos;
+    Vector2 worldBottomLeft;
 	bool disableRayCast = false;
 
 	// instantiating enum state machine for easy and understandable usage
@@ -28,8 +29,8 @@ public class Grid : MonoBehaviour
     {
         nodeDiameter = nodeRadius * 2;
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
-        gridSizeY = Mathf.RoundToInt(gridWorldSize.z / nodeDiameter);
-        worldBottomLeft = Vector3.zero - (Vector3.right * gridWorldSize.x / 2) - (Vector3.forward * gridWorldSize.z / 2);
+        gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
+        worldBottomLeft = Vector2.zero - (Vector2.right * gridWorldSize.x / 2) - (Vector2.up * gridWorldSize.y / 2);
         CreateGrid();
         activeUnit = playerUnits[0];
     }
@@ -111,16 +112,12 @@ public class Grid : MonoBehaviour
         {
             if (Vector3.Distance(Input.mousePosition, originalClickPos) < 0.05 && !unitSelected)
             {
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-				if (Physics.Raycast(ray, out hit))
-                {
-                    target = hit.point;
-                }
-                activeUnit.RequestPath(target);
+                mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+                mousePosition.z = -transform.position.z;
+                mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+                activeUnit.RequestPath(mousePosition);
             }
         }
-
         unitSelected = false;
 		//set raycast usable again
 		disableRayCast = false;
@@ -143,7 +140,7 @@ public class Grid : MonoBehaviour
         {
             for (int y = 0; y < gridSizeY; y++)
             {
-                Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (y * nodeDiameter + nodeRadius);
+                Vector3 worldPoint = worldBottomLeft + Vector2.right * (x * nodeDiameter + nodeRadius) + Vector2.up * (y * nodeDiameter + nodeRadius);
                 bool walkable = !(Physics.CheckSphere(worldPoint, nodeRadius, unwalkableMask));
                 grid[x, y] = new Node(walkable, worldPoint, x, y);
             }
@@ -175,18 +172,15 @@ public class Grid : MonoBehaviour
     }
 
 
-    public Node NodeFromWorldPoint(Vector3 worldPosition)
+    public Node NodeFromWorldPoint(Vector2 worldPosition)
     {
-        Vector3 localPosition = worldPosition - worldBottomLeft;
-
+        Vector2 localPosition = worldPosition - worldBottomLeft;
         float percentX = (localPosition.x) / gridWorldSize.x;
-        float percentY = (localPosition.z) / gridWorldSize.z;
+        float percentY = (localPosition.y) / gridWorldSize.y;
+        
         percentX = Mathf.Clamp01(percentX);
         percentY = Mathf.Clamp01(percentY);
-
-        //int x = Mathf.RoundToInt((gridSizeX) * percentX);
-        //int y = Mathf.RoundToInt((gridSizeY) * percentY);
-        int x =(int)((gridSizeX) * percentX);
+        int x = (int)((gridSizeX) * percentX);
         int y = (int)((gridSizeY) * percentY);
         /// prevent out of array range error, this way is more accurate 
 	    if (percentX == 1f)
@@ -229,13 +223,13 @@ public class Grid : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(Vector3.zero, new Vector3(gridWorldSize.x, 1, gridWorldSize.z));
+        Gizmos.DrawWireCube(Vector3.zero, new Vector3(gridWorldSize.x, gridWorldSize.y, 0.1f));
         if (grid != null && displayGridGizmos)
         {
             foreach (Node n in grid)
             {
                 Gizmos.color = (n.walkable) ? Color.white : Color.red;
-                Gizmos.DrawWireCube(n.worldPosition, new Vector3(1,0.1f,1) * (nodeDiameter - .1f));
+                Gizmos.DrawWireCube(n.worldPosition, new Vector3(1,1,0f) * (nodeDiameter - .1f));
             }
         }
     }

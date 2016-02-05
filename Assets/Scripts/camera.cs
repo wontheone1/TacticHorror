@@ -52,30 +52,30 @@ public class camera : MonoBehaviour
         if (isPanning)
         {
             // camera movement speed adjustment according to current zoom level
-            panSpeed = 1.75f * transform.position.y;
+            panSpeed = 1.75f * transform.position.z;
             Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
-            Vector3 move = new Vector3(pos.x * -panSpeed, 0, pos.y * -panSpeed);
+            Vector3 move = new Vector3(pos.x * -panSpeed, pos.y * -panSpeed, 0);
             /// When panning, prevent camera from going too far from playing area
-            Vector3 finalCameraPostion = transform.position + move;
+            Vector3 finalCameraPostion = transform.position - move;
             /// When it goes beyond right edge of the world
-            if (finalCameraPostion.x > (gridWorldSize.x - transform.position.y * 0.6) / 2 )
+            if (finalCameraPostion.x > (gridWorldSize.x + transform.position.z * 0.6) / 2 )
             {
-                finalCameraPostion.x = (float) (gridWorldSize.x - transform.position.y * 0.6) / 2;
+                finalCameraPostion.x = (float) (gridWorldSize.x + transform.position.z * 0.6) / 2;
             }
             /// When it goes beyond left edge of the world
-            if (finalCameraPostion.x < (-gridWorldSize.x + transform.position.y * 0.6) / 2 )
+            if (finalCameraPostion.x < (-gridWorldSize.x - transform.position.z * 0.6) / 2 )
             {
-                finalCameraPostion.x = (float) (-gridWorldSize.x + transform.position.y * 0.6) / 2 ;
+                finalCameraPostion.x = (float) (-gridWorldSize.x - transform.position.z * 0.6) / 2 ;
             }
             /// When it goes beyond upper edge of the world
-            if (finalCameraPostion.z > (gridWorldSize.z - transform.position.y * 0.6) / 2)
+            if (finalCameraPostion.y > (gridWorldSize.y + transform.position.z * 0.6) / 2)
             {
-                finalCameraPostion.z = (float) (gridWorldSize.z - transform.position.y * 0.6) / 2 ;
+                finalCameraPostion.y = (float) (gridWorldSize.y + transform.position.z * 0.6) / 2 ;
             }
             /// When it goes beyond lower edge of the world
-            if (finalCameraPostion.z < (-gridWorldSize.z + transform.position.y * 0.6) / 2)
+            if (finalCameraPostion.y < (-gridWorldSize.y - transform.position.z * 0.6) / 2)
             {
-                finalCameraPostion.z = (float) (-gridWorldSize.z + transform.position.y * 0.6) / 2 ;
+                finalCameraPostion.y = (float) (-gridWorldSize.y - transform.position.z * 0.6) / 2 ;
             }
             // prevent camera from keep moving unless there is further mouse movement
             transform.position = finalCameraPostion;
@@ -90,14 +90,14 @@ public class camera : MonoBehaviour
             Vector3 move = pos.y * zoomSpeed * 8 * transform.forward;
 
             /// When zooming in, prevent camera from getting too close to the ground(preventing it from go past the ground.)
-            if (transform.position.y + move.y < 10)
+            if (transform.position.z + move.z > -10)
             {
-                transform.position = new Vector3(transform.position.x + move.x, 10, transform.position.z + move.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
             }
             /// prevent camera from zooming out too much
-            else if (transform.position.y + move.y > 50)
+            else if (transform.position.z + move.z < -20)
             {
-                transform.position = new Vector3(transform.position.x + move.x, 50, transform.position.z + move.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y, -20);
             }
             else
             {
