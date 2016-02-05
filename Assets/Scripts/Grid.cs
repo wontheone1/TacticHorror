@@ -7,7 +7,7 @@ public class Grid : MonoBehaviour
     public List<Unit> playerUnits;
     Unit activeUnit;
     bool unitSelected = false;
-    Vector3 mouserPositon;
+    Vector3 mousePosition;
     public bool displayGridGizmos;
     public LayerMask unwalkableMask;
     public Vector2 gridWorldSize;
@@ -42,7 +42,6 @@ public class Grid : MonoBehaviour
             else
                 activeUnit = playerUnits[currentUnitIndex + 1];
         }
-
         /// Select units only when user is not moving the camera
         if (Input.GetMouseButtonDown(0))
         {
@@ -50,14 +49,12 @@ public class Grid : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0) && originalClickPos != null)
         {
-            if (Vector2.Distance(Input.mousePosition, originalClickPos) < 0.05)
+            if (Vector3.Distance(Input.mousePosition, originalClickPos) < 0.05)
             {
-                Vector2 rayPos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-                RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.zero, 0f);
-                Debug.Log("Hit : " + hit);
-                if (hit)
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log("I hit : " + hit);
                     for (int i = 0; i < playerUnits.Count; i++)
                     {
                         if (playerUnits[i].transform == (hit.transform))
@@ -76,10 +73,10 @@ public class Grid : MonoBehaviour
         {
             if (Vector3.Distance(Input.mousePosition, originalClickPos) < 0.05 && !unitSelected)
             {
-                mouserPositon = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-                mouserPositon.z = -transform.position.z;
-                mouserPositon = Camera.main.ScreenToWorldPoint(mouserPositon);
-                activeUnit.RequestPath(mouserPositon);
+                mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+                mousePosition.z = -transform.position.z;
+                mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+                activeUnit.RequestPath(mousePosition);
             }
         }
         unitSelected = false;
