@@ -7,21 +7,12 @@ public class Unit : MonoBehaviour
     float speed = 10;
     Vector3[] path;
     int targetIndex;
+	bool succesful = false;
 
-    //void Update()
-    //{
-    //    if (Input.GetMouseButtonDown(0))
-    //    {
-    //        RaycastHit hit;
-    //        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    //        if (Physics.Raycast(ray, out hit))
-    //        {
-    //            target = hit.point;
-    //        }
-    //        PathRequestManager.RequestPath(transform.position, target, OnPathFound);
-    //    }
-    //}
-
+	//delete units path, used before switching units and switching turn, function is called from Grid-script
+	public void deletePath(){
+		path = null;
+	}
     public void RequestPath(Vector3 target)
     {
         PathRequestManager.RequestPath(transform.position, target, OnPathFound);
@@ -31,11 +22,21 @@ public class Unit : MonoBehaviour
     {
         if (pathSuccessful)
         {
+			//mark path succesful
+			succesful = true;
             path = newPath;
-            StopCoroutine("FollowPath");
-            StartCoroutine("FollowPath");
         }
     }
+
+	//movement script to move unit when "move button" is clicked, succesful boolean tests for succesful path before moving
+	public void startMoving(){
+		if (succesful) {
+			StopCoroutine ("FollowPath");
+			succesful = false;
+			StartCoroutine ("FollowPath");
+
+		}
+	}
 
     IEnumerator FollowPath()
     {

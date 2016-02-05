@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Grid : MonoBehaviour
 {
     public List<Unit> playerUnits;
+	public List<Unit> enemyUnits;
     Unit activeUnit;
     bool unitSelected = false;
     Vector3 target;
@@ -17,6 +18,11 @@ public class Grid : MonoBehaviour
     int gridSizeX, gridSizeY;
     Vector3 originalClickPos;
     Vector3 worldBottomLeft;
+	bool disableRayCast = false;
+
+	// instantiating enum state machine for easy and understandable usage
+	public enum State{player,enemy,win,lose}
+	public State curState = State.player;
 
     void Awake()
     {
@@ -29,24 +35,54 @@ public class Grid : MonoBehaviour
     }
 
     void Update()
-    {
+	{
+		switch (curState) {
+
+		case State.player:
+			//players turn
+			//send playerunits as usable units to activities
+			activities(playerUnits);
+			break;
+
+		case State.enemy:
+			//enemys turn
+			//send enemyunits as usable units to activities
+			activities(enemyUnits);
+			break;
+
+		case State.lose:
+			//game is lost
+
+
+			break;
+
+		case State.win:
+			//game is won, lol
+
+
+			break;
+		}
+	}
+
+	//this is the old update function, now it takes list of player or enemies to work with, depending on the turn
+	void activities(List<Unit> units){
         /// change activeUnit using 'tab' key
         if (Input.GetKeyUp(KeyCode.Tab))
         {
-            int currentUnitIndex = playerUnits.IndexOf(activeUnit);
+            int currentUnitIndex = units.IndexOf(activeUnit);
             /// if unit is last one in the list change to the first unit.
-            if (currentUnitIndex == playerUnits.Count - 1)
-                activeUnit = playerUnits[0];
+            if (currentUnitIndex == units.Count - 1)
+                activeUnit = units[0];
             else
-                activeUnit = playerUnits[currentUnitIndex + 1];
+                activeUnit = units[currentUnitIndex + 1];
         }
 
         /// Select units only when user is not moving the camera
-        if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0) && !disableRayCast)
         {
             originalClickPos = Input.mousePosition;
         }
-        if (Input.GetMouseButtonUp(0) && originalClickPos != null)
+		if (Input.GetMouseButtonUp(0) && originalClickPos != null && !disableRayCast)
         {
             if (Vector3.Distance(Input.mousePosition, originalClickPos) < 0.05)
             {
@@ -54,12 +90,14 @@ public class Grid : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit))
                 {
-                    for (int i = 0; i < playerUnits.Count; i++)
+                    for (int i = 0; i < units.Count; i++)
                     {
-                        if (playerUnits[i].transform == (hit.transform))
+                        if (units[i].transform == (hit.transform))
                         {
+							activeUnit.deletePath();
                             Debug.Log("Unit selected " + hit.transform.name);
-                            activeUnit = playerUnits[i];
+                            activeUnit = units[i];
+							target = activeUnit.transform.position;
                             unitSelected = true;
                         }
                     }
@@ -68,13 +106,14 @@ public class Grid : MonoBehaviour
         }
 
         /// Move units only when user is not moving the camera
-        if (Input.GetMouseButtonUp(0) && originalClickPos != null)
+		// store path only if raycast is not disabled
+		if (Input.GetMouseButtonUp(0) && originalClickPos != null && !disableRayCast)
         {
             if (Vector3.Distance(Input.mousePosition, originalClickPos) < 0.05 && !unitSelected)
             {
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit))
+				if (Physics.Raycast(ray, out hit))
                 {
                     target = hit.point;
                 }
@@ -83,7 +122,9 @@ public class Grid : MonoBehaviour
         }
 
         unitSelected = false;
-    }
+		//set raycast usable again
+		disableRayCast = false;
+	} // end of activities ( update function, which is ran every frame )
 
     public int MaxSize
     {
@@ -92,7 +133,7 @@ public class Grid : MonoBehaviour
             return gridSizeX * gridSizeY;
         }
     }
-
+	//creates grid in start of the game
     void CreateGrid()
     {
         grid = new Node[gridSizeX, gridSizeY];
@@ -108,7 +149,7 @@ public class Grid : MonoBehaviour
             }
         }
     }
-
+	//gets neighbouring nodes of the given node
     public List<Node> GetNeighbours(Node node)
     {
         List<Node> neighbours = new List<Node>();
@@ -151,9 +192,40 @@ public class Grid : MonoBehaviour
 	    if (percentX == 1f)
             x = gridSizeX - 1;
         if (percentY == 1f)
-            x = gridSizeY - 1;
+            y = gridSizeY - 1;
         return grid[x, y];
     }
+	//function which move-button calls, this function disables raycasting and moves active unit
+	public void moveUnit(){
+		disableRayCast = true;
+		activeUnit.startMoving ();
+	}
+
+	//this function is called when end turn -button is pressed, this function disables raycasting also
+	public void endTurn(){
+		disableRayCast = true;
+
+		//if current state is player, switch to enemy state
+		if (curState == State.player) {
+			//switch current state to enemy
+			curState = State.enemy;
+			//change active unit to enemyunit
+			activeUnit = enemyUnits[0];
+			//delete paths from every player unit
+			for (int i = 0; i < playerUnits.Count; i++) {
+				playerUnits [i].deletePath ();
+			}
+		}
+
+		//works same way as switching from player to enemy
+		else if (curState == State.enemy) {
+			curState = State.player;
+			activeUnit = playerUnits[0];
+			for (int i = 0; i < enemyUnits.Count; i++) {
+				enemyUnits [i].deletePath ();
+			}
+		}
+	}
 
     void OnDrawGizmos()
     {
