@@ -3,9 +3,9 @@ using System.Collections;
 
 public class Unit : MonoBehaviour
 {
-    public Vector2 target;
-    float speed = 1f;
-    Vector2[] path;
+    public Vector3 target;
+    float speed = 0.5f;
+    Vector3[] path;
     int targetIndex;
 
     //void Update()
@@ -22,12 +22,12 @@ public class Unit : MonoBehaviour
     //    }
     //}
 
-    public void RequestPath(Vector2 target)
+    public void RequestPath(Vector3 target)
     {
         PathRequestManager.RequestPath(transform.position, target, OnPathFound);
     }
 
-    public void OnPathFound(Vector2[] newPath, bool pathSuccessful)
+    public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
     {
         if (pathSuccessful)
         {
@@ -51,13 +51,13 @@ public class Unit : MonoBehaviour
                     {
                         /// When finished moving, clear up 
                         targetIndex = 0;
-                        path = new Vector2[0];
+                        path = new Vector3[0];
                         yield break;
                     }
                     currentWaypoint = path[targetIndex];
                 }
 
-                transform.position = Vector2.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
                
                 yield return null;
             }

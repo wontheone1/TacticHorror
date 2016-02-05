@@ -7,7 +7,7 @@ public class Grid : MonoBehaviour
     public List<Unit> playerUnits;
     Unit activeUnit;
     bool unitSelected = false;
-    Vector3 mouserPositon;
+    Vector2 target;
     public bool displayGridGizmos;
     public LayerMask unwalkableMask;
     public Vector2 gridWorldSize;
@@ -17,7 +17,6 @@ public class Grid : MonoBehaviour
     int gridSizeX, gridSizeY;
     Vector2 originalClickPos;
     Vector2 worldBottomLeft;
-    Camera camera;
 
     void Awake()
     {
@@ -27,7 +26,6 @@ public class Grid : MonoBehaviour
         worldBottomLeft = Vector2.zero - (Vector2.right * gridWorldSize.x / 2) - (Vector2.up * gridWorldSize.y / 2);
         CreateGrid();
         activeUnit = playerUnits[0];
-        camera = GetComponent<Camera>();
     }
 
     void Update()
@@ -52,12 +50,10 @@ public class Grid : MonoBehaviour
         {
             if (Vector2.Distance(Input.mousePosition, originalClickPos) < 0.05)
             {
-                Vector2 rayPos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-                RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.zero, 0f);
-                Debug.Log("Hit : " + hit);
-                if (hit)
+                // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                if (hit.collider)
                 {
-                    Debug.Log("I hit : " + hit);
                     for (int i = 0; i < playerUnits.Count; i++)
                     {
                         if (playerUnits[i].transform == (hit.transform))
@@ -76,10 +72,17 @@ public class Grid : MonoBehaviour
         {
             if (Vector3.Distance(Input.mousePosition, originalClickPos) < 0.05 && !unitSelected)
             {
-                mouserPositon = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-                mouserPositon.z = -transform.position.z;
-                mouserPositon = Camera.main.ScreenToWorldPoint(mouserPositon);
-                activeUnit.RequestPath(mouserPositon);
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                if (hit.collider)
+                {
+                    target = Input.mousePosition;
+                    Debug.Log("Input mouse position: " + Input.mousePosition);
+                    Debug.Log("collider name: " + hit.transform.name);
+                    Debug.Log("collider Position: " + hit.transform.position);
+                    activeUnit.RequestPath(target);
+                }
+                    
+                
             }
         }
         unitSelected = false;
@@ -137,9 +140,9 @@ public class Grid : MonoBehaviour
     public Node NodeFromWorldPoint(Vector2 worldPosition)
     {
         Vector2 localPosition = worldPosition - worldBottomLeft;
+
         float percentX = (localPosition.x) / gridWorldSize.x;
         float percentY = (localPosition.y) / gridWorldSize.y;
-        
         percentX = Mathf.Clamp01(percentX);
         percentY = Mathf.Clamp01(percentY);
         int x = (int)((gridSizeX) * percentX);

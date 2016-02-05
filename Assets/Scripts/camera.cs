@@ -90,14 +90,14 @@ public class camera : MonoBehaviour
             Vector3 move = pos.y * zoomSpeed * 8 * transform.forward;
 
             /// When zooming in, prevent camera from getting too close to the ground(preventing it from go past the ground.)
-            if (transform.position.z + move.z > -1.5)
+            if (transform.position.z + move.z > -5)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, -1.5f);
+                transform.position = new Vector3(transform.position.x, transform.position.y, -5);
             }
             /// prevent camera from zooming out too much
-            else if (transform.position.z + move.z < -8)
+            else if (transform.position.z + move.z < -20)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, -8);
+                transform.position = new Vector3(transform.position.x, transform.position.y, -20);
             }
             else
             {

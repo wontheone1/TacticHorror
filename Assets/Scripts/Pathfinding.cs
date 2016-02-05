@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System;
 using System.Linq;
-using Debug = UnityEngine.Debug;
 
 public class Pathfinding : MonoBehaviour {
 	
@@ -18,16 +17,16 @@ public class Pathfinding : MonoBehaviour {
 	}
 	
 
-	public void StartFindPath(Vector2 startPos, Vector2 targetPos) {
-        StartCoroutine(FindPath(startPos,targetPos));
+	public void StartFindPath(Vector3 startPos, Vector3 targetPos) {
+		StartCoroutine(FindPath(startPos,targetPos));
 	}
 
-	IEnumerator FindPath(Vector2 startPos, Vector2 targetPos) {
+	IEnumerator FindPath(Vector3 startPos, Vector3 targetPos) {
 
 		Stopwatch sw = new Stopwatch();
 		sw.Start();
 
-		Vector2[] waypoints = new Vector2[0];
+		Vector3[] waypoints = new Vector3[0];
 		bool pathSuccess = false;
 
 		Node startNode = grid.NodeFromWorldPoint(startPos);
@@ -75,7 +74,7 @@ public class Pathfinding : MonoBehaviour {
 
 	}
 
-	Vector2[] RetracePath(Node startNode, Node endNode) {
+	Vector3[] RetracePath(Node startNode, Node endNode) {
 		List<Node> path = new List<Node>();
 		Node currentNode = endNode;
 		while (currentNode != startNode) {
@@ -84,7 +83,7 @@ public class Pathfinding : MonoBehaviour {
 		}
         path.Add(startNode);
 
-        Vector2[] waypoints;
+        Vector3[] waypoints;
         /// simplify path only when path has more than one node
         if (path.Count > 1)
 	    {
@@ -93,14 +92,14 @@ public class Pathfinding : MonoBehaviour {
 	    }
 	    else
 	    {
-            waypoints = new Vector2[]{path[0].worldPosition};
+            waypoints = new Vector3[]{path[0].worldPosition};
         }
 	    return waypoints;
 
 	}
 
-	Vector2[] SimplifyPath(List<Node> path) {
-		HashSet<Vector2> waypoints = new HashSet<Vector2>();
+	Vector3[] SimplifyPath(List<Node> path) {
+		HashSet<Vector3> waypoints = new HashSet<Vector3>();
 		Vector2 directionOld = new Vector2(path[0].gridX - path[1].gridX, path[0].gridY - path[1].gridY);
         waypoints.Add(path[0].worldPosition); /// add first path in case path.Count is just 1
         for (int i = 1; i < path.Count; i ++) {
