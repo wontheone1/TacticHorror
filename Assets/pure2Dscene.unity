@@ -530,7 +530,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1430269548}
+      - m_Target: {fileID: 1430269551}
         m_MethodName: endTurn
         m_Mode: 1
         m_Arguments:
@@ -1199,6 +1199,7 @@ GameObject:
   - 114: {fileID: 1430269545}
   - 20: {fileID: 1430269550}
   - 114: {fileID: 1430269549}
+  - 114: {fileID: 1430269551}
   m_Layer: 0
   m_Name: A*
   m_TagString: MainCamera
@@ -1251,23 +1252,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17f7479d5337594482fa844ceb8bc1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerUnits:
-  - {fileID: 655886044}
-  - {fileID: 1828311438}
-  - {fileID: 1537332745}
-  - {fileID: 407952730}
-  enemyUnits:
-  - {fileID: 631370155}
-  - {fileID: 1412995898}
-  - {fileID: 24933632}
-  - {fileID: 534298690}
   displayGridGizmos: 1
   unwalkableMask:
     serializedVersion: 2
     m_Bits: 256
   gridWorldSize: {x: 30, y: 30}
   nodeRadius: 0.5
-  curState: 0
 --- !u!114 &1430269549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1302,7 +1292,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.39
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1316,6 +1306,27 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!114 &1430269551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1430269544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 730e2babdfeef9b4fa69541bda495570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerUnits:
+  - {fileID: 655886044}
+  - {fileID: 1828311438}
+  - {fileID: 1537332745}
+  - {fileID: 407952730}
+  enemyUnits:
+  - {fileID: 631370155}
+  - {fileID: 1412995898}
+  - {fileID: 24933632}
+  - {fileID: 534298690}
 --- !u!1 &1537332743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,7 +1532,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1690656747
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1693899279
@@ -1826,7 +1837,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1430269548}
+      - m_Target: {fileID: 1430269551}
         m_MethodName: moveUnit
         m_Mode: 1
         m_Arguments:

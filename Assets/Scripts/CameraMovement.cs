@@ -15,6 +15,7 @@ public class CameraMovement : MonoBehaviour
     private bool isPanning;     // Is the camera being panned?
     private bool isZooming;     // Is the camera zooming?
     Vector3 gridWorldSize;
+    private Camera cam;
     //
     // UPDATE
     //
@@ -22,6 +23,7 @@ public class CameraMovement : MonoBehaviour
     void Awake()
     {
         gridWorldSize = GetComponent<Grid>().gridWorldSize;
+        cam = Camera.main;
     }
 
     void Update()
@@ -53,7 +55,7 @@ public class CameraMovement : MonoBehaviour
         {
             // camera movement speed adjustment according to current zoom level
             panSpeed = 1.75f * transform.position.z;
-            Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
+            Vector3 pos = cam.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
             Vector3 move = new Vector3(pos.x * -panSpeed, pos.y * -panSpeed, 0);
             /// When panning, prevent camera from going too far from playing area
             Vector3 finalCameraPostion = transform.position - move;
@@ -85,23 +87,23 @@ public class CameraMovement : MonoBehaviour
         // Move the camera linearly along Z axis
         if (isZooming)
         {
-            Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
+            float move = cam.ScreenToViewportPoint(Input.mousePosition - mouseOrigin).y;
 
-            Vector3 move = pos.y * zoomSpeed * 8 * transform.forward;
+            float zoom = move * zoomSpeed * 8;
 
             /// When zooming in, prevent camera from getting too close to the ground(preventing it from go past the ground.)
-            if (transform.position.z + move.z > -10)
+            if (cam.orthographicSize + zoom < 6)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
+                cam.orthographicSize = 6;
             }
             /// prevent camera from zooming out too much
-            else if (transform.position.z + move.z < -20)
+            else if (cam.orthographicSize + zoom > 12)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, -20);
+                cam.orthographicSize = 12;
             }
             else
             {
-                transform.Translate(move, Space.World);
+                cam.orthographicSize = cam.orthographicSize + zoom;
             }
             // prevent camera from keep moving unless there is further mouse movement
             mouseOrigin = Input.mousePosition;

@@ -8,9 +8,10 @@ public class Unit : MonoBehaviour
     Vector2[] path;
     int targetIndex;
 	bool succesful = false;
+    Vector2 originalClickPos;
 
-	//delete units path, used before switching units and switching turn, function is called from Grid-script
-	public void deletePath(){
+    //delete units path, used before switching units and switching turn, function is called from Grid-script
+    public void deletePath(){
 		path = null;
 	}
 
