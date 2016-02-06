@@ -88,8 +88,6 @@ public class Grid : MonoBehaviour
             if (Vector3.Distance(Input.mousePosition, originalClickPos) < 0.05)
             {
                 Vector3 mousePosition = Input.mousePosition;
-                Debug.Log("mousePos:"+mousePosition);
-
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
                 if (hit.collider != null)
@@ -107,14 +105,14 @@ public class Grid : MonoBehaviour
                     Debug.Log("collider is not 0");
                     foreach (Collider2D c in col)
                     {
-                        for (int i = 0; i < playerUnits.Count; i++)
+                        Debug.Log("c:" + c);
+                        for (int i = 0; i < units.Count; i++)
                         {
-                            Debug.Log("c"+i+": " + c);
-                            if (playerUnits[i].transform == (c.transform))
+                            if (units[i].transform == (c.transform))
                             {
                                 Debug.Log("Unit selected " + c.transform.name);
                                 activeUnit.deletePath();
-                                activeUnit = playerUnits[i];
+                                activeUnit = units[i];
                                 unitSelected = true;
                             }
                         }

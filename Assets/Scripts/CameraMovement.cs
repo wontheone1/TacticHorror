@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class camera : MonoBehaviour
+public class CameraMovement : MonoBehaviour
 {
     //
     // VARIABLES
