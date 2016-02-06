@@ -86,4 +86,15 @@ public class Unit : MonoBehaviour
             }
         }
     }
+
+    public struct GetFrontmostRaycastHitResult
+    {
+        public RaycastHit2D rayCastHit2D;
+        public bool nothingClicked;
+    }
+
+    public void OnLeftClick(GetFrontmostRaycastHitResult frontmostRaycastHit)
+    {
+        Debug.Log(this.name);
+    }
 }
