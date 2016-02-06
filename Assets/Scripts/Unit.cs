@@ -3,17 +3,25 @@ using System.Collections;
 
 public class Unit : MonoBehaviour
 {
-    public Vector2 target;
-    float speed = 5f;
+    float speed = 5f; // speed for animation
     Vector2[] path;
     int targetIndex;
-	bool succesful = false;
+    bool succesful = false;
     Vector2 originalClickPos;
+    public int MAX_ACTION_POINT; //movement point + other action
+    public int MAX_HP; // health point
+    public int MAX_AP; // attack point
+    public int MAX_MP; // mana
+    public int actionPoint; //movement point + other action
+    public int hp; // health point
+    public int ap; // attack point
+    public int mp; // mana
 
     //delete units path, used before switching units and switching turn, function is called from Grid-script
-    public void deletePath(){
-		path = null;
-	}
+    public void deletePath()
+    {
+        path = null;
+    }
 
     public void RequestPath(Vector2 target)
     {
@@ -24,21 +32,23 @@ public class Unit : MonoBehaviour
     {
         if (pathSuccessful)
         {
-			//mark path succesful
-			succesful = true;
+            //mark path succesful
+            succesful = true;
             path = newPath;
         }
     }
 
-	//movement script to move unit when "move button" is clicked, succesful boolean tests for succesful path before moving
-	public void startMoving(){
-		if (succesful) {
-			StopCoroutine ("FollowPath");
-			succesful = false;
-			StartCoroutine ("FollowPath");
+    //movement script to move unit when "move button" is clicked, succesful boolean tests for succesful path before moving
+    public void startMoving()
+    {
+        if (succesful)
+        {
+            StopCoroutine("FollowPath");
+            succesful = false;
+            StartCoroutine("FollowPath");
 
-		}
-	}
+        }
+    }
 
     IEnumerator FollowPath()
     {
@@ -61,7 +71,7 @@ public class Unit : MonoBehaviour
                 }
 
                 transform.position = Vector2.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
-               
+
                 yield return null;
             }
         }
