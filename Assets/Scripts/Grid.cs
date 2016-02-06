@@ -113,6 +113,7 @@ public class Grid : MonoBehaviour
                             if (playerUnits[i].transform == (c.transform))
                             {
                                 Debug.Log("Unit selected " + c.transform.name);
+                                activeUnit.deletePath();
                                 activeUnit = playerUnits[i];
                                 unitSelected = true;
                             }
