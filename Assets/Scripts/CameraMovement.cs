@@ -92,18 +92,18 @@ public class CameraMovement : MonoBehaviour
             float zoom = move * zoomSpeed * 8;
 
             /// When zooming in, prevent camera from getting too close to the ground(preventing it from go past the ground.)
-            if (cam.orthographicSize + zoom < 6)
+            if (cam.orthographicSize - zoom < 5)
             {
-                cam.orthographicSize = 6;
+                cam.orthographicSize = 5;
             }
             /// prevent camera from zooming out too much
-            else if (cam.orthographicSize + zoom > 12)
+            else if (cam.orthographicSize - zoom > 12)
             {
                 cam.orthographicSize = 12;
             }
             else
             {
-                cam.orthographicSize = cam.orthographicSize + zoom;
+                cam.orthographicSize = cam.orthographicSize - zoom;
             }
             // prevent camera from keep moving unless there is further mouse movement
             mouseOrigin = Input.mousePosition;
