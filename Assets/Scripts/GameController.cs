@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     private Statemachine statemachine;
+    public Text debugText;
     Unit activeUnit;
     List<Unit> activeUnits;
     List<Unit> opponentUnits;
@@ -39,6 +41,10 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         statemachine = GetComponent<Statemachine>();
+    }
+
+    void Start()
+    {
     }
 
     public void endTurn()
@@ -132,18 +138,50 @@ public class GameController : MonoBehaviour
         Collider2D[] col = Physics2D.OverlapPointAll(v);
         if (col.Length > 0)
         {
+            unitSelected = true;
             foreach (Collider2D c in col)
             {
+                /// if an opponent unit is clicked, select it as target
+                /// if there is a target, attack it
+                for (int i = 0; i < opponentUnits.Count; i++)
+                {
+                    if (opponentUnits[i].transform == c.transform)
+                    {
+                        activeUnit.deletePath();
+                        Debug.Log(activeUnit.TargetUnit);
+                        Debug.Log(c.gameObject);
+                        if (activeUnit.TargetUnit == c.gameObject.GetComponent<Unit>())
+                        {
+                            activeUnit.attackTarget();
+                            debugText.text = "Attacked: " + activeUnit.TargetUnit.name;
+                            return;
+                        }
+                        activeUnit.setAttackTarget(opponentUnits[i]);
+                        if (activeUnit.TargetUnit != null)
+                        {
+                            debugText.text = "Target: " + activeUnit.TargetUnit.name;
+                            return;
+                        }
+                    }
+                }
+
+                /// if no opponent was clicked, unset target
+                activeUnit.unsetAttackTarget();
+
+                /// select clicked unit
                 for (int i = 0; i < activeUnits.Count; i++)
                 {
-                    if (activeUnits[i].transform == (c.transform))
+                    if (activeUnits[i].transform == c.transform)
                     {
                         Debug.Log("Unit selected " + c.transform.name);
                         activeUnit.deletePath();
                         activeUnit = activeUnits[i];
-                        unitSelected = true;
+                        debugText.text = activeUnit.name;
+                        return;
                     }
                 }
+
+
             }
         }
     }
@@ -154,6 +192,27 @@ public class GameController : MonoBehaviour
         mousePosition.z = -transform.position.z;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
         activeUnit.RequestPath(mousePosition);
+    }
+
+    public void KillUnit(Unit unit)
+    {
+        debugText.text = unit + " was killed.";
+        Debug.Log("Killing" + unit);
+        opponentUnits.Remove(unit);
+        playerUnits.Remove(unit);
+        enemyUnits.Remove(unit);
+        Destroy(unit.gameObject);
+
+        Debug.Log("remaining opponent");
+        foreach (var u in opponentUnits)
+        {
+            Debug.Log(u);
+        }
+
+        if (playerUnits.Count == 0)
+            statemachine.loseGame();
+        else if (enemyUnits.Count == 0)
+            statemachine.winGame();
     }
 
     //function which move-button calls, this function disables raycasting and moves active unit

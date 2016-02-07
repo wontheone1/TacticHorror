@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class Statemachine : MonoBehaviour
 {
+    public Text StateText;
     private GameController gameController;
     // instantiating enum state machine for easy and understandable usage
     public enum State
@@ -49,6 +51,18 @@ public class Statemachine : MonoBehaviour
         implementCurrentState();
     }
 
+    public void winGame()
+    {
+        curState = State.win;
+        implementCurrentState();
+    }
+
+    public void loseGame()
+    {
+        curState = State.lose;
+        implementCurrentState();
+    }
+
     public void implementCurrentState()
     {
         Vector2[] camMovePath;
@@ -57,6 +71,7 @@ public class Statemachine : MonoBehaviour
             case State.player:
                 //players turn
                 //change active unit to player Unit
+                StateText.text = "Player turn";
                 camMovePath = new Vector2[2];
                 camMovePath[0] = Camera.main.gameObject.transform.position;
                 gameController.ActiveUnits = gameController.playerUnits;
@@ -70,6 +85,7 @@ public class Statemachine : MonoBehaviour
             case State.enemy:
                 //enemys turn
                 //change active unit to enemyunit
+                StateText.text = "Enemy turn";
                 camMovePath = new Vector2[2];
                 camMovePath[0] = Camera.main.gameObject.transform.position;
                 gameController.ActiveUnits = gameController.enemyUnits;
@@ -82,10 +98,12 @@ public class Statemachine : MonoBehaviour
 
             case Statemachine.State.lose:
                 //game is lost
+                StateText.text = "You Lost!";
                 break;
 
             case Statemachine.State.win:
                 //game is won, lol
+                StateText.text = "You Won!";
                 break;
         }
     }

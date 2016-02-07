@@ -18,7 +18,6 @@ public class CameraMovementManager : MonoBehaviour {
 
     public static void RequestCamMove(Vector2[] path)
     {
-        Debug.Log("requested cam move");
         if (path != null)
         {
             instance.camMovementQueue.Enqueue(path);

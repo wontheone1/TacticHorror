@@ -90,9 +90,9 @@ public class CameraMovement : MonoBehaviour
             float zoom = move * zoomSpeed * 8;
 
             /// When zooming in, prevent camera from getting too close to the ground(preventing it from go past the ground.)
-            if (cam.orthographicSize - zoom < 5)
+            if (cam.orthographicSize - zoom < 3)
             {
-                cam.orthographicSize = 5;
+                cam.orthographicSize = 3;
             }
             /// prevent camera from zooming out too much
             else if (cam.orthographicSize - zoom > 12)
@@ -110,13 +110,11 @@ public class CameraMovement : MonoBehaviour
 
     public void moveTo(Vector2[] path)
     {
-        Debug.Log("move to function called");
         StartCoroutine(moveCoroutine(path));
     }
 
     public void moveTo(Vector2 target)
     {
-        Debug.Log("move to function called");
         StartCoroutine(moveCoroutine(target));
     }
 

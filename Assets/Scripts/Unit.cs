@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
@@ -17,14 +18,25 @@ public class Unit : MonoBehaviour
     protected int hp; // health point
     protected int ap; // attack point
     protected int mp; // mana
-    private Node currentNode;
-
+    protected Grid grid;
+    Pathfinding pathfinding;
+    GameController gameController;
+    Unit targetUnit = null;
     private int movementCostToDestination;
-
-    public Node CurrentNode
+    public Unit TargetUnit
     {
-        get { return currentNode; }
-        set { currentNode = value; }
+        get { return targetUnit; }
+    }
+
+    protected virtual void Awake()
+    {
+        grid = GameObject.FindWithTag("MainCamera").GetComponent<Grid>();
+        pathfinding = GameObject.FindWithTag("MainCamera").GetComponent<Pathfinding>();
+        gameController = GameObject.FindWithTag("MainCamera").GetComponent<GameController>();
+    }
+
+    void Start()
+    {
     }
 
     public void RequestPath(Vector2 target)
@@ -33,9 +45,39 @@ public class Unit : MonoBehaviour
             PathRequestManager.RequestPath(transform.position, target, actionPoint, OnPathFound);
     }
 
-    public void setAttackTarget(Unit targetUnit)
+    public void setAttackTarget(Unit _targetUnit)
     {
-        
+        Node thisUnitNode = getCurrentNode();
+        Node targetUnitNode = _targetUnit.getCurrentNode();
+        if (pathfinding.GetDistance(thisUnitNode, targetUnitNode) <= attackRange)
+            targetUnit = _targetUnit;
+        else
+            Debug.Log("the unit is out of attack range");
+    }
+
+    public void unsetAttackTarget()
+    {
+        targetUnit = null;
+    }
+
+    public void attackTarget()
+    {
+        if (targetUnit != null)
+        {
+            targetUnit.takeDamage(ap);
+        }
+    }
+
+    public void takeDamage(int damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+            gameController.KillUnit(this);
+    }
+
+    public Node getCurrentNode()
+    {
+        return grid.NodeFromWorldPoint(transform.position);
     }
 
     public bool isMovementPossible()
