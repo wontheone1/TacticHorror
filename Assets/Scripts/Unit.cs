@@ -17,20 +17,25 @@ public class Unit : MonoBehaviour
     protected int hp; // health point
     protected int ap; // attack point
     protected int mp; // mana
-    
+    private Node currentNode;
 
     private int movementCostToDestination;
 
-    //delete units path, used before switching units and switching turn, function is called from Grid-script
-    public void deletePath()
+    public Node CurrentNode
     {
-        path = null;
+        get { return currentNode; }
+        set { currentNode = value; }
     }
 
     public void RequestPath(Vector2 target)
     {
         if(isMovementPossible() && GameController.unitMoving == false)
             PathRequestManager.RequestPath(transform.position, target, actionPoint, OnPathFound);
+    }
+
+    public void setAttackTarget(Unit targetUnit)
+    {
+        
     }
 
     public bool isMovementPossible()
@@ -93,6 +98,12 @@ public class Unit : MonoBehaviour
             }
             GameController.unitMoving = false;
         }
+    }
+
+    //delete units path, used before switching units and switching turn, function is called from Grid-script
+    public void deletePath()
+    {
+        path = null;
     }
 
     public void OnDrawGizmos()

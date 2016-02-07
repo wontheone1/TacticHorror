@@ -61,6 +61,7 @@ public class Statemachine : MonoBehaviour
                 camMovePath[0] = Camera.main.gameObject.transform.position;
                 gameController.ActiveUnits = gameController.playerUnits;
                 gameController.ActiveUnit = gameController.playerUnits[0];
+                gameController.OpponentUnits = gameController.enemyUnits;
                 camMovePath[1] = gameController.ActiveUnit.transform.position;
                 CameraMovementManager.RequestCamMove(camMovePath);
                 replenishActionPoints();
@@ -73,6 +74,7 @@ public class Statemachine : MonoBehaviour
                 camMovePath[0] = Camera.main.gameObject.transform.position;
                 gameController.ActiveUnits = gameController.enemyUnits;
                 gameController.ActiveUnit = gameController.enemyUnits[0];
+                gameController.OpponentUnits = gameController.playerUnits;
                 camMovePath[1] = gameController.ActiveUnit.transform.position;
                 CameraMovementManager.RequestCamMove(camMovePath);
                 replenishActionPoints();
