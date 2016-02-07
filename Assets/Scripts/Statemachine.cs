@@ -23,8 +23,14 @@ public class Statemachine : MonoBehaviour
     void Awake()
     {
         gameController = GetComponent<GameController>();
+    }
+
+    // Use this for initialization
+    void Start()
+    {
         implementCurrentState();
     }
+
     //this function is called when end turn -button is pressed, this function disables raycasting also
     public void endTurn()
     {
@@ -45,21 +51,30 @@ public class Statemachine : MonoBehaviour
 
     public void implementCurrentState()
     {
+        Vector2[] camMovePath;
         switch (curState)
         {
             case State.player:
                 //players turn
                 //change active unit to player Unit
+                camMovePath = new Vector2[2];
+                camMovePath[0] = Camera.main.gameObject.transform.position;
                 gameController.ActiveUnits = gameController.playerUnits;
                 gameController.ActiveUnit = gameController.playerUnits[0];
+                camMovePath[1] = gameController.ActiveUnit.transform.position;
+                CameraMovementManager.RequestCamMove(camMovePath);
                 replenishActionPoints();
                 break;
 
             case State.enemy:
                 //enemys turn
                 //change active unit to enemyunit
+                camMovePath = new Vector2[2];
+                camMovePath[0] = Camera.main.gameObject.transform.position;
                 gameController.ActiveUnits = gameController.enemyUnits;
                 gameController.ActiveUnit = gameController.enemyUnits[0];
+                camMovePath[1] = gameController.ActiveUnit.transform.position;
+                CameraMovementManager.RequestCamMove(camMovePath);
                 replenishActionPoints();
                 break;
 

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Unit : MonoBehaviour
 {
-    float speed = 5f; // speed for animation
+    float speed = 6f; // speed for animation
     Vector2[] path;
     int targetIndex;
     bool succesful = false;
@@ -12,10 +12,13 @@ public class Unit : MonoBehaviour
     protected int MAX_HP; // health point
     protected int MAX_AP; // attack point
     protected int MAX_MP; // mana
+    protected int attackRange; //attack Range
     protected int actionPoint; //movement point + other action
     protected int hp; // health point
     protected int ap; // attack point
     protected int mp; // mana
+    
+
     private int movementCostToDestination;
 
     //delete units path, used before switching units and switching turn, function is called from Grid-script
@@ -26,11 +29,11 @@ public class Unit : MonoBehaviour
 
     public void RequestPath(Vector2 target)
     {
-        if(isMovementPossibe())
+        if(isMovementPossible() && GameController.unitMoving == false)
             PathRequestManager.RequestPath(transform.position, target, actionPoint, OnPathFound);
     }
 
-    public bool isMovementPossibe()
+    public bool isMovementPossible()
     {
         return actionPoint > 10;
     }
@@ -47,15 +50,17 @@ public class Unit : MonoBehaviour
     }
 
     //movement script to move unit when "move button" is clicked, succesful boolean tests for succesful path before moving
-    public void startMoving()
+    public Vector2[] startMoving()
     {
-        if (succesful)
+        if (succesful && path != null)
         {
             StopCoroutine("FollowPath");
             succesful = false;
             StartCoroutine("FollowPath");
             actionPoint -= movementCostToDestination;
+            return path;
         }
+        return null;
     }
 
     public void replenishActionPoint()
@@ -65,6 +70,7 @@ public class Unit : MonoBehaviour
 
     IEnumerator FollowPath()
     {
+        GameController.unitMoving = true;
         if (path.Length > 0)
         {
             Vector3 currentWaypoint = path[0];
@@ -78,15 +84,14 @@ public class Unit : MonoBehaviour
                         /// When finished moving, clear up 
                         targetIndex = 0;
                         path = new Vector2[0];
-                        yield break;
+                        break;
                     }
                     currentWaypoint = path[targetIndex];
                 }
-
                 transform.position = Vector2.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
-
                 yield return null;
             }
+            GameController.unitMoving = false;
         }
     }
 
