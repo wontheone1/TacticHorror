@@ -20,7 +20,7 @@ public class Node : IHeapItem<Node> {
 		gridY = _gridY;
 	}
 
-	public int fCost {
+	public int FCost {
 		get {
 			return gCost + hCost;
 		}
@@ -36,7 +36,7 @@ public class Node : IHeapItem<Node> {
 	}
 
 	public int CompareTo(Node nodeToCompare) {
-		int compare = fCost.CompareTo(nodeToCompare.fCost);
+		int compare = FCost.CompareTo(nodeToCompare.FCost);
 		if (compare == 0) {
 			compare = hCost.CompareTo(nodeToCompare.hCost);
 		}

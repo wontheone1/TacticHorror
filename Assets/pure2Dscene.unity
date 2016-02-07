@@ -127,14 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff9e2f2941d13d42a0ed35dc19c49d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_ACTION_POINT: 0
-  MAX_HP: 0
-  MAX_AP: 0
-  MAX_MP: 0
-  actionPoint: 0
-  hp: 0
-  ap: 0
-  mp: 0
 --- !u!50 &24933633
 Rigidbody2D:
   serializedVersion: 2
@@ -369,14 +361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6515d34ef94c2cd4d85a6392c10f8f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_ACTION_POINT: 0
-  MAX_HP: 0
-  MAX_AP: 0
-  MAX_MP: 0
-  actionPoint: 0
-  hp: 0
-  ap: 0
-  mp: 0
 --- !u!50 &407952731
 Rigidbody2D:
   serializedVersion: 2
@@ -480,14 +464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff9e2f2941d13d42a0ed35dc19c49d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_ACTION_POINT: 0
-  MAX_HP: 0
-  MAX_AP: 0
-  MAX_MP: 0
-  actionPoint: 0
-  hp: 0
-  ap: 0
-  mp: 0
 --- !u!50 &534298691
 Rigidbody2D:
   serializedVersion: 2
@@ -624,7 +600,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1430269551}
+      - m_Target: {fileID: 1430269552}
         m_MethodName: endTurn
         m_Mode: 1
         m_Arguments:
@@ -706,14 +682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6515d34ef94c2cd4d85a6392c10f8f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_ACTION_POINT: 0
-  MAX_HP: 0
-  MAX_AP: 0
-  MAX_MP: 0
-  actionPoint: 0
-  hp: 0
-  ap: 0
-  mp: 0
 --- !u!1 &777634676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,14 +1241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff9e2f2941d13d42a0ed35dc19c49d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_ACTION_POINT: 0
-  MAX_HP: 0
-  MAX_AP: 0
-  MAX_MP: 0
-  actionPoint: 0
-  hp: 0
-  ap: 0
-  mp: 0
 --- !u!50 &1412995899
 Rigidbody2D:
   serializedVersion: 2
@@ -1356,6 +1316,7 @@ GameObject:
   - 20: {fileID: 1430269550}
   - 114: {fileID: 1430269549}
   - 114: {fileID: 1430269551}
+  - 114: {fileID: 1430269552}
   m_Layer: 0
   m_Name: A*
   m_TagString: MainCamera
@@ -1471,6 +1432,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 730e2babdfeef9b4fa69541bda495570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1430269552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1430269544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff6b9cc685a160846a9f4d5aa39a7164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerUnits:
@@ -1608,14 +1580,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6515d34ef94c2cd4d85a6392c10f8f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_ACTION_POINT: 0
-  MAX_HP: 0
-  MAX_AP: 0
-  MAX_MP: 0
-  actionPoint: 0
-  hp: 0
-  ap: 0
-  mp: 0
 --- !u!50 &1537332746
 Rigidbody2D:
   serializedVersion: 2
@@ -1952,14 +1916,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff9e2f2941d13d42a0ed35dc19c49d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_ACTION_POINT: 0
-  MAX_HP: 0
-  MAX_AP: 0
-  MAX_MP: 0
-  actionPoint: 0
-  hp: 0
-  ap: 0
-  mp: 0
 --- !u!1 &1828311436
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,14 +1958,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6515d34ef94c2cd4d85a6392c10f8f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_ACTION_POINT: 0
-  MAX_HP: 0
-  MAX_AP: 0
-  MAX_MP: 0
-  actionPoint: 0
-  hp: 0
-  ap: 0
-  mp: 0
 --- !u!50 &1828311439
 Rigidbody2D:
   serializedVersion: 2
@@ -2146,7 +2094,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1430269551}
+      - m_Target: {fileID: 1430269552}
         m_MethodName: moveUnit
         m_Mode: 1
         m_Arguments:

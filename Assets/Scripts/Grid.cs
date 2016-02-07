@@ -95,6 +95,14 @@ public class Grid : MonoBehaviour
         return grid[x, y];
     }
 
+    public void resetFcosts()
+    {
+        foreach (Node n in grid)
+        {
+            n.gCost = 0;
+            n.hCost = 0;
+        }
+    }
 
     void OnDrawGizmos()
     {

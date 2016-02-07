@@ -8,14 +8,15 @@ public class Unit : MonoBehaviour
     int targetIndex;
     bool succesful = false;
     Vector2 originalClickPos;
-    public int MAX_ACTION_POINT; //movement point + other action
-    public int MAX_HP; // health point
-    public int MAX_AP; // attack point
-    public int MAX_MP; // mana
-    public int actionPoint; //movement point + other action
-    public int hp; // health point
-    public int ap; // attack point
-    public int mp; // mana
+    protected int MAX_ACTION_POINT; //movement point + other action
+    protected int MAX_HP; // health point
+    protected int MAX_AP; // attack point
+    protected int MAX_MP; // mana
+    protected int actionPoint; //movement point + other action
+    protected int hp; // health point
+    protected int ap; // attack point
+    protected int mp; // mana
+    private int movementCostToDestination;
 
     //delete units path, used before switching units and switching turn, function is called from Grid-script
     public void deletePath()
@@ -25,16 +26,23 @@ public class Unit : MonoBehaviour
 
     public void RequestPath(Vector2 target)
     {
-        PathRequestManager.RequestPath(transform.position, target, OnPathFound);
+        if(isMovementPossibe())
+            PathRequestManager.RequestPath(transform.position, target, actionPoint, OnPathFound);
     }
 
-    public void OnPathFound(Vector2[] newPath, bool pathSuccessful)
+    public bool isMovementPossibe()
+    {
+        return actionPoint > 10;
+    }
+
+    public void OnPathFound(Vector2[] newPath, bool pathSuccessful, int movementCost)
     {
         if (pathSuccessful)
         {
             //mark path succesful
             succesful = true;
             path = newPath;
+            movementCostToDestination = movementCost;
         }
     }
 
@@ -46,8 +54,13 @@ public class Unit : MonoBehaviour
             StopCoroutine("FollowPath");
             succesful = false;
             StartCoroutine("FollowPath");
-
+            actionPoint -= movementCostToDestination;
         }
+    }
+
+    public void replenishActionPoint()
+    {
+        actionPoint = MAX_ACTION_POINT;
     }
 
     IEnumerator FollowPath()

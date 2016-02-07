@@ -18,42 +18,35 @@ public class Pathfinding : MonoBehaviour {
 	}
 	
 
-	public void StartFindPath(Vector2 startPos, Vector2 targetPos) {
-        StartCoroutine(FindPath(startPos,targetPos));
+	public void StartFindPath(Vector2 startPos, Vector2 targetPos, int actionPoint) {
+        StartCoroutine(FindPath(startPos,targetPos, actionPoint));
 	}
 
-	IEnumerator FindPath(Vector2 startPos, Vector2 targetPos) {
-
+	IEnumerator FindPath(Vector2 startPos, Vector2 targetPos, int actionPoint) {
 		Stopwatch sw = new Stopwatch();
 		sw.Start();
-
 		Vector2[] waypoints = new Vector2[0];
 		bool pathSuccess = false;
-
 		Node startNode = grid.NodeFromWorldPoint(startPos);
 		Node targetNode = grid.NodeFromWorldPoint(targetPos);
-
 		if (startNode.walkable && targetNode.walkable) {
 			Heap<Node> openSet = new Heap<Node>(grid.MaxSize);
 			HashSet<Node> closedSet = new HashSet<Node>();
 			openSet.Add(startNode);
-
-			while (openSet.Count > 0) {
-				Node currentNode = openSet.RemoveFirst();
-				closedSet.Add(currentNode);
-
+            Node currentNode;
+            while (openSet.Count > 0) {
+                currentNode = openSet.RemoveFirst();
+                closedSet.Add(currentNode);
 				if (currentNode == targetNode) {
 					sw.Stop();
 					print ("Path found: " + sw.ElapsedMilliseconds + " ms");
 					pathSuccess = true;
 					break;
 				}
-
 				foreach (Node neighbour in grid.GetNeighbours(currentNode)) {
 					if (!neighbour.walkable || closedSet.Contains(neighbour)) {
 						continue;
 					}
-
 					int newMovementCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
 					if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour)) {
 						neighbour.gCost = newMovementCostToNeighbour;
@@ -71,8 +64,13 @@ public class Pathfinding : MonoBehaviour {
 		if (pathSuccess) {
 			waypoints = RetracePath(startNode,targetNode);
 		}
-		requestManager.FinishedProcessingPath(waypoints,pathSuccess);
-
+	    if (targetNode.FCost > actionPoint)
+	        StartFindPath(startPos, targetNode.parent.worldPosition, actionPoint);
+	    else
+	    {
+	        requestManager.FinishedProcessingPath(waypoints, pathSuccess, targetNode.FCost);
+            grid.resetFcosts();
+        }
 	}
 
 	Vector2[] RetracePath(Node startNode, Node endNode) {
