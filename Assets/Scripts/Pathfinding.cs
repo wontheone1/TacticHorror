@@ -108,6 +108,7 @@ public class Pathfinding : MonoBehaviour {
 			}
 			directionOld = directionNew;
 		}
+	    waypoints.Add(path[path.Count - 1].worldPosition);
 		return waypoints.ToArray();
 	}
 

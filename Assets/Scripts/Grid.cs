@@ -7,6 +7,7 @@ public class Grid : MonoBehaviour
     Vector2 target;
     public bool displayGridGizmos;
     public LayerMask unwalkableMask;
+    public LayerMask walkableMask;
     public Vector2 gridWorldSize;
     public float nodeRadius;
     Node[,] grid;
@@ -46,7 +47,7 @@ public class Grid : MonoBehaviour
             for (int y = 0; y < gridSizeY; y++)
             {
                 Vector3 worldPoint = worldBottomLeft + Vector2.right * (x * nodeDiameter + nodeRadius) + Vector2.up * (y * nodeDiameter + nodeRadius);
-                bool walkable = !(Physics2D.OverlapCircle(worldPoint, nodeRadius * 0.70f, unwalkableMask));
+                bool walkable = (Physics2D.OverlapCircle(worldPoint, nodeRadius * 0.70f, walkableMask)) || (Physics.CheckSphere(worldPoint, nodeRadius, walkableMask));
                 grid[x, y] = new Node(walkable, worldPoint, x, y);
             }
         }
@@ -55,7 +56,6 @@ public class Grid : MonoBehaviour
     public List<Node> GetNeighbours(Node node)
     {
         List<Node> neighbours = new List<Node>();
-
         for (int x = -1; x <= 1; x++)
         {
             for (int y = -1; y <= 1; y++)
@@ -65,14 +65,12 @@ public class Grid : MonoBehaviour
 
                 int checkX = node.gridX + x;
                 int checkY = node.gridY + y;
-
                 if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
                 {
                     neighbours.Add(grid[checkX, checkY]);
                 }
             }
         }
-
         return neighbours;
     }
 
@@ -112,7 +110,8 @@ public class Grid : MonoBehaviour
             foreach (Node n in grid)
             {
                 Gizmos.color = (n.walkable) ? Color.white : Color.red;
-                Gizmos.DrawWireCube(n.worldPosition, new Vector3(1, 1, 0f) * (nodeDiameter - .1f));
+                if(n.walkable)
+                    Gizmos.DrawWireCube(n.worldPosition, new Vector3(1, 1, 0f) * (nodeDiameter - .1f));
             }
         }
     }

@@ -50,7 +50,16 @@ public class GameController : MonoBehaviour
     public void endTurn()
     {
         disableRayCast = true;
+        clearPaths();
         statemachine.endTurn();
+    }
+
+    public void clearPaths()
+    {
+        foreach(var unit in ActiveUnits)
+        {
+            unit.deletePath();
+        }
     }
 
     // Update is called once per frame
@@ -148,8 +157,6 @@ public class GameController : MonoBehaviour
                     if (opponentUnits[i].transform == c.transform)
                     {
                         activeUnit.deletePath();
-                        Debug.Log(activeUnit.TargetUnit);
-                        Debug.Log(c.gameObject);
                         if (activeUnit.TargetUnit == c.gameObject.GetComponent<Unit>())
                         {
                             activeUnit.attackTarget();
@@ -180,8 +187,6 @@ public class GameController : MonoBehaviour
                         return;
                     }
                 }
-
-
             }
         }
     }

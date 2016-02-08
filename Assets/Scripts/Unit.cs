@@ -21,6 +21,7 @@ public class Unit : MonoBehaviour
     protected Grid grid;
     Pathfinding pathfinding;
     GameController gameController;
+    private bool unitMoving = false;
     Unit targetUnit = null;
     private int movementCostToDestination;
     public Unit TargetUnit
@@ -35,8 +36,11 @@ public class Unit : MonoBehaviour
         gameController = GameObject.FindWithTag("MainCamera").GetComponent<GameController>();
     }
 
-    void Start()
+    //delete units path, used before switching units and switching turn, function is called from Grid-script
+    public void deletePath()
     {
+        if(!unitMoving)
+            path = null;
     }
 
     public void RequestPath(Vector2 target)
@@ -117,6 +121,7 @@ public class Unit : MonoBehaviour
 
     IEnumerator FollowPath()
     {
+        unitMoving = true;
         GameController.unitMoving = true;
         if (path.Length > 0)
         {
@@ -139,13 +144,8 @@ public class Unit : MonoBehaviour
                 yield return null;
             }
             GameController.unitMoving = false;
+            unitMoving = false;
         }
-    }
-
-    //delete units path, used before switching units and switching turn, function is called from Grid-script
-    public void deletePath()
-    {
-        path = null;
     }
 
     public void OnDrawGizmos()

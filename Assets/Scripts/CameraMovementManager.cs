@@ -5,49 +5,34 @@ using System.Collections.Generic;
 
 public class CameraMovementManager : MonoBehaviour {
 
-    Queue<Vector2[]> camMovementQueue = new Queue<Vector2[]>();
-    Vector2[] currentCamMovePath;
-    static CameraMovementManager instance;
-    public CameraMovement camMove;
-    bool CameraMoving = false;
-
-    void Awake()
-    {
-        instance = this;
-    }
+    static Queue<Vector2[]> camMovementQueue = new Queue<Vector2[]>();
+    static Vector2[] currentCamMovePath;
+    // static CameraMovementManager instance;
+    static CameraMovement camMove = GameObject.FindWithTag("MainCamera").GetComponent<CameraMovement>();
+    static bool CameraMoving = false;
 
     public static void RequestCamMove(Vector2[] path)
     {
         if (path != null)
         {
-            instance.camMovementQueue.Enqueue(path);
-            instance.moveNext();
+            camMovementQueue.Enqueue(path);
+            moveNext();
         }
     }
 
-    void moveNext()
+    static void moveNext()
     {
-        if (!instance.CameraMoving && instance.camMovementQueue.Count > 0)
+        if (!CameraMoving && camMovementQueue.Count > 0)
         {
-            instance.currentCamMovePath = instance.camMovementQueue.Dequeue();
-            instance.CameraMoving = true;
-            instance.camMove.moveTo(instance.currentCamMovePath);
+            currentCamMovePath = camMovementQueue.Dequeue();
+            CameraMoving = true;
+            camMove.moveTo(currentCamMovePath);
         }
     }
 
     public static void FinishedMoving()
     {
-        instance.CameraMoving = false;
-        instance.moveNext();
+        CameraMoving = false;
+        moveNext();
     }
-
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

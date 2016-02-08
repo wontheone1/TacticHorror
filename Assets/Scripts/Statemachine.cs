@@ -116,6 +116,7 @@ public class Statemachine : MonoBehaviour
         foreach (var unit in gameController.ActiveUnits)
         {
             unit.replenishActionPoint();
+            unit.deletePath();
         }
     }
 }

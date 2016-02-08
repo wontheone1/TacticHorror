@@ -16,13 +16,4 @@ public class vampireClass : Unit
         base.Awake();
         initialize();
     }
- //   // Use this for initialization
- //   void Start () {
-
-	//}
-	
-	//// Update is called once per frame
-	//void Update () {
-	
-	//}
 }
