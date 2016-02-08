@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
@@ -17,20 +18,70 @@ public class Unit : MonoBehaviour
     protected int hp; // health point
     protected int ap; // attack point
     protected int mp; // mana
-    
-
+    protected Grid grid;
+    Pathfinding pathfinding;
+    GameController gameController;
+    private bool unitMoving = false;
+    Unit targetUnit = null;
     private int movementCostToDestination;
+    public Unit TargetUnit
+    {
+        get { return targetUnit; }
+    }
+
+    protected virtual void Awake()
+    {
+        grid = GameObject.FindWithTag("MainCamera").GetComponent<Grid>();
+        pathfinding = GameObject.FindWithTag("MainCamera").GetComponent<Pathfinding>();
+        gameController = GameObject.FindWithTag("MainCamera").GetComponent<GameController>();
+    }
 
     //delete units path, used before switching units and switching turn, function is called from Grid-script
     public void deletePath()
     {
-        path = null;
+        if(!unitMoving)
+            path = null;
     }
 
     public void RequestPath(Vector2 target)
     {
         if(isMovementPossible() && GameController.unitMoving == false)
             PathRequestManager.RequestPath(transform.position, target, actionPoint, OnPathFound);
+    }
+
+    public void setAttackTarget(Unit _targetUnit)
+    {
+        Node thisUnitNode = getCurrentNode();
+        Node targetUnitNode = _targetUnit.getCurrentNode();
+        if (pathfinding.GetDistance(thisUnitNode, targetUnitNode) <= attackRange)
+            targetUnit = _targetUnit;
+        else
+            Debug.Log("the unit is out of attack range");
+    }
+
+    public void unsetAttackTarget()
+    {
+        targetUnit = null;
+    }
+
+    public void attackTarget()
+    {
+        if (targetUnit != null)
+        {
+            targetUnit.takeDamage(ap);
+        }
+    }
+
+    public void takeDamage(int damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+            gameController.KillUnit(this);
+    }
+
+    public Node getCurrentNode()
+    {
+        return grid.NodeFromWorldPoint(transform.position);
     }
 
     public bool isMovementPossible()
@@ -70,6 +121,7 @@ public class Unit : MonoBehaviour
 
     IEnumerator FollowPath()
     {
+        unitMoving = true;
         GameController.unitMoving = true;
         if (path.Length > 0)
         {
@@ -92,6 +144,7 @@ public class Unit : MonoBehaviour
                 yield return null;
             }
             GameController.unitMoving = false;
+            unitMoving = false;
         }
     }
 

@@ -6,11 +6,9 @@ public class CameraMovement : MonoBehaviour
     //
     // VARIABLES
     //
-
     public float turnSpeed = 4.0f;      // Speed of camera turning when mouse moves in along an axis
     public float panSpeed;       /// Speed of the camera when being panned ! adjusted with camera y position value !
     public float zoomSpeed = 4.0f;      // Speed of the camera going back and forth
-
     private Vector3 mouseOrigin;    // Position of cursor when mouse dragging starts
     private bool isPanning;     // Is the camera being panned?
     private bool isZooming;     // Is the camera zooming?
@@ -90,9 +88,9 @@ public class CameraMovement : MonoBehaviour
             float zoom = move * zoomSpeed * 8;
 
             /// When zooming in, prevent camera from getting too close to the ground(preventing it from go past the ground.)
-            if (cam.orthographicSize - zoom < 5)
+            if (cam.orthographicSize - zoom < 3)
             {
-                cam.orthographicSize = 5;
+                cam.orthographicSize = 3;
             }
             /// prevent camera from zooming out too much
             else if (cam.orthographicSize - zoom > 12)
@@ -110,13 +108,11 @@ public class CameraMovement : MonoBehaviour
 
     public void moveTo(Vector2[] path)
     {
-        Debug.Log("move to function called");
         StartCoroutine(moveCoroutine(path));
     }
 
     public void moveTo(Vector2 target)
     {
-        Debug.Log("move to function called");
         StartCoroutine(moveCoroutine(target));
     }
 
@@ -127,14 +123,12 @@ public class CameraMovement : MonoBehaviour
         {
             Vector3 targetPos;
             transform.position = new Vector3(path[0].x, path[0].y, transform.position.z);
-            
-            
             foreach (Vector2 pos in path)
             {
                 targetPos = pos;
                 targetPos.z = transform.position.z;
-                panSpeed = Time.deltaTime * cam.orthographicSize * 0.15f *
-                        Vector2.Distance(transform.position, targetPos) + 0.02f;
+                panSpeed = Time.deltaTime * cam.orthographicSize * 0.10f *
+                        Vector2.Distance(transform.position, targetPos) + 0.01f;
                 while ((transform.position) != targetPos)
                 {
                     // camera movement speed adjustment according to current zoom level

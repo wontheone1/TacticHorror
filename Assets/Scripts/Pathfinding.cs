@@ -39,7 +39,6 @@ public class Pathfinding : MonoBehaviour {
                 closedSet.Add(currentNode);
 				if (currentNode == targetNode) {
 					sw.Stop();
-					print ("Path found: " + sw.ElapsedMilliseconds + " ms");
 					pathSuccess = true;
 					break;
 				}
@@ -109,10 +108,11 @@ public class Pathfinding : MonoBehaviour {
 			}
 			directionOld = directionNew;
 		}
+	    waypoints.Add(path[path.Count - 1].worldPosition);
 		return waypoints.ToArray();
 	}
 
-	int GetDistance(Node nodeA, Node nodeB) {
+	public int GetDistance(Node nodeA, Node nodeB) {
 		int dstX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
 		int dstY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
 
@@ -120,6 +120,4 @@ public class Pathfinding : MonoBehaviour {
 			return 14*dstY + 10* (dstX-dstY);
 		return 14*dstX + 10 * (dstY-dstX);
 	}
-
-
 }
