@@ -1,0 +1,249 @@
+fileFormatVersion: 2
+guid: 13ddffcc4fadf1346ac36a30db878c05
+timeCreated: 1454742714
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: character_concepts_collection_0
+    21300002: character_concepts_collection_1
+    21300004: character_concepts_collection_2
+    21300006: character_concepts_collection_3
+    21300008: character_concepts_collection_4
+    21300010: character_concepts_collection_5
+    21300012: character_concepts_collection_6
+    21300014: character_concepts_collection_7
+    21300016: character_concepts_collection_8
+    21300018: character_concepts_collection_9
+    21300020: character_concepts_collection_10
+    21300022: character_concepts_collection_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: character_concepts_collection_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 3508
+        height: 4960
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -724, y: 1024}
+        - {x: -724, y: -1024}
+        - {x: 724, y: -1024}
+        - {x: 724, y: 1024}
+    - name: character_concepts_collection_1
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 4093
+        width: 621
+        height: 771
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -127.91049, y: 159.97095}
+        - {x: -127.91049, y: -159.02905}
+        - {x: 129.08951, y: -159.02905}
+        - {x: 129.08951, y: 159.97095}
+    - name: character_concepts_collection_2
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 4086
+        width: 757
+        height: 835
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -156.13629, y: 173.58154}
+        - {x: -156.13629, y: -172.41846}
+        - {x: 156.86371, y: -172.41846}
+        - {x: 156.86371, y: 173.58154}
+    - name: character_concepts_collection_3
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 3208
+        width: 342
+        height: 850
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -70.63513, y: 176.1687}
+        - {x: -70.63513, y: -175.8313}
+        - {x: 71.36487, y: -175.8313}
+        - {x: 71.36487, y: 176.1687}
+    - name: character_concepts_collection_4
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 3229
+        width: 614
+        height: 828
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -126.66589, y: 172.33691}
+        - {x: -126.66589, y: -170.66309}
+        - {x: 127.33411, y: -170.66309}
+        - {x: 127.33411, y: 172.33691}
+    - name: character_concepts_collection_5
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 2387
+        width: 914
+        height: 714
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -188.60376, y: 148.28394}
+        - {x: -188.60376, y: -147.71606}
+        - {x: 190.39624, y: -147.71606}
+        - {x: 190.39624, y: 148.28394}
+    - name: character_concepts_collection_6
+      rect:
+        serializedVersion: 2
+        x: 1490
+        y: 2480
+        width: 978
+        height: 664
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -201.9715, y: 138.17163}
+        - {x: -201.9715, y: -136.82837}
+        - {x: 202.0285, y: -136.82837}
+        - {x: 202.0285, y: 138.17163}
+    - name: character_concepts_collection_7
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 1395
+        width: 579
+        height: 914
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -119.54959, y: 190.31525}
+        - {x: -119.54959, y: -188.68475}
+        - {x: 120.45041, y: -188.68475}
+        - {x: 120.45041, y: 190.31525}
+    - name: character_concepts_collection_8
+      rect:
+        serializedVersion: 2
+        x: 1640
+        y: 1438
+        width: 771
+        height: 878
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -159.05585, y: 182.06439}
+        - {x: -159.05585, y: -180.93561}
+        - {x: 160.94415, y: -180.93561}
+        - {x: 160.94415, y: 182.06439}
+    - name: character_concepts_collection_9
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 267
+        width: 792
+        height: 1135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -163.43843, y: 234.70981}
+        - {x: -163.43843, y: -234.29019}
+        - {x: 163.56157, y: -234.29019}
+        - {x: 163.56157, y: 234.70981}
+    - name: character_concepts_collection_10
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 246
+        width: 928
+        height: 1141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -191.63629, y: 236.54163}
+        - {x: -191.63629, y: -235.45837}
+        - {x: 192.36371, y: -235.45837}
+        - {x: 192.36371, y: 236.54163}
+    - name: character_concepts_collection_11
+      rect:
+        serializedVersion: 2
+        x: 2282
+        y: 231
+        width: 935
+        height: 1164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -192.557, y: 240.85007}
+        - {x: -192.557, y: -240.14993}
+        - {x: 194.443, y: -240.14993}
+        - {x: 194.443, y: 240.85007}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
