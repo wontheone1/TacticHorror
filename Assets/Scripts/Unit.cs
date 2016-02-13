@@ -136,7 +136,6 @@ public class Unit : MonoBehaviour
             succesful = false;
             StartCoroutine("FollowPath");
             actionPoint -= movementCostToDestination;
-            Debug.Log("started moving");
             return path;
         }
         return null;
@@ -149,7 +148,6 @@ public class Unit : MonoBehaviour
 
     IEnumerator FollowPath()
     {
-        // rb.isKinematic = true;
         unitMoving = true;
         GameController.unitMoving = true;
         if (path.Length > 0)
@@ -163,7 +161,6 @@ public class Unit : MonoBehaviour
                     if (targetIndex >= path.Length)
                     {
                         /// When finished moving, clear up 
-                        Debug.Log("Finished moving.");
                         targetIndex = 0;
                         path = new Vector2[0];
                         break;
@@ -177,9 +174,7 @@ public class Unit : MonoBehaviour
                 yield return null;
             }
             GameController.unitMoving = false;
-            Debug.Log("here");
             unitMoving = false;
-            // rb.isKinematic = false;
         }
     }
 
@@ -229,7 +224,7 @@ public class Unit : MonoBehaviour
         {
             for (int i = targetIndex; i < path.Length; i++)
             {
-                Gizmos.color = Color.black;
+                Gizmos.color = Color.white;
                 Gizmos.DrawCube(path[i], new Vector3(0.25f, 0.25f, 0.25f));
 
                 if (i == targetIndex)

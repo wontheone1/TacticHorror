@@ -6,8 +6,14 @@ public class Grid : MonoBehaviour
 {
     Vector2 target;
     public bool displayGridGizmos;
-    public LayerMask unwalkableMask;
-    public LayerMask walkableMask;
+    public LayerMask UnwalkableMask;
+    public LayerMask WalkableMask;
+    public LayerMask JumpStartable;
+    public LayerMask JumpFinishable;
+    public LayerMask JumpThrouable;
+    public LayerMask BlockedMask;
+    public LayerMask CoverLayerMask;
+    public LayerMask OccumpiedMask;
     public Vector2 gridWorldSize;
     public float nodeRadius;
     Node[,] grid;
@@ -36,26 +42,24 @@ public class Grid : MonoBehaviour
     {
         grid = new Node[gridSizeX, gridSizeY];
 
-
+        bool walkable, startable, throughable, finishable, blocked, covered, occupied;
+        float detectionLength = 0.6f;
         for (int x = 0; x < gridSizeX; x++)
         {
             for (int y = 0; y < gridSizeY; y++)
             {
                 Vector3 worldPoint = worldBottomLeft + Vector2.right * (x * nodeDiameter + nodeRadius) + Vector2.up * (y * nodeDiameter + nodeRadius);
-                bool walkable = (Physics2D.OverlapCircle(worldPoint, nodeRadius * 0.70f, walkableMask)) || (Physics.CheckSphere(worldPoint, nodeRadius, walkableMask));
-                Node.NodeType nodeType = getNodeType(worldPoint);
-                grid[x, y] = new Node(walkable, worldPoint, x, y, nodeType);
+                walkable = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, WalkableMask)) || (Physics.CheckSphere(worldPoint, nodeRadius, WalkableMask));
+                startable = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, JumpStartable));
+                throughable = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, JumpThrouable));
+                finishable = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, JumpFinishable));
+                blocked = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, BlockedMask));
+                covered = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, CoverLayerMask));
+                grid[x, y] = new Node(walkable, worldPoint, x, y, startable, finishable, throughable, blocked, covered, false);
             }
         }
     }
 
-    public Node.NodeType getNodeType(Vector2 worldPoint)
-    {
-        Collider2D collider = Physics2D.OverlapCircle(worldPoint, nodeRadius * 0.70f);
-        Node.NodeType nodeType = Node.NodeType.covered;
-        return nodeType;
-
-    }
 
     //gets neighbouring nodes of the given node
     public List<Node> GetNeighbours(Node node)
@@ -85,27 +89,6 @@ public class Grid : MonoBehaviour
         }
         return neighbours;
     }
-
-    //public List<Node> GetNeighbours(Node node)
-    //{
-    //    List<Node> neighbours = new List<Node>();
-    //    for (int x = -1; x <= 1; x++)
-    //    {
-    //        for (int y = -1; y <= 1; y++)
-    //        {
-    //            if (x == 0 && y == 0)
-    //                continue;
-
-    //            int checkX = node.gridX + x;
-    //            int checkY = node.gridY + y;
-    //            if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
-    //            {
-    //                neighbours.Add(grid[checkX, checkY]);
-    //            }
-    //        }
-    //    }
-    //    return neighbours;
-    //}
 
     public Node NodeFromWorldPoint(Vector2 worldPosition)
     {
@@ -139,10 +122,31 @@ public class Grid : MonoBehaviour
         Gizmos.DrawWireCube(Vector3.zero, new Vector3(gridWorldSize.x, gridWorldSize.y, 0.1f));
         if (grid != null && displayGridGizmos)
         {
+            bool draw;
             foreach (Node n in grid)
             {
-                Gizmos.color = (n.walkable) ? Color.white : Color.red;
-                if (n.walkable)
+                draw = false;
+                if (n.blocked || n.occupied)
+                {
+                    Gizmos.color = Color.red;
+                    draw = true;
+                    
+                } else if (n.covered)
+                {
+                    Gizmos.color = Color.blue;
+                    draw = true;
+                }
+                else if (n.walkable || n.jumpStartable || n.jumpThroughable || n.jumpFinishable)
+                {
+                    Gizmos.color = Color.white;
+                    draw = true;
+                }
+                //else if (n.jumpStartable || n.jumpThroughable || n.jumpFinishable)
+                //{
+                //    Gizmos.color = Color.yellow;
+                //    draw = true;
+                //}
+                if (draw)
                     Gizmos.DrawWireCube(n.worldPosition, new Vector3(1, 1, 0f) * (nodeDiameter - .1f));
             }
         }
