@@ -27,17 +27,15 @@ public class TextBoxManager : MonoBehaviour
         public string speaker;
         public int team;
         public string line;
-        public string eventName;
 
-        public entry(string _speaker, int _team, string _line) : this(_speaker, _team, _line, null){}
-        public entry(string _speaker, int _team, string _line, string _eventName)
+        public entry(string _speaker, int _team, string _line)
         {
             speaker = _speaker;
             team = _team;
             line = _line;
-            eventName = _eventName;
         }
     }
+    // public playerController player;
 
     // Use this for initialization
     void Awake()
@@ -47,12 +45,22 @@ public class TextBoxManager : MonoBehaviour
 
     void Start()
     {
+        //if (textFile != null)
+        //{
+        //    textLines = (textFile.text.Split('\n'));
+        //}
+        //if (endAtLine == 0)
+        //{
+        //    endAtLine = textLines.Length - 1;
+        //}
         dialogue.Load("Assets/text/Level1_Dialog.xml");
         playerSpeakerPanel.SetActive(false);
         enemySpeakerPanel.SetActive(false);
 
         foreach (XmlNode node in dialogue.DocumentElement)
         {
+            string Speaker = node.Attributes[0].Value;
+            int team = int.Parse(node.Attributes[1].Value);
             lines.Add(new entry(node.Attributes[0].Value, int.Parse(node.Attributes[1].Value), node.InnerText));
         }
         if (endAtLine == 0)

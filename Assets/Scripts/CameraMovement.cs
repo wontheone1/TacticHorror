@@ -22,6 +22,7 @@ public class CameraMovement : MonoBehaviour
         cam = Camera.main;
     }
 
+
     void Update()
     {
 
