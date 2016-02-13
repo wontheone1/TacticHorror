@@ -24,11 +24,6 @@ public class Grid : MonoBehaviour
         CreateGrid();
     }
 
-    void Update()
-    {
-        
-    }
-
     public int MaxSize
     {
         get
@@ -52,28 +47,56 @@ public class Grid : MonoBehaviour
             }
         }
     }
+
     //gets neighbouring nodes of the given node
     public List<Node> GetNeighbours(Node node)
     {
+        int checkX, checkY;
         List<Node> neighbours = new List<Node>();
         for (int x = -1; x <= 1; x++)
         {
-            for (int y = -1; y <= 1; y++)
+            if (x == 0)
             {
-                if (x == 0 && y == 0)
-                    continue;
-
-                int checkX = node.gridX + x;
-                int checkY = node.gridY + y;
-                if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
+                for (int y = -1; y <= 1; y++)
                 {
-                    neighbours.Add(grid[checkX, checkY]);
+                    if (y == 0)
+                        continue;
+
+                    checkY = node.gridY + y;
+                    if (checkY >= 0 && checkY < gridSizeY)
+                        neighbours.Add(grid[node.gridX, checkY]);
                 }
+            }
+            else
+            {
+                checkX = node.gridX + x;
+                if (checkX >= 0 && checkX < gridSizeX)
+                    neighbours.Add(grid[checkX, node.gridY]);
             }
         }
         return neighbours;
     }
 
+    //public List<Node> GetNeighbours(Node node)
+    //{
+    //    List<Node> neighbours = new List<Node>();
+    //    for (int x = -1; x <= 1; x++)
+    //    {
+    //        for (int y = -1; y <= 1; y++)
+    //        {
+    //            if (x == 0 && y == 0)
+    //                continue;
+
+    //            int checkX = node.gridX + x;
+    //            int checkY = node.gridY + y;
+    //            if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
+    //            {
+    //                neighbours.Add(grid[checkX, checkY]);
+    //            }
+    //        }
+    //    }
+    //    return neighbours;
+    //}
 
     public Node NodeFromWorldPoint(Vector2 worldPosition)
     {
@@ -110,7 +133,7 @@ public class Grid : MonoBehaviour
             foreach (Node n in grid)
             {
                 Gizmos.color = (n.walkable) ? Color.white : Color.red;
-                if(n.walkable)
+                if (n.walkable)
                     Gizmos.DrawWireCube(n.worldPosition, new Vector3(1, 1, 0f) * (nodeDiameter - .1f));
             }
         }

@@ -5,17 +5,20 @@ using UnityEngine.UI;
 
 public class Statemachine : MonoBehaviour
 {
+    public GameObject[] objectsHiddenBeforeGameStarts;
     public Text StateText;
     private GameController gameController;
+    private CameraMovement cameraMovement;
     // instantiating enum state machine for easy and understandable usage
     public enum State
     {
+        sceneStart,
         player,
         enemy,
         win,
         lose
     };
-    State curState = State.player;
+    State curState = State.sceneStart;
     public State CurState
     {
         get { return curState; }
@@ -24,12 +27,28 @@ public class Statemachine : MonoBehaviour
     //// Use this for initialization
     void Awake()
     {
+        cameraMovement = GetComponent<CameraMovement>();
         gameController = GetComponent<GameController>();
+        foreach (GameObject VARIABLE in objectsHiddenBeforeGameStarts)
+        {
+            VARIABLE.SetActive(false);   
+        }
     }
 
     // Use this for initialization
     void Start()
     {
+        implementCurrentState();
+    }
+
+    public void startGame()
+    {
+        curState = State.player;
+        foreach (GameObject VARIABLE in objectsHiddenBeforeGameStarts)
+        {
+            VARIABLE.SetActive(true);
+        }
+        cameraMovement.CameraDisabled = false;
         implementCurrentState();
     }
 
@@ -68,6 +87,10 @@ public class Statemachine : MonoBehaviour
         Vector2[] camMovePath;
         switch (curState)
         {
+            case State.sceneStart:
+                cameraMovement.CameraDisabled = true;
+                break;
+
             case State.player:
                 //players turn
                 //change active unit to player Unit

@@ -1,10 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public TextBoxManager textBoxManager;
+    private Grid grid;
+    private Node clickedNode = null;
     private Statemachine statemachine;
     public Text debugText;
     Unit activeUnit;
@@ -41,10 +45,8 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         statemachine = GetComponent<Statemachine>();
-    }
-
-    void Start()
-    {
+        grid = GetComponent<Grid>();
+        textBoxManager = GetComponent<TextBoxManager>();
     }
 
     public void endTurn()
@@ -65,7 +67,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!unitMoving && !CameraMovement.cameraIsMoving)
+        if (!unitMoving && !CameraMovement.cameraIsMoving && activeUnit != null)
             activities();
     }
 
@@ -161,6 +163,7 @@ public class GameController : MonoBehaviour
                         {
                             activeUnit.attackTarget();
                             debugText.text = "Attacked: " + activeUnit.TargetUnit.name;
+                            selectNextUnit();
                             return;
                         }
                         activeUnit.setAttackTarget(opponentUnits[i]);
@@ -175,14 +178,17 @@ public class GameController : MonoBehaviour
                 /// if no opponent was clicked, unset target
                 activeUnit.unsetAttackTarget();
 
+                Vector2[] camMovePath = new Vector2[2];
+                camMovePath[0] = Camera.main.gameObject.transform.position;
                 /// select clicked unit
                 for (int i = 0; i < activeUnits.Count; i++)
                 {
                     if (activeUnits[i].transform == c.transform)
                     {
-                        Debug.Log("Unit selected " + c.transform.name);
                         activeUnit.deletePath();
                         activeUnit = activeUnits[i];
+                        camMovePath[1] = activeUnit.transform.position;
+                        CameraMovementManager.RequestCamMove(camMovePath);
                         debugText.text = activeUnit.name;
                         return;
                     }
@@ -191,28 +197,35 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// if clicked the same tile, move Unit there, otherwise find new path for active unit
+    /// </summary>
     private void findPathForUnit()
     {
         mousePosition = Input.mousePosition;
         mousePosition.z = -transform.position.z;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        if (clickedNode != null && activeUnit.hasPath())
+        {
+            if (clickedNode.worldPosition == grid.NodeFromWorldPoint(mousePosition).worldPosition)
+            {
+                moveUnit();
+                return;
+            }
+                 
+        }
+        clickedNode = grid.NodeFromWorldPoint(mousePosition);
         activeUnit.RequestPath(mousePosition);
     }
 
     public void KillUnit(Unit unit)
     {
         debugText.text = unit + " was killed.";
-        Debug.Log("Killing" + unit);
         opponentUnits.Remove(unit);
         playerUnits.Remove(unit);
         enemyUnits.Remove(unit);
+        unit.die();
         Destroy(unit.gameObject);
-
-        Debug.Log("remaining opponent");
-        foreach (var u in opponentUnits)
-        {
-            Debug.Log(u);
-        }
 
         if (playerUnits.Count == 0)
             statemachine.loseGame();

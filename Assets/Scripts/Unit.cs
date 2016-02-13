@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
+    public static int UNIT_COUNT = 0;
+    public string name;
     float speed = 6f; // speed for animation
     Vector2[] path;
     int targetIndex;
@@ -69,6 +71,7 @@ public class Unit : MonoBehaviour
         if (targetUnit != null)
         {
             targetUnit.takeDamage(ap);
+            actionPoint = 0;
         }
     }
 
@@ -77,6 +80,11 @@ public class Unit : MonoBehaviour
         hp -= damage;
         if (hp <= 0)
             gameController.KillUnit(this);
+    }
+
+    public void die()
+    {
+        gameController.textBoxManager.EventHandler(name, "die");
     }
 
     public Node getCurrentNode()
@@ -148,6 +156,13 @@ public class Unit : MonoBehaviour
         }
     }
 
+    public bool hasPath()
+    {
+        if (path != null)
+            return path.Length > 0;
+        else
+            return false;
+    }
     public void OnDrawGizmos()
     {
         if (path != null)

@@ -10,10 +10,12 @@ public class vampireClass : Unit
         MAX_AP = ap = 5;
         MAX_MP = mp = 5;
         attackRange = 15;
+        name = "Vampire";
     }
     protected override void Awake()
     {
         base.Awake();
         initialize();
     }
+
 }

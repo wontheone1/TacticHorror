@@ -1,0 +1,23 @@
+<Dialogue>
+  <entry speaker="Soldier1" team="2">
+    This is the monsters' hiding cave...
+  </entry>
+  <entry speaker="Soldier2" team="2">
+    Kill them all and we will be famous.
+  </entry>
+  <entry speaker="Soldier3" team="2">
+    We shall exterminate those devious creatures for the Reich
+  </entry>
+  <entry speaker="Ghost" team="1">
+    It seems like we have uninvited guests here.
+  </entry>
+  <entry speaker="Vampire" team="1">
+    There comes my daily dose of fresh blood supply.
+  </entry>
+  <entry speaker="Frankenstein" team="1">
+    Human soldiers...
+  </entry>
+  <entry speaker="Werewolf" team="1">
+    Grrrrrr......
+  </entry>
+</Dialogue>
