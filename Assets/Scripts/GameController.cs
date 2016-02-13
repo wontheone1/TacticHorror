@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public TextBoxManager textBoxManager;
     private Grid grid;
     private Node clickedNode = null;
     private Statemachine statemachine;
@@ -45,10 +46,7 @@ public class GameController : MonoBehaviour
     {
         statemachine = GetComponent<Statemachine>();
         grid = GetComponent<Grid>();
-    }
-
-    void Start()
-    {
+        textBoxManager = GetComponent<TextBoxManager>();
     }
 
     public void endTurn()
@@ -180,14 +178,17 @@ public class GameController : MonoBehaviour
                 /// if no opponent was clicked, unset target
                 activeUnit.unsetAttackTarget();
 
+                Vector2[] camMovePath = new Vector2[2];
+                camMovePath[0] = Camera.main.gameObject.transform.position;
                 /// select clicked unit
                 for (int i = 0; i < activeUnits.Count; i++)
                 {
                     if (activeUnits[i].transform == c.transform)
                     {
-                        Debug.Log("Unit selected " + c.transform.name);
                         activeUnit.deletePath();
                         activeUnit = activeUnits[i];
+                        camMovePath[1] = activeUnit.transform.position;
+                        CameraMovementManager.RequestCamMove(camMovePath);
                         debugText.text = activeUnit.name;
                         return;
                     }
@@ -220,17 +221,11 @@ public class GameController : MonoBehaviour
     public void KillUnit(Unit unit)
     {
         debugText.text = unit + " was killed.";
-        Debug.Log("Killing" + unit);
         opponentUnits.Remove(unit);
         playerUnits.Remove(unit);
         enemyUnits.Remove(unit);
+        unit.die();
         Destroy(unit.gameObject);
-
-        Debug.Log("remaining opponent");
-        foreach (var u in opponentUnits)
-        {
-            Debug.Log(u);
-        }
 
         if (playerUnits.Count == 0)
             statemachine.loseGame();

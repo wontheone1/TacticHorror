@@ -8,6 +8,7 @@ public class Statemachine : MonoBehaviour
     public GameObject[] objectsHiddenBeforeGameStarts;
     public Text StateText;
     private GameController gameController;
+    private CameraMovement cameraMovement;
     // instantiating enum state machine for easy and understandable usage
     public enum State
     {
@@ -26,6 +27,7 @@ public class Statemachine : MonoBehaviour
     //// Use this for initialization
     void Awake()
     {
+        cameraMovement = GetComponent<CameraMovement>();
         gameController = GetComponent<GameController>();
         foreach (GameObject VARIABLE in objectsHiddenBeforeGameStarts)
         {
@@ -46,6 +48,7 @@ public class Statemachine : MonoBehaviour
         {
             VARIABLE.SetActive(true);
         }
+        cameraMovement.CameraDisabled = false;
         implementCurrentState();
     }
 
@@ -85,6 +88,7 @@ public class Statemachine : MonoBehaviour
         switch (curState)
         {
             case State.sceneStart:
+                cameraMovement.CameraDisabled = true;
                 break;
 
             case State.player:
