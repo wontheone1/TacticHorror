@@ -43,9 +43,18 @@ public class Grid : MonoBehaviour
             {
                 Vector3 worldPoint = worldBottomLeft + Vector2.right * (x * nodeDiameter + nodeRadius) + Vector2.up * (y * nodeDiameter + nodeRadius);
                 bool walkable = (Physics2D.OverlapCircle(worldPoint, nodeRadius * 0.70f, walkableMask)) || (Physics.CheckSphere(worldPoint, nodeRadius, walkableMask));
-                grid[x, y] = new Node(walkable, worldPoint, x, y);
+                Node.NodeType nodeType = getNodeType(worldPoint);
+                grid[x, y] = new Node(walkable, worldPoint, x, y, nodeType);
             }
         }
+    }
+
+    public Node.NodeType getNodeType(Vector2 worldPoint)
+    {
+        Collider2D collider = Physics2D.OverlapCircle(worldPoint, nodeRadius * 0.70f);
+        Node.NodeType nodeType = Node.NodeType.covered;
+        return nodeType;
+
     }
 
     //gets neighbouring nodes of the given node

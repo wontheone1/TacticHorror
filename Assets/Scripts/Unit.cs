@@ -158,6 +158,7 @@ public class Unit : MonoBehaviour
                     if (targetIndex >= path.Length)
                     {
                         /// When finished moving, clear up 
+                        Debug.Log("Finished moving.");
                         targetIndex = 0;
                         path = new Vector2[0];
                         break;
