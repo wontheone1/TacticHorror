@@ -15,6 +15,7 @@ public class Unit : MonoBehaviour
     protected string attackEvent;
 
     public static int UNIT_COUNT = 0;
+    public Rigidbody2D rb;
     public string name;
     float speed = 6f; // speed for animation
     Vector2[] path;
@@ -46,6 +47,8 @@ public class Unit : MonoBehaviour
         grid = GameObject.FindWithTag("MainCamera").GetComponent<Grid>();
         pathfinding = GameObject.FindWithTag("MainCamera").GetComponent<Pathfinding>();
         gameController = GameObject.FindWithTag("MainCamera").GetComponent<GameController>();
+        rb = GetComponent<Rigidbody2D>();
+        rb.isKinematic = false;
     }
 
     //delete units path, used before switching units and switching turn, function is called from Grid-script
@@ -133,6 +136,7 @@ public class Unit : MonoBehaviour
             succesful = false;
             StartCoroutine("FollowPath");
             actionPoint -= movementCostToDestination;
+            Debug.Log("started moving");
             return path;
         }
         return null;
@@ -145,6 +149,7 @@ public class Unit : MonoBehaviour
 
     IEnumerator FollowPath()
     {
+        // rb.isKinematic = true;
         unitMoving = true;
         GameController.unitMoving = true;
         if (path.Length > 0)
@@ -152,7 +157,7 @@ public class Unit : MonoBehaviour
             Vector3 currentWaypoint = path[0];
             while (true)
             {
-                if (transform.position == currentWaypoint)
+                if (Vector3.Distance(transform.position,currentWaypoint) < 0.10)
                 {
                     targetIndex++;
                     if (targetIndex >= path.Length)
@@ -165,13 +170,50 @@ public class Unit : MonoBehaviour
                     }
                     currentWaypoint = path[targetIndex];
                 }
-                transform.position = Vector2.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
+
+                transform.position = Vector2.MoveTowards(transform.position,
+                       currentWaypoint, speed * Time.deltaTime);
                 FMODUnity.RuntimeManager.PlayOneShot(walkEvent);
                 yield return null;
             }
             GameController.unitMoving = false;
+            Debug.Log("here");
             unitMoving = false;
+            // rb.isKinematic = false;
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        
+        if (coll.relativeVelocity.magnitude > 2.5)
+        {
+            Debug.Log("collision enter");
+            Vector2 currentVelocity = rb.velocity = Vector2.zero;
+            rb.isKinematic = true;
+            path = new Vector2[2];
+            path[0] = transform.position;
+            path[1] = grid.NodeFromWorldPoint(transform.position).worldPosition;
+            succesful = true;
+            startMoving();
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D coll)
+    {
+        Debug.Log("collisionexit rel vel " + coll.relativeVelocity);
+        rb.velocity = new Vector2(0, 3.5f);
+        rb.isKinematic = false; 
+    }
+
+    void setActive()
+    {
+        //rb.
+    }
+
+    void setInactive()
+    {
+        
     }
 
     public bool hasPath()
