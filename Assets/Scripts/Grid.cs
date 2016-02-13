@@ -43,7 +43,7 @@ public class Grid : MonoBehaviour
         grid = new Node[gridSizeX, gridSizeY];
 
         bool walkable, startable, throughable, finishable, blocked, covered, occupied;
-        float detectionLength = 0.6f;
+        float detectionLength = 0.7f;
         for (int x = 0; x < gridSizeX; x++)
         {
             for (int y = 0; y < gridSizeY; y++)
@@ -77,17 +77,31 @@ public class Grid : MonoBehaviour
 
                     checkY = node.gridY + y;
                     if (checkY >= 0 && checkY < gridSizeY)
-                        neighbours.Add(grid[node.gridX, checkY]);
+                        if (checkMovable(node, grid[node.gridX, checkY]) || checkMovable(grid[node.gridX, checkY], node))
+                            neighbours.Add(grid[node.gridX, checkY]);
                 }
             }
             else
             {
                 checkX = node.gridX + x;
                 if (checkX >= 0 && checkX < gridSizeX)
-                    neighbours.Add(grid[checkX, node.gridY]);
+                    if (checkMovable(node, grid[checkX, node.gridY]) || checkMovable(grid[checkX, node.gridY], node))
+                        neighbours.Add(grid[checkX, node.gridY]);
             }
         }
         return neighbours;
+    }
+
+    public bool checkMovable(Node currentNode, Node neighbor)
+    {
+        bool movable = false;
+        if ((currentNode.walkable && neighbor.walkable) || (currentNode.jumpStartable && neighbor.jumpThroughable)
+            || (currentNode.jumpThroughable && neighbor.jumpFinishable)
+            || (currentNode.jumpThroughable && neighbor.jumpThroughable))
+            movable = true;
+        if (!neighbor.walkable && (currentNode.gridY < neighbor.gridY))
+            movable = false;
+        return movable;
     }
 
     public Node NodeFromWorldPoint(Vector2 worldPosition)
@@ -136,16 +150,16 @@ public class Grid : MonoBehaviour
                     Gizmos.color = Color.blue;
                     draw = true;
                 }
-                else if (n.walkable || n.jumpStartable || n.jumpThroughable || n.jumpFinishable)
+                else if (n.jumpStartable || n.jumpThroughable || n.jumpFinishable)
+                {
+                    Gizmos.color = Color.green;
+                    draw = true;
+                }
+                else if (n.walkable)
                 {
                     Gizmos.color = Color.white;
                     draw = true;
                 }
-                //else if (n.jumpStartable || n.jumpThroughable || n.jumpFinishable)
-                //{
-                //    Gizmos.color = Color.yellow;
-                //    draw = true;
-                //}
                 if (draw)
                     Gizmos.DrawWireCube(n.worldPosition, new Vector3(1, 1, 0f) * (nodeDiameter - .1f));
             }
