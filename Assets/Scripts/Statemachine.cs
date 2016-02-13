@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Statemachine : MonoBehaviour
 {
+    public GameObject[] objectsHiddenBeforeGameStarts;
     public Text StateText;
     private GameController gameController;
     // instantiating enum state machine for easy and understandable usage
@@ -26,6 +27,10 @@ public class Statemachine : MonoBehaviour
     void Awake()
     {
         gameController = GetComponent<GameController>();
+        foreach (GameObject VARIABLE in objectsHiddenBeforeGameStarts)
+        {
+            VARIABLE.SetActive(false);   
+        }
     }
 
     // Use this for initialization
@@ -37,6 +42,10 @@ public class Statemachine : MonoBehaviour
     public void startGame()
     {
         curState = State.player;
+        foreach (GameObject VARIABLE in objectsHiddenBeforeGameStarts)
+        {
+            VARIABLE.SetActive(true);
+        }
         implementCurrentState();
     }
 
