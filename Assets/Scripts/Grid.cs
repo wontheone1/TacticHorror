@@ -26,7 +26,7 @@ public class Grid : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public int MaxSize
@@ -56,63 +56,89 @@ public class Grid : MonoBehaviour
     public List<Node> GetNeighbours(Node node)
     {
         List<Node> neighbours = new List<Node>();
+        int above, down;
         for (int x = -1; x <= 1; x++)
         {
-            for (int y = -1; y <= 1; y++)
+            if (x == 0)
             {
-                if (x == 0 && y == 0)
-                    continue;
-
+                above = node.gridY - 1;
+                down = node.gridY + 1;
+                if (above < gridSizeY)
+                    neighbours.Add(grid[node.gridX, above]);
+                if (down >= 0)
+                    neighbours.Add(grid[node.gridX, down]);
+            }
+            else
+            {
                 int checkX = node.gridX + x;
-                int checkY = node.gridY + y;
-                if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
+                if (checkX >= 0 && checkX < gridSizeX)
                 {
-                    neighbours.Add(grid[checkX, checkY]);
+                    neighbours.Add(grid[checkX, node.gridY]);
                 }
             }
         }
         return neighbours;
     }
 
+//public List<Node> GetNeighbours(Node node)
+//{
+//    List<Node> neighbours = new List<Node>();
+//    for (int x = -1; x <= 1; x++)
+//    {
+//        for (int y = -1; y <= 1; y++)
+//        {
+//            if (x == 0 && y == 0)
+//                continue;
 
-    public Node NodeFromWorldPoint(Vector2 worldPosition)
+//            int checkX = node.gridX + x;
+//            int checkY = node.gridY + y;
+//            if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
+//            {
+//                neighbours.Add(grid[checkX, checkY]);
+//            }
+//        }
+//    }
+//    return neighbours;
+//}
+
+public Node NodeFromWorldPoint(Vector2 worldPosition)
+{
+    Vector2 localPosition = worldPosition - worldBottomLeft;
+    float percentX = (localPosition.x) / gridWorldSize.x;
+    float percentY = (localPosition.y) / gridWorldSize.y;
+
+    percentX = Mathf.Clamp01(percentX);
+    percentY = Mathf.Clamp01(percentY);
+    int x = (int)((gridSizeX) * percentX);
+    int y = (int)((gridSizeY) * percentY);
+    /// prevent out of array range error, this way is more accurate 
+    if (percentX == 1f)
+        x = gridSizeX - 1;
+    if (percentY == 1f)
+        y = gridSizeY - 1;
+    return grid[x, y];
+}
+
+public void resetFcosts()
+{
+    foreach (Node n in grid)
     {
-        Vector2 localPosition = worldPosition - worldBottomLeft;
-        float percentX = (localPosition.x) / gridWorldSize.x;
-        float percentY = (localPosition.y) / gridWorldSize.y;
-
-        percentX = Mathf.Clamp01(percentX);
-        percentY = Mathf.Clamp01(percentY);
-        int x = (int)((gridSizeX) * percentX);
-        int y = (int)((gridSizeY) * percentY);
-        /// prevent out of array range error, this way is more accurate 
-	    if (percentX == 1f)
-            x = gridSizeX - 1;
-        if (percentY == 1f)
-            y = gridSizeY - 1;
-        return grid[x, y];
+        n.gCost = 0;
+        n.hCost = 0;
     }
+}
 
-    public void resetFcosts()
+void OnDrawGizmos()
+{
+    Gizmos.DrawWireCube(Vector3.zero, new Vector3(gridWorldSize.x, gridWorldSize.y, 0.1f));
+    if (grid != null && displayGridGizmos)
     {
         foreach (Node n in grid)
         {
-            n.gCost = 0;
-            n.hCost = 0;
+            Gizmos.color = (n.walkable) ? Color.white : Color.red;
+            if (n.walkable)
+                Gizmos.DrawWireCube(n.worldPosition, new Vector3(1, 1, 0f) * (nodeDiameter - .1f));
         }
     }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(Vector3.zero, new Vector3(gridWorldSize.x, gridWorldSize.y, 0.1f));
-        if (grid != null && displayGridGizmos)
-        {
-            foreach (Node n in grid)
-            {
-                Gizmos.color = (n.walkable) ? Color.white : Color.red;
-                if(n.walkable)
-                    Gizmos.DrawWireCube(n.worldPosition, new Vector3(1, 1, 0f) * (nodeDiameter - .1f));
-            }
-        }
-    }
+}
 }

@@ -69,6 +69,7 @@ public class Unit : MonoBehaviour
         if (targetUnit != null)
         {
             targetUnit.takeDamage(ap);
+            actionPoint = 0;
         }
     }
 
@@ -148,6 +149,13 @@ public class Unit : MonoBehaviour
         }
     }
 
+    public bool hasPath()
+    {
+        if (path != null)
+            return path.Length > 0;
+        else
+            return false;
+    }
     public void OnDrawGizmos()
     {
         if (path != null)

@@ -128,7 +128,7 @@ public class CameraMovement : MonoBehaviour
                 targetPos = pos;
                 targetPos.z = transform.position.z;
                 panSpeed = Time.deltaTime * cam.orthographicSize * 0.10f *
-                        Vector2.Distance(transform.position, targetPos) + 0.01f;
+                        Vector2.Distance(transform.position, targetPos) + 0.03f;
                 while ((transform.position) != targetPos)
                 {
                     // camera movement speed adjustment according to current zoom level

@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    private Grid grid;
+    private Node clickedNode = null;
     private Statemachine statemachine;
     public Text debugText;
     Unit activeUnit;
@@ -41,6 +44,7 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         statemachine = GetComponent<Statemachine>();
+        grid = GetComponent<Grid>();
     }
 
     void Start()
@@ -65,7 +69,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!unitMoving && !CameraMovement.cameraIsMoving)
+        if (!unitMoving && !CameraMovement.cameraIsMoving && activeUnit != null)
             activities();
     }
 
@@ -161,6 +165,7 @@ public class GameController : MonoBehaviour
                         {
                             activeUnit.attackTarget();
                             debugText.text = "Attacked: " + activeUnit.TargetUnit.name;
+                            selectNextUnit();
                             return;
                         }
                         activeUnit.setAttackTarget(opponentUnits[i]);
@@ -191,11 +196,24 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// if clicked the same tile, move Unit there, otherwise find new path for active unit
+    /// </summary>
     private void findPathForUnit()
     {
         mousePosition = Input.mousePosition;
         mousePosition.z = -transform.position.z;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        if (clickedNode != null && activeUnit.hasPath())
+        {
+            if (clickedNode.worldPosition == grid.NodeFromWorldPoint(mousePosition).worldPosition)
+            {
+                moveUnit();
+                return;
+            }
+                 
+        }
+        clickedNode = grid.NodeFromWorldPoint(mousePosition);
         activeUnit.RequestPath(mousePosition);
     }
 
