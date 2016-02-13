@@ -112,7 +112,6 @@ public class TextBoxManager : MonoBehaviour
         if (showingEvent)
         {
             textBox.SetActive(true);
-            Debug.Log(eventLines.Count);
             if (eventLines.Count > 0)
             {
                 if (eventLines[currentLine].team == 1)
@@ -148,15 +147,12 @@ public class TextBoxManager : MonoBehaviour
 
     public void EventHandler(string speakerName, string eventName)
     {
-        Debug.Log(speakerName + eventName);
         currentLine = 0;
         foreach (XmlNode node in eventDialogue.DocumentElement)
         {
-            Debug.Log(node.Attributes[0].Value + node.Attributes[2].Value);
             if (speakerName.Equals(node.Attributes[0].Value) && eventName.Equals(node.Attributes[2].Value))
             {
                 eventLines.Add(new entry(speakerName, int.Parse(node.Attributes[1].Value), node.InnerText, eventName));
-                Debug.Log("added");
             }
                 
         }

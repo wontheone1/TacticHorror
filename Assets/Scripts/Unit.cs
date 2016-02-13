@@ -4,6 +4,16 @@ using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
+    /// <summary>
+    /// store FMOD events
+    /// </summary>
+    //[FMODUnity.EventRef]
+    protected string dieEvent = "event:/Characters/Soldier/soldier_up_down_ladder";
+    protected string walkEvent;
+    protected string ladderUpdownEvent;
+    protected string getHitEvent;
+    protected string attackEvent;
+
     public static int UNIT_COUNT = 0;
     public string name;
     float speed = 6f; // speed for animation
@@ -71,20 +81,26 @@ public class Unit : MonoBehaviour
         if (targetUnit != null)
         {
             targetUnit.takeDamage(ap);
+            FMODUnity.RuntimeManager.PlayOneShot(attackEvent);
             actionPoint = 0;
         }
     }
 
     public void takeDamage(int damage)
     {
-        hp -= damage;
-        if (hp <= 0)
-            gameController.KillUnit(this);
+        if (damage > 0)
+        {
+            hp -= damage;
+            FMODUnity.RuntimeManager.PlayOneShot(getHitEvent);
+            if (hp <= 0)
+                gameController.KillUnit(this);
+        }
     }
 
-    public void die()
+    public virtual void die()
     {
-        gameController.textBoxManager.EventHandler(name, "die");
+        gameController.TextBoxManager.EventHandler(name, "die");
+        FMODUnity.RuntimeManager.PlayOneShot(dieEvent, transform.position);
     }
 
     public Node getCurrentNode()
@@ -149,6 +165,7 @@ public class Unit : MonoBehaviour
                     currentWaypoint = path[targetIndex];
                 }
                 transform.position = Vector2.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
+                FMODUnity.RuntimeManager.PlayOneShot(walkEvent);
                 yield return null;
             }
             GameController.unitMoving = false;

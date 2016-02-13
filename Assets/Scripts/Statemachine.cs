@@ -9,6 +9,8 @@ public class Statemachine : MonoBehaviour
     public Text StateText;
     private GameController gameController;
     private CameraMovement cameraMovement;
+    private string winEvent = "event:/Music/victory";
+    private string loseEvent = "event:/Music/defeat";
     // instantiating enum state machine for easy and understandable usage
     public enum State
     {
@@ -122,11 +124,13 @@ public class Statemachine : MonoBehaviour
             case Statemachine.State.lose:
                 //game is lost
                 StateText.text = "You Lost!";
+                FMODUnity.RuntimeManager.PlayOneShot(loseEvent);
                 break;
 
             case Statemachine.State.win:
                 //game is won, lol
                 StateText.text = "You Won!";
+                FMODUnity.RuntimeManager.PlayOneShot(winEvent);
                 break;
         }
     }

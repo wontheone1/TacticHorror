@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public TextBoxManager textBoxManager;
+    private TextBoxManager textBoxManager;
     private Grid grid;
     private Node clickedNode = null;
     private Statemachine statemachine;
@@ -39,6 +39,14 @@ public class GameController : MonoBehaviour
     {
         get { return activeUnit; }
         set { activeUnit = value; }
+    }
+
+    public TextBoxManager TextBoxManager
+    {
+        get
+        {
+            return textBoxManager;
+        }
     }
 
     // Use this for initialization
@@ -163,7 +171,8 @@ public class GameController : MonoBehaviour
                         {
                             activeUnit.attackTarget();
                             debugText.text = "Attacked: " + activeUnit.TargetUnit.name;
-                            selectNextUnit();
+                            if (!selectNextUnit())
+                                endTurn();
                             return;
                         }
                         activeUnit.setAttackTarget(opponentUnits[i]);

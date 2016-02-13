@@ -15,8 +15,8 @@ TagManager:
   - 
   - Unwalkable
   - Walkable
-  - 
-  - 
+  - JumpDown
+  - JumpCross
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: foreground
     uniqueID: 2604310549
+    locked: 0
+  - name: UI Layer
+    uniqueID: 291706149
     locked: 0
