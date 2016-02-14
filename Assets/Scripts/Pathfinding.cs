@@ -33,7 +33,7 @@ public class Pathfinding : MonoBehaviour
         bool pathSuccess = false;
         Node startNode = grid.NodeFromWorldPoint(startPos);
         Node targetNode = grid.NodeFromWorldPoint(targetPos);
-        if (startNode.walkable && targetNode.walkable)
+        if (startNode.walkable && targetNode.walkable && !targetNode.inMidOfFloor)
         {
             Heap<Node> openSet = new Heap<Node>(grid.MaxSize);
             HashSet<Node> closedSet = new HashSet<Node>();
@@ -75,7 +75,7 @@ public class Pathfinding : MonoBehaviour
         {
             waypoints = RetracePath(startNode, targetNode);
         }
-        if (targetNode.FCost > actionPoint || targetNode.inMidOfFloor)
+        if (targetNode.FCost > actionPoint)
             StartFindPath(startPos, targetNode.parent.worldPosition, actionPoint);
         else
         {
