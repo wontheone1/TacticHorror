@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     private TextBoxManager textBoxManager;
+    private Button endButton;
     private Grid grid;
     private Node clickedNode = null;
     private Statemachine statemachine;
@@ -55,10 +56,13 @@ public class GameController : MonoBehaviour
         try
         {
             debugText = GameObject.Find("Debug Text").GetComponent<Text>();
+            Debug.Log(debugText);
         }
         catch (Exception e) { }
         statemachine = GetComponent<Statemachine>();
         grid = GetComponent<Grid>();
+        endButton = GameObject.Find("EndTurn").GetComponent<Button>();
+        endButton.onClick.AddListener(delegate {endTurn();});
         textBoxManager = GetComponent<TextBoxManager>();
     }
 
@@ -235,7 +239,7 @@ public class GameController : MonoBehaviour
 
     public void KillUnit(Unit unit)
     {
-        debugText.text = unit + " was killed.";
+        debugText.text = unit.unitname + " was killed.";
         opponentUnits.Remove(unit);
         playerUnits.Remove(unit);
         enemyUnits.Remove(unit);

@@ -16,7 +16,7 @@ public class Unit : MonoBehaviour
 
     public static int UNIT_COUNT = 0;
     public Rigidbody2D rb;
-    public string name;
+    public string unitname;
     float speed = 6f; // speed for animation
     Vector2[] path;
     int targetIndex;
@@ -102,7 +102,7 @@ public class Unit : MonoBehaviour
 
     public virtual void die()
     {
-        gameController.TextBoxManager.EventHandler(name, "die");
+        gameController.TextBoxManager.EventHandler(unitname, "die");
         FMODUnity.RuntimeManager.PlayOneShot(dieEvent, transform.position);
     }
 
@@ -184,7 +184,6 @@ public class Unit : MonoBehaviour
         if (coll.relativeVelocity.magnitude > 2.5)
         {
             Debug.Log("collision enter");
-            Vector2 currentVelocity = rb.velocity = Vector2.zero;
             rb.isKinematic = true;
             path = new Vector2[2];
             path[0] = transform.position;

@@ -11,7 +11,7 @@ public class SoldierClass : Unit
         MAX_AP = ap = 5;
         MAX_MP = mp = 5;
         attackRange = 15;
-        name = "Soldier" + UNIT_COUNT;
+        unitname = "Soldier" + UNIT_COUNT;
         dieEvent = "event:/Characters/Soldier/soldier_counter_attack";
         walkEvent = "event:/Characters/Soldier/soldier_walk";
         ladderUpdownEvent = "event:/Characters/Soldier/soldier_up_down_ladder";

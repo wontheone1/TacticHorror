@@ -12,7 +12,6 @@ public class Statemachine : MonoBehaviour
     private CameraMovement cameraMovement;
     private string winEvent = "event:/Music/victory";
     private string loseEvent = "event:/Music/defeat";
-    private bool textActive = true;
     // instantiating enum state machine for easy and understandable usage
     public enum State
     {
@@ -44,10 +43,7 @@ public class Statemachine : MonoBehaviour
             {
                 VARIABLE.SetActive(false);
             }
-            catch (Exception)
-            {
-                textActive = false;
-            }
+            catch (Exception){}
         }
     }
 
@@ -114,10 +110,7 @@ public class Statemachine : MonoBehaviour
             case State.player:
                 //players turn
                 //change active unit to player Unit
-                if (textActive)
-                {
-                    StateText.text = "Player turn";
-                }
+                StateText.text = "Player turn";
                 camMovePath = new Vector2[2];
                 camMovePath[0] = Camera.main.gameObject.transform.position;
                 gameController.ActiveUnits = gameController.playerUnits;
@@ -131,10 +124,7 @@ public class Statemachine : MonoBehaviour
             case State.enemy:
                 //enemys turn
                 //change active unit to enemyunit
-                if (textActive)
-                {
-                    StateText.text = "Enemy turn";
-                }
+                StateText.text = "Enemy turn";
                 camMovePath = new Vector2[2];
                 camMovePath[0] = Camera.main.gameObject.transform.position;
                 gameController.ActiveUnits = gameController.enemyUnits;
@@ -147,19 +137,13 @@ public class Statemachine : MonoBehaviour
 
             case Statemachine.State.lose:
                 //game is lost
-                if (textActive)
-                {
-                    StateText.text = "You Lost!";
-                }
+                StateText.text = "You Lost!";
                 FMODUnity.RuntimeManager.PlayOneShot(loseEvent);
                 break;
 
             case Statemachine.State.win:
                 //game is won, lol
-                if (textActive)
-                {
-                    StateText.text = "You Won!";
-                }
+                StateText.text = "You Won!";
                 FMODUnity.RuntimeManager.PlayOneShot(winEvent);
                 break;
         }

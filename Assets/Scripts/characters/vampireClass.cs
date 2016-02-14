@@ -10,7 +10,7 @@ public class VampireClass : Unit
         MAX_AP = ap = 5;
         MAX_MP = mp = 5;
         attackRange = 15;
-        name = "Vampire";
+        unitname = "Vampire";
 
         /// FMOD Events assign
         dieEvent = "event:/Characters/Vampire/vamp_die";
