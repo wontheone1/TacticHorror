@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class TextBoxManager : MonoBehaviour
 {
-
     public GameObject textBox;
     public GameObject enemySpeakerPanel;
     public GameObject playerSpeakerPanel;
@@ -28,6 +27,7 @@ public class TextBoxManager : MonoBehaviour
     public int endAtLine;
     public bool dialogueDone = false;
     public bool showingEvent = false;
+    public bool textBoxActive = true;
 
     public class entry
     {
@@ -56,18 +56,22 @@ public class TextBoxManager : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        textBox = GameObject.Find("DialoguePanel");
-        enemySpeakerPanel = GameObject.Find("enemySpeakerPanel");
-        playerSpeakerPanel = GameObject.Find("playerSpeakerPanel");
+        
         try
         {
+            textBox = GameObject.Find("DialoguePanel");
+            enemySpeakerPanel = GameObject.Find("enemySpeakerPanel");
+            playerSpeakerPanel = GameObject.Find("playerSpeakerPanel");
             enemySpeaker = GameObject.Find("enemySpeaker").GetComponent<Text>();
             playerSpeaker = GameObject.Find("playerSpeaker").GetComponent<Text>();
             enemyImage = GameObject.Find("enemyImage").GetComponent<Image>();
             playerImage = GameObject.Find("playerImage").GetComponent<Image>();
             theText = GameObject.Find("Dialogue").GetComponent<Text>();
         }
-        catch (Exception e) { }
+        catch (Exception e)
+        {
+            textBoxActive = false;
+        }
         statemachine = GetComponent<Statemachine>();
     }
 
@@ -90,11 +94,16 @@ public class TextBoxManager : MonoBehaviour
         {
             endAtLine = lines.Count - 1;
         }
+        if (!textBoxActive)
+        {
+            endAtLine = 0;
+            statemachine.startGame();
+        }
     }
 
     void Update()
     {
-        if (!dialogueDone)
+        if (!dialogueDone && textBoxActive)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -111,10 +120,15 @@ public class TextBoxManager : MonoBehaviour
             {
                 if (lines[currentLine].team == 1)
                 {
-                    playerSpeakerPanel.SetActive(true);
-                    enemySpeakerPanel.SetActive(false);
-                    playerSpeaker.text = lines[currentLine].speaker;
-                    playerImage.sprite = ImageResourcesManager.getInstance().ReturnSprite(lines[currentLine].speaker);
+                    try
+                    {
+                        playerSpeakerPanel.SetActive(true);
+                        enemySpeakerPanel.SetActive(false);
+                        playerSpeaker.text = lines[currentLine].speaker;
+                        playerImage.sprite = ImageResourcesManager.getInstance().ReturnSprite(lines[currentLine].speaker);
+                    }
+                    catch (Exception e) { }
+                    
                 }
                 else if (lines[currentLine].team == 2)
                 {
@@ -126,13 +140,12 @@ public class TextBoxManager : MonoBehaviour
                         enemyImage.sprite = ImageResourcesManager.getInstance().ReturnSprite(lines[currentLine].speaker);
                     }
                     catch (Exception e) { }
-                    
                 }
                 theText.text = lines[currentLine].line;
             }
         }
 
-        if (showingEvent)
+        if (showingEvent && textBoxActive)
         {
             textBox.SetActive(true);
             if (eventLines.Count > 0)

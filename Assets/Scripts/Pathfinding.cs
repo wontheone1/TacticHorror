@@ -75,7 +75,7 @@ public class Pathfinding : MonoBehaviour
         {
             waypoints = RetracePath(startNode, targetNode);
         }
-        if (targetNode.FCost > actionPoint)
+        if (targetNode.FCost > actionPoint || targetNode.inMidOfFloor)
             StartFindPath(startPos, targetNode.parent.worldPosition, actionPoint);
         else
         {

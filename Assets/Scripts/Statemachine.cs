@@ -12,6 +12,7 @@ public class Statemachine : MonoBehaviour
     private CameraMovement cameraMovement;
     private string winEvent = "event:/Music/victory";
     private string loseEvent = "event:/Music/defeat";
+    private bool textActive = true;
     // instantiating enum state machine for easy and understandable usage
     public enum State
     {
@@ -43,7 +44,10 @@ public class Statemachine : MonoBehaviour
             {
                 VARIABLE.SetActive(false);
             }
-            catch (Exception){}
+            catch (Exception)
+            {
+                textActive = false;
+            }
         }
     }
 
@@ -56,10 +60,14 @@ public class Statemachine : MonoBehaviour
     public void startGame()
     {
         curState = State.player;
-        foreach (GameObject VARIABLE in objectsHiddenBeforeGameStarts)
+        try
         {
-            VARIABLE.SetActive(true);
+            foreach (GameObject VARIABLE in objectsHiddenBeforeGameStarts)
+            {
+                VARIABLE.SetActive(true);
+            }
         }
+        catch (Exception) { }
         cameraMovement.CameraDisabled = false;
         implementCurrentState();
     }
@@ -106,7 +114,10 @@ public class Statemachine : MonoBehaviour
             case State.player:
                 //players turn
                 //change active unit to player Unit
-                StateText.text = "Player turn";
+                if (textActive)
+                {
+                    StateText.text = "Player turn";
+                }
                 camMovePath = new Vector2[2];
                 camMovePath[0] = Camera.main.gameObject.transform.position;
                 gameController.ActiveUnits = gameController.playerUnits;
@@ -120,7 +131,10 @@ public class Statemachine : MonoBehaviour
             case State.enemy:
                 //enemys turn
                 //change active unit to enemyunit
-                StateText.text = "Enemy turn";
+                if (textActive)
+                {
+                    StateText.text = "Enemy turn";
+                }
                 camMovePath = new Vector2[2];
                 camMovePath[0] = Camera.main.gameObject.transform.position;
                 gameController.ActiveUnits = gameController.enemyUnits;
@@ -133,13 +147,19 @@ public class Statemachine : MonoBehaviour
 
             case Statemachine.State.lose:
                 //game is lost
-                StateText.text = "You Lost!";
+                if (textActive)
+                {
+                    StateText.text = "You Lost!";
+                }
                 FMODUnity.RuntimeManager.PlayOneShot(loseEvent);
                 break;
 
             case Statemachine.State.win:
                 //game is won, lol
-                StateText.text = "You Won!";
+                if (textActive)
+                {
+                    StateText.text = "You Won!";
+                }
                 FMODUnity.RuntimeManager.PlayOneShot(winEvent);
                 break;
         }

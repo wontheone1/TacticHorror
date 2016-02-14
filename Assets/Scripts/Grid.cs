@@ -8,10 +8,9 @@ public class Grid : MonoBehaviour
     public bool displayGridGizmos;
     public LayerMask UnwalkableMask;
     public LayerMask WalkableMask;
-    // public LayerMask JumpStartable;
-    // public LayerMask JumpFinishable;
     public LayerMask JumpThrouable;
     public LayerMask BlockedMask;
+    public LayerMask MidFloorLayerMask;
 
     public Vector2 gridWorldSize;
     public float nodeRadius;
@@ -41,7 +40,7 @@ public class Grid : MonoBehaviour
     {
         grid = new Node[gridSizeX, gridSizeY];
 
-        bool walkable, throughable, blocked, coveredFromLeft, coveredFromRight;
+        bool walkable, throughable, blocked, coveredFromLeft, coveredFromRight, inMidFloor;
         RaycastHit2D hit;
         float detectionLength = 0.7f;
         for (int x = 0; x < gridSizeX; x++)
@@ -54,7 +53,8 @@ public class Grid : MonoBehaviour
                 blocked = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, BlockedMask));
                 coveredFromLeft = Physics2D.Raycast(worldPoint, Vector2.left, nodeDiameter, BlockedMask).collider != null;
                 coveredFromRight = Physics2D.Raycast(worldPoint, Vector2.right, nodeDiameter, BlockedMask).collider != null;
-                grid[x, y] = new Node(walkable, worldPoint, x, y, throughable, blocked, coveredFromLeft, coveredFromRight, false);
+                inMidFloor = (Physics2D.OverlapCircle(worldPoint, nodeRadius*detectionLength, MidFloorLayerMask));
+                grid[x, y] = new Node(walkable, worldPoint, x, y, throughable, blocked, coveredFromLeft, coveredFromRight, false, inMidFloor);
             }
         }
     }
@@ -140,6 +140,11 @@ public class Grid : MonoBehaviour
                 else if (n.jumpThroughable)
                 {
                     Gizmos.color = Color.green;
+                    draw = true;
+                }
+                else if (n.inMidOfFloor)
+                {
+                    Gizmos.color = Color.cyan;
                     draw = true;
                 }
                 else if (n.walkable)

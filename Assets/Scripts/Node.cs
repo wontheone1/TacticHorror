@@ -6,7 +6,7 @@ public class Node : IHeapItem<Node> {
 	
     
 	public bool walkable, jumpThroughable, blocked, 
-        coveredFromRight, coveredFromLeft, occupied;
+        coveredFromRight, coveredFromLeft, occupied, inMidOfFloor;
 	public Vector2 worldPosition;
 	public int gridX;
 	public int gridY;
@@ -16,7 +16,7 @@ public class Node : IHeapItem<Node> {
 	int heapIndex;
 
 	public Node(bool _walkable, Vector2 _worldPos, int _gridX, int _gridY,
-        bool throughable, bool _blocked, bool _coveredFromLeft, bool _coveredFromRight, bool _occupied) {
+        bool throughable, bool _blocked, bool _coveredFromLeft, bool _coveredFromRight, bool _occupied, bool _inMidOfFloor) {
 		walkable = _walkable;
 		worldPosition = _worldPos;
 		gridX = _gridX;
@@ -26,6 +26,7 @@ public class Node : IHeapItem<Node> {
 	    coveredFromLeft = _coveredFromLeft;
 	    coveredFromRight = _coveredFromRight;
 	    occupied = _occupied;
+	    inMidOfFloor = _inMidOfFloor;
         }
 
 	public int FCost {
