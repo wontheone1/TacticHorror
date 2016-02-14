@@ -52,7 +52,11 @@ public class GameController : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        debugText = GameObject.Find("Debug Text").GetComponent<Text>();
+        try
+        {
+            debugText = GameObject.Find("Debug Text").GetComponent<Text>();
+        }
+        catch (Exception e) { }
         statemachine = GetComponent<Statemachine>();
         grid = GetComponent<Grid>();
         textBoxManager = GetComponent<TextBoxManager>();

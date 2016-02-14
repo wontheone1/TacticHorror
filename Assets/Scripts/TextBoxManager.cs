@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
@@ -58,11 +59,15 @@ public class TextBoxManager : MonoBehaviour
         textBox = GameObject.Find("DialoguePanel");
         enemySpeakerPanel = GameObject.Find("enemySpeakerPanel");
         playerSpeakerPanel = GameObject.Find("playerSpeakerPanel");
-        enemySpeaker = GameObject.Find("enemySpeaker").GetComponent<Text>();
-        playerSpeaker = GameObject.Find("playerSpeaker").GetComponent<Text>();
-        enemyImage = GameObject.Find("enemyImage").GetComponent<Image>();
-        playerImage = GameObject.Find("playerImage").GetComponent<Image>();
-        theText = GameObject.Find("Dialogue").GetComponent<Text>();
+        try
+        {
+            enemySpeaker = GameObject.Find("enemySpeaker").GetComponent<Text>();
+            playerSpeaker = GameObject.Find("playerSpeaker").GetComponent<Text>();
+            enemyImage = GameObject.Find("enemyImage").GetComponent<Image>();
+            playerImage = GameObject.Find("playerImage").GetComponent<Image>();
+            theText = GameObject.Find("Dialogue").GetComponent<Text>();
+        }
+        catch (Exception e) { }
         statemachine = GetComponent<Statemachine>();
     }
 
@@ -70,8 +75,13 @@ public class TextBoxManager : MonoBehaviour
     {
         dialogue.Load("Assets/text/Level1_Dialog.xml");
         eventDialogue.Load("Assets/text/Level1_Event_Dialog.xml");
-        playerSpeakerPanel.SetActive(false);
-        enemySpeakerPanel.SetActive(false);
+        try
+        {
+            playerSpeakerPanel.SetActive(false);
+            enemySpeakerPanel.SetActive(false);
+        }
+        catch (Exception){}
+        
         foreach (XmlNode node in dialogue.DocumentElement)
         {
             lines.Add(new entry(node.Attributes[0].Value, int.Parse(node.Attributes[1].Value), node.InnerText));
@@ -108,10 +118,15 @@ public class TextBoxManager : MonoBehaviour
                 }
                 else if (lines[currentLine].team == 2)
                 {
-                    playerSpeakerPanel.SetActive(false);
-                    enemySpeakerPanel.SetActive(true);
-                    enemySpeaker.text = lines[currentLine].speaker;
-                    enemyImage.sprite = ImageResourcesManager.getInstance().ReturnSprite(lines[currentLine].speaker);
+                    try
+                    {
+                        playerSpeakerPanel.SetActive(false);
+                        enemySpeakerPanel.SetActive(true);
+                        enemySpeaker.text = lines[currentLine].speaker;
+                        enemyImage.sprite = ImageResourcesManager.getInstance().ReturnSprite(lines[currentLine].speaker);
+                    }
+                    catch (Exception e) { }
+                    
                 }
                 theText.text = lines[currentLine].line;
             }

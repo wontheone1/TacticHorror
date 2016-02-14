@@ -5,7 +5,8 @@ using FMOD;
 public class Node : IHeapItem<Node> {
 	
     
-	public bool walkable, jumpThroughable, blocked, covered, occupied;
+	public bool walkable, jumpThroughable, blocked, 
+        coveredFromRight, coveredFromLeft, occupied;
 	public Vector2 worldPosition;
 	public int gridX;
 	public int gridY;
@@ -15,14 +16,15 @@ public class Node : IHeapItem<Node> {
 	int heapIndex;
 
 	public Node(bool _walkable, Vector2 _worldPos, int _gridX, int _gridY,
-        bool throughable, bool _blocked, bool _covered, bool _occupied) {
+        bool throughable, bool _blocked, bool _coveredFromLeft, bool _coveredFromRight, bool _occupied) {
 		walkable = _walkable;
 		worldPosition = _worldPos;
 		gridX = _gridX;
 		gridY = _gridY;
 	    jumpThroughable = throughable;
 	    blocked = _blocked;
-	    covered = _covered;
+	    coveredFromLeft = _coveredFromLeft;
+	    coveredFromRight = _coveredFromRight;
 	    occupied = _occupied;
         }
 

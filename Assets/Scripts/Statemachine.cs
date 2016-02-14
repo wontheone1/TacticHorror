@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -30,12 +31,19 @@ public class Statemachine : MonoBehaviour
     void Awake()
     {
         objectsHiddenBeforeGameStarts = new[] {GameObject.Find("EndTurn")};
-        StateText = GameObject.Find("Game State Text").GetComponent<Text>();
+        try
+        {
+            StateText = GameObject.Find("Game State Text").GetComponent<Text>();
+        } catch (Exception e) { };
         cameraMovement = GetComponent<CameraMovement>();
         gameController = GetComponent<GameController>();
         foreach (GameObject VARIABLE in objectsHiddenBeforeGameStarts)
         {
-            VARIABLE.SetActive(false);   
+            try
+            {
+                VARIABLE.SetActive(false);
+            }
+            catch (Exception){}
         }
     }
 

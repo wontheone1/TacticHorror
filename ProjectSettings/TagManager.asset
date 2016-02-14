@@ -15,12 +15,12 @@ TagManager:
   - 
   - Unwalkable
   - Walkable
-  - jumpStartable
   - jumpThrouable
-  - jumpFinishable
   - blocked
   - covered
   - occupied
+  - 
+  - 
   - 
   - 
   - 
