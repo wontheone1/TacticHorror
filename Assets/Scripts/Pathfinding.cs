@@ -51,13 +51,7 @@ public class Pathfinding : MonoBehaviour
                 }
                 foreach (Node neighbour in grid.GetNeighbours(currentNode))
                 {
-                    //if ((!neighbour.walkable && !neighbour.jumpStartable && !neighbour.jumpFinishable
-                    //    && !neighbour.jumpThroughable) || closedSet.Contains(neighbour))
-                    //{
-                    //    continue;
-                    //}
-
-                    if (closedSet.Contains(neighbour))
+                    if ((!neighbour.walkable && !neighbour.jumpThroughable) || closedSet.Contains(neighbour))
                         continue;
                     if (!neighbour.walkable && (currentNode.gridY < neighbour.gridY))
                         continue;

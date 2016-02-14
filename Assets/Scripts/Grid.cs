@@ -8,8 +8,8 @@ public class Grid : MonoBehaviour
     public bool displayGridGizmos;
     public LayerMask UnwalkableMask;
     public LayerMask WalkableMask;
-    public LayerMask JumpStartable;
-    public LayerMask JumpFinishable;
+    // public LayerMask JumpStartable;
+    // public LayerMask JumpFinishable;
     public LayerMask JumpThrouable;
     public LayerMask BlockedMask;
     public LayerMask CoverLayerMask;
@@ -42,7 +42,7 @@ public class Grid : MonoBehaviour
     {
         grid = new Node[gridSizeX, gridSizeY];
 
-        bool walkable, startable, throughable, finishable, blocked, covered, occupied;
+        bool walkable, throughable, blocked, covered;
         float detectionLength = 0.7f;
         for (int x = 0; x < gridSizeX; x++)
         {
@@ -50,12 +50,10 @@ public class Grid : MonoBehaviour
             {
                 Vector3 worldPoint = worldBottomLeft + Vector2.right * (x * nodeDiameter + nodeRadius) + Vector2.up * (y * nodeDiameter + nodeRadius);
                 walkable = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, WalkableMask)) || (Physics.CheckSphere(worldPoint, nodeRadius, WalkableMask));
-                startable = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, JumpStartable));
                 throughable = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, JumpThrouable));
-                finishable = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, JumpFinishable));
                 blocked = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, BlockedMask));
                 covered = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, CoverLayerMask));
-                grid[x, y] = new Node(walkable, worldPoint, x, y, startable, finishable, throughable, blocked, covered, false);
+                grid[x, y] = new Node(walkable, worldPoint, x, y, throughable, blocked, covered, false);
             }
         }
     }
@@ -77,32 +75,32 @@ public class Grid : MonoBehaviour
 
                     checkY = node.gridY + y;
                     if (checkY >= 0 && checkY < gridSizeY)
-                        if (checkMovable(node, grid[node.gridX, checkY]) || checkMovable(grid[node.gridX, checkY], node))
-                            neighbours.Add(grid[node.gridX, checkY]);
+                        //if (checkMovable(node, grid[node.gridX, checkY]) || checkMovable(grid[node.gridX, checkY], node))
+                        neighbours.Add(grid[node.gridX, checkY]);
                 }
             }
             else
             {
                 checkX = node.gridX + x;
                 if (checkX >= 0 && checkX < gridSizeX)
-                    if (checkMovable(node, grid[checkX, node.gridY]) || checkMovable(grid[checkX, node.gridY], node))
-                        neighbours.Add(grid[checkX, node.gridY]);
+                    //if (checkMovable(node, grid[checkX, node.gridY]) || checkMovable(grid[checkX, node.gridY], node))
+                    neighbours.Add(grid[checkX, node.gridY]);
             }
         }
         return neighbours;
     }
 
-    public bool checkMovable(Node currentNode, Node neighbor)
-    {
-        bool movable = false;
-        if ((currentNode.walkable && neighbor.walkable) || (currentNode.jumpStartable && neighbor.jumpThroughable)
-            || (currentNode.jumpThroughable && neighbor.jumpFinishable)
-            || (currentNode.jumpThroughable && neighbor.jumpThroughable))
-            movable = true;
-        if (!neighbor.walkable && (currentNode.gridY < neighbor.gridY))
-            movable = false;
-        return movable;
-    }
+    //public bool checkMovable(Node currentNode, Node neighbor)
+    //{
+    //    bool movable = false;
+    //    if ((currentNode.walkable && neighbor.walkable) || (currentNode.jumpStartable && neighbor.jumpThroughable)
+    //        || (currentNode.jumpThroughable && neighbor.jumpFinishable)
+    //        || (currentNode.jumpThroughable && neighbor.jumpThroughable))
+    //        movable = true;
+    //    if (!neighbor.walkable && (currentNode.gridY < neighbor.gridY))
+    //        movable = false;
+    //    return movable;
+    //}
 
     public Node NodeFromWorldPoint(Vector2 worldPosition)
     {
@@ -150,16 +148,22 @@ public class Grid : MonoBehaviour
                     Gizmos.color = Color.blue;
                     draw = true;
                 }
-                else if (n.jumpStartable || n.jumpThroughable || n.jumpFinishable)
-                {
-                    Gizmos.color = Color.green;
-                    draw = true;
-                }
                 else if (n.walkable)
                 {
                     Gizmos.color = Color.white;
                     draw = true;
                 }
+                //else if (n.jumpStartable || n.jumpThroughable || n.jumpFinishable)
+                //{
+                //    Gizmos.color = Color.green;
+                //    draw = true;
+                //}
+                else if (n.jumpThroughable)
+                {
+                    Gizmos.color = Color.green;
+                    draw = true;
+                }
+
                 if (draw)
                     Gizmos.DrawWireCube(n.worldPosition, new Vector3(1, 1, 0f) * (nodeDiameter - .1f));
             }

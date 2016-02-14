@@ -55,6 +55,14 @@ public class TextBoxManager : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        textBox = GameObject.Find("DialoguePanel");
+        enemySpeakerPanel = GameObject.Find("enemySpeakerPanel");
+        playerSpeakerPanel = GameObject.Find("playerSpeakerPanel");
+        enemySpeaker = GameObject.Find("enemySpeaker").GetComponent<Text>();
+        playerSpeaker = GameObject.Find("playerSpeaker").GetComponent<Text>();
+        enemyImage = GameObject.Find("enemyImage").GetComponent<Image>();
+        playerImage = GameObject.Find("playerImage").GetComponent<Image>();
+        theText = GameObject.Find("Dialogue").GetComponent<Text>();
         statemachine = GetComponent<Statemachine>();
     }
 

@@ -52,6 +52,7 @@ public class GameController : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        debugText = GameObject.Find("Debug Text").GetComponent<Text>();
         statemachine = GetComponent<Statemachine>();
         grid = GetComponent<Grid>();
         textBoxManager = GetComponent<TextBoxManager>();
@@ -157,7 +158,6 @@ public class GameController : MonoBehaviour
         Collider2D[] col = Physics2D.OverlapPointAll(v);
         if (col.Length > 0)
         {
-            unitSelected = true;
             foreach (Collider2D c in col)
             {
                 /// if an opponent unit is clicked, select it as target
@@ -166,6 +166,7 @@ public class GameController : MonoBehaviour
                 {
                     if (opponentUnits[i].transform == c.transform)
                     {
+                        unitSelected = true;
                         activeUnit.deletePath();
                         if (activeUnit.TargetUnit == c.gameObject.GetComponent<Unit>())
                         {
@@ -194,6 +195,7 @@ public class GameController : MonoBehaviour
                 {
                     if (activeUnits[i].transform == c.transform)
                     {
+                        unitSelected = true;
                         activeUnit.deletePath();
                         activeUnit = activeUnits[i];
                         camMovePath[1] = activeUnit.transform.position;

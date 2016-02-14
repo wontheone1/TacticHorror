@@ -124,7 +124,7 @@ public class CameraMovement : MonoBehaviour
     IEnumerator moveCoroutine(Vector2[] path)
     {
         cameraIsMoving = true;
-        if (path != null)
+        if (path != null && path.Length>0)
         {
             Vector3 targetPos;
             transform.position = new Vector3(path[0].x, path[0].y, transform.position.z);

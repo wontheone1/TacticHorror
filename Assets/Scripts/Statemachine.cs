@@ -29,6 +29,8 @@ public class Statemachine : MonoBehaviour
     //// Use this for initialization
     void Awake()
     {
+        objectsHiddenBeforeGameStarts = new[] {GameObject.Find("EndTurn")};
+        StateText = GameObject.Find("Game State Text").GetComponent<Text>();
         cameraMovement = GetComponent<CameraMovement>();
         gameController = GetComponent<GameController>();
         foreach (GameObject VARIABLE in objectsHiddenBeforeGameStarts)
