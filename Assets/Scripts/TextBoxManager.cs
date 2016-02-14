@@ -127,7 +127,7 @@ public class TextBoxManager : MonoBehaviour
                         playerSpeaker.text = lines[currentLine].speaker;
                         playerImage.sprite = ImageResourcesManager.getInstance().ReturnSprite(lines[currentLine].speaker);
                     }
-                    catch (Exception e) { }
+                    catch (Exception e) { Debug.Log(e); }
                     
                 }
                 else if (lines[currentLine].team == 2)

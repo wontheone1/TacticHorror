@@ -56,9 +56,8 @@ public class GameController : MonoBehaviour
         try
         {
             debugText = GameObject.Find("Debug Text").GetComponent<Text>();
-            Debug.Log(debugText);
         }
-        catch (Exception e) { }
+        catch (Exception e) { Debug.Log(e);}
         statemachine = GetComponent<Statemachine>();
         grid = GetComponent<Grid>();
         endButton = GameObject.Find("EndTurn").GetComponent<Button>();
