@@ -11,84 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: 11428884}
-  - {fileID: 11419228}
-  - {fileID: 11491126}
-  EditorEvents:
-  - {fileID: 11492670}
-  - {fileID: 11409868}
-  - {fileID: 11492038}
-  - {fileID: 11419276}
-  - {fileID: 11485442}
-  - {fileID: 11430246}
-  - {fileID: 11489002}
-  - {fileID: 11407494}
-  - {fileID: 11478578}
-  - {fileID: 11493006}
-  - {fileID: 11497872}
-  - {fileID: 11419722}
-  - {fileID: 11487614}
-  - {fileID: 11412466}
-  - {fileID: 11436082}
-  - {fileID: 11494822}
-  - {fileID: 11474278}
-  - {fileID: 11480610}
-  - {fileID: 11463428}
-  - {fileID: 11442108}
-  - {fileID: 11453850}
-  - {fileID: 11405144}
-  - {fileID: 11413198}
-  - {fileID: 11414764}
-  - {fileID: 11483004}
-  - {fileID: 11436480}
-  - {fileID: 11448466}
-  - {fileID: 11437586}
-  - {fileID: 11498362}
-  - {fileID: 11421640}
-  - {fileID: 11459750}
-  - {fileID: 11421208}
-  - {fileID: 11471866}
-  - {fileID: 11491006}
-  - {fileID: 11412626}
-  - {fileID: 11437796}
-  - {fileID: 11464112}
-  - {fileID: 11494896}
-  - {fileID: 11469700}
-  - {fileID: 11409746}
-  - {fileID: 11446812}
-  - {fileID: 11425134}
-  - {fileID: 11453552}
-  - {fileID: 11478092}
-  - {fileID: 11421100}
-  - {fileID: 11456600}
-  - {fileID: 11420546}
-  - {fileID: 11411412}
-  - {fileID: 11480110}
-  - {fileID: 11497132}
-  - {fileID: 11409040}
-  - {fileID: 11455158}
-  - {fileID: 11471374}
-  - {fileID: 11458012}
-  - {fileID: 11446586}
-  - {fileID: 11422310}
-  - {fileID: 11405064}
-  - {fileID: 11486454}
-  - {fileID: 11450980}
-  - {fileID: 11460130}
-  - {fileID: 11402424}
-  - {fileID: 11425272}
-  - {fileID: 11423532}
-  - {fileID: 11413436}
-  - {fileID: 11471714}
-  - {fileID: 11493038}
-  - {fileID: 11404480}
-  - {fileID: 11460760}
-  - {fileID: 11490202}
-  - {fileID: 11440740}
-  - {fileID: 11426926}
+  EditorBanks: []
+  EditorEvents: []
   MasterBankRef: {fileID: 11433666}
-  stringsBankWriteTime: 635909665380044468
+  stringsBankWriteTime: 0
 --- !u!114 &11400076
 MonoBehaviour:
   m_ObjectHideFlags: 0
