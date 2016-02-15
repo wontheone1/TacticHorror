@@ -13,9 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasSourceProject: 1
   HasPlatforms: 1
-  SourceProjectPath: C:\Users\pghoo\Desktop\TacticHorror\tactichorrorasset\Tactic
-    Horror\Tactic Horror.fspro
-  SourceBankPath: C:\Users\pghoo\Desktop\TacticHorror\tactichorrorasset\Tactic Horror\Build
+  SourceProjectPath: Assets\Plugins\Tactic Horror\Tactic Horror.fspro
+  SourceBankPath: Assets\Plugins\Tactic Horror\Build
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
   SpeakerModeSettings:
@@ -56,4 +55,7 @@ MonoBehaviour:
     Value: 32
   Plugins: []
   MasterBank: Master Bank
-  Banks: []
+  Banks:
+  - master Bank
+  - sfx
+  - music

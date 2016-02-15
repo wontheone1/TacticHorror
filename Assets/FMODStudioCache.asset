@@ -11,10 +11,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
-  EditorBanks: []
-  EditorEvents: []
+  EditorBanks:
+  - {fileID: 11452844}
+  - {fileID: 11429080}
+  - {fileID: 11496178}
+  EditorEvents:
+  - {fileID: 11428678}
+  - {fileID: 11433426}
+  - {fileID: 11499554}
+  - {fileID: 11404966}
+  - {fileID: 11442186}
+  - {fileID: 11427800}
+  - {fileID: 11406666}
+  - {fileID: 11448206}
+  - {fileID: 11469814}
+  - {fileID: 11498022}
+  - {fileID: 11467294}
+  - {fileID: 11443504}
+  - {fileID: 11453104}
+  - {fileID: 11446938}
+  - {fileID: 11474712}
+  - {fileID: 11413204}
+  - {fileID: 11449470}
+  - {fileID: 11480618}
+  - {fileID: 11434902}
+  - {fileID: 11415138}
+  - {fileID: 11462514}
+  - {fileID: 11475394}
+  - {fileID: 11435780}
+  - {fileID: 11401540}
+  - {fileID: 11487892}
+  - {fileID: 11405196}
+  - {fileID: 11439268}
+  - {fileID: 11432542}
+  - {fileID: 11482810}
+  - {fileID: 11471722}
+  - {fileID: 11432454}
+  - {fileID: 11478502}
+  - {fileID: 11401976}
+  - {fileID: 11414302}
+  - {fileID: 11489494}
+  - {fileID: 11455170}
+  - {fileID: 11426930}
+  - {fileID: 11429888}
+  - {fileID: 11491420}
+  - {fileID: 11492804}
+  - {fileID: 11452662}
+  - {fileID: 11448568}
+  - {fileID: 11494740}
+  - {fileID: 11460360}
+  - {fileID: 11477602}
+  - {fileID: 11460658}
+  - {fileID: 11488648}
+  - {fileID: 11407400}
+  - {fileID: 11453750}
+  - {fileID: 11436874}
+  - {fileID: 11477168}
+  - {fileID: 11432802}
+  - {fileID: 11474220}
+  - {fileID: 11426106}
+  - {fileID: 11409776}
+  - {fileID: 11442260}
+  - {fileID: 11478056}
+  - {fileID: 11434646}
+  - {fileID: 11484916}
+  - {fileID: 11461914}
+  - {fileID: 11431768}
+  - {fileID: 11418402}
+  - {fileID: 11421092}
+  - {fileID: 11432902}
+  - {fileID: 11428812}
+  - {fileID: 11445070}
+  - {fileID: 11457726}
+  - {fileID: 11465692}
+  - {fileID: 11480488}
+  - {fileID: 11417794}
+  - {fileID: 11407380}
   MasterBankRef: {fileID: 11433666}
-  stringsBankWriteTime: 0
+  stringsBankWriteTime: 635909665380044468
 --- !u!114 &11400076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,6 +169,27 @@ MonoBehaviour:
   - Name: Desktop
     Value: 32672
   Exists: 1
+--- !u!114 &11401540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Heavy/heavy_walk
+  guid: 6aca2ae67c89e44f95a8ba00346b39e3
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11401542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +225,27 @@ MonoBehaviour:
   guid: 9a75619886e17e4d998302eb8c317520
   Banks:
   - {fileID: 11491126}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11401976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Soldier/soldier_walk
+  guid: 8502f330ab6fd840a22ccdfb1b783c13
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -408,6 +524,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11404966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Frankenstein/frank_cover_uncover
+  guid: 0c1c82f520f76c498373b432a709e4d0
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11405064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,6 +581,27 @@ MonoBehaviour:
   guid: 4591ed6232682845a14fee328c744f79
   Banks:
   - {fileID: 11419228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11405196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Ghost/ghost_die
+  guid: 6f2a4ed3d6a18c4ab44f64eff940fb37
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -534,6 +692,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11406666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Vampire/vamp_app_enemy
+  guid: 19774e8252c8b74586d1a6d3de0ccd68
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11406924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,6 +770,48 @@ MonoBehaviour:
   guid: 77065c5cbf9d17459a2761613ceaf5ae
   Banks:
   - {fileID: 11460294}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11407380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/victory
+  guid: f32ca6997994794e8e55550f4a68f0ee
+  Banks:
+  - {fileID: 11496178}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11407400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Heavy/heavy_jump
+  guid: ab7ae362cf355a41879307a2000e4b75
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -819,6 +1040,27 @@ MonoBehaviour:
   guid: 8a1f22265df2d14cb6deb61d6fd1d39b
   Banks:
   - {fileID: 11419228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11409776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Vampire/vamp_sucking
+  guid: d3b9c8d44f5880419b6f96b754f8bc45
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1077,6 +1319,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11413204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Scout/scout_shoot
+  guid: 415d26919eefbc46a087dd9c0e943919
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11413436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1134,6 +1397,27 @@ MonoBehaviour:
   guid: 0a352ba3272df94b8322ff51851a4ff0
   Banks:
   - {fileID: 11460294}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11414302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Werewolf/wolf_walk
+  guid: 86d0c96c56c6474a8c51bdf19ac75758
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1217,6 +1501,27 @@ MonoBehaviour:
   Path: event:/Characters/Scout/scout_counter_attack
   guid: 34d086d07e84e6409283f7e34e81a6b9
   Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11415138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Soldier/soldier_counter_attack
+  guid: 56678569799f23498fb2bf151fffb2b2
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1405,6 +1710,48 @@ MonoBehaviour:
   guid: 56678569799f23498fb2bf151fffb2b2
   Banks:
   - {fileID: 11419228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11417794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/loading
+  guid: 9a75619886e17e4d998302eb8c317520
+  Banks:
+  - {fileID: 11496178}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11418402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Medic/medic_cover_uncover
+  guid: e348a58706c6f34285626b27dc2e4bbd
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1610,6 +1957,27 @@ MonoBehaviour:
   guid: 24e86620306eac4b9ed7cfaa148d3aaf
   Banks:
   - {fileID: 11487966}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11421092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Frankenstein/frank_walk
+  guid: e407e724d6176a47a13d02728094cb1e
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2221,6 +2589,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11426106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Heavy/heavy_cured
+  guid: d229f00b780fbc49851e0e7645f636b3
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11426116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2318,6 +2707,27 @@ MonoBehaviour:
   guid: f494dc117057964bb67e7e0614e35d6a
   Banks:
   - {fileID: 11419228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11426930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Soldier/soldier_up_down_ladder
+  guid: 8e2abf8af9c88145bc0edbce11d900f2
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2446,6 +2856,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11427800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Heavy/heavy_die
+  guid: 17229d0d40ef9747959a24f2593a677a
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11428112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2461,6 +2892,48 @@ MonoBehaviour:
   guid: ccf3f40561f6654893495fc4abc93dca
   Banks:
   - {fileID: 11460294}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11428678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Scout/scout_hitted
+  guid: 04aaa12b15aee24f924603bdb292a1ce
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11428812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Vampire/vamp_hitted
+  guid: ea346c0bfe6679448edfbc336ed0dac4
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2528,6 +3001,24 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11429080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: Assets\Plugins\Tactic Horror\Build\Desktop\sfx.bank
+  lastModified: 635909665382239658
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 147648
+  Exists: 1
 --- !u!114 &11429090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2585,6 +3076,27 @@ MonoBehaviour:
   guid: 33f27afa7fd6f8479666809abab2099a
   Banks:
   - {fileID: 11460294}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11429888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Click/click_menu
+  guid: 8f443eb4b7405a4fa0e04ed56f4005a1
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2775,6 +3287,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11431768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Click/start_menu
+  guid: def89c33d837024598897bb2e9814e5a
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11432068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2789,6 +3322,90 @@ MonoBehaviour:
   Path: event:/Characters/Heavy/heavy_cover_uncover
   guid: 28bf648570cc2641aaf00d6eb0fec6c1
   Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11432454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Werewolf/wolf_die
+  guid: 777165b2ee6021458a42834cb273940b
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11432542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Frankenstein/frank_app_enemy
+  guid: 71615f323da0cc45881adef15e1c05dd
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11432802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Frankenstein/frank_hitted
+  guid: c83ec6c9dcb2864c83e995cbf36892da
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11432902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Medic/medic_jump
+  guid: e6ce18eacc229547bee4ea05ff3635eb
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2831,6 +3448,27 @@ MonoBehaviour:
   guid: f7a974aabff0264d83881ce3acfa3aea
   Banks:
   - {fileID: 11401380}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11433426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Frankenstein/frank_die
+  guid: 0a352ba3272df94b8322ff51851a4ff0
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2938,6 +3576,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11434646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Scout/scout_die
+  guid: da9246e25265884eaed741ef8e009b39
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11434852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2952,6 +3611,27 @@ MonoBehaviour:
   Path: event:/Music/loading
   guid: 9a75619886e17e4d998302eb8c317520
   Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11434902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Ghost/ghost_moving
+  guid: 50dec78d0239d048b03a968834188bb9
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3159,6 +3839,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11435780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Heavy/heavy_hitted
+  guid: 679a78e1da855d46ae84e40b2dbb02d4
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11436082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3278,6 +3979,27 @@ MonoBehaviour:
   guid: 86d0c96c56c6474a8c51bdf19ac75758
   Banks:
   - {fileID: 11487966}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11436874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Vampire/vamp_die
+  guid: c46aa5b7fc4c0f43954ab444bab45ac2
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3450,6 +4172,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11439268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Scout/scout_cured
+  guid: 6ff545f702d6c74bb0ad92bd685764da
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11439800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3596,6 +4339,48 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11442186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Soldier/soldier_jump
+  guid: 12b6e536fce30344958016c070730d90
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11442260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Ghost/ghost_attack
+  guid: d70f09a5b60b3f4b84cdfc6507be3828
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11442704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3680,6 +4465,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11443504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Heavy/heavy_cover_uncover
+  guid: 28bf648570cc2641aaf00d6eb0fec6c1
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11444338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3737,6 +4543,27 @@ MonoBehaviour:
   guid: 6b2ad33982c1344aafdcc4263bbd1e6a
   Banks:
   - {fileID: 11430308}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11445070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Vampire/vamp_up_down_ladder
+  guid: f494dc117057964bb67e7e0614e35d6a
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3923,6 +4750,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11446938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Scout/scout_counter_attack
+  guid: 34d086d07e84e6409283f7e34e81a6b9
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11447332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4005,6 +4853,27 @@ MonoBehaviour:
   - Name: Desktop
     Value: 4138336
   Exists: 1
+--- !u!114 &11448206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Scout/scout_walk
+  guid: 1d753c6e796d0647b44a82d410371bd6
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11448422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4047,6 +4916,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11448568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Scout/scout_jump
+  guid: 9479bfada8e5f245b41146f31c3430a0
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11449352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4062,6 +4952,27 @@ MonoBehaviour:
   guid: 72f4f669e2d03d47b97aad6584d58589
   Banks:
   - {fileID: 11419228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11449470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Werewolf/wolf_cover_uncover
+  guid: 4591ed6232682845a14fee328c744f79
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -4254,6 +5165,45 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11452662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Soldier/soldier_shoot
+  guid: 93752f56c883c54f8ba1ec2c6f78eb80
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11452844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: Assets\Plugins\Tactic Horror\Build\Desktop\master Bank.bank
+  lastModified: 635909665380245013
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 9266
+  Exists: 1
 --- !u!114 &11453038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4269,6 +5219,27 @@ MonoBehaviour:
   guid: da99d4e14977164fa2c139155679d4f3
   Banks:
   - {fileID: 11487966}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11453104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Medic/medic_die
+  guid: 33f27afa7fd6f8479666809abab2099a
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -4346,6 +5317,27 @@ MonoBehaviour:
   guid: ea346c0bfe6679448edfbc336ed0dac4
   Banks:
   - {fileID: 11487966}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11453750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Vampire/vamp_walk
+  guid: b8b0924467e8784c85d90ef1af92e0ae
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -4493,6 +5485,27 @@ MonoBehaviour:
   guid: a39322a60ef54b4cb71e43700ca1d711
   Banks:
   - {fileID: 11419228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11455170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Medic/medic_shoot
+  guid: 8d99722252be4840bf3f473424352e0d
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -4745,6 +5758,27 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11457726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/background
+  guid: 2be1207a2a1eac44858d2177239aaac2
+  Banks:
+  - {fileID: 11496178}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -5037,6 +6071,27 @@ MonoBehaviour:
   - Name: Desktop
     Value: 147648
   Exists: 1
+--- !u!114 &11460360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Medic/medic_walk
+  guid: 979170359a93ec4f94cc7c34c33a16aa
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11460628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5052,6 +6107,27 @@ MonoBehaviour:
   guid: da99d4e14977164fa2c139155679d4f3
   Banks:
   - {fileID: 11419228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11460658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Medic/medic_hitted
+  guid: 9f02f90775fda94db03da3fc703c46e6
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -5182,6 +6258,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11461914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Soldier/soldier_cured
+  guid: daba972f1cfcda4295805a57504adbec
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11462052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5239,6 +6336,27 @@ MonoBehaviour:
   guid: 679a78e1da855d46ae84e40b2dbb02d4
   Banks:
   - {fileID: 11419228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11462514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Heavy/heavy_shoot
+  guid: 5b195fed1bad294ebf1a86ac10b8bf06
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -5345,6 +6463,27 @@ MonoBehaviour:
   - Name: Desktop
     Value: 4834
   Exists: 1
+--- !u!114 &11465692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/menu
+  guid: 6b2ad33982c1344aafdcc4263bbd1e6a
+  Banks:
+  - {fileID: 11496178}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11466134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5484,6 +6623,27 @@ MonoBehaviour:
   guid: a39322a60ef54b4cb71e43700ca1d711
   Banks:
   - {fileID: 11487966}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11467294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Soldier/soldier_die
+  guid: 24e86620306eac4b9ed7cfaa148d3aaf
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -5720,6 +6880,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11469814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Frankenstein/frank_up_down_ladder
+  guid: 226ff9f05a334349b101ae55528dde14
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11470146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5817,6 +6998,27 @@ MonoBehaviour:
   guid: daba972f1cfcda4295805a57504adbec
   Banks:
   - {fileID: 11419228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11471722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Ghost/ghost_hitted
+  guid: 77065c5cbf9d17459a2761613ceaf5ae
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -5969,6 +7171,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11474220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Soldier/soldier_hitted
+  guid: ccf3f40561f6654893495fc4abc93dca
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11474278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6005,6 +7228,27 @@ MonoBehaviour:
   guid: e6ce18eacc229547bee4ea05ff3635eb
   Banks:
   - {fileID: 11419228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11474712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Werewolf/wolf_jump_enemy
+  guid: 390976f49e2ce54bb725e1896c8ab89b
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -6068,6 +7312,27 @@ MonoBehaviour:
   guid: 4591ed6232682845a14fee328c744f79
   Banks:
   - {fileID: 11419228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11475394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Scout/scout_up_down_ladder
+  guid: 66fc28962db7464dacdd4fe344e703cf
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -6200,6 +7465,27 @@ MonoBehaviour:
   - {fileID: 11445700}
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11477168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Werewolf/wolf_wripping
+  guid: c7993cdcf360a44897b1cc2762e6f64a
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11477500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6214,6 +7500,27 @@ MonoBehaviour:
   Path: event:/Characters/Scout/scout_cover_uncover
   guid: 9374241213bd094e8132186cd07a7786
   Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11477602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Frankenstein/frank_punch
+  guid: 9e66ad002285794f9ef1559decf12289
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -6235,6 +7542,27 @@ MonoBehaviour:
   guid: 04aaa12b15aee24f924603bdb292a1ce
   Banks:
   - {fileID: 11487966}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11478056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Werewolf/wolf_hitted
+  guid: d8e8a7a0bd3ee940af7706069099bea7
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -6299,6 +7627,27 @@ MonoBehaviour:
   guid: 0a52653c672cfa4aabc53a62d4224672
   Banks:
   - {fileID: 11487966}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11478502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Vampire/vamp_jump
+  guid: 83ce5508d51bf04b9dbe7c9da3b461ed
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -6513,6 +7862,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11480488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/defeat
+  guid: 7ebf34e458d4eb4c831d02c939d0f7a5
+  Banks:
+  - {fileID: 11496178}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11480610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6528,6 +7898,27 @@ MonoBehaviour:
   guid: 33f27afa7fd6f8479666809abab2099a
   Banks:
   - {fileID: 11419228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11480618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Frankenstein/frank_jump
+  guid: 4a98cc757015314d97eca0409db144d8
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -6638,6 +8029,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11482810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Werewolf/wolf_up_down_ladder
+  guid: 72f4f669e2d03d47b97aad6584d58589
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11483004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6736,6 +8148,27 @@ MonoBehaviour:
   Path: event:/Characters/Medic/medic_shoot
   guid: 8d99722252be4840bf3f473424352e0d
   Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11484916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Werewolf/wolf_jump
+  guid: da99d4e14977164fa2c139155679d4f3
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -6990,6 +8423,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11487892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Ghost/ghost_cover_uncover
+  guid: 6c331fe55c95e0449f629178ab0882e7
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11487956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7029,6 +8483,27 @@ MonoBehaviour:
   - Name: Desktop
     Value: 147648
   Exists: 1
+--- !u!114 &11488648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Vampire/vamp_cover_uncover
+  guid: a39322a60ef54b4cb71e43700ca1d711
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11488940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7107,6 +8582,27 @@ MonoBehaviour:
   guid: d8e8a7a0bd3ee940af7706069099bea7
   Banks:
   - {fileID: 11419228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11489494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Medic/medic_up_down_ladder
+  guid: 8a1f22265df2d14cb6deb61d6fd1d39b
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -7318,6 +8814,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11491420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Soldier/soldier_cover_uncover
+  guid: 9333a93925d3a44c92c01c53395ee1a0
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11491608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7440,6 +8957,27 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11492804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Scout/scout_cover_uncover
+  guid: 9374241213bd094e8132186cd07a7786
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -7628,6 +9166,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11494740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Heavy/heavy_counter_attack
+  guid: 974528d9d21ad24fa6f5454e5e534a48
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11494822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7794,6 +9353,24 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11496178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: Assets\Plugins\Tactic Horror\Build\Desktop\music.bank
+  lastModified: 635909665381062051
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 4133472
+  Exists: 1
 --- !u!114 &11496220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7939,6 +9516,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11498022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Heavy/heavy_up_down_ladder
+  guid: 247f07281dd7fe4f8e467a48f84f7357
+  Banks:
+  - {fileID: 11429080}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11498046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8058,6 +9656,27 @@ MonoBehaviour:
   guid: 6b2ad33982c1344aafdcc4263bbd1e6a
   Banks:
   - {fileID: 11464516}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11499554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Medic/medic_counter_attack
+  guid: 0a52653c672cfa4aabc53a62d4224672
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1

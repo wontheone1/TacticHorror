@@ -39,15 +39,15 @@ istic
 [LOG] Thread::initThread                       : Initializing FMOD nonblocking thread (0).  priority 1
 [LOG] Thread::initThread                       : - Stacksize 81920.  Stack pointer 0000000000000000 : usesemaphore = 1 : sleeptime = 0
 [LOG] Thread::callback                         : * FMOD nonblocking thread (0) started
-[LOG] SystemI::createSound                     : setdata soundi = 000000002A5C8938 : node = 000000002B90F8F0
-[LOG] SystemI::createSound                     : add node to async list : head = 000000002A664180.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000002A5C8938
+[LOG] SystemI::createSound                     : setdata soundi = 0000000038D22F68 : node = 000000003433CD60
+[LOG] SystemI::createSound                     : add node to async list : head = 0000000038CCBD00.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000038D22F68
 [LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 4128000
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 5472
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000002B90F9F8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000003433CE68
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -57,143 +57,16 @@ istic
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010202 length 16474697 samples, lengthbytes 4125056
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000002B78CF98
+[LOG] SystemI::createSample                    :     output = 00000000341B9898
 [LOG] OutputSoftware::createSample             :     lengthpcm 16474697, lengthbytes 4125056, channels 2, format 2, freq 48000, mode 0a01020a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000002A5C8938
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000038D22F68
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[LOG] SystemI::mixerSuspend                    : Suspending output.
-[LOG] SystemI::mixerResume                     : Resuming output.
-[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     : setdata soundi = 000000002A6A6B48 : node = 000000002B90F3F0
-[LOG] SystemI::createSound                     : add node to async list : head = 000000002A664180.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000002A6A6B48
-[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 75200
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 72448
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000002B90F4F8
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
-[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
-[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
-[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
-[LOG] SystemI::createSample                    :     mode 0a010202 length 60631 samples, lengthbytes 704
-[LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000002B78CF98
-[LOG] OutputSoftware::createSample             :     lengthpcm 60631, lengthbytes 704, channels 2, format 2, freq 48000, mode 0a01020a
-[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
-
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000002A6A6B48
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     : setdata soundi = 000000002A6DA058 : node = 000000002B90EDB0
-[LOG] SystemI::createSound                     : add node to async list : head = 000000002A664180.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000002A6DA058
-[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSound                     :     setdata soundi = 000000002A6DA648 : node = 000000002B90F2B0
-[LOG] SystemI::createSound                     :     add node to async list : head = 000000002A664180.  list count = 0
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 72448
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSound                     :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     :     setdata soundi = 000000002A6FE4A8 : node = 000000002B90FB70
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-000000002A664180.  list count = 1
-[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
-[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
-[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
-[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
-[LOG] SystemI::createSample                    :     mode 0a010202 length 60631 samples, lengthbytes 9280
-[LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000002B78CF98
-[LOG] OutputSoftware::createSample             :     lengthpcm 60631, lengthbytes 9280, channels 2, format 2, freq 48000, mode 0a01020a
-[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
-
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000002A6DA058
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000002A6DA648
-[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady :     Loading delay exceeded, sound may play at incorrect time
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 75200
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 72448
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000002B90F3B8
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
-[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
-[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
-[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
-[LOG] SystemI::createSample                    :     mode 0a010202 length 60631 samples, lengthbytes 9280
-[LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000002B78CF98
-[LOG] OutputSoftware::createSample             :     lengthpcm 60631, lengthbytes 9280, channels 2, format 2, freq 48000, mode 0a01020a
-[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
-
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000002A6DA648
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000002A6FE4A8
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 75200
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 72448
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000002B90FC78
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
-[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
-[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
-[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
-[LOG] SystemI::createSample                    :     mode 0a010202 length 60631 samples, lengthbytes 9280
-[LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000002B78CF98
-[LOG] OutputSoftware::createSample             :     lengthpcm 60631, lengthbytes 9280, channels 2, format 2, freq 48000, mode 0a01020a
-[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
-
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000002A6FE4A8
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[LOG] SoundI::release                          : (null) (000000002A6DA058)
-[LOG] SoundI::release                          : release subsounds. (000000002A6DA058)
-[LOG] SoundI::release                          :     (null) (000000002A6FE638)
-[LOG] SoundI::release                          : release codec. (000000002A6DA058)
-[LOG] SoundI::release                          : (null) (000000002A6FE4A8)
-[LOG] SoundI::release                          : release subsounds. (000000002A6FE4A8)
-[LOG] SoundI::release                          :     (null) (000000002A703218)
-[LOG] SoundI::release                          : release codec. (000000002A6FE4A8)
-[LOG] SoundI::release                          : (null) (000000002A6DA648)
-[LOG] SoundI::release                          : release subsounds. (000000002A6DA648)
-[LOG] SoundI::release                          :     (null) (000000002A700C28)
-[LOG] SoundI::release                          : release codec. (000000002A6DA648)
-[LOG] SoundI::release                          : (null) (000000002A5C8938)
-[LOG] SoundI::release                          : release subsounds. (000000002A5C8938)
-[LOG] SoundI::release                          :     (null) (000000002B354F48)
-[LOG] SoundI::release                          : release codec. (000000002A5C8938)
-[LOG] SoundI::release                          : (null) (000000002A6A6B48)
-[LOG] SoundI::release                          : release subsounds. (000000002A6A6B48)
-[LOG] SoundI::release                          :     (null) (000000002A6B4958)
-[LOG] SoundI::release                          : release codec. (000000002A6A6B48)
+[LOG] SoundI::release                          : (null) (0000000038D22F68)
+[LOG] SoundI::release                          : release subsounds. (0000000038D22F68)
+[LOG] SoundI::release                          :     (null) (0000000038D78C68)
+[LOG] SoundI::release                          : release codec. (0000000038D22F68)
 [LOG] Thread::callback                         : * FMOD Studio update thread finished
 [LOG] Thread::close                            : FMOD Studio update thread thread destroyed
 [LOG] Thread::callback                         : * FMOD Studio load thread finished
