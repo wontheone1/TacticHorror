@@ -9,7 +9,7 @@ public class VampireClass : Unit
         MAX_HP = hp = 5;
         MAX_AP = ap = 5;
         MAX_MP = mp = 5;
-        attackRange = 15;
+        attackRange = 30;
         unitname = "Vampire";
 
         /// FMOD Events assign

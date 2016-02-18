@@ -8,16 +8,15 @@ public class Unit : MonoBehaviour
     /// store FMOD events
     /// </summary>
     //[FMODUnity.EventRef]
-    protected string dieEvent = "event:/Characters/Soldier/soldier_up_down_ladder";
-    protected string walkEvent;
-    protected string ladderUpdownEvent;
-    protected string getHitEvent;
-    protected string attackEvent;
+    protected string ladderUpdownEvent, walkEvent, dieEvent, getHitEvent, attackEvent, jumpEvent;
 
+
+    //Animator
+    private Animator unitAnim;
     public static int UNIT_COUNT = 0;
-    public Rigidbody2D rb;
     public string unitname;
-    float speed = 6f; // speed for animation
+    private float walkingSpeed = 4f, climbingSpeed = 0.8f;
+    float speed = 4f; // speed for animation
     Vector2[] path;
     int targetIndex;
     bool succesful = false;
@@ -42,32 +41,52 @@ public class Unit : MonoBehaviour
         get { return targetUnit; }
     }
 
+    /// <summary>
+    /// string Hash for animators... (optimization)
+    /// </summary>
+    private int isMovingHash = Animator.StringToHash("isMoving");
+    private int goUpLadderHash = Animator.StringToHash("goUpLadder");
+    private int goOutLadderHash = Animator.StringToHash("goOutLadder");
+    private int turnStateHash = Animator.StringToHash("turn");
+    private int climbStateHash = Animator.StringToHash("climb");
+    private BoxCollider2D collider;
+    Vector3 rightScale;
+    Vector3 leftScale;
+
     protected virtual void Awake()
     {
+        Debug.Log(turnStateHash);
+        Debug.Log(climbStateHash);
+        collider = GetComponent<BoxCollider2D>();
+        unitAnim = GetComponent<Animator>();
         grid = GameObject.FindWithTag("MainCamera").GetComponent<Grid>();
         pathfinding = GameObject.FindWithTag("MainCamera").GetComponent<Pathfinding>();
         gameController = GameObject.FindWithTag("MainCamera").GetComponent<GameController>();
-        rb = GetComponent<Rigidbody2D>();
-        rb.isKinematic = false;
+        leftScale = rightScale = transform.localScale;
+        leftScale.x *= -1;
     }
+
+    //protected virtual void Update()
+    //{
+    //}
 
     //delete units path, used before switching units and switching turn, function is called from Grid-script
     public void deletePath()
     {
-        if(!unitMoving)
+        if (!unitMoving)
             path = null;
     }
 
     public void RequestPath(Vector2 target)
     {
-        if(isMovementPossible() && GameController.unitMoving == false)
+        if (IsMovementPossible() && GameController.unitMoving == false)
             PathRequestManager.RequestPath(transform.position, target, actionPoint, OnPathFound);
     }
 
     public void setAttackTarget(Unit _targetUnit)
     {
-        Node thisUnitNode = getCurrentNode();
-        Node targetUnitNode = _targetUnit.getCurrentNode();
+        Node thisUnitNode = GetCurrentNode();
+        Node targetUnitNode = _targetUnit.GetCurrentNode();
         if (pathfinding.GetDistance(thisUnitNode, targetUnitNode) <= attackRange)
             targetUnit = _targetUnit;
         else
@@ -106,12 +125,12 @@ public class Unit : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot(dieEvent, transform.position);
     }
 
-    public Node getCurrentNode()
+    public Node GetCurrentNode()
     {
         return grid.NodeFromWorldPoint(transform.position);
     }
 
-    public bool isMovementPossible()
+    public bool IsMovementPossible()
     {
         return actionPoint > 10;
     }
@@ -123,8 +142,34 @@ public class Unit : MonoBehaviour
             //mark path succesful
             succesful = true;
             path = newPath;
+            if (path.Length > 1)
+            {
+                DecideFaceDirection(path[1]);
+            }
             movementCostToDestination = movementCost;
         }
+    }
+
+    public void DecideFaceDirection(Vector3 faceTo)
+    {
+        if (faceTo.x < transform.position.x)
+        {
+            FaceLeft();
+        }
+        else
+        {
+            FaceRight();
+        }
+    }
+
+    public void FaceLeft()
+    {
+        transform.localScale = leftScale;
+    }
+
+    public void FaceRight()
+    {
+        transform.localScale = rightScale;
     }
 
     //movement script to move unit when "move button" is clicked, succesful boolean tests for succesful path before moving
@@ -134,6 +179,7 @@ public class Unit : MonoBehaviour
         {
             StopCoroutine("FollowPath");
             succesful = false;
+            unitAnim.SetBool(isMovingHash, true);
             StartCoroutine("FollowPath");
             actionPoint -= movementCostToDestination;
             return path;
@@ -148,14 +194,30 @@ public class Unit : MonoBehaviour
 
     IEnumerator FollowPath()
     {
-        unitMoving = true;
-        GameController.unitMoving = true;
+        GameController.unitMoving = unitMoving = true;
         if (path.Length > 0)
         {
             Vector3 currentWaypoint = path[0];
             while (true)
             {
-                if (Vector3.Distance(transform.position,currentWaypoint) < 0.10)
+                DecideFaceDirection(currentWaypoint);
+                if (isClimbing(currentWaypoint))
+                {
+                    AnimatorStateInfo stateInfo = unitAnim.GetCurrentAnimatorStateInfo(0);
+                    Debug.Log(stateInfo.shortNameHash);
+
+                    if (stateInfo.shortNameHash != turnStateHash && stateInfo.shortNameHash != climbStateHash)
+                    {
+                        unitAnim.SetTrigger(goUpLadderHash);
+                        speed = climbingSpeed;
+                    }
+                }
+                else
+                {
+                    unitAnim.SetTrigger(goOutLadderHash);
+                    speed = walkingSpeed;
+                }
+                if (Vector3.Distance(transform.position, currentWaypoint) < 0.10)
                 {
                     targetIndex++;
                     if (targetIndex >= path.Length)
@@ -167,47 +229,23 @@ public class Unit : MonoBehaviour
                     }
                     currentWaypoint = path[targetIndex];
                 }
+                //
 
                 transform.position = Vector2.MoveTowards(transform.position,
                        currentWaypoint, speed * Time.deltaTime);
                 FMODUnity.RuntimeManager.PlayOneShot(walkEvent);
                 yield return null;
             }
-            GameController.unitMoving = false;
-            unitMoving = false;
+            GameController.unitMoving = unitMoving = false;
+            unitAnim.SetBool(isMovingHash, false);
+            unitAnim.SetTrigger(goOutLadderHash);
+            speed = walkingSpeed;
         }
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
+    public bool isClimbing(Vector3 currentWaypoint)
     {
-        
-        if (coll.relativeVelocity.magnitude > 2.5)
-        {
-            Debug.Log("collision enter");
-            rb.isKinematic = true;
-            path = new Vector2[2];
-            path[0] = transform.position;
-            path[1] = grid.NodeFromWorldPoint(transform.position).worldPosition;
-            succesful = true;
-            startMoving();
-        }
-    }
-
-    void OnCollisionExit2D(Collision2D coll)
-    {
-        Debug.Log("collisionexit rel vel " + coll.relativeVelocity);
-        rb.velocity = new Vector2(0, 3.5f);
-        rb.isKinematic = false; 
-    }
-
-    void setActive()
-    {
-        //rb.
-    }
-
-    void setInactive()
-    {
-        
+        return grid.NodeFromWorldPoint(currentWaypoint).gridY != GetCurrentNode().gridY;
     }
 
     public bool hasPath()

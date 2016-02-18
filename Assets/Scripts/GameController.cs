@@ -136,7 +136,7 @@ public class GameController : MonoBehaviour
         /// if unit is last one in the list change to the first unit.
         if (currentUnitIndex == activeUnits.Count - 1)
         {
-            if (activeUnits[0].isMovementPossible())
+            if (activeUnits[0].IsMovementPossible())
             {   
                 activeUnit = activeUnits[0];
                 camMovePath[1] = activeUnit.transform.position;
@@ -148,7 +148,7 @@ public class GameController : MonoBehaviour
         }
         for (int i = (currentUnitIndex + 1); i < activeUnits.Count; i++)
         {
-            if (activeUnits[i].isMovementPossible())
+            if (activeUnits[i].IsMovementPossible())
             {
                 activeUnit = activeUnits[i];
                 camMovePath[1] = activeUnit.transform.position;
@@ -266,7 +266,7 @@ public class GameController : MonoBehaviour
             yield return null;
         }
         // select next unit automatically, if no unit is available, end turn;
-        if (!activeUnit.isMovementPossible())
+        if (!activeUnit.IsMovementPossible())
             if (!selectNextUnit())
                 endTurn();
     }

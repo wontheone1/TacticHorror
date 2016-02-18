@@ -10,7 +10,7 @@ public class SoldierClass : Unit
         MAX_HP = hp = 5;
         MAX_AP = ap = 5;
         MAX_MP = mp = 5;
-        attackRange = 15;
+        attackRange = 50;
         unitname = "Soldier" + UNIT_COUNT;
         dieEvent = "event:/Characters/Soldier/soldier_counter_attack";
         walkEvent = "event:/Characters/Soldier/soldier_walk";
