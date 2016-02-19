@@ -303,7 +303,8 @@ public class Unit : MonoBehaviour
 
     public bool IsFinishedClimbing(Node currentWaypoint)
     {
-        return startedClimbing && GetCurrentNode().atLadderEnd && (Vector2.Distance(GetCurrentNode().worldPosition, transform.position) < 0.1);
+        return startedClimbing && GetCurrentNode().atLadderEnd;
+        // return startedClimbing && GetCurrentNode().atLadderEnd && (Vector2.Distance(GetCurrentNode().worldPosition, transform.position) < 0.1);
     }
 
     public bool IsWalking(Node currentWaypoint)

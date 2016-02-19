@@ -188,7 +188,7 @@ Transform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1526903068}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!1 &280389037
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +453,7 @@ Transform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1526903068}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!61 &337178981
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1088,7 +1088,7 @@ Transform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1526903068}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!61 &639408807
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1922,7 +1922,7 @@ Transform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1526903068}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1001 &1404209929
 Prefab:
   m_ObjectHideFlags: 0
@@ -2045,10 +2045,10 @@ Transform:
   m_LocalPosition: {x: -7.14, y: -1.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 117209851}
   - {fileID: 639408806}
-  - {fileID: 1357300026}
   - {fileID: 337178980}
+  - {fileID: 117209851}
+  - {fileID: 1357300026}
   m_Father: {fileID: 0}
   m_RootOrder: 20
 --- !u!1001 &1817011643
@@ -2472,7 +2472,7 @@ Prefab:
     - target: {fileID: 11458422, guid: 5c13c7a84f0895f4192c9b2d2443b234, type: 2}
       propertyPath: enemyUnits.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 337178982}
     - target: {fileID: 11458422, guid: 5c13c7a84f0895f4192c9b2d2443b234, type: 2}
       propertyPath: enemyUnits.Array.data[2]
       value: 
