@@ -260,9 +260,13 @@ public class GameController : MonoBehaviour
     private IEnumerator moveUnitCoroutine()
     {
         disableRayCast = true;
-        CameraMovementManager.RequestCamMove(activeUnit.StartMoving());
-        while (unitMoving || CameraMovement.cameraIsMoving)
+        Vector3 cameraPositionToGo;
+        activeUnit.StartMoving();
+        while (unitMoving)
         {
+            cameraPositionToGo = activeUnit.transform.position;
+            cameraPositionToGo.z = Camera.main.transform.position.z;
+            Camera.main.transform.position = cameraPositionToGo;
             yield return null;
         }
         // select next unit automatically, if no unit is available, end turn;

@@ -75,7 +75,10 @@ AnimatorStateTransition:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: startWalk
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110218694}
   m_Solo: 0
@@ -168,7 +171,10 @@ AnimatorStateTransition:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: stopWalk
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110283808}
   m_Solo: 0
@@ -364,7 +370,7 @@ AnimatorStateMachine:
     m_Position: {x: 252, y: 24, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110258492}
-    m_Position: {x: 636, y: 84, z: 0}
+    m_Position: {x: 504, y: 84, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110218694}
     m_Position: {x: 252, y: 144, z: 0}

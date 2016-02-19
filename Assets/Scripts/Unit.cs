@@ -17,7 +17,7 @@ public class Unit : MonoBehaviour
     private Animator unitAnim;
     public static int UNIT_COUNT = 0;
     public string unitname;
-    private float walkingSpeed = 4f, climbingSpeed = 1f;
+    private float walkingSpeed = 4f, climbingSpeed = 2.5f;
     float speed = 0f; // speed for animation
     List<Node> path;
     int targetIndex;
@@ -202,6 +202,7 @@ public class Unit : MonoBehaviour
                 DecideFaceDirection(currentWayPoint);
                 DecideWalkingOrClimb(currentWayPoint);
                 DecideSpeedAccordingToAnimationState(unitAnim.GetCurrentAnimatorStateInfo(0));
+                yield return null;
                 if (Vector2.Distance(transform.position, currentWayPoint.worldPosition) < 0.1)
                 {
                     speed = 0f;
@@ -228,7 +229,7 @@ public class Unit : MonoBehaviour
                        currentWayPoint.worldPosition, speed * Time.deltaTime);
                 // Debug.Log(speed);
                 FMODUnity.RuntimeManager.PlayOneShot(walkEvent);
-                yield return null;
+                
             }
         }
     }
@@ -302,7 +303,7 @@ public class Unit : MonoBehaviour
 
     public bool IsFinishedClimbing(Node currentWaypoint)
     {
-        return startedClimbing && GetCurrentNode().atLadderEnd && !currentWaypoint.atLadderEnd && !currentWaypoint.inMidOfFloor;
+        return startedClimbing && GetCurrentNode().atLadderEnd && (Vector2.Distance(GetCurrentNode().worldPosition, transform.position) < 0.1);
     }
 
     public bool IsWalking(Node currentWaypoint)
