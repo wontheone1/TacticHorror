@@ -91,9 +91,10 @@ public class Pathfinding : MonoBehaviour
             path.Add(currentNode);
             currentNode = currentNode.parent;
         }
+        path.Add(startNode);
+        path.Reverse();
         if (path.Count > 1)
         {
-            path.Reverse();
             path = SimplifyPath(path);
         }
         return path;

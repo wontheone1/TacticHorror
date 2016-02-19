@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking.Match;
@@ -191,74 +192,78 @@ public class Unit : MonoBehaviour
     IEnumerator FollowPath()
     {
         GameController.unitMoving = unitMoving = true;
-        // unitAnim.SetBool(isMovingHash, unitMoving);
-
         if (path.Count > 0)
         {
-            currentWayPoint = path[0];
-            while (true)
+            foreach (Node n in path)
             {
-                Debug.Log(startedWalking);
+                currentWayPoint = n;
+                Debug.Log(n);
                 DecideFaceDirection(currentWayPoint);
-                DecideWalkingOrClimb(currentWayPoint);
-                DecideSpeedAccordingToAnimationState(unitAnim.GetCurrentAnimatorStateInfo(0));
-                yield return null;
-                if (Vector2.Distance(transform.position, currentWayPoint.worldPosition) < 0.1)
+                while (transform.position.x != currentWayPoint.worldPosition.x || transform.position.y != currentWayPoint.worldPosition.y)
+                // while(Vector2.Distance(transform.position, currentWayPoint.worldPosition) > 0.1)
                 {
-                    speed = 0f;
-                    targetIndex++;
-                    if (targetIndex >= path.Count)
-                    {
-                        /// When finished moving, clear up 
-                        targetIndex = 0;
-                        path = new List<Node>();
-                        GameController.unitMoving = unitMoving = false;
-                        // unitAnim.SetBool(isMovingHash, unitMoving);
-                        unitAnim.SetTrigger(stopWalkHash);
-                        startedWalking = false;
-                        Debug.Log("stopwalk reached");
-                        break;
-                    }
-                    currentWayPoint = path[targetIndex];
-                    DecideWalkingOrClimbingIsFinished(currentWayPoint);
+                    Debug.Log(currentWayPoint.worldPosition);
                     DecideWalkingOrClimb(currentWayPoint);
                     DecideSpeedAccordingToAnimationState(unitAnim.GetCurrentAnimatorStateInfo(0));
+                    //transform.position = Vector2.Lerp(transform.position,
+                    //       currentWayPoint.worldPosition, speed * Time.deltaTime);
+                    
+                    transform.position = Vector2.MoveTowards(transform.position,
+                           SetDestinationByAnimatorState(unitAnim.GetCurrentAnimatorStateInfo(0),
+                           currentWayPoint), speed * Time.deltaTime);
+                    FMODUnity.RuntimeManager.PlayOneShot(walkEvent);
+                    if (CheckDestinationReachedByAnimatorState(unitAnim.GetCurrentAnimatorStateInfo(0), currentWayPoint))
+                        break;
+                    yield return null;
                 }
-                //
-                transform.position = Vector2.MoveTowards(transform.position,
-                       currentWayPoint.worldPosition, speed * Time.deltaTime);
-                // Debug.Log(speed);
-                FMODUnity.RuntimeManager.PlayOneShot(walkEvent);
-                
+                FinishWalkingOrCliming(unitAnim.GetCurrentAnimatorStateInfo(0));
+                DecideSpeedAccordingToAnimationState(unitAnim.GetCurrentAnimatorStateInfo(0));
             }
+            /// When finished moving, clear up 
+            path = new List<Node>();
+            GameController.unitMoving = unitMoving = false;
+            // unitAnim.SetBool(isMovingHash, unitMoving);
+            unitAnim.SetTrigger(stopWalkHash);
+            // startedWalking = false;
+            Debug.Log("Moving finished");
         }
     }
 
-    private void DecideWalkingOrClimbingIsFinished(Node currentWayPoint)
+    private bool CheckDestinationReachedByAnimatorState(AnimatorStateInfo state, Node currentWayPoint)
     {
-        if (IsFinishedClimbing(currentWayPoint) && !startedFinishingClimbing)
+        if (state.shortNameHash == climbStateHash)
         {
-            Debug.Log("goOutLadder triggered");
-            startedClimbing = false;
-            startedWalking = false;
-            startedFinishingClimbing = true;
-            speed = 0f;
+            return Math.Abs(transform.position.y - currentWayPoint.worldPosition.y) < 0.05f;
+        }
+        return Math.Abs(transform.position.x - currentWayPoint.worldPosition.x) < 0.05f;
+    }
+
+    private Vector2 SetDestinationByAnimatorState(AnimatorStateInfo state, Node currentWayPoint)
+    {
+        if (state.shortNameHash == climbStateHash)
+        {
+            return new Vector2(transform.position.x, currentWayPoint.worldPosition.y);
+        }
+        return new Vector2(currentWayPoint.worldPosition.x, transform.position.y);
+    }
+
+    private void FinishWalkingOrCliming(AnimatorStateInfo state)
+    {
+        if (state.shortNameHash == climbStateHash)
+        {
             unitAnim.SetTrigger(goOutLadderHash);
         }
-        else if (IsFinishedWalking(currentWayPoint) && !startedFinishingWalk)
+        else if (state.shortNameHash == walkStateHash)
         {
-            Debug.Log("goOutLadder triggered");
-            startedClimbing = false;
-            startedWalking = false;
-            startedFinishingWalk = true;
-            speed = 0f;
             unitAnim.SetTrigger(stopWalkHash);
         }
     }
 
     private void DecideSpeedAccordingToAnimationState(AnimatorStateInfo state)
     {
-        if (state.shortNameHash == turnStateHash || state.shortNameHash == turnBackStateHash)
+        if (state.shortNameHash == turnStateHash ||
+            state.shortNameHash == turnBackStateHash ||
+            state.shortNameHash == idleStateHash)
         {
             speed = 0f;
         }
@@ -274,31 +279,20 @@ public class Unit : MonoBehaviour
 
     private void DecideWalkingOrClimb(Node currentWayPoint)
     {
-        if (IsClimbing(currentWayPoint) && !startedClimbing)
+        if (IsHorizontalMovement(currentWayPoint) && !(stateInfo.shortNameHash == walkStateHash)
+            && !(stateInfo.shortNameHash == turnStateHash) && !(stateInfo.shortNameHash == turnBackStateHash))
         {
-            Debug.Log("goUpLadder triggered");
-            startedClimbing = true;
-            startedWalking = false;
-            speed = 0f;
-            unitAnim.SetTrigger(goUpLadderHash);
-        }
-        else if (IsWalking(currentWayPoint) && !startedWalking)
-        {
-            startedWalking = true;
-            startedClimbing = false;
-            speed = walkingSpeed;
             unitAnim.SetTrigger(startWalkHash);
         }
-        //else if (startedWalking && stateInfo.shortNameHash != walkStateHash)
-        //{
-        //    speed = walkingSpeed;
-        //    unitAnim.SetTrigger(startWalkHash);
-        //}
+        else if (IsClimbing(currentWayPoint) && !(stateInfo.shortNameHash == climbStateHash))
+        {
+            unitAnim.SetTrigger(goUpLadderHash);
+        }
     }
 
     public bool IsClimbing(Node currentWayPoint)
     {
-        return currentWayPoint.inMidOfFloor && GetCurrentNode().atLadderEnd;
+        return (currentWayPoint.gridY != GetCurrentNode().gridY) && !GetCurrentNode().jumpThroughable;
     }
 
     public bool IsFinishedClimbing(Node currentWaypoint)
@@ -307,9 +301,9 @@ public class Unit : MonoBehaviour
         // return startedClimbing && GetCurrentNode().atLadderEnd && (Vector2.Distance(GetCurrentNode().worldPosition, transform.position) < 0.1);
     }
 
-    public bool IsWalking(Node currentWaypoint)
+    public bool IsHorizontalMovement(Node currentWaypoint)
     {
-        return currentWaypoint.gridX != GetCurrentNode().gridX;
+        return (currentWayPoint.gridY == GetCurrentNode().gridY);
     }
 
     public bool IsFinishedWalking(Node currentWaypoint)
@@ -331,10 +325,10 @@ public class Unit : MonoBehaviour
             for (int i = targetIndex; i < path.Count; i++)
             {
                 Gizmos.color = Color.white;
-                Gizmos.DrawCube(path[i].worldPosition, new Vector3(1f, 1f, 1f));
+                Gizmos.DrawCube(path[i].worldPosition, new Vector3(0.2f, 0.2f, 0.2f));
                 Gizmos.color = Color.green;
                 if (currentWayPoint != null)
-                    Gizmos.DrawCube(currentWayPoint.worldPosition, new Vector3(1f, 1f, 1f));
+                    Gizmos.DrawCube(currentWayPoint.worldPosition, new Vector3(0.3f, 0.3f, 0.3f));
             }
         }
     }
