@@ -25,8 +25,8 @@ public class SoldierClass : Unit
         initialize();
     }
 
-    public override void die()
+    public override void Die()
     {
-        base.die();
+        base.Die();
     }
 }

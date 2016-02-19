@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -116,21 +117,21 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
-    public void moveTo(Vector2[] path)
+    public void moveTo(List<Node> path)
     {
         StartCoroutine(moveCoroutine(path));
     }
 
-    IEnumerator moveCoroutine(Vector2[] path)
+    IEnumerator moveCoroutine(List<Node> path)
     {
         cameraIsMoving = true;
-        if (path != null && path.Length>0)
+        if (path != null && path.Count > 0)
         {
             Vector3 targetPos;
-            transform.position = new Vector3(path[0].x, path[0].y, transform.position.z);
-            foreach (Vector2 pos in path)
+            transform.position = new Vector3(path[0].worldPosition.x, path[0].worldPosition.y, transform.position.z);
+            foreach (Node n in path)
             {
-                targetPos = pos;
+                targetPos = n.worldPosition;
                 targetPos.z = transform.position.z;
                 panSpeed = Time.deltaTime * cam.orthographicSize * 0.12f *
                         Vector2.Distance(transform.position, targetPos) + 0.05f;

@@ -97,7 +97,7 @@ public class TextBoxManager : MonoBehaviour
         if (!textBoxActive)
         {
             endAtLine = 0;
-            statemachine.startGame();
+            statemachine.StartGame();
         }
     }
 
@@ -113,7 +113,7 @@ public class TextBoxManager : MonoBehaviour
             if (currentLine > endAtLine)
             {
                 textBox.SetActive(false);
-                statemachine.startGame();
+                statemachine.StartGame();
                 dialogueDone = true;
             }
             else

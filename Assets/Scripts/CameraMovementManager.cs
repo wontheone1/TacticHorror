@@ -5,13 +5,13 @@ using System.Collections.Generic;
 
 public class CameraMovementManager : MonoBehaviour {
 
-    static Queue<Vector2[]> camMovementQueue = new Queue<Vector2[]>();
-    static Vector2[] currentCamMovePath;
+    static Queue<List<Node>> camMovementQueue = new Queue<List<Node>>();
+    static List<Node> currentCamMovePath;
     // static CameraMovementManager instance;
     static CameraMovement camMove = GameObject.FindWithTag("MainCamera").GetComponent<CameraMovement>();
     static bool CameraMoving = false;
 
-    public static void RequestCamMove(Vector2[] path)
+    public static void RequestCamMove(List<Node> path)
     {
         if (path != null)
         {

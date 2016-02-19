@@ -60,7 +60,7 @@ public class GameController : MonoBehaviour
         catch (Exception e) { Debug.Log(e);}
         statemachine = GetComponent<Statemachine>();
         grid = GetComponent<Grid>();
-        endButton = GameObject.Find("EndTurn").GetComponent<Button>();
+        endButton = GameObject.Find("EndTurnButton").GetComponent<Button>();
         endButton.onClick.AddListener(delegate {endTurn();});
         textBoxManager = GetComponent<TextBoxManager>();
     }
@@ -69,7 +69,7 @@ public class GameController : MonoBehaviour
     {
         disableRayCast = true;
         clearPaths();
-        statemachine.endTurn();
+        statemachine.EndTurn();
     }
 
     public void clearPaths()
@@ -130,16 +130,16 @@ public class GameController : MonoBehaviour
     /// </summary>
     public bool selectNextUnit()
     {
-        Vector2[] camMovePath = new Vector2[2];
+        List<Node> camMovePath = new List<Node>();
         int currentUnitIndex = activeUnits.IndexOf(activeUnit);
-        camMovePath[0] = Camera.main.gameObject.transform.position;
+        camMovePath.Add(grid.NodeFromWorldPoint(Camera.main.gameObject.transform.position));
         /// if unit is last one in the list change to the first unit.
         if (currentUnitIndex == activeUnits.Count - 1)
         {
             if (activeUnits[0].IsMovementPossible())
             {   
                 activeUnit = activeUnits[0];
-                camMovePath[1] = activeUnit.transform.position;
+                camMovePath.Add(grid.NodeFromWorldPoint(activeUnit.transform.position));
                 CameraMovementManager.RequestCamMove(camMovePath);
                 return true;
             }
@@ -151,7 +151,7 @@ public class GameController : MonoBehaviour
             if (activeUnits[i].IsMovementPossible())
             {
                 activeUnit = activeUnits[i];
-                camMovePath[1] = activeUnit.transform.position;
+                camMovePath.Add(grid.NodeFromWorldPoint(activeUnit.transform.position));
                 CameraMovementManager.RequestCamMove(camMovePath);
                 return true;
             }
@@ -177,13 +177,13 @@ public class GameController : MonoBehaviour
                         activeUnit.deletePath();
                         if (activeUnit.TargetUnit == c.gameObject.GetComponent<Unit>())
                         {
-                            activeUnit.attackTarget();
+                            activeUnit.AttackTarget();
                             debugText.text = "Attacked: " + activeUnit.TargetUnit.name;
                             if (!selectNextUnit())
                                 endTurn();
                             return;
                         }
-                        activeUnit.setAttackTarget(opponentUnits[i]);
+                        activeUnit.SetAttackTarget(opponentUnits[i]);
                         if (activeUnit.TargetUnit != null)
                         {
                             debugText.text = "Target: " + activeUnit.TargetUnit.name;
@@ -193,10 +193,10 @@ public class GameController : MonoBehaviour
                 }
 
                 /// if no opponent was clicked, unset target
-                activeUnit.unsetAttackTarget();
+                activeUnit.UnsetAttackTarget();
 
-                Vector2[] camMovePath = new Vector2[2];
-                camMovePath[0] = Camera.main.gameObject.transform.position;
+                List<Node> camMovePath = new List<Node>();
+                camMovePath.Add(grid.NodeFromWorldPoint(Camera.main.gameObject.transform.position));
                 /// select clicked unit
                 for (int i = 0; i < activeUnits.Count; i++)
                 {
@@ -205,7 +205,7 @@ public class GameController : MonoBehaviour
                         unitSelected = true;
                         activeUnit.deletePath();
                         activeUnit = activeUnits[i];
-                        camMovePath[1] = activeUnit.transform.position;
+                        camMovePath.Add(grid.NodeFromWorldPoint(activeUnit.transform.position));
                         CameraMovementManager.RequestCamMove(camMovePath);
                         debugText.text = activeUnit.name;
                         return;
@@ -223,7 +223,7 @@ public class GameController : MonoBehaviour
         mousePosition = Input.mousePosition;
         mousePosition.z = -transform.position.z;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        if (clickedNode != null && activeUnit.hasPath())
+        if (clickedNode != null && activeUnit.HasPath())
         {
             if (clickedNode.worldPosition == grid.NodeFromWorldPoint(mousePosition).worldPosition)
             {
@@ -242,13 +242,13 @@ public class GameController : MonoBehaviour
         opponentUnits.Remove(unit);
         playerUnits.Remove(unit);
         enemyUnits.Remove(unit);
-        unit.die();
+        unit.Die();
         Destroy(unit.gameObject);
 
         if (playerUnits.Count == 0)
-            statemachine.loseGame();
+            statemachine.LoseGame();
         else if (enemyUnits.Count == 0)
-            statemachine.winGame();
+            statemachine.WinGame();
     }
 
     //function which move-button calls, this function disables raycasting and moves active unit
@@ -260,7 +260,7 @@ public class GameController : MonoBehaviour
     private IEnumerator moveUnitCoroutine()
     {
         disableRayCast = true;
-        CameraMovementManager.RequestCamMove(activeUnit.startMoving());
+        CameraMovementManager.RequestCamMove(activeUnit.StartMoving());
         while (unitMoving || CameraMovement.cameraIsMoving)
         {
             yield return null;

@@ -8,8 +8,6 @@ using Debug = UnityEngine.Debug;
 
 public class Pathfinding : MonoBehaviour
 {
-
-
     PathRequestManager requestManager;
     Grid grid;
 
@@ -29,7 +27,7 @@ public class Pathfinding : MonoBehaviour
     {
         Stopwatch sw = new Stopwatch();
         sw.Start();
-        Vector2[] waypoints = new Vector2[0];
+        List<Node> path = new List<Node>();
         bool pathSuccess = false;
         Node startNode = grid.NodeFromWorldPoint(startPos);
         Node targetNode = grid.NodeFromWorldPoint(targetPos);
@@ -73,18 +71,18 @@ public class Pathfinding : MonoBehaviour
         yield return null;
         if (pathSuccess)
         {
-            waypoints = RetracePath(startNode, targetNode);
+            path = RetracePath(startNode, targetNode);
         }
         if (targetNode.FCost > actionPoint)
             StartFindPath(startPos, targetNode.parent.worldPosition, actionPoint);
         else
         {
-            requestManager.FinishedProcessingPath(waypoints, pathSuccess, targetNode.FCost);
-            grid.resetFcosts();
+            requestManager.FinishedProcessingPath(path, pathSuccess, targetNode.FCost);
+            grid.ResetFcosts();
         }
     }
 
-    Vector2[] RetracePath(Node startNode, Node endNode)
+    List<Node> RetracePath(Node startNode, Node endNode)
     {
         List<Node> path = new List<Node>();
         Node currentNode = endNode;
@@ -93,40 +91,8 @@ public class Pathfinding : MonoBehaviour
             path.Add(currentNode);
             currentNode = currentNode.parent;
         }
-        path.Add(startNode);
-
-        Vector2[] waypoints;
-        /// simplify path only when path has more than one node
-        if (path.Count > 1)
-        {
-            waypoints = SimplifyPath(path);
-            Array.Reverse(waypoints);
-        }
-        else
-        {
-            waypoints = new Vector2[] { path[0].worldPosition };
-        }
-        return waypoints;
-
-    }
-
-    Vector2[] SimplifyPath(List<Node> path)
-    {
-        HashSet<Vector2> waypoints = new HashSet<Vector2>();
-        Vector2 directionOld = new Vector2(path[0].gridX - path[1].gridX, path[0].gridY - path[1].gridY);
-        waypoints.Add(path[0].worldPosition); /// add first path in case path.Count is just 1
-        for (int i = 1; i < path.Count; i++)
-        {
-            Vector2 directionNew = new Vector2(path[i - 1].gridX - path[i].gridX, path[i - 1].gridY - path[i].gridY);
-            if (directionNew != directionOld)
-            {
-                waypoints.Add(path[i - 1].worldPosition);
-                waypoints.Add(path[i].worldPosition);
-            }
-            directionOld = directionNew;
-        }
-        waypoints.Add(path[path.Count - 1].worldPosition);
-        return waypoints.ToArray();
+        path.Reverse();
+        return path;
     }
 
     public int GetDistance(Node nodeA, Node nodeB)

@@ -12,6 +12,7 @@ public class Statemachine : MonoBehaviour
     private CameraMovement cameraMovement;
     private string winEvent = "event:/Music/victory";
     private string loseEvent = "event:/Music/defeat";
+    private Grid grid;
     // instantiating enum state machine for easy and understandable usage
     public enum State
     {
@@ -20,7 +21,8 @@ public class Statemachine : MonoBehaviour
         enemy,
         win,
         lose
-    };
+    }
+
     State curState = State.sceneStart;
     public State CurState
     {
@@ -43,33 +45,40 @@ public class Statemachine : MonoBehaviour
             {
                 VARIABLE.SetActive(false);
             }
-            catch (Exception){}
+            catch (Exception)
+            {
+                // ignored
+            }
         }
+        grid = GetComponent<Grid>();
     }
 
     // Use this for initialization
     void Start()
     {
-        implementCurrentState();
+        ImplementCurrentState();
     }
 
-    public void startGame()
+    public void StartGame()
     {
         curState = State.player;
         try
         {
-            foreach (GameObject VARIABLE in objectsHiddenBeforeGameStarts)
+            foreach (GameObject variable in objectsHiddenBeforeGameStarts)
             {
-                VARIABLE.SetActive(true);
+                variable.SetActive(true);
             }
         }
-        catch (Exception) { }
+        catch (Exception)
+        {
+            // ignored
+        }
         cameraMovement.CameraDisabled = false;
-        implementCurrentState();
+        ImplementCurrentState();
     }
 
     //this function is called when end turn -button is pressed, this function disables raycasting also
-    public void endTurn()
+    public void EndTurn()
     {
         //if current state is player, switch to enemy state
         if (curState == State.player)
@@ -83,24 +92,24 @@ public class Statemachine : MonoBehaviour
         {
             curState = State.player;
         }
-        implementCurrentState();
+        ImplementCurrentState();
     }
 
-    public void winGame()
+    public void WinGame()
     {
         curState = State.win;
-        implementCurrentState();
+        ImplementCurrentState();
     }
 
-    public void loseGame()
+    public void LoseGame()
     {
         curState = State.lose;
-        implementCurrentState();
+        ImplementCurrentState();
     }
 
-    public void implementCurrentState()
+    public void ImplementCurrentState()
     {
-        Vector2[] camMovePath;
+        List<Node> camMovePath;
         switch (curState)
         {
             case State.sceneStart:
@@ -111,28 +120,28 @@ public class Statemachine : MonoBehaviour
                 //players turn
                 //change active unit to player Unit
                 StateText.text = "Player turn";
-                camMovePath = new Vector2[2];
-                camMovePath[0] = Camera.main.gameObject.transform.position;
+                camMovePath = new List<Node>();
+                camMovePath.Add(grid.NodeFromWorldPoint(Camera.main.gameObject.transform.position));
                 gameController.ActiveUnits = gameController.playerUnits;
                 gameController.ActiveUnit = gameController.playerUnits[0];
                 gameController.OpponentUnits = gameController.enemyUnits;
-                camMovePath[1] = gameController.ActiveUnit.transform.position;
+                camMovePath.Add(grid.NodeFromWorldPoint(gameController.ActiveUnit.transform.position));
                 CameraMovementManager.RequestCamMove(camMovePath);
-                replenishActionPoints();
+                ReplenishActionPoints();
                 break;
 
             case State.enemy:
                 //enemys turn
                 //change active unit to enemyunit
                 StateText.text = "Enemy turn";
-                camMovePath = new Vector2[2];
-                camMovePath[0] = Camera.main.gameObject.transform.position;
+                camMovePath = new List<Node>();
+                camMovePath.Add(grid.NodeFromWorldPoint(Camera.main.gameObject.transform.position));
                 gameController.ActiveUnits = gameController.enemyUnits;
                 gameController.ActiveUnit = gameController.enemyUnits[0];
                 gameController.OpponentUnits = gameController.playerUnits;
-                camMovePath[1] = gameController.ActiveUnit.transform.position;
+                camMovePath.Add(grid.NodeFromWorldPoint(gameController.ActiveUnit.transform.position));
                 CameraMovementManager.RequestCamMove(camMovePath);
-                replenishActionPoints();
+                ReplenishActionPoints();
                 break;
 
             case Statemachine.State.lose:
@@ -152,11 +161,11 @@ public class Statemachine : MonoBehaviour
     /// <summary>
     /// When end turn, replenish action points of other units
     /// </summary>
-    public void replenishActionPoints()
+    public void ReplenishActionPoints()
     {
         foreach (var unit in gameController.ActiveUnits)
         {
-            unit.replenishActionPoint();
+            unit.ReplenishActionPoint();
             unit.deletePath();
         }
     }

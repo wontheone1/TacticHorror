@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.Networking.Match;
 using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
@@ -10,14 +12,14 @@ public class Unit : MonoBehaviour
     //[FMODUnity.EventRef]
     protected string ladderUpdownEvent, walkEvent, dieEvent, getHitEvent, attackEvent, jumpEvent;
 
-
     //Animator
+    private AnimatorStateInfo stateInfo;
     private Animator unitAnim;
     public static int UNIT_COUNT = 0;
     public string unitname;
-    private float walkingSpeed = 4f, climbingSpeed = 0.8f;
-    float speed = 4f; // speed for animation
-    Vector2[] path;
+    private float walkingSpeed = 4f, climbingSpeed = 1f;
+    float speed = 0f; // speed for animation
+    List<Node> path;
     int targetIndex;
     bool succesful = false;
     Vector2 originalClickPos;
@@ -31,9 +33,10 @@ public class Unit : MonoBehaviour
     protected int ap; // attack point
     protected int mp; // mana
     protected Grid grid;
+    private Node currentWayPoint;
     Pathfinding pathfinding;
     GameController gameController;
-    private bool unitMoving = false;
+    private bool unitMoving, startedWalking, startedClimbing, startedFinishingWalk, startedFinishingClimbing = false;
     Unit targetUnit = null;
     private int movementCostToDestination;
     public Unit TargetUnit
@@ -44,19 +47,23 @@ public class Unit : MonoBehaviour
     /// <summary>
     /// string Hash for animators... (optimization)
     /// </summary>
-    private int isMovingHash = Animator.StringToHash("isMoving");
+    /// 
+    //private int isMovingHash = Animator.StringToHash("isMoving");
+    private int startWalkHash = Animator.StringToHash("startWalk");
+    private int stopWalkHash = Animator.StringToHash("stopWalk");
     private int goUpLadderHash = Animator.StringToHash("goUpLadder");
     private int goOutLadderHash = Animator.StringToHash("goOutLadder");
     private int turnStateHash = Animator.StringToHash("turn");
+    private int turnBackStateHash = Animator.StringToHash("turnBack");
     private int climbStateHash = Animator.StringToHash("climb");
+    private int walkStateHash = Animator.StringToHash("walk");
+    private int idleStateHash = Animator.StringToHash("idle");
     private BoxCollider2D collider;
     Vector3 rightScale;
     Vector3 leftScale;
 
     protected virtual void Awake()
     {
-        Debug.Log(turnStateHash);
-        Debug.Log(climbStateHash);
         collider = GetComponent<BoxCollider2D>();
         unitAnim = GetComponent<Animator>();
         grid = GameObject.FindWithTag("MainCamera").GetComponent<Grid>();
@@ -66,9 +73,9 @@ public class Unit : MonoBehaviour
         leftScale.x *= -1;
     }
 
-    //protected virtual void Update()
-    //{
-    //}
+    protected virtual void Update()
+    {
+    }
 
     //delete units path, used before switching units and switching turn, function is called from Grid-script
     public void deletePath()
@@ -83,7 +90,7 @@ public class Unit : MonoBehaviour
             PathRequestManager.RequestPath(transform.position, target, actionPoint, OnPathFound);
     }
 
-    public void setAttackTarget(Unit _targetUnit)
+    public void SetAttackTarget(Unit _targetUnit)
     {
         Node thisUnitNode = GetCurrentNode();
         Node targetUnitNode = _targetUnit.GetCurrentNode();
@@ -93,22 +100,22 @@ public class Unit : MonoBehaviour
             Debug.Log("the unit is out of attack range");
     }
 
-    public void unsetAttackTarget()
+    public void UnsetAttackTarget()
     {
         targetUnit = null;
     }
 
-    public void attackTarget()
+    public void AttackTarget()
     {
         if (targetUnit != null)
         {
-            targetUnit.takeDamage(ap);
+            targetUnit.TakeDamage(ap);
             FMODUnity.RuntimeManager.PlayOneShot(attackEvent);
             actionPoint = 0;
         }
     }
 
-    public void takeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         if (damage > 0)
         {
@@ -119,9 +126,9 @@ public class Unit : MonoBehaviour
         }
     }
 
-    public virtual void die()
+    public virtual void Die()
     {
-        gameController.TextBoxManager.EventHandler(unitname, "die");
+        gameController.TextBoxManager.EventHandler(unitname, "Die");
         FMODUnity.RuntimeManager.PlayOneShot(dieEvent, transform.position);
     }
 
@@ -135,14 +142,14 @@ public class Unit : MonoBehaviour
         return actionPoint > 10;
     }
 
-    public void OnPathFound(Vector2[] newPath, bool pathSuccessful, int movementCost)
+    public void OnPathFound(List<Node> newPath, bool pathSuccessful, int movementCost)
     {
         if (pathSuccessful)
         {
             //mark path succesful
             succesful = true;
             path = newPath;
-            if (path.Length > 1)
+            if (path.Count > 1)
             {
                 DecideFaceDirection(path[1]);
             }
@@ -150,36 +157,25 @@ public class Unit : MonoBehaviour
         }
     }
 
-    public void DecideFaceDirection(Vector3 faceTo)
+    public void DecideFaceDirection(Node faceTo)
     {
-        if (faceTo.x < transform.position.x)
+        if (faceTo.worldPosition.x < transform.position.x)
         {
-            FaceLeft();
+            transform.localScale = leftScale; /// face left
         }
         else
         {
-            FaceRight();
+            transform.localScale = rightScale; /// face right
         }
     }
 
-    public void FaceLeft()
-    {
-        transform.localScale = leftScale;
-    }
-
-    public void FaceRight()
-    {
-        transform.localScale = rightScale;
-    }
-
     //movement script to move unit when "move button" is clicked, succesful boolean tests for succesful path before moving
-    public Vector2[] startMoving()
+    public List<Node> StartMoving()
     {
         if (succesful && path != null)
         {
             StopCoroutine("FollowPath");
             succesful = false;
-            unitAnim.SetBool(isMovingHash, true);
             StartCoroutine("FollowPath");
             actionPoint -= movementCostToDestination;
             return path;
@@ -187,7 +183,7 @@ public class Unit : MonoBehaviour
         return null;
     }
 
-    public void replenishActionPoint()
+    public void ReplenishActionPoint()
     {
         actionPoint = MAX_ACTION_POINT;
     }
@@ -195,63 +191,134 @@ public class Unit : MonoBehaviour
     IEnumerator FollowPath()
     {
         GameController.unitMoving = unitMoving = true;
-        if (path.Length > 0)
+        // unitAnim.SetBool(isMovingHash, unitMoving);
+
+        if (path.Count > 0)
         {
-            Vector3 currentWaypoint = path[0];
+            currentWayPoint = path[0];
             while (true)
             {
-                DecideFaceDirection(currentWaypoint);
-                if (isClimbing(currentWaypoint))
+                Debug.Log(startedWalking);
+                DecideFaceDirection(currentWayPoint);
+                DecideWalkingOrClimb(currentWayPoint);
+                DecideSpeedAccordingToAnimationState(unitAnim.GetCurrentAnimatorStateInfo(0));
+                if (Vector2.Distance(transform.position, currentWayPoint.worldPosition) < 0.1)
                 {
-                    AnimatorStateInfo stateInfo = unitAnim.GetCurrentAnimatorStateInfo(0);
-                    Debug.Log(stateInfo.shortNameHash);
-
-                    if (stateInfo.shortNameHash != turnStateHash && stateInfo.shortNameHash != climbStateHash)
-                    {
-                        unitAnim.SetTrigger(goUpLadderHash);
-                        speed = climbingSpeed;
-                    }
-                }
-                else
-                {
-                    unitAnim.SetTrigger(goOutLadderHash);
-                    speed = walkingSpeed;
-                }
-                if (Vector3.Distance(transform.position, currentWaypoint) < 0.10)
-                {
+                    speed = 0f;
                     targetIndex++;
-                    if (targetIndex >= path.Length)
+                    if (targetIndex >= path.Count)
                     {
                         /// When finished moving, clear up 
                         targetIndex = 0;
-                        path = new Vector2[0];
+                        path = new List<Node>();
+                        GameController.unitMoving = unitMoving = false;
+                        // unitAnim.SetBool(isMovingHash, unitMoving);
+                        unitAnim.SetTrigger(stopWalkHash);
+                        startedWalking = false;
+                        Debug.Log("stopwalk reached");
                         break;
                     }
-                    currentWaypoint = path[targetIndex];
+                    currentWayPoint = path[targetIndex];
+                    DecideWalkingOrClimbingIsFinished(currentWayPoint);
+                    DecideWalkingOrClimb(currentWayPoint);
+                    DecideSpeedAccordingToAnimationState(unitAnim.GetCurrentAnimatorStateInfo(0));
                 }
                 //
-
                 transform.position = Vector2.MoveTowards(transform.position,
-                       currentWaypoint, speed * Time.deltaTime);
+                       currentWayPoint.worldPosition, speed * Time.deltaTime);
+                // Debug.Log(speed);
                 FMODUnity.RuntimeManager.PlayOneShot(walkEvent);
                 yield return null;
             }
-            GameController.unitMoving = unitMoving = false;
-            unitAnim.SetBool(isMovingHash, false);
+        }
+    }
+
+    private void DecideWalkingOrClimbingIsFinished(Node currentWayPoint)
+    {
+        if (IsFinishedClimbing(currentWayPoint) && !startedFinishingClimbing)
+        {
+            Debug.Log("goOutLadder triggered");
+            startedClimbing = false;
+            startedWalking = false;
+            startedFinishingClimbing = true;
+            speed = 0f;
             unitAnim.SetTrigger(goOutLadderHash);
+        }
+        else if (IsFinishedWalking(currentWayPoint) && !startedFinishingWalk)
+        {
+            Debug.Log("goOutLadder triggered");
+            startedClimbing = false;
+            startedWalking = false;
+            startedFinishingWalk = true;
+            speed = 0f;
+            unitAnim.SetTrigger(stopWalkHash);
+        }
+    }
+
+    private void DecideSpeedAccordingToAnimationState(AnimatorStateInfo state)
+    {
+        if (state.shortNameHash == turnStateHash || state.shortNameHash == turnBackStateHash)
+        {
+            speed = 0f;
+        }
+        else if (state.shortNameHash == climbStateHash)
+        {
+            speed = climbingSpeed;
+        }
+        else if (state.shortNameHash == walkStateHash)
+        {
             speed = walkingSpeed;
         }
     }
 
-    public bool isClimbing(Vector3 currentWaypoint)
+    private void DecideWalkingOrClimb(Node currentWayPoint)
     {
-        return grid.NodeFromWorldPoint(currentWaypoint).gridY != GetCurrentNode().gridY;
+        if (IsClimbing(currentWayPoint) && !startedClimbing)
+        {
+            Debug.Log("goUpLadder triggered");
+            startedClimbing = true;
+            startedWalking = false;
+            speed = 0f;
+            unitAnim.SetTrigger(goUpLadderHash);
+        }
+        else if (IsWalking(currentWayPoint) && !startedWalking)
+        {
+            startedWalking = true;
+            startedClimbing = false;
+            speed = walkingSpeed;
+            unitAnim.SetTrigger(startWalkHash);
+        }
+        //else if (startedWalking && stateInfo.shortNameHash != walkStateHash)
+        //{
+        //    speed = walkingSpeed;
+        //    unitAnim.SetTrigger(startWalkHash);
+        //}
     }
 
-    public bool hasPath()
+    public bool IsClimbing(Node currentWayPoint)
+    {
+        return currentWayPoint.inMidOfFloor && GetCurrentNode().atLadderEnd;
+    }
+
+    public bool IsFinishedClimbing(Node currentWaypoint)
+    {
+        return startedClimbing && GetCurrentNode().atLadderEnd && !currentWaypoint.atLadderEnd && !currentWaypoint.inMidOfFloor;
+    }
+
+    public bool IsWalking(Node currentWaypoint)
+    {
+        return currentWaypoint.gridX != GetCurrentNode().gridX;
+    }
+
+    public bool IsFinishedWalking(Node currentWaypoint)
+    {
+        return startedWalking && (currentWaypoint.gridX == GetCurrentNode().gridX);
+    }
+
+    public bool HasPath()
     {
         if (path != null)
-            return path.Length > 0;
+            return path.Count > 0;
         else
             return false;
     }
@@ -259,19 +326,13 @@ public class Unit : MonoBehaviour
     {
         if (path != null)
         {
-            for (int i = targetIndex; i < path.Length; i++)
+            for (int i = targetIndex; i < path.Count; i++)
             {
                 Gizmos.color = Color.white;
-                Gizmos.DrawCube(path[i], new Vector3(0.25f, 0.25f, 0.25f));
-
-                if (i == targetIndex)
-                {
-                    Gizmos.DrawLine(transform.position, path[i]);
-                }
-                else
-                {
-                    Gizmos.DrawLine(path[i - 1], path[i]);
-                }
+                Gizmos.DrawCube(path[i].worldPosition, new Vector3(1f, 1f, 1f));
+                Gizmos.color = Color.green;
+                if (currentWayPoint != null)
+                    Gizmos.DrawCube(currentWayPoint.worldPosition, new Vector3(1f, 1f, 1f));
             }
         }
     }

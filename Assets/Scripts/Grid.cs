@@ -11,6 +11,7 @@ public class Grid : MonoBehaviour
     public LayerMask JumpThrouable;
     public LayerMask BlockedMask;
     public LayerMask MidFloorLayerMask;
+    public LayerMask LadderEndLayerMask;
 
     public Vector2 gridWorldSize;
     public float nodeRadius;
@@ -40,7 +41,7 @@ public class Grid : MonoBehaviour
     {
         grid = new Node[gridSizeX, gridSizeY];
 
-        bool walkable, throughable, blocked, coveredFromLeft, coveredFromRight, inMidFloor;
+        bool walkable, throughable, blocked, coveredFromLeft, coveredFromRight, inMidFloor, atLadderEnd;
         RaycastHit2D hit;
         float detectionLength = 0.7f;
         for (int x = 0; x < gridSizeX; x++)
@@ -54,7 +55,8 @@ public class Grid : MonoBehaviour
                 coveredFromLeft = Physics2D.Raycast(worldPoint, Vector2.left, nodeDiameter, BlockedMask).collider != null;
                 coveredFromRight = Physics2D.Raycast(worldPoint, Vector2.right, nodeDiameter, BlockedMask).collider != null;
                 inMidFloor = (Physics2D.OverlapCircle(worldPoint, nodeRadius*detectionLength, MidFloorLayerMask));
-                grid[x, y] = new Node(walkable, worldPoint, x, y, throughable, blocked, coveredFromLeft, coveredFromRight, false, inMidFloor);
+                atLadderEnd = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, LadderEndLayerMask));
+                grid[x, y] = new Node(walkable, worldPoint, x, y, throughable, blocked, coveredFromLeft, coveredFromRight, false, inMidFloor, atLadderEnd);
             }
         }
     }
@@ -109,7 +111,7 @@ public class Grid : MonoBehaviour
         return grid[x, y];
     }
 
-    public void resetFcosts()
+    public void ResetFcosts()
     {
         foreach (Node n in grid)
         {
@@ -127,7 +129,13 @@ public class Grid : MonoBehaviour
             foreach (Node n in grid)
             {
                 draw = false;
-                if (n.blocked || n.occupied)
+
+                if (n.atLadderEnd)
+                {
+                    Gizmos.color = Color.grey;
+                    draw = true;
+                }
+                else if (n.blocked || n.occupied)
                 {
                     Gizmos.color = Color.red;
                     draw = true;
@@ -152,8 +160,6 @@ public class Grid : MonoBehaviour
                     Gizmos.color = Color.white;
                     draw = true;
                 }
-
-
                 if (draw)
                     Gizmos.DrawWireCube(n.worldPosition, new Vector3(1, 1, 0f) * (nodeDiameter - .1f));
             }
