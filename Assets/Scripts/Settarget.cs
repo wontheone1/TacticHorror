@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
-using System.Collections;
 public class Settarget : MonoBehaviour
 {
-	Vector3 newPosition;
-	void Start () {
-		newPosition = transform.position;
+    private Vector3 _newPosition;
+
+    // ReSharper disable once UnusedMember.Local
+    private void Start () {
+		_newPosition = transform.position;
 	}
-	void Update()
+
+    // ReSharper disable once UnusedMember.Local
+    // ReSharper disable once ArrangeTypeMemberModifiers
+    private void Update()
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
@@ -14,8 +18,8 @@ public class Settarget : MonoBehaviour
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit))
 			{
-				newPosition = hit.point;
-				transform.position = newPosition;
+				_newPosition = hit.point;
+				transform.position = _newPosition;
 			}
 		}
 	}

@@ -1,20 +1,20 @@
 <Dialogue>
-  <entry speaker="Soldier1" team="2" event="die">
+  <Entry Speaker="SolDier1" Team="2" event="Die">
     You will pay for this...
-  </entry>
-  <entry speaker="Soldier2" team="2" event="die">
+  </Entry>
+  <Entry Speaker="SolDier2" Team="2" event="Die">
     Glory for Reich!
-  </entry>
-  <entry speaker="Ghost" team="1" event="die">
-    Seems like I just died... "Again"
-  </entry>
-  <entry speaker="Vampire" team="1" event="die">
+  </Entry>
+  <Entry Speaker="Ghost" Team="1" event="Die">
+    Seems like I just Died... "Again"
+  </Entry>
+  <Entry Speaker="Vampire" Team="1" event="Die">
     I will rise again...
-  </entry>
-  <entry speaker="Frankenstein" team="1" event="die">
+  </Entry>
+  <Entry Speaker="Frankenstein" Team="1" event="Die">
     Revenge...
-  </entry>
-  <entry speaker="Werewolf" team="1" event="die">
+  </Entry>
+  <Entry Speaker="Werewolf" Team="1" event="Die">
     Grrrrrr......
-  </entry>
+  </Entry>
 </Dialogue>

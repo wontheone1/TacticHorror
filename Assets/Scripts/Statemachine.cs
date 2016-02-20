@@ -1,145 +1,177 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class Statemachine : MonoBehaviour
 {
-    public GameObject[] objectsHiddenBeforeGameStarts;
+    public GameObject[] ObjectsHiddenBeforeGameStarts;
     public Text StateText;
-    private GameController gameController;
-    private CameraMovement cameraMovement;
+    private GameController _gameController;
+    private CameraMovement _cameraMovement;
+    private readonly string winEvent = "event:/Music/victory";
+    private readonly string loseEvent = "event:/Music/defeat";
+    private Grid _grid;
     // instantiating enum state machine for easy and understandable usage
     public enum State
     {
-        sceneStart,
-        player,
-        enemy,
-        win,
-        lose
-    };
-    State curState = State.sceneStart;
+        SceneStart,
+        Player,
+        Enemy,
+        Win,
+        Lose
+    }
+
+    State _curState = State.SceneStart;
+
     public State CurState
     {
-        get { return curState; }
+        get { return _curState; }
     }
-
-    //// Use this for initialization
-    void Awake()
+    
+    // ReSharper disable once UnusedMember.Local
+    private void Awake()
     {
-        cameraMovement = GetComponent<CameraMovement>();
-        gameController = GetComponent<GameController>();
-        foreach (GameObject VARIABLE in objectsHiddenBeforeGameStarts)
+        ObjectsHiddenBeforeGameStarts = new[] {GameObject.Find("EndTurn")};
+        try
         {
-            VARIABLE.SetActive(false);   
+            StateText = GameObject.Find("Game State Text").GetComponent<Text>();
         }
-    }
-
-    // Use this for initialization
-    void Start()
-    {
-        implementCurrentState();
-    }
-
-    public void startGame()
-    {
-        curState = State.player;
-        foreach (GameObject VARIABLE in objectsHiddenBeforeGameStarts)
+        catch (Exception)
         {
-            VARIABLE.SetActive(true);
+            // ignored
         }
-        cameraMovement.CameraDisabled = false;
-        implementCurrentState();
+        
+        _cameraMovement = GetComponent<CameraMovement>();
+        _gameController = GetComponent<GameController>();
+        foreach (GameObject variable in ObjectsHiddenBeforeGameStarts)
+        {
+            try
+            {
+                variable.SetActive(false);
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+        }
+        _grid = GetComponent<Grid>();
+    }
+    
+    // ReSharper disable once UnusedMember.Local
+    private void Start()
+    {
+        ImplementCurrentState();
+    }
+
+    public void StartGame()
+    {
+        _curState = State.Player;
+        try
+        {
+            foreach (GameObject variable in ObjectsHiddenBeforeGameStarts)
+            {
+                variable.SetActive(true);
+            }
+        }
+        catch (Exception)
+        {
+            // ignored
+        }
+        _cameraMovement.CameraDisabled = false;
+        ImplementCurrentState();
     }
 
     //this function is called when end turn -button is pressed, this function disables raycasting also
-    public void endTurn()
+    public void EndTurn()
     {
-        //if current state is player, switch to enemy state
-        if (curState == State.player)
+        //if current state is Player, switch to Enemy state
+        if (_curState == State.Player)
         {
-            //switch current state to enemy
-            curState = State.enemy;
+            //switch current state to Enemy
+            _curState = State.Enemy;
         }
 
-        //works same way as switching from player to enemy
-        else if (curState == State.enemy)
+        //works same way as switching from Player to Enemy
+        else if (_curState == State.Enemy)
         {
-            curState = State.player;
+            _curState = State.Player;
         }
-        implementCurrentState();
+        ImplementCurrentState();
     }
 
-    public void winGame()
+    public void WinGame()
     {
-        curState = State.win;
-        implementCurrentState();
+        _curState = State.Win;
+        ImplementCurrentState();
     }
 
-    public void loseGame()
+    public void LoseGame()
     {
-        curState = State.lose;
-        implementCurrentState();
+        _curState = State.Lose;
+        ImplementCurrentState();
     }
 
-    public void implementCurrentState()
+    public void ImplementCurrentState()
     {
-        Vector2[] camMovePath;
-        switch (curState)
+        List<Node> camMovePath;
+        switch (_curState)
         {
-            case State.sceneStart:
-                cameraMovement.CameraDisabled = true;
+            case State.SceneStart:
+                _cameraMovement.CameraDisabled = true;
                 break;
 
-            case State.player:
+            case State.Player:
                 //players turn
-                //change active unit to player Unit
+                //change active unit to Player Unit
                 StateText.text = "Player turn";
-                camMovePath = new Vector2[2];
-                camMovePath[0] = Camera.main.gameObject.transform.position;
-                gameController.ActiveUnits = gameController.playerUnits;
-                gameController.ActiveUnit = gameController.playerUnits[0];
-                gameController.OpponentUnits = gameController.enemyUnits;
-                camMovePath[1] = gameController.ActiveUnit.transform.position;
+                camMovePath = new List<Node> {_grid.NodeFromWorldPoint(Camera.main.gameObject.transform.position)};
+                _gameController.ActiveUnits = _gameController.PlayerUnits;
+                _gameController.ActiveUnit = _gameController.PlayerUnits[0];
+                _gameController.OpponentUnits = _gameController.EnemyUnits;
+                camMovePath.Add(_grid.NodeFromWorldPoint(_gameController.ActiveUnit.transform.position));
                 CameraMovementManager.RequestCamMove(camMovePath);
-                replenishActionPoints();
+                ReplenishActionPoints();
                 break;
 
-            case State.enemy:
+            case State.Enemy:
                 //enemys turn
                 //change active unit to enemyunit
                 StateText.text = "Enemy turn";
-                camMovePath = new Vector2[2];
-                camMovePath[0] = Camera.main.gameObject.transform.position;
-                gameController.ActiveUnits = gameController.enemyUnits;
-                gameController.ActiveUnit = gameController.enemyUnits[0];
-                gameController.OpponentUnits = gameController.playerUnits;
-                camMovePath[1] = gameController.ActiveUnit.transform.position;
+                camMovePath = new List<Node> {_grid.NodeFromWorldPoint(Camera.main.gameObject.transform.position)};
+                _gameController.ActiveUnits = _gameController.EnemyUnits;
+                _gameController.ActiveUnit = _gameController.EnemyUnits[0];
+                _gameController.OpponentUnits = _gameController.PlayerUnits;
+                camMovePath.Add(_grid.NodeFromWorldPoint(_gameController.ActiveUnit.transform.position));
                 CameraMovementManager.RequestCamMove(camMovePath);
-                replenishActionPoints();
+                ReplenishActionPoints();
                 break;
 
-            case Statemachine.State.lose:
+            case State.Lose:
                 //game is lost
                 StateText.text = "You Lost!";
+                FMODUnity.RuntimeManager.PlayOneShot(loseEvent);
                 break;
 
-            case Statemachine.State.win:
+            case State.Win:
                 //game is won, lol
                 StateText.text = "You Won!";
+                FMODUnity.RuntimeManager.PlayOneShot(winEvent);
                 break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 
     /// <summary>
     /// When end turn, replenish action points of other units
     /// </summary>
-    public void replenishActionPoints()
+    public void ReplenishActionPoints()
     {
-        foreach (var unit in gameController.ActiveUnits)
+        foreach (var unit in _gameController.ActiveUnits)
         {
-            unit.replenishActionPoint();
-            unit.deletePath();
+            unit.ReplenishActionPoint();
+            unit.DeletePath();
         }
     }
 }

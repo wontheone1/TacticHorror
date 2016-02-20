@@ -1,0 +1,675 @@
+fileFormatVersion: 2
+guid: 511ec398d10cfe343a53629c23882308
+timeCreated: 1455824148
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: frankenstein_test_spritesheet_0
+    21300002: frankenstein_test_spritesheet_1
+    21300004: frankenstein_test_spritesheet_2
+    21300006: frankenstein_test_spritesheet_3
+    21300008: frankenstein_test_spritesheet_4
+    21300010: frankenstein_test_spritesheet_5
+    21300012: frankenstein_test_spritesheet_6
+    21300014: frankenstein_test_spritesheet_7
+    21300016: frankenstein_test_spritesheet_8
+    21300018: frankenstein_test_spritesheet_9
+    21300020: frankenstein_test_spritesheet_10
+    21300022: frankenstein_test_spritesheet_11
+    21300024: frankenstein_test_spritesheet_12
+    21300026: frankenstein_test_spritesheet_13
+    21300028: frankenstein_test_spritesheet_14
+    21300030: frankenstein_test_spritesheet_15
+    21300032: frankenstein_test_spritesheet_16
+    21300034: frankenstein_test_spritesheet_17
+    21300036: frankenstein_test_spritesheet_18
+    21300038: frankenstein_test_spritesheet_19
+    21300040: frankenstein_test_spritesheet_20
+    21300042: frankenstein_test_spritesheet_21
+    21300044: frankenstein_test_spritesheet_22
+    21300046: frankenstein_test_spritesheet_23
+    21300048: frankenstein_test_spritesheet_24
+    21300050: frankenstein_test_spritesheet_25
+    21300052: frankenstein_test_spritesheet_26
+    21300054: frankenstein_test_spritesheet_27
+    21300056: frankenstein_test_spritesheet_28
+    21300058: frankenstein_test_spritesheet_29
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 30
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: frankenstein_test_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 879
+        width: 40
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 32.5}
+        - {x: -20, y: -7.5}
+        - {x: -16, y: -32.5}
+        - {x: 19, y: -32.5}
+        - {x: 20, y: -29.5}
+        - {x: 20, y: 27.5}
+        - {x: 9, y: 32.5}
+    - name: frankenstein_test_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 879
+        width: 43
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5.5, y: 33}
+        - {x: -21.5, y: 33}
+        - {x: -21.5, y: -27}
+        - {x: -18.5, y: -33}
+        - {x: 14.5, y: -33}
+        - {x: 21.5, y: -20}
+        - {x: 21.5, y: 0}
+        - {x: 12.5, y: 32}
+    - name: frankenstein_test_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 879
+        width: 58
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: 30}
+        - {x: 6, y: 34}
+        - {x: -24, y: 34}
+        - {x: -27, y: 31}
+        - {x: -29, y: 10}
+        - {x: -29, y: -24}
+        - {x: -15, y: -32}
+        - {x: -12, y: -30}
+        - {x: -8, y: -27}
+        - {x: -4, y: -33}
+        - {x: -3, y: -34}
+        - {x: 18, y: -34}
+        - {x: 24, y: -32}
+        - {x: 29, y: -16}
+        - {x: 29, y: 6}
+    - name: frankenstein_test_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 879
+        width: 49
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1.5, y: -33.5}
+        - {x: 21.5, y: -33.5}
+        - {x: 24.5, y: -32.5}
+        - {x: 24.5, y: 4.5}
+        - {x: 21.5, y: 19.5}
+        - {x: 5.5, y: 33.5}
+        - {x: -22.5, y: 33.5}
+        - {x: -24.5, y: -11.5}
+        - {x: -24.5, y: -33.5}
+        - {x: -3.5, y: -33.5}
+        - {x: -2.5, y: -32.5}
+        - {x: -2.5, y: -30.5}
+        - {x: -2.5, y: -32.5}
+    - name: frankenstein_test_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 879
+        width: 42
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21, y: -20.5}
+        - {x: 17, y: -18.5}
+        - {x: 14, y: -17.5}
+        - {x: 10, y: -17.5}
+        - {x: 17, y: -17.5}
+        - {x: 21, y: -14.5}
+        - {x: 21, y: 28.5}
+        - {x: 4, y: 32.5}
+        - {x: -16, y: 32.5}
+        - {x: -18, y: 28.5}
+        - {x: -21, y: -3.5}
+        - {x: -21, y: -32.5}
+        - {x: 16, y: -32.5}
+        - {x: 18, y: -31.5}
+        - {x: 21, y: -21.5}
+    - name: frankenstein_test_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 783
+        width: 34
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 33.5}
+        - {x: -17, y: -33.5}
+        - {x: 12, y: -33.5}
+        - {x: 17, y: -32.5}
+        - {x: 17, y: 27.5}
+        - {x: 4, y: 33.5}
+    - name: frankenstein_test_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 783
+        width: 37
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.5, y: 34}
+        - {x: -18.5, y: -33}
+        - {x: -17.5, y: -34}
+        - {x: 12.5, y: -34}
+        - {x: 18.5, y: -30}
+        - {x: 18.5, y: 25}
+        - {x: 16.5, y: 34}
+    - name: frankenstein_test_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 783
+        width: 55
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.5, y: 33.5}
+        - {x: -27.5, y: 16.5}
+        - {x: -27.5, y: -31.5}
+        - {x: -12.5, y: -33.5}
+        - {x: 19.5, y: -33.5}
+        - {x: 27.5, y: -24.5}
+        - {x: 27.5, y: 8.5}
+        - {x: 19.5, y: 33.5}
+    - name: frankenstein_test_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 783
+        width: 44
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 33.5}
+        - {x: -21, y: 30.5}
+        - {x: -22, y: 5.5}
+        - {x: -22, y: -33.5}
+        - {x: 17, y: -33.5}
+        - {x: 22, y: -32.5}
+        - {x: 22, y: 25.5}
+        - {x: 11, y: 33.5}
+    - name: frankenstein_test_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 783
+        width: 35
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9.5, y: 31}
+        - {x: 6.5, y: 30}
+        - {x: 4.5, y: 28}
+        - {x: -0.5, y: 33}
+        - {x: -17.5, y: 33}
+        - {x: -17.5, y: -33}
+        - {x: 12.5, y: -33}
+        - {x: 17.5, y: -28}
+        - {x: 17.5, y: 25}
+    - name: frankenstein_test_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 687
+        width: 36
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 32.5}
+        - {x: -18, y: 32.5}
+        - {x: -18, y: -17.5}
+        - {x: -15, y: -32.5}
+        - {x: 16, y: -32.5}
+        - {x: 18, y: -29.5}
+        - {x: 18, y: 30.5}
+    - name: frankenstein_test_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 687
+        width: 34
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 33}
+        - {x: -17, y: -9}
+        - {x: -15, y: -31}
+        - {x: -14, y: -33}
+        - {x: 14, y: -33}
+        - {x: 17, y: -17}
+        - {x: 17, y: 24}
+        - {x: 11, y: 33}
+    - name: frankenstein_test_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 687
+        width: 36
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 33.5}
+        - {x: -18, y: -33.5}
+        - {x: 16, y: -33.5}
+        - {x: 18, y: -19.5}
+        - {x: 18, y: 30.5}
+        - {x: 12, y: 33.5}
+    - name: frankenstein_test_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 687
+        width: 39
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.5, y: 34}
+        - {x: -19.5, y: -34}
+        - {x: 18.5, y: -34}
+        - {x: 19.5, y: -22}
+        - {x: 19.5, y: 28}
+        - {x: 14.5, y: 34}
+    - name: frankenstein_test_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 687
+        width: 37
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.5, y: 36.5}
+        - {x: -18.5, y: -36.5}
+        - {x: 18.5, y: -36.5}
+        - {x: 18.5, y: 29.5}
+        - {x: 1.5, y: 36.5}
+    - name: frankenstein_test_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 591
+        width: 36
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 35}
+        - {x: -18, y: -6}
+        - {x: -15, y: -35}
+        - {x: 17, y: -35}
+        - {x: 18, y: -28}
+        - {x: 18, y: 24}
+        - {x: 8, y: 35}
+    - name: frankenstein_test_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 591
+        width: 39
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 38}
+        - {x: -19.5, y: 37}
+        - {x: -19.5, y: -21}
+        - {x: -16.5, y: -38}
+        - {x: 4.5, y: -38}
+        - {x: 19.5, y: -17}
+        - {x: 19.5, y: 22}
+        - {x: 8.5, y: 38}
+    - name: frankenstein_test_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 591
+        width: 40
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 37}
+        - {x: -20, y: 20}
+        - {x: -20, y: -9}
+        - {x: -17, y: -34}
+        - {x: -2, y: -36}
+        - {x: 3, y: -31}
+        - {x: 3, y: -29}
+        - {x: 2, y: -35}
+        - {x: 3, y: -37}
+        - {x: 20, y: -37}
+        - {x: 20, y: 24}
+        - {x: 10, y: 37}
+    - name: frankenstein_test_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 591
+        width: 42
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 38.5}
+        - {x: -21, y: 32.5}
+        - {x: -21, y: -35.5}
+        - {x: -2, y: -38.5}
+        - {x: 17, y: -38.5}
+        - {x: 21, y: -15.5}
+        - {x: 21, y: 34.5}
+        - {x: 19, y: 38.5}
+    - name: frankenstein_test_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 591
+        width: 43
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11.5, y: 37.5}
+        - {x: -16.5, y: 37.5}
+        - {x: -21.5, y: 35.5}
+        - {x: -21.5, y: -25.5}
+        - {x: -15.5, y: -37.5}
+        - {x: 15.5, y: -37.5}
+        - {x: 16.5, y: -22.5}
+        - {x: 21.5, y: -2.5}
+        - {x: 21.5, y: 34.5}
+    - name: frankenstein_test_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 494
+        width: 43
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.5, y: 37.5}
+        - {x: -21.5, y: 33.5}
+        - {x: -21.5, y: -3.5}
+        - {x: -14.5, y: -34.5}
+        - {x: -2.5, y: -37.5}
+        - {x: 19.5, y: -37.5}
+        - {x: 21.5, y: -19.5}
+        - {x: 21.5, y: 25.5}
+        - {x: 13.5, y: 37.5}
+    - name: frankenstein_test_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 495
+        width: 43
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4.5, y: -34}
+        - {x: 17.5, y: -34}
+        - {x: 19.5, y: -24}
+        - {x: 21.5, y: -15}
+        - {x: 21.5, y: 28}
+        - {x: 10.5, y: 34}
+        - {x: -14.5, y: 34}
+        - {x: -21.5, y: 28}
+        - {x: -21.5, y: -23}
+        - {x: -20.5, y: -25}
+        - {x: -11.5, y: -34}
+        - {x: 2.5, y: -34}
+        - {x: 3.5, y: -33}
+        - {x: 3.5, y: -25}
+        - {x: 3.5, y: -33}
+    - name: frankenstein_test_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 495
+        width: 38
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19, y: 36.5}
+        - {x: -19, y: -36.5}
+        - {x: 19, y: -36.5}
+        - {x: 19, y: 19.5}
+        - {x: 4, y: 36.5}
+    - name: frankenstein_test_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 495
+        width: 38
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19, y: 36}
+        - {x: -19, y: -13}
+        - {x: -14, y: -36}
+        - {x: 8, y: -36}
+        - {x: 19, y: -32}
+        - {x: 19, y: 21}
+        - {x: 9, y: 36}
+    - name: frankenstein_test_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 495
+        width: 39
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 37}
+        - {x: -17.5, y: 36}
+        - {x: -19.5, y: 33}
+        - {x: -19.5, y: -21}
+        - {x: -17.5, y: -37}
+        - {x: 19.5, y: -37}
+        - {x: 19.5, y: 36}
+        - {x: 16.5, y: 37}
+    - name: frankenstein_test_spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 399
+        width: 39
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 38}
+        - {x: -19.5, y: 37}
+        - {x: -19.5, y: -21}
+        - {x: -16.5, y: -38}
+        - {x: 4.5, y: -38}
+        - {x: 19.5, y: -17}
+        - {x: 19.5, y: 22}
+        - {x: 8.5, y: 38}
+    - name: frankenstein_test_spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 399
+        width: 40
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 37}
+        - {x: -20, y: 20}
+        - {x: -20, y: -10}
+        - {x: -16, y: -34}
+        - {x: -2, y: -35}
+        - {x: 0, y: -34}
+        - {x: 3, y: -31}
+        - {x: 3, y: -29}
+        - {x: 2, y: -35}
+        - {x: 3, y: -37}
+        - {x: 20, y: -37}
+        - {x: 20, y: 23}
+        - {x: 8, y: 37}
+    - name: frankenstein_test_spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 399
+        width: 42
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 38.5}
+        - {x: -21, y: 18.5}
+        - {x: -21, y: -14.5}
+        - {x: -8, y: -38.5}
+        - {x: 21, y: -38.5}
+        - {x: 21, y: 38.5}
+    - name: frankenstein_test_spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 399
+        width: 43
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.5, y: 37.5}
+        - {x: -21.5, y: 22.5}
+        - {x: -21.5, y: -29.5}
+        - {x: -3.5, y: -37.5}
+        - {x: 21.5, y: -37.5}
+        - {x: 21.5, y: 37.5}
+    - name: frankenstein_test_spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 398
+        width: 43
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.5, y: 37.5}
+        - {x: -21.5, y: 33.5}
+        - {x: -21.5, y: -3.5}
+        - {x: -14.5, y: -34.5}
+        - {x: -2.5, y: -37.5}
+        - {x: 19.5, y: -37.5}
+        - {x: 21.5, y: -19.5}
+        - {x: 21.5, y: 25.5}
+        - {x: 13.5, y: 37.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
