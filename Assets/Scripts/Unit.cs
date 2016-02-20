@@ -11,6 +11,7 @@ public class Unit : MonoBehaviour
     //[FMODUnity.EventRef]
     protected string LadderUpdownEvent, WalkEvent, DieEvent, GetHitEvent, AttackEvent, JumpEvent;
 
+    private Rigidbody2D _rb;
     //Animator
     private AnimatorStateInfo _stateInfo;
     private Animator _unitAnim;
@@ -19,7 +20,7 @@ public class Unit : MonoBehaviour
     private const float WalkingSpeed = 4f;
     private const float ClimbingSpeed = 2.5f;
     private const float PrejumpLandingSpeed = 1f;
-    private const float jumpSpeed = 5f;
+    private const float JumpSpeed = 5f;
     private float _speed; // _speed for animation
     private List<Node> _path;
     private bool _succesful;
@@ -36,7 +37,7 @@ public class Unit : MonoBehaviour
     private Node _currentWayPoint;
     private Pathfinding _pathfinding;
     private GameController _gameController;
-    private bool _unitMoving;
+    private bool _unitMoving, _underJumpPhysics;
     private Unit _targetUnit;
     private int _movementCostToDestination;
     private Vector3 _rightScale, _leftScale;
@@ -49,6 +50,8 @@ public class Unit : MonoBehaviour
     /// <summary>
     /// string Hash for animators... (optimization)
     /// </summary>
+
+    private readonly int _attackHash = Animator.StringToHash("attack");
     private readonly int _jumpHash = Animator.StringToHash("jump");
     private readonly int _landHash = Animator.StringToHash("land");
     private readonly int _killedHash = Animator.StringToHash("killed");
@@ -66,6 +69,7 @@ public class Unit : MonoBehaviour
     private readonly int _preJumpStateHash = Animator.StringToHash("preJump");
     private readonly int _midJumpStateHash = Animator.StringToHash("midJump");
     private readonly int _landingStateHash = Animator.StringToHash("landing");
+    private readonly int _attackingStateHash = Animator.StringToHash("attacking");
 
     protected virtual void Awake()
     {
@@ -75,6 +79,7 @@ public class Unit : MonoBehaviour
         _gameController = GameObject.FindWithTag("MainCamera").GetComponent<GameController>();
         _leftScale = _rightScale = transform.localScale;
         _leftScale.x *= -1;
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     protected virtual void Initialize()
@@ -102,7 +107,8 @@ public class Unit : MonoBehaviour
     {
         Node thisUnitNode = GetCurrentNode();
         Node targetUnitNode = targetUnit.GetCurrentNode();
-        if (_pathfinding.GetDistance(thisUnitNode, targetUnitNode) <= AttackRange)
+        if (_pathfinding.GetDistance(thisUnitNode, targetUnitNode) <= AttackRange 
+            && (targetUnit.GetCurrentNode().GridY == GetCurrentNode().GridY))
             _targetUnit = targetUnit;
         else
             Debug.Log("the unit is out of attack range");
@@ -117,6 +123,7 @@ public class Unit : MonoBehaviour
     {
         if (_targetUnit != null)
         {
+
             _targetUnit.TakeDamage(Ap);
             FMODUnity.RuntimeManager.PlayOneShot(AttackEvent);
             ActionPoint = 0;
@@ -241,13 +248,15 @@ public class Unit : MonoBehaviour
         if (GetCurrentNode().JumpThroughable && !GetCurrentNode().Walkable &&
             state.shortNameHash == _walkStateHash)
         {
-            FlipFaceDirection();
+            // FlipFaceDirection();
             _unitAnim.SetTrigger(_jumpHash);
         } else if (GetCurrentNode().Walkable && state.shortNameHash == _midJumpStateHash)
         {
-            FlipFaceDirection();
+            // FlipFaceDirection();
             _unitAnim.SetTrigger(_landHash);
+            UnapplyJumpPhysics();
         }
+        DecideSpeedAccordingToAnimationState(_stateInfo);
     }
 
     public bool IsHorizontalMovement(Node currentWaypoint)
@@ -286,6 +295,29 @@ public class Unit : MonoBehaviour
         DecideSpeedAccordingToAnimationState(_unitAnim.GetCurrentAnimatorStateInfo(0));
     }
 
+    private void ApplyJumpPhysics()
+    {
+        if (!_underJumpPhysics)
+        {
+            _underJumpPhysics = true;
+            _rb.isKinematic = false;
+            _rb.gravityScale = 1;
+            _rb.velocity = new Vector2(0, 4.5f);
+        }
+    }
+
+    private void UnapplyJumpPhysics()
+    {
+        
+        if (_underJumpPhysics)
+        {
+            Debug.Log("jump unapply");
+            _underJumpPhysics = false;
+            _rb.isKinematic = true;
+            _rb.gravityScale = 0;
+        }
+    }
+
     private void DecideSpeedAccordingToAnimationState(AnimatorStateInfo state)
     {
         if (state.shortNameHash == _turnStateHash || state.shortNameHash == _turnBackStateHash ||
@@ -297,10 +329,12 @@ public class Unit : MonoBehaviour
         else if (state.shortNameHash == _preJumpStateHash || state.shortNameHash == _landingStateHash)
         {
             _speed = PrejumpLandingSpeed;
+            UnapplyJumpPhysics();
         }
         else if (state.shortNameHash == _midJumpStateHash)
         {
-            _speed = jumpSpeed;
+            _speed = JumpSpeed;
+            ApplyJumpPhysics();
         }
         else if (state.shortNameHash == _climbStateHash)
         {

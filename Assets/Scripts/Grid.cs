@@ -129,7 +129,12 @@ public class Grid : MonoBehaviour
             {
                 draw = false;
 
-                if (n.AtLadderEnd)
+                if (n.InMidOfFloor)
+                {
+                    Gizmos.color = Color.cyan;
+                    draw = true;
+                }
+                else if (n.AtLadderEnd)
                 {
                     Gizmos.color = Color.grey;
                     draw = true;
@@ -142,11 +147,6 @@ public class Grid : MonoBehaviour
                 } else if (n.CoveredFromLeft || n.CoveredFromRight)
                 {
                     Gizmos.color = Color.blue;
-                    draw = true;
-                }
-                else if (n.InMidOfFloor)
-                {
-                    Gizmos.color = Color.cyan;
                     draw = true;
                 }
                 else if (n.Walkable)
