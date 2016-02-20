@@ -12,7 +12,6 @@ public class Unit : MonoBehaviour
     //[FMODUnity.EventRef]
     protected string LadderUpdownEvent, WalkEvent, DieEvent, GetHitEvent, AttackEvent, JumpEvent;
 
-    private GameObject projectile;
     private Rigidbody2D _rb;
     //Animator
     private AnimatorStateInfo _stateInfo;
@@ -82,7 +81,6 @@ public class Unit : MonoBehaviour
         _leftScale = _rightScale = transform.localScale;
         _leftScale.x *= -1;
         _rb = GetComponent<Rigidbody2D>();
-        projectile = transform.FindChild("projectile").gameObject;
     }
 
     protected virtual void Initialize()
@@ -146,12 +144,13 @@ public class Unit : MonoBehaviour
         
         bool projectileHit = false;
         _stateInfo = _unitAnim.GetCurrentAnimatorStateInfo(0);
-        GameObject currentProjectile = GameObject.Instantiate(projectile
+        GameObject currentProjectile = GameObject.Instantiate((GameObject)Instantiate(Resources.Load("projectile"))
             , transform.FindChild("spawnPosition").position
             , Quaternion.LookRotation(_targetUnit.transform.position)) as GameObject;
         if (currentProjectile != null)
         {
-            currentProjectile.GetComponent<Renderer>().sortingLayerName = "foreground";
+            currentProjectile.SetActive(true);
+            // currentProjectile.GetComponent<Renderer>().sortingLayerName = "foreground";
             while (true)
             {
                 Debug.Log(currentProjectile);
