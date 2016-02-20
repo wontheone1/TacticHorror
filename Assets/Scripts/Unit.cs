@@ -21,7 +21,7 @@ public class Unit : MonoBehaviour
     private Animator _unitAnim;
     private const float WalkingSpeed = 4f;
     private const float ClimbingSpeed = 2.5f;
-    private const float PrejumpLandingSpeed = 1f;
+    private const float PrejumpLandingSpeed = 0.7f;
     private const float JumpSpeed = 5f;
     private float _speed; // _speed for animation
     private List<Node> _path;
@@ -155,8 +155,6 @@ public class Unit : MonoBehaviour
             currentProjectile.GetComponent<Renderer>().sortingLayerName = "foreground";
             while (true)
             {
-                Debug.Log(currentProjectile.GetComponent<SpriteRenderer>().sprite);
-                Debug.Log(currentProjectile.transform.position);
                 if (currentProjectile.transform.position != _targetUnit.transform.position)
                 {
                     currentProjectile.transform.position =
@@ -323,6 +321,16 @@ public class Unit : MonoBehaviour
             UnapplyJumpPhysics();
         }
         DecideSpeedAccordingToAnimationState(_stateInfo);
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "ground")
+        {
+            _unitAnim.SetTrigger(_landHash);
+            UnapplyJumpPhysics();
+            DecideSpeedAccordingToAnimationState(_stateInfo);
+        }
     }
 
     public bool IsHorizontalMovement(Node currentWaypoint)
