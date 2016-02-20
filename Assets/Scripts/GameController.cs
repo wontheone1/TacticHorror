@@ -65,6 +65,19 @@ public class GameController : MonoBehaviour
         _endButton = GameObject.Find("EndTurnButton").GetComponent<Button>();
         _endButton.onClick.AddListener(EndTurn);
         _textBoxManager = GetComponent<TextBoxManager>();
+        for (int i = 0;
+            i < GameObject.Find("Players").transform.childCount;
+            i++)
+        {
+            PlayerUnits.Add(GameObject.Find("Players").transform.GetChild(i).GetComponent<Unit>());
+        }
+
+        for (int i = 0;
+            i < GameObject.Find("Enemies").transform.childCount;
+            i++)
+        {
+            EnemyUnits.Add(GameObject.Find("Enemies").transform.GetChild(i).GetComponent<Unit>());
+        }
     }
 
     public void EndTurn()
