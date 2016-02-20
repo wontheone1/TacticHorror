@@ -51,6 +51,8 @@ public class Pathfinding : MonoBehaviour
                         continue;
                     if (!neighbour.Walkable && (currentNode.GridY < neighbour.GridY))
                         continue;
+                    if (neighbour.JumpThroughable && currentNode.InMidOfFloor)
+                        continue;
 
                     int newMovementCostToNeighbour = currentNode.GCost + GetDistance(currentNode, neighbour);
                     if (newMovementCostToNeighbour < neighbour.GCost || !openSet.Contains(neighbour))

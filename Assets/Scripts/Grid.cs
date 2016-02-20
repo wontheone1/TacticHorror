@@ -144,11 +144,6 @@ public class Grid : MonoBehaviour
                     Gizmos.color = Color.blue;
                     draw = true;
                 }
-                else if (n.JumpThroughable)
-                {
-                    Gizmos.color = Color.green;
-                    draw = true;
-                }
                 else if (n.InMidOfFloor)
                 {
                     Gizmos.color = Color.cyan;
@@ -157,6 +152,11 @@ public class Grid : MonoBehaviour
                 else if (n.Walkable)
                 {
                     Gizmos.color = Color.white;
+                    draw = true;
+                }
+                else if (n.JumpThroughable)
+                {
+                    Gizmos.color = Color.green;
                     draw = true;
                 }
                 if (draw)

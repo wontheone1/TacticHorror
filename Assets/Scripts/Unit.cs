@@ -18,6 +18,8 @@ public class Unit : MonoBehaviour
     public string Unitname;
     private const float WalkingSpeed = 4f;
     private const float ClimbingSpeed = 2.5f;
+    private const float PrejumpLandingSpeed = 1f;
+    private const float jumpSpeed = 5f;
     private float _speed; // _speed for animation
     private List<Node> _path;
     private bool _succesful;
@@ -38,7 +40,7 @@ public class Unit : MonoBehaviour
     private Unit _targetUnit;
     private int _movementCostToDestination;
     private Vector3 _rightScale, _leftScale;
-    
+
     public Unit TargetUnit
     {
         get { return _targetUnit; }
@@ -167,7 +169,12 @@ public class Unit : MonoBehaviour
     {
         transform.localScale = faceTo.WorldPosition.x < transform.position.x ? _leftScale : _rightScale;
     }
-    
+
+    public void FlipFaceDirection()
+    {
+        transform.localScale = transform.localPosition == _leftScale ? _rightScale : _leftScale;
+    }
+
     /// move unit when method is called by gameController, _succesful boolean check before moving
     public List<Node> StartMoving()
     {
@@ -206,9 +213,9 @@ public class Unit : MonoBehaviour
                 && _stateInfo.shortNameHash != _walkStateHash);
                 while (Vector2.Distance(transform.position, _currentWayPoint.WorldPosition) > 0.1)
                 {
-                    DetectJumpOrLandCondition(_unitAnim.GetCurrentAnimatorStateInfo(0));
-                    DecideSpeedAccordingToAnimationState(_unitAnim.GetCurrentAnimatorStateInfo(0));
                     _stateInfo = _unitAnim.GetCurrentAnimatorStateInfo(0);
+                    DetectJumpOrLandCondition(_stateInfo);
+                    DecideSpeedAccordingToAnimationState(_stateInfo);
                     transform.position = Vector2.MoveTowards(transform.position,
                        _currentWayPoint.WorldPosition, _speed * Time.deltaTime);
                     yield return null;
@@ -219,7 +226,7 @@ public class Unit : MonoBehaviour
                 {
                     _stateInfo = _unitAnim.GetCurrentAnimatorStateInfo(0);
                     yield return null;
-                } while (_stateInfo.shortNameHash == _climbStateHash 
+                } while (_stateInfo.shortNameHash == _climbStateHash
                 || _stateInfo.shortNameHash == _walkStateHash);
             }
             // When finished moving, clear up 
@@ -231,7 +238,16 @@ public class Unit : MonoBehaviour
 
     public void DetectJumpOrLandCondition(AnimatorStateInfo state)
     {
-        
+        if (GetCurrentNode().JumpThroughable && !GetCurrentNode().Walkable &&
+            state.shortNameHash == _walkStateHash)
+        {
+            FlipFaceDirection();
+            _unitAnim.SetTrigger(_jumpHash);
+        } else if (GetCurrentNode().Walkable && state.shortNameHash == _midJumpStateHash)
+        {
+            FlipFaceDirection();
+            _unitAnim.SetTrigger(_landHash);
+        }
     }
 
     public bool IsHorizontalMovement(Node currentWaypoint)
@@ -272,11 +288,19 @@ public class Unit : MonoBehaviour
 
     private void DecideSpeedAccordingToAnimationState(AnimatorStateInfo state)
     {
-        if (state.shortNameHash == _turnStateHash ||
-            state.shortNameHash == _turnBackStateHash ||
-            state.shortNameHash == _idleStateHash)
+        if (state.shortNameHash == _turnStateHash || state.shortNameHash == _turnBackStateHash ||
+            state.shortNameHash == _idleStateHash || state.shortNameHash == _dieStateHash ||
+            state.shortNameHash == _crouchStateHash)
         {
             _speed = 0f;
+        }
+        else if (state.shortNameHash == _preJumpStateHash || state.shortNameHash == _landingStateHash)
+        {
+            _speed = PrejumpLandingSpeed;
+        }
+        else if (state.shortNameHash == _midJumpStateHash)
+        {
+            _speed = jumpSpeed;
         }
         else if (state.shortNameHash == _climbStateHash)
         {
