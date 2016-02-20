@@ -199,6 +199,7 @@ public class Unit : MonoBehaviour
                 && _stateInfo.shortNameHash != _walkStateHash);
                 while (Vector2.Distance(transform.position, _currentWayPoint.WorldPosition) > 0.1)
                 {
+                    DetectJumpOrLandCondition(_unitAnim.GetCurrentAnimatorStateInfo(0));
                     DecideSpeedAccordingToAnimationState(_unitAnim.GetCurrentAnimatorStateInfo(0));
                     _stateInfo = _unitAnim.GetCurrentAnimatorStateInfo(0);
                     transform.position = Vector2.MoveTowards(transform.position,
@@ -219,6 +220,11 @@ public class Unit : MonoBehaviour
             GameController.UnitMoving = _unitMoving = false;
             _unitAnim.SetBool(_isWalkingHash, false);
         }
+    }
+
+    public void DetectJumpOrLandCondition(AnimatorStateInfo state)
+    {
+        
     }
 
     public bool IsHorizontalMovement(Node currentWaypoint)
