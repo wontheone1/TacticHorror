@@ -252,7 +252,7 @@ public class GameController : MonoBehaviour
         PlayerUnits.Remove(unit);
         EnemyUnits.Remove(unit);
         unit.Die();
-        Destroy(unit.gameObject);
+        // Destroy(unit.gameObject);
 
         if (PlayerUnits.Count == 0)
             _statemachine.LoseGame();

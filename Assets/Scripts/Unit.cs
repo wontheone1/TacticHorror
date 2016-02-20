@@ -6,19 +6,19 @@ using JetBrains.Annotations;
 // ReSharper disable once CheckNamespace
 public class Unit : MonoBehaviour
 {
+    public static int UnitCount = 0;
+    public string Unitname;
+    public bool IsDead;
     /// <summary>
     /// store FMOD events
     /// </summary>
     //[FMODUnity.EventRef]
     protected string LadderUpdownEvent, WalkEvent, DieEvent, GetHitEvent, AttackEvent, JumpEvent;
-
     // private GameObject _projectile;
     private Rigidbody2D _rb;
     //Animator
     private AnimatorStateInfo _stateInfo;
     private Animator _unitAnim;
-    public static int UnitCount = 0;
-    public string Unitname;
     private const float WalkingSpeed = 4f;
     private const float ClimbingSpeed = 2.5f;
     private const float PrejumpLandingSpeed = 1f;
@@ -146,7 +146,7 @@ public class Unit : MonoBehaviour
         
         bool projectileHit = false;
         _stateInfo = _unitAnim.GetCurrentAnimatorStateInfo(0);
-        GameObject currentProjectile = GameObject.Instantiate((GameObject)Resources.Load("projectile")
+        GameObject currentProjectile = Instantiate((GameObject)Resources.Load("projectile")
             , transform.FindChild("spawnPosition").position
             , Quaternion.identity) as GameObject;
         if (currentProjectile != null)
@@ -164,7 +164,6 @@ public class Unit : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Destroy");
                     Destroy(currentProjectile);
                     projectileHit = true;
                 }
@@ -189,6 +188,7 @@ public class Unit : MonoBehaviour
 
     public virtual void Die()
     {
+        _unitAnim.SetTrigger(_killedHash);
         _gameController.TextBoxManager.EventHandler(Unitname, "Die");
         FMODUnity.RuntimeManager.PlayOneShot(DieEvent, transform.position);
     }
@@ -244,7 +244,7 @@ public class Unit : MonoBehaviour
 
     public void ReplenishActionPoint()
     {
-        ActionPoint = MaxActionPoint;
+        ActionPoint = IsDead ? 0 : MaxActionPoint;
     }
 
     // ReSharper disable once UnusedMember.Local
@@ -285,7 +285,27 @@ public class Unit : MonoBehaviour
             // When finished moving, clear up 
             _path = new List<Node>();
             GameController.UnitMoving = _unitMoving = false;
+            DecideCrouchOrStanding();
             _unitAnim.SetBool(_isWalkingHash, false);
+        }
+    }
+
+    private void DecideCrouchOrStanding()
+    {
+        _unitAnim.SetBool(_isWalkingHash, false);
+        if (GetCurrentNode().CoveredFromLeft)
+        {
+            transform.localScale = _rightScale; 
+            _unitAnim.SetBool(_undercoverHash, true);
+        }
+        else if (GetCurrentNode().CoveredFromRight)
+        {
+            transform.localScale = _leftScale;
+            _unitAnim.SetBool(_undercoverHash, true);
+        }
+        else
+        {
+            _unitAnim.SetBool(_undercoverHash, false);
         }
     }
 
