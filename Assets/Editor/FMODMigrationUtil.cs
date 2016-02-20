@@ -48,7 +48,7 @@ namespace FMODUnity
                     }
                 }
 
-            Then add a custom migration entry before running the migration command
+            Then add a custom migration Entry before running the migration command
 
                 static CustomMigrationEntry[] CustomMigrationEntries = new CustomMigrationEntry[]
                 {

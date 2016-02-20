@@ -476,7 +476,7 @@ namespace FMODUnity
             }
             DisplayParentBool("Debug Overlay", settings.OverlaySettings, FMODPlatform.Default);
             DisplayParentSpeakerMode("Speaker Mode", settings.SpeakerModeSettings, FMODPlatform.Default);
-            EditorGUILayout.HelpBox("Match the speaker mode to the <b>Project Output Format</b> setting inside FMOD Studio", MessageType.Info, false);
+            EditorGUILayout.HelpBox("Match the Speaker mode to the <b>Project Output Format</b> setting inside FMOD Studio", MessageType.Info, false);
             DisplayParentFreq("Sample Rate", settings.SampleRateSettings, FMODPlatform.Default);
             if (settings.HasPlatforms)
             {

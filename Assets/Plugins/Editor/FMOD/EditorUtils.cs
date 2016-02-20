@@ -248,7 +248,7 @@ namespace FMODUnity
             FMOD.System lowlevel;
             CheckResult(system.getLowLevelSystem(out lowlevel));
 
-            // Use play-in-editor speaker mode for event browser preview and metering
+            // Use play-in-editor Speaker mode for event browser preview and metering
             lowlevel.setSoftwareFormat(0, (FMOD.SPEAKERMODE)Settings.Instance.GetSpeakerMode(FMODPlatform.Default),0 );
 
             CheckResult(system.initialize(256, FMOD.Studio.INITFLAGS.ALLOW_MISSING_PLUGINS | FMOD.Studio.INITFLAGS.SYNCHRONOUS_UPDATE, FMOD.INITFLAGS.NORMAL, IntPtr.Zero));

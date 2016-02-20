@@ -1,31 +1,30 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 
 public class Grid : MonoBehaviour
 {
-    Vector2 target;
-    public bool displayGridGizmos;
+    public bool DisplayGridGizmos;
     public LayerMask UnwalkableMask;
     public LayerMask WalkableMask;
     public LayerMask JumpThrouable;
     public LayerMask BlockedMask;
     public LayerMask MidFloorLayerMask;
     public LayerMask LadderEndLayerMask;
+    public Vector2 GridWorldSize;
+    public float NodeRadius;
+    Node[,] _grid;
+    float _nodeDiameter;
+    int _gridSizeX, _gridSizeY;
+    Vector2 _worldBottomLeft;
 
-    public Vector2 gridWorldSize;
-    public float nodeRadius;
-    Node[,] grid;
-    float nodeDiameter;
-    int gridSizeX, gridSizeY;
-    Vector2 worldBottomLeft;
-
+    // ReSharper disable once UnusedMember.Local
     void Awake()
     {
-        nodeDiameter = nodeRadius * 2;
-        gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
-        gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
-        worldBottomLeft = Vector2.zero - (Vector2.right * gridWorldSize.x / 2) - (Vector2.up * gridWorldSize.y / 2);
+        _nodeDiameter = NodeRadius * 2;
+        _gridSizeX = Mathf.RoundToInt(GridWorldSize.x / _nodeDiameter);
+        _gridSizeY = Mathf.RoundToInt(GridWorldSize.y / _nodeDiameter);
+        _worldBottomLeft = Vector2.zero - (Vector2.right * GridWorldSize.x / 2) - (Vector2.up * GridWorldSize.y / 2);
         CreateGrid();
     }
 
@@ -33,30 +32,29 @@ public class Grid : MonoBehaviour
     {
         get
         {
-            return gridSizeX * gridSizeY;
+            return _gridSizeX * _gridSizeY;
         }
     }
-    //creates grid in start of the game
+    //creates Grid in start of the game
     void CreateGrid()
     {
-        grid = new Node[gridSizeX, gridSizeY];
+        _grid = new Node[_gridSizeX, _gridSizeY];
 
         bool walkable, throughable, blocked, coveredFromLeft, coveredFromRight, inMidFloor, atLadderEnd;
-        RaycastHit2D hit;
         float detectionLength = 0.7f;
-        for (int x = 0; x < gridSizeX; x++)
+        for (int x = 0; x < _gridSizeX; x++)
         {
-            for (int y = 0; y < gridSizeY; y++)
+            for (int y = 0; y < _gridSizeY; y++)
             {
-                Vector3 worldPoint = worldBottomLeft + Vector2.right * (x * nodeDiameter + nodeRadius) + Vector2.up * (y * nodeDiameter + nodeRadius);
-                walkable = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, WalkableMask)) || (Physics.CheckSphere(worldPoint, nodeRadius, WalkableMask));
-                throughable = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, JumpThrouable));
-                blocked = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, BlockedMask));
-                coveredFromLeft = Physics2D.Raycast(worldPoint, Vector2.left, nodeDiameter, BlockedMask).collider != null;
-                coveredFromRight = Physics2D.Raycast(worldPoint, Vector2.right, nodeDiameter, BlockedMask).collider != null;
-                inMidFloor = (Physics2D.OverlapCircle(worldPoint, nodeRadius*detectionLength, MidFloorLayerMask));
-                atLadderEnd = (Physics2D.OverlapCircle(worldPoint, nodeRadius * detectionLength, LadderEndLayerMask));
-                grid[x, y] = new Node(walkable, worldPoint, x, y, throughable, blocked, coveredFromLeft, coveredFromRight, false, inMidFloor, atLadderEnd);
+                Vector3 worldPoint = _worldBottomLeft + Vector2.right * (x * _nodeDiameter + NodeRadius) + Vector2.up * (y * _nodeDiameter + NodeRadius);
+                walkable = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, WalkableMask)) || (Physics.CheckSphere(worldPoint, NodeRadius, WalkableMask));
+                throughable = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, JumpThrouable));
+                blocked = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, BlockedMask));
+                coveredFromLeft = Physics2D.Raycast(worldPoint, Vector2.left, _nodeDiameter, BlockedMask).collider != null;
+                coveredFromRight = Physics2D.Raycast(worldPoint, Vector2.right, _nodeDiameter, BlockedMask).collider != null;
+                inMidFloor = (Physics2D.OverlapCircle(worldPoint, NodeRadius*detectionLength, MidFloorLayerMask));
+                atLadderEnd = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, LadderEndLayerMask));
+                _grid[x, y] = new Node(walkable, worldPoint, x, y, throughable, blocked, coveredFromLeft, coveredFromRight, false, inMidFloor, atLadderEnd);
             }
         }
     }
@@ -76,18 +74,18 @@ public class Grid : MonoBehaviour
                     if (y == 0)
                         continue;
 
-                    checkY = node.gridY + y;
-                    if (checkY >= 0 && checkY < gridSizeY)
-                        //if (checkMovable(node, grid[node.gridX, checkY]) || checkMovable(grid[node.gridX, checkY], node))
-                        neighbours.Add(grid[node.gridX, checkY]);
+                    checkY = node.GridY + y;
+                    if (checkY >= 0 && checkY < _gridSizeY)
+                        //if (checkMovable(node, Grid[node.GridX, checkY]) || checkMovable(Grid[node.GridX, checkY], node))
+                        neighbours.Add(_grid[node.GridX, checkY]);
                 }
             }
             else
             {
-                checkX = node.gridX + x;
-                if (checkX >= 0 && checkX < gridSizeX)
-                    //if (checkMovable(node, grid[checkX, node.gridY]) || checkMovable(grid[checkX, node.gridY], node))
-                    neighbours.Add(grid[checkX, node.gridY]);
+                checkX = node.GridX + x;
+                if (checkX >= 0 && checkX < _gridSizeX)
+                    //if (checkMovable(node, Grid[checkX, node.GridY]) || checkMovable(Grid[checkX, node.GridY], node))
+                    neighbours.Add(_grid[checkX, node.GridY]);
             }
         }
         return neighbours;
@@ -95,73 +93,74 @@ public class Grid : MonoBehaviour
 
     public Node NodeFromWorldPoint(Vector2 worldPosition)
     {
-        Vector2 localPosition = worldPosition - worldBottomLeft;
-        float percentX = (localPosition.x) / gridWorldSize.x;
-        float percentY = (localPosition.y) / gridWorldSize.y;
+        Vector2 localPosition = worldPosition - _worldBottomLeft;
+        float percentX = (localPosition.x) / GridWorldSize.x;
+        float percentY = (localPosition.y) / GridWorldSize.y;
 
         percentX = Mathf.Clamp01(percentX);
         percentY = Mathf.Clamp01(percentY);
-        int x = (int)((gridSizeX) * percentX);
-        int y = (int)((gridSizeY) * percentY);
-        /// prevent out of array range error, this way is more accurate 
-	    if (percentX == 1f)
-            x = gridSizeX - 1;
-        if (percentY == 1f)
-            y = gridSizeY - 1;
-        return grid[x, y];
+        int x = (int)((_gridSizeX) * percentX);
+        int y = (int)((_gridSizeY) * percentY);
+        // prevent out of array range error, this way is more accurate 
+	    if (Math.Abs(percentX - 1) < 0.001)
+            x = _gridSizeX - 1;
+        if (Math.Abs(percentY - 1) < 0.001)
+            y = _gridSizeY - 1;
+        return _grid[x, y];
     }
 
     public void ResetFcosts()
     {
-        foreach (Node n in grid)
+        foreach (Node n in _grid)
         {
-            n.gCost = 0;
-            n.hCost = 0;
+            n.GCost = 0;
+            n.HCost = 0;
         }
     }
 
+    // ReSharper disable once UnusedMember.Local
     void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(Vector3.zero, new Vector3(gridWorldSize.x, gridWorldSize.y, 0.1f));
-        if (grid != null && displayGridGizmos)
+        Gizmos.DrawWireCube(Vector3.zero, new Vector3(GridWorldSize.x, GridWorldSize.y, 0.1f));
+        if (_grid != null && DisplayGridGizmos)
         {
             bool draw;
-            foreach (Node n in grid)
+            foreach (Node n in _grid)
             {
                 draw = false;
 
-                if (n.atLadderEnd)
+                if (n.AtLadderEnd)
                 {
                     Gizmos.color = Color.grey;
                     draw = true;
                 }
-                else if (n.blocked || n.occupied)
+                else if (n.Blocked || n.Occupied)
                 {
                     Gizmos.color = Color.red;
                     draw = true;
                     
-                } else if (n.coveredFromLeft || n.coveredFromRight)
+                } else if (n.CoveredFromLeft || n.CoveredFromRight)
                 {
                     Gizmos.color = Color.blue;
                     draw = true;
                 }
-                else if (n.jumpThroughable)
+                else if (n.JumpThroughable)
                 {
                     Gizmos.color = Color.green;
                     draw = true;
                 }
-                else if (n.inMidOfFloor)
+                else if (n.InMidOfFloor)
                 {
                     Gizmos.color = Color.cyan;
                     draw = true;
                 }
-                else if (n.walkable)
+                else if (n.Walkable)
                 {
                     Gizmos.color = Color.white;
                     draw = true;
                 }
                 if (draw)
-                    Gizmos.DrawWireCube(n.worldPosition, new Vector3(1, 1, 0f) * (nodeDiameter - .1f));
+                    Gizmos.DrawWireCube(n.WorldPosition, new Vector3(1, 1, 0f) * (_nodeDiameter - .1f));
             }
         }
     }

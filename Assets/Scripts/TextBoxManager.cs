@@ -1,197 +1,192 @@
 ﻿using System;
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
-using UnityEditor;
 using UnityEngine.UI;
 
 public class TextBoxManager : MonoBehaviour
 {
-    public GameObject textBox;
-    public GameObject enemySpeakerPanel;
-    public GameObject playerSpeakerPanel;
-    public Text enemySpeaker;
-    public Text playerSpeaker;
-    public Image enemyImage;
-    public Image playerImage;
-    public Text theText;
-    public TextAsset textFile;
-    public XmlDocument dialogue = new XmlDocument();
-    public XmlDocument eventDialogue = new XmlDocument();
-    public string[] textLines;
-    List<entry> lines = new List<entry>();
-    List<entry> eventLines = new List<entry>();
-    private Statemachine statemachine;
-    public int currentLine;
-    public int endAtLine;
-    public bool dialogueDone = false;
-    public bool showingEvent = false;
-    public bool textBoxActive = true;
+    public GameObject TextBox,EnemySpeakerPanel, PlayerSpeakerPanel;
+    public Text EnemySpeaker, PlayerSpeaker, TheText;
+    public Image EnemyImage, PlayerImage;
+    public TextAsset TextFile;
+    public XmlDocument Dialogue = new XmlDocument();
+    public XmlDocument EventDialogue = new XmlDocument();
+    public string[] TextLines;
+    private readonly List<Entry> _lines = new List<Entry>();
+    private readonly List<Entry> _eventLines = new List<Entry>();
+    private Statemachine _statemachine;
+    public int CurrentLine, EndAtLine;
+    public bool DialogueDone, ShowingEvent;
+    public bool TextBoxActive = true;
 
-    public class entry
+    public class Entry
     {
-        public string speaker;
-        public int team;
-        public string line;
-        public string eventName;
+        public string Speaker;
+        public int Team;
+        public string Line;
+        public string EventName;
 
-        public entry(string _speaker, int _team, string _line)
+        public Entry(string speaker, int team, string line)
         {
-            speaker = _speaker;
-            team = _team;
-            line = _line;
+            Speaker = speaker;
+            Team = team;
+            Line = line;
         }
 
-        public entry(string _speaker, int _team, string _line, string _eventName)
+        public Entry(string speaker, int team, string line, string eventName)
         {
-            speaker = _speaker;
-            team = _team;
-            line = _line;
-            eventName = _eventName;
+            Speaker = speaker;
+            Team = team;
+            Line = line;
+            EventName = eventName;
         }
     }
-    // public playerController player;
-
-    // Use this for initialization
-    void Awake()
+    
+    // ReSharper disable once UnusedMember.Local
+    private void Awake()
     {
         
         try
         {
-            textBox = GameObject.Find("DialoguePanel");
-            enemySpeakerPanel = GameObject.Find("enemySpeakerPanel");
-            playerSpeakerPanel = GameObject.Find("playerSpeakerPanel");
-            enemySpeaker = GameObject.Find("enemySpeaker").GetComponent<Text>();
-            playerSpeaker = GameObject.Find("playerSpeaker").GetComponent<Text>();
-            enemyImage = GameObject.Find("enemyImage").GetComponent<Image>();
-            playerImage = GameObject.Find("playerImage").GetComponent<Image>();
-            theText = GameObject.Find("Dialogue").GetComponent<Text>();
+            TextBox = GameObject.Find("DialoguePanel");
+            EnemySpeakerPanel = GameObject.Find("EnemySpeakerPanel");
+            PlayerSpeakerPanel = GameObject.Find("PlayerSpeakerPanel");
+            EnemySpeaker = GameObject.Find("EnemySpeaker").GetComponent<Text>();
+            PlayerSpeaker = GameObject.Find("PlayerSpeaker").GetComponent<Text>();
+            EnemyImage = GameObject.Find("EnemyImage").GetComponent<Image>();
+            PlayerImage = GameObject.Find("PlayerImage").GetComponent<Image>();
+            TheText = GameObject.Find("Dialogue").GetComponent<Text>();
         }
-        catch (Exception e)
+        catch (Exception)
         {
-            textBoxActive = false;
+            TextBoxActive = false;
         }
-        statemachine = GetComponent<Statemachine>();
+        _statemachine = GetComponent<Statemachine>();
     }
 
-    void Start()
+    // ReSharper disable once UnusedMember.Local
+    private void Start()
     {
-        dialogue.Load("Assets/text/Level1_Dialog.xml");
-        eventDialogue.Load("Assets/text/Level1_Event_Dialog.xml");
+        Dialogue.Load("Assets/text/Level1_Dialog.xml");
+        EventDialogue.Load("Assets/text/Level1_Event_Dialog.xml");
         try
         {
-            playerSpeakerPanel.SetActive(false);
-            enemySpeakerPanel.SetActive(false);
+            PlayerSpeakerPanel.SetActive(false);
+            EnemySpeakerPanel.SetActive(false);
         }
-        catch (Exception){}
-        
-        foreach (XmlNode node in dialogue.DocumentElement)
+        catch (Exception)
         {
-            lines.Add(new entry(node.Attributes[0].Value, int.Parse(node.Attributes[1].Value), node.InnerText));
+            // ignored
         }
-        if (endAtLine == 0)
+
+        if (Dialogue.DocumentElement != null)
+            foreach (XmlNode node in Dialogue.DocumentElement)
+            {
+                if (node.Attributes != null)
+                    _lines.Add(new Entry(node.Attributes[0].Value, int.Parse(node.Attributes[1].Value), node.InnerText));
+            }
+        if (EndAtLine == 0)
         {
-            endAtLine = lines.Count - 1;
+            EndAtLine = _lines.Count - 1;
         }
-        if (!textBoxActive)
-        {
-            endAtLine = 0;
-            statemachine.StartGame();
-        }
+        if (TextBoxActive) return;
+        EndAtLine = 0;
+        _statemachine.StartGame();
     }
 
-    void Update()
+    // ReSharper disable once UnusedMember.Local
+    private void Update()
     {
-        if (!dialogueDone && textBoxActive)
+        if (!DialogueDone && TextBoxActive)
         {
             if (Input.GetMouseButtonDown(0))
             {
-                currentLine++;
+                CurrentLine++;
             }
 
-            if (currentLine > endAtLine)
+            if (CurrentLine > EndAtLine)
             {
-                textBox.SetActive(false);
-                statemachine.StartGame();
-                dialogueDone = true;
+                TextBox.SetActive(false);
+                _statemachine.StartGame();
+                DialogueDone = true;
             }
             else
             {
-                if (lines[currentLine].team == 1)
+                if (_lines[CurrentLine].Team == 1)
                 {
                     try
                     {
-                        playerSpeakerPanel.SetActive(true);
-                        enemySpeakerPanel.SetActive(false);
-                        playerSpeaker.text = lines[currentLine].speaker;
-                        playerImage.sprite = ImageResourcesManager.getInstance().ReturnSprite(lines[currentLine].speaker);
+                        PlayerSpeakerPanel.SetActive(true);
+                        EnemySpeakerPanel.SetActive(false);
+                        PlayerSpeaker.text = _lines[CurrentLine].Speaker;
+                        PlayerImage.sprite = ImageResourcesManager.GetInstance().ReturnSprite(_lines[CurrentLine].Speaker);
                     }
                     catch (Exception e) { Debug.Log(e); }
                     
                 }
-                else if (lines[currentLine].team == 2)
+                else if (_lines[CurrentLine].Team == 2)
                 {
                     try
                     {
-                        playerSpeakerPanel.SetActive(false);
-                        enemySpeakerPanel.SetActive(true);
-                        enemySpeaker.text = lines[currentLine].speaker;
-                        enemyImage.sprite = ImageResourcesManager.getInstance().ReturnSprite(lines[currentLine].speaker);
+                        PlayerSpeakerPanel.SetActive(false);
+                        EnemySpeakerPanel.SetActive(true);
+                        EnemySpeaker.text = _lines[CurrentLine].Speaker;
+                        EnemyImage.sprite = ImageResourcesManager.GetInstance().ReturnSprite(_lines[CurrentLine].Speaker);
                     }
-                    catch (Exception e) { }
+                    catch (Exception)
+                    {
+                        // ignored
+                    }
                 }
-                theText.text = lines[currentLine].line;
+                TheText.text = _lines[CurrentLine].Line;
             }
         }
 
-        if (showingEvent && textBoxActive)
+        if (!ShowingEvent || !TextBoxActive) return;
+        TextBox.SetActive(true);
+        if (_eventLines.Count > 0)
         {
-            textBox.SetActive(true);
-            if (eventLines.Count > 0)
+            if (_eventLines[CurrentLine].Team == 1)
             {
-                if (eventLines[currentLine].team == 1)
-                {
-                    playerSpeakerPanel.SetActive(true);
-                    enemySpeakerPanel.SetActive(false);
-                    playerSpeaker.text = eventLines[currentLine].speaker;
-                    playerImage.sprite =
-                        ImageResourcesManager.getInstance().ReturnSprite(eventLines[currentLine].speaker);
-                }
-                else if (eventLines[currentLine].team == 2)
-                {
-                    playerSpeakerPanel.SetActive(false);
-                    enemySpeakerPanel.SetActive(true);
-                    enemySpeaker.text = eventLines[currentLine].speaker;
-                    enemyImage.sprite = ImageResourcesManager.getInstance()
-                        .ReturnSprite(eventLines[currentLine].speaker);
-                }
-                theText.text = eventLines[currentLine].line;
+                PlayerSpeakerPanel.SetActive(true);
+                EnemySpeakerPanel.SetActive(false);
+                PlayerSpeaker.text = _eventLines[CurrentLine].Speaker;
+                PlayerImage.sprite =
+                    ImageResourcesManager.GetInstance().ReturnSprite(_eventLines[CurrentLine].Speaker);
             }
-            else
+            else if (_eventLines[CurrentLine].Team == 2)
             {
-                textBox.SetActive(false);
-                showingEvent = false;
+                PlayerSpeakerPanel.SetActive(false);
+                EnemySpeakerPanel.SetActive(true);
+                EnemySpeaker.text = _eventLines[CurrentLine].Speaker;
+                EnemyImage.sprite = ImageResourcesManager.GetInstance()
+                    .ReturnSprite(_eventLines[CurrentLine].Speaker);
             }
+            TheText.text = _eventLines[CurrentLine].Line;
+        }
+        else
+        {
+            TextBox.SetActive(false);
+            ShowingEvent = false;
+        }
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                eventLines.RemoveAt(0);
-            }
+        if (Input.GetMouseButtonDown(0))
+        {
+            _eventLines.RemoveAt(0);
         }
     }
 
     public void EventHandler(string speakerName, string eventName)
     {
-        currentLine = 0;
-        foreach (XmlNode node in eventDialogue.DocumentElement)
-        {
-            if (speakerName.Equals(node.Attributes[0].Value) && eventName.Equals(node.Attributes[2].Value))
+        CurrentLine = 0;
+        if (EventDialogue.DocumentElement != null)
+            foreach (XmlNode node in EventDialogue.DocumentElement.Cast<XmlNode>().Where(node => node.Attributes != null && (speakerName.Equals(node.Attributes[0].Value) && eventName.Equals(node.Attributes[2].Value))))
             {
-                eventLines.Add(new entry(speakerName, int.Parse(node.Attributes[1].Value), node.InnerText, eventName));
+                if (node.Attributes != null)
+                    _eventLines.Add(new Entry(speakerName, int.Parse(node.Attributes[1].Value), node.InnerText, eventName));
             }
-                
-        }
-        showingEvent = true;
+        ShowingEvent = true;
     }
 }
