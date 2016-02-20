@@ -50,6 +50,7 @@ public class Unit : MonoBehaviour
     /// </summary>
     /// 
     //private int isMovingHash = Animator.StringToHash("isMoving");
+    private int isWalkingHash = Animator.StringToHash("isWalking");
     private int startWalkHash = Animator.StringToHash("startWalk");
     private int stopWalkHash = Animator.StringToHash("stopWalk");
     private int goUpLadderHash = Animator.StringToHash("goUpLadder");
@@ -65,6 +66,11 @@ public class Unit : MonoBehaviour
 
     protected virtual void Awake()
     {
+        Debug.Log("climb: " +climbStateHash);
+        Debug.Log("idle: " +idleStateHash);
+        Debug.Log("turn: " +turnStateHash);
+        Debug.Log("turnBack: " +turnBackStateHash);
+        Debug.Log("walk: "+walkStateHash);
         collider = GetComponent<BoxCollider2D>();
         unitAnim = GetComponent<Animator>();
         grid = GameObject.FindWithTag("MainCamera").GetComponent<Grid>();
@@ -150,9 +156,10 @@ public class Unit : MonoBehaviour
             //mark path succesful
             succesful = true;
             path = newPath;
-            if (path.Count > 1)
+            if (path.Count > 0)
             {
-                DecideFaceDirection(path[1]);
+                Debug.Log("face");
+                DecideFaceDirection(path[0]);
             }
             movementCostToDestination = movementCost;
         }
@@ -194,57 +201,80 @@ public class Unit : MonoBehaviour
         GameController.unitMoving = unitMoving = true;
         if (path.Count > 0)
         {
+            Debug.Log(path.Count);
             foreach (Node n in path)
             {
                 currentWayPoint = n;
-                Debug.Log(n);
                 DecideFaceDirection(currentWayPoint);
-                while (transform.position.x != currentWayPoint.worldPosition.x || transform.position.y != currentWayPoint.worldPosition.y)
-                // while(Vector2.Distance(transform.position, currentWayPoint.worldPosition) > 0.1)
+                DecideWalkingOrClimb(currentWayPoint);
+                do
                 {
-                    Debug.Log(currentWayPoint.worldPosition);
-                    DecideWalkingOrClimb(currentWayPoint);
-                    DecideSpeedAccordingToAnimationState(unitAnim.GetCurrentAnimatorStateInfo(0));
-                    //transform.position = Vector2.Lerp(transform.position,
-                    //       currentWayPoint.worldPosition, speed * Time.deltaTime);
-                    
-                    transform.position = Vector2.MoveTowards(transform.position,
-                           SetDestinationByAnimatorState(unitAnim.GetCurrentAnimatorStateInfo(0),
-                           currentWayPoint), speed * Time.deltaTime);
-                    FMODUnity.RuntimeManager.PlayOneShot(walkEvent);
-                    if (CheckDestinationReachedByAnimatorState(unitAnim.GetCurrentAnimatorStateInfo(0), currentWayPoint))
-                        break;
+                    Debug.Log(stateInfo.shortNameHash);
+                    stateInfo = unitAnim.GetCurrentAnimatorStateInfo(0);
                     yield return null;
+                } while (stateInfo.shortNameHash != climbStateHash
+                && stateInfo.shortNameHash != walkStateHash);
+
+                // while (Math.Abs(transform.position.x - currentWayPoint.worldPosition.x) > 0.1
+                //     || Math.Abs(transform.position.y - currentWayPoint.worldPosition.y) > 0.1)
+                while (Vector2.Distance(transform.position, currentWayPoint.worldPosition) > 0.1)
+                {
+                    DecideSpeedAccordingToAnimationState(unitAnim.GetCurrentAnimatorStateInfo(0));
+                    Debug.Log(currentWayPoint.worldPosition);
+                    stateInfo = unitAnim.GetCurrentAnimatorStateInfo(0);
+                    Debug.Log(stateInfo.shortNameHash);
+                    transform.position = Vector2.MoveTowards(transform.position,
+                       currentWayPoint.worldPosition, speed * Time.deltaTime);
+
+                    yield return null;
+                    //transform.position = Vector2.MoveTowards(transform.position,
+                    //       SetDestinationByAnimatorState(unitAnim.GetCurrentAnimatorStateInfo(0),
+                    //       currentWayPoint), speed * Time.deltaTime);
+                    FMODUnity.RuntimeManager.PlayOneShot(walkEvent);
+                    //if (CheckDestinationReachedByAnimatorState(unitAnim.GetCurrentAnimatorStateInfo(0), currentWayPoint))
+                    //    break;
                 }
                 FinishWalkingOrCliming(unitAnim.GetCurrentAnimatorStateInfo(0));
-                DecideSpeedAccordingToAnimationState(unitAnim.GetCurrentAnimatorStateInfo(0));
+                // yield return new WaitForSeconds(1);
+                do
+                {
+                    stateInfo = unitAnim.GetCurrentAnimatorStateInfo(0);
+                    Debug.Log(stateInfo.shortNameHash);
+                    yield return null;
+                } while (stateInfo.shortNameHash == climbStateHash 
+                || stateInfo.shortNameHash == walkStateHash);
             }
             /// When finished moving, clear up 
             path = new List<Node>();
             GameController.unitMoving = unitMoving = false;
             // unitAnim.SetBool(isMovingHash, unitMoving);
-            unitAnim.SetTrigger(stopWalkHash);
+            unitAnim.SetBool(isWalkingHash, false);
             // startedWalking = false;
             Debug.Log("Moving finished");
         }
     }
 
-    private bool CheckDestinationReachedByAnimatorState(AnimatorStateInfo state, Node currentWayPoint)
+    public bool IsHorizontalMovement(Node currentWaypoint)
     {
-        if (state.shortNameHash == climbStateHash)
-        {
-            return Math.Abs(transform.position.y - currentWayPoint.worldPosition.y) < 0.05f;
-        }
-        return Math.Abs(transform.position.x - currentWayPoint.worldPosition.x) < 0.05f;
+        return (currentWayPoint.gridY == GetCurrentNode().gridY);
     }
 
-    private Vector2 SetDestinationByAnimatorState(AnimatorStateInfo state, Node currentWayPoint)
+    public bool IsClimbing(Node currentWayPoint)
     {
-        if (state.shortNameHash == climbStateHash)
+        return (currentWayPoint.gridY != GetCurrentNode().gridY) && !GetCurrentNode().jumpThroughable;
+    }
+
+    private void DecideWalkingOrClimb(Node currentWayPoint)
+    {
+        if (IsHorizontalMovement(currentWayPoint))
         {
-            return new Vector2(transform.position.x, currentWayPoint.worldPosition.y);
+            unitAnim.SetBool(isWalkingHash, true);
         }
-        return new Vector2(currentWayPoint.worldPosition.x, transform.position.y);
+        else if (IsClimbing(currentWayPoint))
+        {
+            unitAnim.SetTrigger(goUpLadderHash);
+        }
+        DecideSpeedAccordingToAnimationState(unitAnim.GetCurrentAnimatorStateInfo(0));
     }
 
     private void FinishWalkingOrCliming(AnimatorStateInfo state)
@@ -255,8 +285,9 @@ public class Unit : MonoBehaviour
         }
         else if (state.shortNameHash == walkStateHash)
         {
-            unitAnim.SetTrigger(stopWalkHash);
+            unitAnim.SetBool(isWalkingHash, false);
         }
+        DecideSpeedAccordingToAnimationState(unitAnim.GetCurrentAnimatorStateInfo(0));
     }
 
     private void DecideSpeedAccordingToAnimationState(AnimatorStateInfo state)
@@ -277,23 +308,27 @@ public class Unit : MonoBehaviour
         }
     }
 
-    private void DecideWalkingOrClimb(Node currentWayPoint)
-    {
-        if (IsHorizontalMovement(currentWayPoint) && !(stateInfo.shortNameHash == walkStateHash)
-            && !(stateInfo.shortNameHash == turnStateHash) && !(stateInfo.shortNameHash == turnBackStateHash))
-        {
-            unitAnim.SetTrigger(startWalkHash);
-        }
-        else if (IsClimbing(currentWayPoint) && !(stateInfo.shortNameHash == climbStateHash))
-        {
-            unitAnim.SetTrigger(goUpLadderHash);
-        }
-    }
 
-    public bool IsClimbing(Node currentWayPoint)
-    {
-        return (currentWayPoint.gridY != GetCurrentNode().gridY) && !GetCurrentNode().jumpThroughable;
-    }
+
+    //private bool CheckDestinationReachedByAnimatorState(AnimatorStateInfo state, Node currentWayPoint)
+    //{
+    //    if (state.shortNameHash == climbStateHash)
+    //    {
+    //        return Math.Abs(transform.position.y - currentWayPoint.worldPosition.y) < 0.05f;
+    //    }
+    //    return Math.Abs(transform.position.x - currentWayPoint.worldPosition.x) < 0.05f;
+    //}
+
+    //private Vector2 SetDestinationByAnimatorState(AnimatorStateInfo state, Node currentWayPoint)
+    //{
+    //    if (state.shortNameHash == climbStateHash)
+    //    {
+    //        return new Vector2(transform.position.x, currentWayPoint.worldPosition.y);
+    //    }
+    //    return new Vector2(currentWayPoint.worldPosition.x, transform.position.y);
+    //}
+
+
 
     public bool IsFinishedClimbing(Node currentWaypoint)
     {
@@ -301,10 +336,6 @@ public class Unit : MonoBehaviour
         // return startedClimbing && GetCurrentNode().atLadderEnd && (Vector2.Distance(GetCurrentNode().worldPosition, transform.position) < 0.1);
     }
 
-    public bool IsHorizontalMovement(Node currentWaypoint)
-    {
-        return (currentWayPoint.gridY == GetCurrentNode().gridY);
-    }
 
     public bool IsFinishedWalking(Node currentWaypoint)
     {

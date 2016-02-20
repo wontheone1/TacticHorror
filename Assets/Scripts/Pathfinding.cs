@@ -111,7 +111,7 @@ public class Pathfinding : MonoBehaviour
             if (directionNew != directionOld)
             {
                 waypoints.Add(path[i - 1]);
-                waypoints.Add(path[i]);
+                //waypoints.Add(path[i]);
             }
             directionOld = directionNew;
         }
