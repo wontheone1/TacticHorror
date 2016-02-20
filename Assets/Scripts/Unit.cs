@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 
 // ReSharper disable once CheckNamespace
 public class Unit : MonoBehaviour
@@ -11,6 +12,7 @@ public class Unit : MonoBehaviour
     //[FMODUnity.EventRef]
     protected string LadderUpdownEvent, WalkEvent, DieEvent, GetHitEvent, AttackEvent, JumpEvent;
 
+    private GameObject projectile;
     private Rigidbody2D _rb;
     //Animator
     private AnimatorStateInfo _stateInfo;
@@ -80,6 +82,7 @@ public class Unit : MonoBehaviour
         _leftScale = _rightScale = transform.localScale;
         _leftScale.x *= -1;
         _rb = GetComponent<Rigidbody2D>();
+        projectile = transform.FindChild("projectile").gameObject;
     }
 
     protected virtual void Initialize()
@@ -123,11 +126,52 @@ public class Unit : MonoBehaviour
     {
         if (_targetUnit != null)
         {
-
-            _targetUnit.TakeDamage(Ap);
+            _unitAnim.SetTrigger(_attackHash);
+            StartCoroutine("AttackAnimation");
             FMODUnity.RuntimeManager.PlayOneShot(AttackEvent);
             ActionPoint = 0;
         }
+    }
+
+    private void AttackDone()
+    {
+        if (_targetUnit != null)
+        {
+            _targetUnit.TakeDamage(Ap);
+        }
+    }
+
+    private IEnumerator AttackAnimation()
+    {
+        
+        bool projectileHit = false;
+        _stateInfo = _unitAnim.GetCurrentAnimatorStateInfo(0);
+        GameObject currentProjectile = GameObject.Instantiate(projectile
+            , transform.FindChild("spawnPosition").position
+            , Quaternion.LookRotation(_targetUnit.transform.position)) as GameObject;
+        if (currentProjectile != null)
+        {
+            currentProjectile.GetComponent<Renderer>().sortingLayerName = "foreground";
+            while (true)
+            {
+                Debug.Log(currentProjectile);
+                if (currentProjectile.transform.position != _targetUnit.transform.position)
+                {
+                    currentProjectile.transform.position =
+                        Vector3.MoveTowards(currentProjectile.transform.position, _targetUnit.transform.position, 6*Time.deltaTime);
+                }
+                else
+                {
+                    Debug.Log("Destroy");
+                    Destroy(currentProjectile);
+                    projectileHit = true;
+                }
+                if ((_stateInfo.shortNameHash != _attackingStateHash) && projectileHit)
+                    break;
+                yield return null;
+            }
+        }
+        AttackDone();
     }
 
     public void TakeDamage(int damage)
