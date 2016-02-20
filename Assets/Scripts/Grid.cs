@@ -49,9 +49,11 @@ public class Grid : MonoBehaviour
                 Vector3 worldPoint = _worldBottomLeft + Vector2.right * (x * _nodeDiameter + NodeRadius) + Vector2.up * (y * _nodeDiameter + NodeRadius);
                 walkable = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, WalkableMask)) || (Physics.CheckSphere(worldPoint, NodeRadius, WalkableMask));
                 throughable = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, JumpThrouable));
-                blocked = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, BlockedMask));
                 coveredFromLeft = Physics2D.Raycast(worldPoint, Vector2.left, _nodeDiameter, BlockedMask).collider != null;
                 coveredFromRight = Physics2D.Raycast(worldPoint, Vector2.right, _nodeDiameter, BlockedMask).collider != null;
+                blocked = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, BlockedMask));
+                if (blocked)
+                    coveredFromRight = coveredFromLeft = false;
                 inMidFloor = (Physics2D.OverlapCircle(worldPoint, NodeRadius*detectionLength, MidFloorLayerMask));
                 atLadderEnd = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, LadderEndLayerMask));
                 _grid[x, y] = new Node(walkable, worldPoint, x, y, throughable, blocked, coveredFromLeft, coveredFromRight, false, inMidFloor, atLadderEnd);
@@ -134,21 +136,21 @@ public class Grid : MonoBehaviour
                     Gizmos.color = Color.cyan;
                     draw = true;
                 }
+                else if (n.CoveredFromLeft || n.CoveredFromRight)
+                {
+                    Gizmos.color = Color.blue;
+                    draw = true;
+                }
                 else if (n.AtLadderEnd)
                 {
                     Gizmos.color = Color.grey;
                     draw = true;
                 }
-                else if (n.Blocked || n.Occupied)
-                {
-                    Gizmos.color = Color.red;
-                    draw = true;
-                    
-                } else if (n.CoveredFromLeft || n.CoveredFromRight)
-                {
-                    Gizmos.color = Color.blue;
-                    draw = true;
-                }
+                //else if (n.Blocked || n.Occupied)
+                //{
+                //    Gizmos.color = Color.red;
+                //    draw = true;
+                //}
                 else if (n.Walkable)
                 {
                     Gizmos.color = Color.white;

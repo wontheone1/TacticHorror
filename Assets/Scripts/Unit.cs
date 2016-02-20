@@ -129,6 +129,8 @@ public class Unit : MonoBehaviour
             _unitAnim.SetTrigger(_attackHash);
             StartCoroutine("AttackAnimation");
             FMODUnity.RuntimeManager.PlayOneShot(AttackEvent);
+            List<Node> camMoveRequest = new List<Node> { GetCurrentNode(), _targetUnit.GetCurrentNode()};
+            CameraMovementManager.RequestCamMove(camMoveRequest);
             ActionPoint = 0;
         }
     }
@@ -385,7 +387,6 @@ public class Unit : MonoBehaviour
         
         if (_underJumpPhysics)
         {
-            Debug.Log("jump unapply");
             _underJumpPhysics = false;
             _rb.isKinematic = true;
             _rb.gravityScale = 0;
