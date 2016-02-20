@@ -49,6 +49,8 @@ public class Unit : MonoBehaviour
     /// </summary>
     private readonly int _jumpHash = Animator.StringToHash("jump");
     private readonly int _landHash = Animator.StringToHash("land");
+    private readonly int _killedHash = Animator.StringToHash("killed");
+    private readonly int _undercoverHash = Animator.StringToHash("undercover");
     private readonly int _isWalkingHash = Animator.StringToHash("isWalking");
     private readonly int _goUpLadderHash = Animator.StringToHash("goUpLadder");
     private readonly int _goOutLadderHash = Animator.StringToHash("goOutLadder");
@@ -57,6 +59,11 @@ public class Unit : MonoBehaviour
     private readonly int _climbStateHash = Animator.StringToHash("climb");
     private readonly int _walkStateHash = Animator.StringToHash("walk");
     private readonly int _idleStateHash = Animator.StringToHash("idle");
+    private readonly int _dieStateHash = Animator.StringToHash("die");
+    private readonly int _crouchStateHash = Animator.StringToHash("crouch");
+    private readonly int _preJumpStateHash = Animator.StringToHash("preJump");
+    private readonly int _midJumpStateHash = Animator.StringToHash("midJump");
+    private readonly int _landingStateHash = Animator.StringToHash("landing");
 
     protected virtual void Awake()
     {
