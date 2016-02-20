@@ -47,7 +47,8 @@ public class Unit : MonoBehaviour
     /// <summary>
     /// string Hash for animators... (optimization)
     /// </summary>
-    
+    private readonly int _jumpHash = Animator.StringToHash("jump");
+    private readonly int _landHash = Animator.StringToHash("land");
     private readonly int _isWalkingHash = Animator.StringToHash("isWalking");
     private readonly int _goUpLadderHash = Animator.StringToHash("goUpLadder");
     private readonly int _goOutLadderHash = Animator.StringToHash("goOutLadder");

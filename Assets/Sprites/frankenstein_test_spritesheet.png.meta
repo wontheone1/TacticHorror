@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 511ec398d10cfe343a53629c23882308
-timeCreated: 1455824148
+timeCreated: 1455976727
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -87,17 +87,17 @@ TextureImporter:
         y: 879
         width: 40
         height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -20, y: 32.5}
-        - {x: -20, y: -7.5}
-        - {x: -16, y: -32.5}
-        - {x: 19, y: -32.5}
-        - {x: 20, y: -29.5}
-        - {x: 20, y: 27.5}
-        - {x: 9, y: 32.5}
+      - - {x: -20, y: 58.5}
+        - {x: -20, y: 18.5}
+        - {x: -16, y: -6.5}
+        - {x: 19, y: -6.5}
+        - {x: 20, y: -3.5}
+        - {x: 20, y: 53.5}
+        - {x: 9, y: 58.5}
     - name: frankenstein_test_spritesheet_1
       rect:
         serializedVersion: 2
@@ -105,18 +105,18 @@ TextureImporter:
         y: 879
         width: 43
         height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 5.5, y: 33}
-        - {x: -21.5, y: 33}
-        - {x: -21.5, y: -27}
-        - {x: -18.5, y: -33}
-        - {x: 14.5, y: -33}
-        - {x: 21.5, y: -20}
-        - {x: 21.5, y: 0}
-        - {x: 12.5, y: 32}
+      - - {x: 5.5, y: 59.400024}
+        - {x: -21.5, y: 59.400024}
+        - {x: -21.5, y: -0.5999756}
+        - {x: -18.5, y: -6.5999756}
+        - {x: 14.5, y: -6.5999756}
+        - {x: 21.5, y: 6.4000244}
+        - {x: 21.5, y: 26.400024}
+        - {x: 12.5, y: 58.400024}
     - name: frankenstein_test_spritesheet_2
       rect:
         serializedVersion: 2
@@ -124,25 +124,25 @@ TextureImporter:
         y: 879
         width: 58
         height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 18, y: 30}
-        - {x: 6, y: 34}
-        - {x: -24, y: 34}
-        - {x: -27, y: 31}
-        - {x: -29, y: 10}
-        - {x: -29, y: -24}
-        - {x: -15, y: -32}
-        - {x: -12, y: -30}
-        - {x: -8, y: -27}
-        - {x: -4, y: -33}
-        - {x: -3, y: -34}
-        - {x: 18, y: -34}
-        - {x: 24, y: -32}
-        - {x: 29, y: -16}
-        - {x: 29, y: 6}
+      - - {x: 18, y: 57.200012}
+        - {x: 6, y: 61.200012}
+        - {x: -24, y: 61.200012}
+        - {x: -27, y: 58.200012}
+        - {x: -29, y: 37.200012}
+        - {x: -29, y: 3.2000122}
+        - {x: -15, y: -4.799988}
+        - {x: -12, y: -2.7999878}
+        - {x: -8, y: 0.2000122}
+        - {x: -4, y: -5.799988}
+        - {x: -3, y: -6.799988}
+        - {x: 18, y: -6.799988}
+        - {x: 24, y: -4.799988}
+        - {x: 29, y: 11.200012}
+        - {x: 29, y: 33.200012}
     - name: frankenstein_test_spritesheet_3
       rect:
         serializedVersion: 2
@@ -150,23 +150,23 @@ TextureImporter:
         y: 879
         width: 49
         height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -1.5, y: -33.5}
-        - {x: 21.5, y: -33.5}
-        - {x: 24.5, y: -32.5}
-        - {x: 24.5, y: 4.5}
-        - {x: 21.5, y: 19.5}
-        - {x: 5.5, y: 33.5}
-        - {x: -22.5, y: 33.5}
-        - {x: -24.5, y: -11.5}
-        - {x: -24.5, y: -33.5}
-        - {x: -3.5, y: -33.5}
-        - {x: -2.5, y: -32.5}
-        - {x: -2.5, y: -30.5}
-        - {x: -2.5, y: -32.5}
+      - - {x: -1.5, y: -6.700012}
+        - {x: 21.5, y: -6.700012}
+        - {x: 24.5, y: -5.700012}
+        - {x: 24.5, y: 31.299988}
+        - {x: 21.5, y: 46.299988}
+        - {x: 5.5, y: 60.299988}
+        - {x: -22.5, y: 60.299988}
+        - {x: -24.5, y: 15.299988}
+        - {x: -24.5, y: -6.700012}
+        - {x: -3.5, y: -6.700012}
+        - {x: -2.5, y: -5.700012}
+        - {x: -2.5, y: -3.7000122}
+        - {x: -2.5, y: -5.700012}
     - name: frankenstein_test_spritesheet_4
       rect:
         serializedVersion: 2
@@ -174,25 +174,25 @@ TextureImporter:
         y: 879
         width: 42
         height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 21, y: -20.5}
-        - {x: 17, y: -18.5}
-        - {x: 14, y: -17.5}
-        - {x: 10, y: -17.5}
-        - {x: 17, y: -17.5}
-        - {x: 21, y: -14.5}
-        - {x: 21, y: 28.5}
-        - {x: 4, y: 32.5}
-        - {x: -16, y: 32.5}
-        - {x: -18, y: 28.5}
-        - {x: -21, y: -3.5}
-        - {x: -21, y: -32.5}
-        - {x: 16, y: -32.5}
-        - {x: 18, y: -31.5}
-        - {x: 21, y: -21.5}
+      - - {x: 21, y: 5.5}
+        - {x: 17, y: 7.5}
+        - {x: 14, y: 8.5}
+        - {x: 10, y: 8.5}
+        - {x: 17, y: 8.5}
+        - {x: 21, y: 11.5}
+        - {x: 21, y: 54.5}
+        - {x: 4, y: 58.5}
+        - {x: -16, y: 58.5}
+        - {x: -18, y: 54.5}
+        - {x: -21, y: 22.5}
+        - {x: -21, y: -6.5}
+        - {x: 16, y: -6.5}
+        - {x: 18, y: -5.5}
+        - {x: 21, y: 4.5}
     - name: frankenstein_test_spritesheet_5
       rect:
         serializedVersion: 2
@@ -200,16 +200,16 @@ TextureImporter:
         y: 783
         width: 34
         height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -17, y: 33.5}
-        - {x: -17, y: -33.5}
-        - {x: 12, y: -33.5}
-        - {x: 17, y: -32.5}
-        - {x: 17, y: 27.5}
-        - {x: 4, y: 33.5}
+      - - {x: -17, y: 60.299988}
+        - {x: -17, y: -6.700012}
+        - {x: 12, y: -6.700012}
+        - {x: 17, y: -5.700012}
+        - {x: 17, y: 54.299988}
+        - {x: 4, y: 60.299988}
     - name: frankenstein_test_spritesheet_6
       rect:
         serializedVersion: 2
@@ -217,17 +217,17 @@ TextureImporter:
         y: 783
         width: 37
         height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -18.5, y: 34}
-        - {x: -18.5, y: -33}
-        - {x: -17.5, y: -34}
-        - {x: 12.5, y: -34}
-        - {x: 18.5, y: -30}
-        - {x: 18.5, y: 25}
-        - {x: 16.5, y: 34}
+      - - {x: -18.5, y: 61.200012}
+        - {x: -18.5, y: -5.799988}
+        - {x: -17.5, y: -6.799988}
+        - {x: 12.5, y: -6.799988}
+        - {x: 18.5, y: -2.7999878}
+        - {x: 18.5, y: 52.200012}
+        - {x: 16.5, y: 61.200012}
     - name: frankenstein_test_spritesheet_7
       rect:
         serializedVersion: 2
@@ -235,18 +235,18 @@ TextureImporter:
         y: 783
         width: 55
         height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -20.5, y: 33.5}
-        - {x: -27.5, y: 16.5}
-        - {x: -27.5, y: -31.5}
-        - {x: -12.5, y: -33.5}
-        - {x: 19.5, y: -33.5}
-        - {x: 27.5, y: -24.5}
-        - {x: 27.5, y: 8.5}
-        - {x: 19.5, y: 33.5}
+      - - {x: -20.5, y: 60.299988}
+        - {x: -27.5, y: 43.299988}
+        - {x: -27.5, y: -4.700012}
+        - {x: -12.5, y: -6.700012}
+        - {x: 19.5, y: -6.700012}
+        - {x: 27.5, y: 2.2999878}
+        - {x: 27.5, y: 35.299988}
+        - {x: 19.5, y: 60.299988}
     - name: frankenstein_test_spritesheet_8
       rect:
         serializedVersion: 2
@@ -254,18 +254,18 @@ TextureImporter:
         y: 783
         width: 44
         height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -17, y: 33.5}
-        - {x: -21, y: 30.5}
-        - {x: -22, y: 5.5}
-        - {x: -22, y: -33.5}
-        - {x: 17, y: -33.5}
-        - {x: 22, y: -32.5}
-        - {x: 22, y: 25.5}
-        - {x: 11, y: 33.5}
+      - - {x: -17, y: 60.299988}
+        - {x: -21, y: 57.299988}
+        - {x: -22, y: 32.299988}
+        - {x: -22, y: -6.700012}
+        - {x: 17, y: -6.700012}
+        - {x: 22, y: -5.700012}
+        - {x: 22, y: 52.299988}
+        - {x: 11, y: 60.299988}
     - name: frankenstein_test_spritesheet_9
       rect:
         serializedVersion: 2
@@ -273,19 +273,19 @@ TextureImporter:
         y: 783
         width: 35
         height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 9.5, y: 31}
-        - {x: 6.5, y: 30}
-        - {x: 4.5, y: 28}
-        - {x: -0.5, y: 33}
-        - {x: -17.5, y: 33}
-        - {x: -17.5, y: -33}
-        - {x: 12.5, y: -33}
-        - {x: 17.5, y: -28}
-        - {x: 17.5, y: 25}
+      - - {x: 9.5, y: 57.400024}
+        - {x: 6.5, y: 56.400024}
+        - {x: 4.5, y: 54.400024}
+        - {x: -0.5, y: 59.400024}
+        - {x: -17.5, y: 59.400024}
+        - {x: -17.5, y: -6.5999756}
+        - {x: 12.5, y: -6.5999756}
+        - {x: 17.5, y: -1.5999756}
+        - {x: 17.5, y: 51.400024}
     - name: frankenstein_test_spritesheet_10
       rect:
         serializedVersion: 2
@@ -293,17 +293,17 @@ TextureImporter:
         y: 687
         width: 36
         height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 12, y: 32.5}
-        - {x: -18, y: 32.5}
-        - {x: -18, y: -17.5}
-        - {x: -15, y: -32.5}
-        - {x: 16, y: -32.5}
-        - {x: 18, y: -29.5}
-        - {x: 18, y: 30.5}
+      - - {x: 12, y: 58.5}
+        - {x: -18, y: 58.5}
+        - {x: -18, y: 8.5}
+        - {x: -15, y: -6.5}
+        - {x: 16, y: -6.5}
+        - {x: 18, y: -3.5}
+        - {x: 18, y: 56.5}
     - name: frankenstein_test_spritesheet_11
       rect:
         serializedVersion: 2
@@ -311,18 +311,18 @@ TextureImporter:
         y: 687
         width: 34
         height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -17, y: 33}
-        - {x: -17, y: -9}
-        - {x: -15, y: -31}
-        - {x: -14, y: -33}
-        - {x: 14, y: -33}
-        - {x: 17, y: -17}
-        - {x: 17, y: 24}
-        - {x: 11, y: 33}
+      - - {x: -17, y: 59.400024}
+        - {x: -17, y: 17.400024}
+        - {x: -15, y: -4.5999756}
+        - {x: -14, y: -6.5999756}
+        - {x: 14, y: -6.5999756}
+        - {x: 17, y: 9.400024}
+        - {x: 17, y: 50.400024}
+        - {x: 11, y: 59.400024}
     - name: frankenstein_test_spritesheet_12
       rect:
         serializedVersion: 2
@@ -330,16 +330,16 @@ TextureImporter:
         y: 687
         width: 36
         height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -18, y: 33.5}
-        - {x: -18, y: -33.5}
-        - {x: 16, y: -33.5}
-        - {x: 18, y: -19.5}
-        - {x: 18, y: 30.5}
-        - {x: 12, y: 33.5}
+      - - {x: -18, y: 60.299988}
+        - {x: -18, y: -6.700012}
+        - {x: 16, y: -6.700012}
+        - {x: 18, y: 7.299988}
+        - {x: 18, y: 57.299988}
+        - {x: 12, y: 60.299988}
     - name: frankenstein_test_spritesheet_13
       rect:
         serializedVersion: 2
@@ -347,16 +347,16 @@ TextureImporter:
         y: 687
         width: 39
         height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -19.5, y: 34}
-        - {x: -19.5, y: -34}
-        - {x: 18.5, y: -34}
-        - {x: 19.5, y: -22}
-        - {x: 19.5, y: 28}
-        - {x: 14.5, y: 34}
+      - - {x: -19.5, y: 61.200012}
+        - {x: -19.5, y: -6.799988}
+        - {x: 18.5, y: -6.799988}
+        - {x: 19.5, y: 5.200012}
+        - {x: 19.5, y: 55.200012}
+        - {x: 14.5, y: 61.200012}
     - name: frankenstein_test_spritesheet_14
       rect:
         serializedVersion: 2
@@ -364,15 +364,15 @@ TextureImporter:
         y: 687
         width: 37
         height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -18.5, y: 36.5}
-        - {x: -18.5, y: -36.5}
-        - {x: 18.5, y: -36.5}
-        - {x: 18.5, y: 29.5}
-        - {x: 1.5, y: 36.5}
+      - - {x: -18.5, y: 65.70001}
+        - {x: -18.5, y: -7.299988}
+        - {x: 18.5, y: -7.299988}
+        - {x: 18.5, y: 58.700012}
+        - {x: 1.5, y: 65.70001}
     - name: frankenstein_test_spritesheet_15
       rect:
         serializedVersion: 2
@@ -380,17 +380,17 @@ TextureImporter:
         y: 591
         width: 36
         height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -18, y: 35}
-        - {x: -18, y: -6}
-        - {x: -15, y: -35}
-        - {x: 17, y: -35}
-        - {x: 18, y: -28}
-        - {x: 18, y: 24}
-        - {x: 8, y: 35}
+      - - {x: -18, y: 63}
+        - {x: -18, y: 22}
+        - {x: -15, y: -7}
+        - {x: 17, y: -7}
+        - {x: 18, y: 0}
+        - {x: 18, y: 52}
+        - {x: 8, y: 63}
     - name: frankenstein_test_spritesheet_16
       rect:
         serializedVersion: 2
@@ -398,18 +398,18 @@ TextureImporter:
         y: 591
         width: 39
         height: 76
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -13.5, y: 38}
-        - {x: -19.5, y: 37}
-        - {x: -19.5, y: -21}
-        - {x: -16.5, y: -38}
-        - {x: 4.5, y: -38}
-        - {x: 19.5, y: -17}
-        - {x: 19.5, y: 22}
-        - {x: 8.5, y: 38}
+      - - {x: -13.5, y: 68.400024}
+        - {x: -19.5, y: 67.400024}
+        - {x: -19.5, y: 9.400024}
+        - {x: -16.5, y: -7.5999756}
+        - {x: 4.5, y: -7.5999756}
+        - {x: 19.5, y: 13.400024}
+        - {x: 19.5, y: 52.400024}
+        - {x: 8.5, y: 68.400024}
     - name: frankenstein_test_spritesheet_17
       rect:
         serializedVersion: 2
@@ -417,22 +417,22 @@ TextureImporter:
         y: 591
         width: 40
         height: 74
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -8, y: 37}
-        - {x: -20, y: 20}
-        - {x: -20, y: -9}
-        - {x: -17, y: -34}
-        - {x: -2, y: -36}
-        - {x: 3, y: -31}
-        - {x: 3, y: -29}
-        - {x: 2, y: -35}
-        - {x: 3, y: -37}
-        - {x: 20, y: -37}
-        - {x: 20, y: 24}
-        - {x: 10, y: 37}
+      - - {x: -8, y: 66.599976}
+        - {x: -20, y: 49.599976}
+        - {x: -20, y: 20.599976}
+        - {x: -17, y: -4.4000244}
+        - {x: -2, y: -6.4000244}
+        - {x: 3, y: -1.4000244}
+        - {x: 3, y: 0.5999756}
+        - {x: 2, y: -5.4000244}
+        - {x: 3, y: -7.4000244}
+        - {x: 20, y: -7.4000244}
+        - {x: 20, y: 53.599976}
+        - {x: 10, y: 66.599976}
     - name: frankenstein_test_spritesheet_18
       rect:
         serializedVersion: 2
@@ -440,18 +440,18 @@ TextureImporter:
         y: 591
         width: 42
         height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -7, y: 38.5}
-        - {x: -21, y: 32.5}
-        - {x: -21, y: -35.5}
-        - {x: -2, y: -38.5}
-        - {x: 17, y: -38.5}
-        - {x: 21, y: -15.5}
-        - {x: 21, y: 34.5}
-        - {x: 19, y: 38.5}
+      - - {x: -7, y: 69.29999}
+        - {x: -21, y: 63.299988}
+        - {x: -21, y: -4.700012}
+        - {x: -2, y: -7.700012}
+        - {x: 17, y: -7.700012}
+        - {x: 21, y: 15.299988}
+        - {x: 21, y: 65.29999}
+        - {x: 19, y: 69.29999}
     - name: frankenstein_test_spritesheet_19
       rect:
         serializedVersion: 2
@@ -459,19 +459,19 @@ TextureImporter:
         y: 591
         width: 43
         height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 11.5, y: 37.5}
-        - {x: -16.5, y: 37.5}
-        - {x: -21.5, y: 35.5}
-        - {x: -21.5, y: -25.5}
-        - {x: -15.5, y: -37.5}
-        - {x: 15.5, y: -37.5}
-        - {x: 16.5, y: -22.5}
-        - {x: 21.5, y: -2.5}
-        - {x: 21.5, y: 34.5}
+      - - {x: 11.5, y: 67.5}
+        - {x: -16.5, y: 67.5}
+        - {x: -21.5, y: 65.5}
+        - {x: -21.5, y: 4.5}
+        - {x: -15.5, y: -7.5}
+        - {x: 15.5, y: -7.5}
+        - {x: 16.5, y: 7.5}
+        - {x: 21.5, y: 27.5}
+        - {x: 21.5, y: 64.5}
     - name: frankenstein_test_spritesheet_20
       rect:
         serializedVersion: 2
@@ -479,19 +479,19 @@ TextureImporter:
         y: 494
         width: 43
         height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -11.5, y: 37.5}
-        - {x: -21.5, y: 33.5}
-        - {x: -21.5, y: -3.5}
-        - {x: -14.5, y: -34.5}
-        - {x: -2.5, y: -37.5}
-        - {x: 19.5, y: -37.5}
-        - {x: 21.5, y: -19.5}
-        - {x: 21.5, y: 25.5}
-        - {x: 13.5, y: 37.5}
+      - - {x: -11.5, y: 67.5}
+        - {x: -21.5, y: 63.5}
+        - {x: -21.5, y: 26.5}
+        - {x: -14.5, y: -4.5}
+        - {x: -2.5, y: -7.5}
+        - {x: 19.5, y: -7.5}
+        - {x: 21.5, y: 10.5}
+        - {x: 21.5, y: 55.5}
+        - {x: 13.5, y: 67.5}
     - name: frankenstein_test_spritesheet_21
       rect:
         serializedVersion: 2
@@ -499,25 +499,25 @@ TextureImporter:
         y: 495
         width: 43
         height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 4.5, y: -34}
-        - {x: 17.5, y: -34}
-        - {x: 19.5, y: -24}
-        - {x: 21.5, y: -15}
-        - {x: 21.5, y: 28}
-        - {x: 10.5, y: 34}
-        - {x: -14.5, y: 34}
-        - {x: -21.5, y: 28}
-        - {x: -21.5, y: -23}
-        - {x: -20.5, y: -25}
-        - {x: -11.5, y: -34}
-        - {x: 2.5, y: -34}
-        - {x: 3.5, y: -33}
-        - {x: 3.5, y: -25}
-        - {x: 3.5, y: -33}
+      - - {x: 4.5, y: -6.799988}
+        - {x: 17.5, y: -6.799988}
+        - {x: 19.5, y: 3.2000122}
+        - {x: 21.5, y: 12.200012}
+        - {x: 21.5, y: 55.200012}
+        - {x: 10.5, y: 61.200012}
+        - {x: -14.5, y: 61.200012}
+        - {x: -21.5, y: 55.200012}
+        - {x: -21.5, y: 4.200012}
+        - {x: -20.5, y: 2.2000122}
+        - {x: -11.5, y: -6.799988}
+        - {x: 2.5, y: -6.799988}
+        - {x: 3.5, y: -5.799988}
+        - {x: 3.5, y: 2.2000122}
+        - {x: 3.5, y: -5.799988}
     - name: frankenstein_test_spritesheet_22
       rect:
         serializedVersion: 2
@@ -525,15 +525,15 @@ TextureImporter:
         y: 495
         width: 38
         height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -19, y: 36.5}
-        - {x: -19, y: -36.5}
-        - {x: 19, y: -36.5}
-        - {x: 19, y: 19.5}
-        - {x: 4, y: 36.5}
+      - - {x: -19, y: 65.70001}
+        - {x: -19, y: -7.299988}
+        - {x: 19, y: -7.299988}
+        - {x: 19, y: 48.700012}
+        - {x: 4, y: 65.70001}
     - name: frankenstein_test_spritesheet_23
       rect:
         serializedVersion: 2
@@ -541,17 +541,17 @@ TextureImporter:
         y: 495
         width: 38
         height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -19, y: 36}
-        - {x: -19, y: -13}
-        - {x: -14, y: -36}
-        - {x: 8, y: -36}
-        - {x: 19, y: -32}
-        - {x: 19, y: 21}
-        - {x: 9, y: 36}
+      - - {x: -19, y: 64.79999}
+        - {x: -19, y: 15.799988}
+        - {x: -14, y: -7.200012}
+        - {x: 8, y: -7.200012}
+        - {x: 19, y: -3.2000122}
+        - {x: 19, y: 49.799988}
+        - {x: 9, y: 64.79999}
     - name: frankenstein_test_spritesheet_24
       rect:
         serializedVersion: 2
@@ -559,18 +559,18 @@ TextureImporter:
         y: 495
         width: 39
         height: 74
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -13.5, y: 37}
-        - {x: -17.5, y: 36}
-        - {x: -19.5, y: 33}
-        - {x: -19.5, y: -21}
-        - {x: -17.5, y: -37}
-        - {x: 19.5, y: -37}
-        - {x: 19.5, y: 36}
-        - {x: 16.5, y: 37}
+      - - {x: -13.5, y: 66.600006}
+        - {x: -17.5, y: 65.600006}
+        - {x: -19.5, y: 62.600006}
+        - {x: -19.5, y: 8.600006}
+        - {x: -17.5, y: -7.399994}
+        - {x: 19.5, y: -7.399994}
+        - {x: 19.5, y: 65.600006}
+        - {x: 16.5, y: 66.600006}
     - name: frankenstein_test_spritesheet_25
       rect:
         serializedVersion: 2
@@ -578,18 +578,18 @@ TextureImporter:
         y: 399
         width: 39
         height: 76
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -13.5, y: 38}
-        - {x: -19.5, y: 37}
-        - {x: -19.5, y: -21}
-        - {x: -16.5, y: -38}
-        - {x: 4.5, y: -38}
-        - {x: 19.5, y: -17}
-        - {x: 19.5, y: 22}
-        - {x: 8.5, y: 38}
+      - - {x: -13.5, y: 68.399994}
+        - {x: -19.5, y: 67.399994}
+        - {x: -19.5, y: 9.399994}
+        - {x: -16.5, y: -7.600006}
+        - {x: 4.5, y: -7.600006}
+        - {x: 19.5, y: 13.399994}
+        - {x: 19.5, y: 52.399994}
+        - {x: 8.5, y: 68.399994}
     - name: frankenstein_test_spritesheet_26
       rect:
         serializedVersion: 2
@@ -597,23 +597,23 @@ TextureImporter:
         y: 399
         width: 40
         height: 74
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -6, y: 37}
-        - {x: -20, y: 20}
-        - {x: -20, y: -10}
-        - {x: -16, y: -34}
-        - {x: -2, y: -35}
-        - {x: 0, y: -34}
-        - {x: 3, y: -31}
-        - {x: 3, y: -29}
-        - {x: 2, y: -35}
-        - {x: 3, y: -37}
-        - {x: 20, y: -37}
-        - {x: 20, y: 23}
-        - {x: 8, y: 37}
+      - - {x: -6, y: 66.600006}
+        - {x: -20, y: 49.600006}
+        - {x: -20, y: 19.600006}
+        - {x: -16, y: -4.399994}
+        - {x: -2, y: -5.399994}
+        - {x: 0, y: -4.399994}
+        - {x: 3, y: -1.3999939}
+        - {x: 3, y: 0.6000061}
+        - {x: 2, y: -5.399994}
+        - {x: 3, y: -7.399994}
+        - {x: 20, y: -7.399994}
+        - {x: 20, y: 52.600006}
+        - {x: 8, y: 66.600006}
     - name: frankenstein_test_spritesheet_27
       rect:
         serializedVersion: 2
@@ -621,16 +621,16 @@ TextureImporter:
         y: 399
         width: 42
         height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -11, y: 38.5}
-        - {x: -21, y: 18.5}
-        - {x: -21, y: -14.5}
-        - {x: -8, y: -38.5}
-        - {x: 21, y: -38.5}
-        - {x: 21, y: 38.5}
+      - - {x: -11, y: 69.29999}
+        - {x: -21, y: 49.299988}
+        - {x: -21, y: 16.299988}
+        - {x: -8, y: -7.700012}
+        - {x: 21, y: -7.700012}
+        - {x: 21, y: 69.29999}
     - name: frankenstein_test_spritesheet_28
       rect:
         serializedVersion: 2
@@ -638,16 +638,16 @@ TextureImporter:
         y: 399
         width: 43
         height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -14.5, y: 37.5}
-        - {x: -21.5, y: 22.5}
-        - {x: -21.5, y: -29.5}
-        - {x: -3.5, y: -37.5}
-        - {x: 21.5, y: -37.5}
-        - {x: 21.5, y: 37.5}
+      - - {x: -14.5, y: 67.5}
+        - {x: -21.5, y: 52.5}
+        - {x: -21.5, y: 0.5}
+        - {x: -3.5, y: -7.5}
+        - {x: 21.5, y: -7.5}
+        - {x: 21.5, y: 67.5}
     - name: frankenstein_test_spritesheet_29
       rect:
         serializedVersion: 2
@@ -655,19 +655,19 @@ TextureImporter:
         y: 398
         width: 43
         height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -11.5, y: 37.5}
-        - {x: -21.5, y: 33.5}
-        - {x: -21.5, y: -3.5}
-        - {x: -14.5, y: -34.5}
-        - {x: -2.5, y: -37.5}
-        - {x: 19.5, y: -37.5}
-        - {x: 21.5, y: -19.5}
-        - {x: 21.5, y: 25.5}
-        - {x: 13.5, y: 37.5}
+      - - {x: -11.5, y: 67.5}
+        - {x: -21.5, y: 63.5}
+        - {x: -21.5, y: 26.5}
+        - {x: -14.5, y: -4.5}
+        - {x: -2.5, y: -7.5}
+        - {x: 19.5, y: -7.5}
+        - {x: 21.5, y: 10.5}
+        - {x: 21.5, y: 55.5}
+        - {x: 13.5, y: 67.5}
     outline: []
   spritePackingTag: 
   userData: 

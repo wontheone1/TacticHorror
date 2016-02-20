@@ -190,7 +190,7 @@ public class GameController : MonoBehaviour
                 if (_activeUnit.TargetUnit == c.gameObject.GetComponent<Unit>())
                 {
                     _activeUnit.AttackTarget();
-                    DebugText.text = "Attacked: " + _activeUnit.TargetUnit.name;
+                    DebugText.text = "Attacked: " + _activeUnit.TargetUnit.Unitname;
                     if (!SelectNextUnit())
                         EndTurn();
                     return;
@@ -198,7 +198,7 @@ public class GameController : MonoBehaviour
                 _activeUnit.SetAttackTarget(opponent);
 
                 if (_activeUnit.TargetUnit == null) continue;
-                DebugText.text = "Target: " + _activeUnit.TargetUnit.name;
+                DebugText.text = "Target: " + _activeUnit.TargetUnit.Unitname;
                 return;
             }
 

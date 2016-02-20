@@ -16,7 +16,7 @@ public class FrankenClass : Unit
         WalkEvent = "event:/Characters/Frankenstein/frank_walk";
         LadderUpdownEvent = "event:/Characters/Frankenstein/frank_up_down_ladder";
         GetHitEvent = "event:/Characters/Frankenstein/frank_hitted";
-        AttackEvent = "event:/Characters/Frankenstein/frank_sucking";
+        AttackEvent = "event:/Characters/Frankenstein/frank_punch";
         JumpEvent = "event:/Characters/Frankenstein/frank_jump";
     }
     protected override void Awake()
