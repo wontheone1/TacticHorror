@@ -12,6 +12,7 @@ public class Unit : MonoBehaviour
     //[FMODUnity.EventRef]
     protected string LadderUpdownEvent, WalkEvent, DieEvent, GetHitEvent, AttackEvent, JumpEvent;
 
+    // private GameObject _projectile;
     private Rigidbody2D _rb;
     //Animator
     private AnimatorStateInfo _stateInfo;
@@ -74,6 +75,7 @@ public class Unit : MonoBehaviour
 
     protected virtual void Awake()
     {
+        // _projectile = GameObject.FindWithTag("global");
         _unitAnim = GetComponent<Animator>();
         Grid = GameObject.FindWithTag("MainCamera").GetComponent<Grid>();
         _pathfinding = GameObject.FindWithTag("MainCamera").GetComponent<Pathfinding>();
@@ -144,16 +146,17 @@ public class Unit : MonoBehaviour
         
         bool projectileHit = false;
         _stateInfo = _unitAnim.GetCurrentAnimatorStateInfo(0);
-        GameObject currentProjectile = GameObject.Instantiate((GameObject)Instantiate(Resources.Load("projectile"))
+        GameObject currentProjectile = GameObject.Instantiate((GameObject)Resources.Load("projectile")
             , transform.FindChild("spawnPosition").position
-            , Quaternion.LookRotation(_targetUnit.transform.position)) as GameObject;
+            , Quaternion.identity) as GameObject;
         if (currentProjectile != null)
         {
             currentProjectile.SetActive(true);
-            // currentProjectile.GetComponent<Renderer>().sortingLayerName = "foreground";
+            currentProjectile.GetComponent<Renderer>().sortingLayerName = "foreground";
             while (true)
             {
-                Debug.Log(currentProjectile);
+                Debug.Log(currentProjectile.GetComponent<SpriteRenderer>().sprite);
+                Debug.Log(currentProjectile.transform.position);
                 if (currentProjectile.transform.position != _targetUnit.transform.position)
                 {
                     currentProjectile.transform.position =
