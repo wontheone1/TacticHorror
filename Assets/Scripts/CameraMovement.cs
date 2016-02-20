@@ -1,147 +1,151 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
+// ReSharper disable once CheckNamespace
 public class CameraMovement : MonoBehaviour
 {
     //
     // VARIABLES
     //
-    public float turnSpeed = 4.0f;      // Speed of camera turning when mouse moves in along an axis
-    public float panSpeed;       /// Speed of the camera when being panned ! adjusted with camera y position value !
-    public float zoomSpeed = 4.0f;      // Speed of the camera going back and forth
-    private Vector3 mouseOrigin;    // Position of cursor when mouse dragging starts
-    private bool isPanning;     // Is the camera being panned?
-    private bool isZooming;     // Is the camera zooming?
-    Vector3 gridWorldSize;
-    public static bool cameraIsMoving = false;
-    private bool cameraDisabled = false;
-    private Camera cam;
+    public float TurnSpeed = 4.0f;      // Speed of camera turning when mouse moves in along an axis
+    public float PanSpeed;       /// Speed of the camera when being panned ! adjusted with camera y position value !
+    public float ZoomSpeed = 4.0f;      // Speed of the camera going back and forth
+    private Vector3 _mouseOrigin;    // Position of cursor when mouse dragging starts
+    private bool _isPanning;     // Is the camera being panned?
+    private bool _isZooming;     // Is the camera zooming?
+    private Vector3 _gridWorldSize;
+    public static bool CameraIsMoving;
+    private bool _cameraDisabled;
+    private Camera _cam;
 
     public bool CameraDisabled
     {
-        get { return cameraDisabled; }
-        set { cameraDisabled = value; }
+        get { return _cameraDisabled; }
+        set { _cameraDisabled = value; }
     }
 
+    // ReSharper disable once UnusedMember.Local
     void Awake()
     {
-        gridWorldSize = GetComponent<Grid>().gridWorldSize;
-        cam = Camera.main;
+        _gridWorldSize = GetComponent<Grid>().GridWorldSize;
+        _cam = Camera.main;
     }
 
 
+    // ReSharper disable once UnusedMember.Local
     void Update()
     {
-        if (!cameraDisabled)
+        if (!_cameraDisabled)
         {
             // Get the left mouse button
             if (Input.GetMouseButtonDown(0))
             {
                 // Get mouse origin
-                mouseOrigin = Input.mousePosition;
-                isPanning = true;
+                _mouseOrigin = Input.mousePosition;
+                _isPanning = true;
             }
 
             // Get the middle mouse button
             if (Input.GetMouseButtonDown(2))
             {
                 // Get mouse origin
-                mouseOrigin = Input.mousePosition;
-                isZooming = true;
+                _mouseOrigin = Input.mousePosition;
+                _isZooming = true;
             }
 
             // Disable movements on button release
-            if (!Input.GetMouseButton(0)) isPanning = false;
-            if (!Input.GetMouseButton(2)) isZooming = false;
+            if (!Input.GetMouseButton(0)) _isPanning = false;
+            if (!Input.GetMouseButton(2)) _isZooming = false;
 
 
             // Move the camera on it's XY plane
-            if (isPanning && !cameraIsMoving)
+            if (_isPanning && !CameraIsMoving)
             {
                 // camera movement speed adjustment according to current zoom level
-                panSpeed = -3f*cam.orthographicSize;
-                Vector3 pos = cam.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
-                Vector3 move = new Vector3(pos.x*-panSpeed, pos.y*-panSpeed, 0);
-                /// When panning, prevent camera from going too far from playing area
+                PanSpeed = -3f*_cam.orthographicSize;
+                Vector3 pos = _cam.ScreenToViewportPoint(Input.mousePosition - _mouseOrigin);
+                Vector3 move = new Vector3(pos.x*-PanSpeed, pos.y*-PanSpeed, 0);
+                // When panning, prevent camera from going too far from playing area
                 Vector3 finalCameraPostion = transform.position - move;
-                /// When it goes beyond right edge of the world
-                if (finalCameraPostion.x > (gridWorldSize.x + transform.position.z*0.6)/2)
+                // When it goes beyond right edge of the world
+                if (finalCameraPostion.x > (_gridWorldSize.x + transform.position.z*0.6)/2)
                 {
-                    finalCameraPostion.x = (float) (gridWorldSize.x + transform.position.z*0.6)/2;
+                    finalCameraPostion.x = (float) (_gridWorldSize.x + transform.position.z*0.6)/2;
                 }
-                /// When it goes beyond left edge of the world
-                if (finalCameraPostion.x < (-gridWorldSize.x - transform.position.z*0.6)/2)
+                // When it goes beyond left edge of the world
+                if (finalCameraPostion.x < (-_gridWorldSize.x - transform.position.z*0.6)/2)
                 {
-                    finalCameraPostion.x = (float) (-gridWorldSize.x - transform.position.z*0.6)/2;
+                    finalCameraPostion.x = (float) (-_gridWorldSize.x - transform.position.z*0.6)/2;
                 }
-                /// When it goes beyond upper edge of the world
-                if (finalCameraPostion.y > (gridWorldSize.y + transform.position.z*0.6)/2)
+                // When it goes beyond upper edge of the world
+                if (finalCameraPostion.y > (_gridWorldSize.y + transform.position.z*0.6)/2)
                 {
-                    finalCameraPostion.y = (float) (gridWorldSize.y + transform.position.z*0.6)/2;
+                    finalCameraPostion.y = (float) (_gridWorldSize.y + transform.position.z*0.6)/2;
                 }
-                /// When it goes beyond lower edge of the world
-                if (finalCameraPostion.y < (-gridWorldSize.y - transform.position.z*0.6)/2)
+                // When it goes beyond lower edge of the world
+                if (finalCameraPostion.y < (-_gridWorldSize.y - transform.position.z*0.6)/2)
                 {
-                    finalCameraPostion.y = (float) (-gridWorldSize.y - transform.position.z*0.6)/2;
+                    finalCameraPostion.y = (float) (-_gridWorldSize.y - transform.position.z*0.6)/2;
                 }
                 // prevent camera from keep moving unless there is further mouse movement
                 transform.position = finalCameraPostion;
-                mouseOrigin = Input.mousePosition;
+                _mouseOrigin = Input.mousePosition;
             }
 
             // Move the camera linearly along Z axis
-            if (isZooming)
+            if (_isZooming)
             {
-                float move = cam.ScreenToViewportPoint(Input.mousePosition - mouseOrigin).y;
+                float move = _cam.ScreenToViewportPoint(Input.mousePosition - _mouseOrigin).y;
 
-                float zoom = move*zoomSpeed*8;
+                float zoom = move*ZoomSpeed*8;
 
-                /// When zooming in, prevent camera from getting too close to the ground(preventing it from go past the ground.)
-                if (cam.orthographicSize - zoom < 3)
+                // When zooming in, prevent camera from getting too close to the ground(preventing it from go past the ground.)
+                if (_cam.orthographicSize - zoom < 3)
                 {
-                    cam.orthographicSize = 3;
+                    _cam.orthographicSize = 3;
                 }
-                /// prevent camera from zooming out too much
-                else if (cam.orthographicSize - zoom > 12)
+                // prevent camera from zooming out too much
+                else if (_cam.orthographicSize - zoom > 12)
                 {
-                    cam.orthographicSize = 12;
+                    _cam.orthographicSize = 12;
                 }
                 else
                 {
-                    cam.orthographicSize = cam.orthographicSize - zoom;
+                    _cam.orthographicSize = _cam.orthographicSize - zoom;
                 }
                 // prevent camera from keep moving unless there is further mouse movement
-                mouseOrigin = Input.mousePosition;
+                _mouseOrigin = Input.mousePosition;
             }
         }
     }
 
-    public void moveTo(Vector2[] path)
+    public void MoveTo(List<Node> path)
     {
-        StartCoroutine(moveCoroutine(path));
+        StartCoroutine(MoveCoroutine(path));
     }
 
-    IEnumerator moveCoroutine(Vector2[] path)
+    IEnumerator MoveCoroutine(List<Node> path)
     {
-        cameraIsMoving = true;
-        if (path != null)
+        CameraIsMoving = true;
+        if (path != null && path.Count > 0)
         {
             Vector3 targetPos;
-            transform.position = new Vector3(path[0].x, path[0].y, transform.position.z);
-            foreach (Vector2 pos in path)
+            transform.position = new Vector3(path[0].WorldPosition.x, path[0].WorldPosition.y, transform.position.z);
+            foreach (Node n in path)
             {
-                targetPos = pos;
+                targetPos = n.WorldPosition;
                 targetPos.z = transform.position.z;
-                panSpeed = Time.deltaTime * cam.orthographicSize * 0.12f *
+                PanSpeed = Time.deltaTime * _cam.orthographicSize * 0.12f *
                         Vector2.Distance(transform.position, targetPos) + 0.05f;
                 while ((transform.position) != targetPos)
                 {
                     // camera movement speed adjustment according to current zoom level
-                    transform.position = Vector3.MoveTowards(transform.position, targetPos, panSpeed);
+                    transform.position = Vector3.MoveTowards(transform.position, targetPos, PanSpeed);
                     yield return null;
                 }
             }
-            cameraIsMoving = false;
+            CameraIsMoving = false;
             CameraMovementManager.FinishedMoving();
         }
     }

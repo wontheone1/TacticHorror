@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ladder
   layers:
   - Default
   - TransparentFX
@@ -15,12 +16,12 @@ TagManager:
   - 
   - Unwalkable
   - Walkable
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - jumpThrouable
+  - blocked
+  - covered
+  - occupied
+  - midFloorLayer
+  - ladderEnd
   - 
   - 
   - 
@@ -49,4 +50,7 @@ TagManager:
     locked: 0
   - name: foreground
     uniqueID: 2604310549
+    locked: 0
+  - name: UI Layer
+    uniqueID: 291706149
     locked: 0

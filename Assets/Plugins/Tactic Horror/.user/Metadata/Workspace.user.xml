@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="Workspace" id="{f3a8e956-5404-4647-a644-c403af8e5b4b}">
+        <relationship name="projectSettings">
+            <destination>{412372cc-0a18-4fa4-82f4-a92906b18adb}</destination>
+        </relationship>
+        <relationship name="profilerSessionFolder">
+            <destination>{a557eb82-9905-48c9-830f-29c71406891c}</destination>
+        </relationship>
+    </object>
+    <object class="ProjectSettings" id="{412372cc-0a18-4fa4-82f4-a92906b18adb}"/>
+    <object class="AudioBinManager" id="{1f518a4e-1a1f-4a32-87b1-7ade5883270d}"/>
+</objects>
