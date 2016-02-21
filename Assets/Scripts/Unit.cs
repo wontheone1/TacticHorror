@@ -25,6 +25,7 @@ public class Unit : MonoBehaviour
     private const float JumpLandingSpeed = 4f;
     private float _speed; // _speed for animation
     private List<Node> _path;
+    private Node[] _pathNodeArray;
     private bool _succesful;
     protected int MaxActionPoint; //movement point + other action
     protected int MaxHp; // health point
@@ -210,6 +211,7 @@ public class Unit : MonoBehaviour
             //mark _path _succesful
             _succesful = true;
             _path = newPath;
+            _pathNodeArray = _path.ToArray();
             if (_path.Count > 0)
             {
                 DecideFaceDirection(_path[0]);
@@ -337,7 +339,7 @@ public class Unit : MonoBehaviour
             // FlipFaceDirection();
             Debug.Log("trigger jump");
             _unitAnim.SetTrigger(_jumpHash);
-            
+            _unitAnim.SetBool(_isWalkingHash, false);
             ApplyJumpPhysics();
         }
         else if (Physics2D.Linecast(transform.position, landingCheckPoint, Grid.WalkableMask) 
@@ -354,11 +356,15 @@ public class Unit : MonoBehaviour
     void OnCollisionEnter2D(Collision2D coll)
     {
         Debug.Log("collision Detected.");
-        if (coll.gameObject.tag == "ground")
+        if (coll.gameObject.tag != "ground") return;
+        if (_path == null) return;
+        foreach (Node n in _path)
         {
+            if (n != GetCurrentNode()) continue;
             _unitAnim.SetTrigger(_landHash);
             UnapplyJumpPhysics();
             DecideSpeedAccordingToAnimationState(_stateInfo);
+            break;
         }
     }
 
