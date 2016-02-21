@@ -49,6 +49,8 @@ public class Grid : MonoBehaviour
                 Vector3 worldPoint = _worldBottomLeft + Vector2.right * (x * _nodeDiameter + NodeRadius) + Vector2.up * (y * _nodeDiameter + NodeRadius);
                 walkable = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, WalkableMask)) || (Physics.CheckSphere(worldPoint, NodeRadius, WalkableMask));
                 throughable = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, JumpThrouable));
+                if (throughable)
+                    walkable = false;
                 coveredFromLeft = Physics2D.Raycast(worldPoint, Vector2.left, _nodeDiameter, BlockedMask).collider != null;
                 coveredFromRight = Physics2D.Raycast(worldPoint, Vector2.right, _nodeDiameter, BlockedMask).collider != null;
                 blocked = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, BlockedMask));
