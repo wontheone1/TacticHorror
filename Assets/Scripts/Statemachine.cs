@@ -67,6 +67,14 @@ public class Statemachine : MonoBehaviour
     public void StartGame()
     {
         _curState = State.Player;
+        foreach (var unit in _gameController.EnemyUnits)
+        {
+            unit.DecideCrouchOrStanding();
+        }
+        foreach (var unit in _gameController.PlayerUnits)
+        {
+            unit.DecideCrouchOrStanding();
+        }
         try
         {
             foreach (GameObject variable in ObjectsHiddenBeforeGameStarts)

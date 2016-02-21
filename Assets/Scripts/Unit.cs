@@ -21,8 +21,8 @@ public class Unit : MonoBehaviour
     private Animator _unitAnim;
     private const float WalkingSpeed = 4.5f;
     private const float ClimbingSpeed = 3f;
-    private const float PrejumpSpeed = 0.5f;
-    private const float JumpLandingSpeed = 5f;
+    private const float PrejumpSpeed = 4f;
+    private const float JumpLandingSpeed = 4f;
     private float _speed; // _speed for animation
     private List<Node> _path;
     private bool _succesful;
@@ -264,13 +264,15 @@ public class Unit : MonoBehaviour
                     yield return null;
                 } while (_stateInfo.shortNameHash != _climbStateHash
                 && _stateInfo.shortNameHash != _walkStateHash);
-                while (Vector2.Distance(transform.position, _currentWayPoint.WorldPosition) > 0.1)
+                while (Vector2.Distance(transform.position, _currentWayPoint.WorldPosition) > 0.2)
                 {
                     Debug.Log("moving");
                     _stateInfo = _unitAnim.GetCurrentAnimatorStateInfo(0);
                     DetectJumpOrLandCondition(_stateInfo);
-                    if (_stateInfo.shortNameHash != _walkStateHash && _stateInfo.shortNameHash != _climbStateHash)
-                        break;
+                    while (_stateInfo.shortNameHash == _landingStateHash)
+                    {
+                        yield return null;
+                    }
                     DecideSpeedAccordingToAnimationState(_stateInfo);
                     transform.position = Vector2.MoveTowards(transform.position,
                        _currentWayPoint.WorldPosition, _speed * Time.deltaTime);
@@ -292,7 +294,7 @@ public class Unit : MonoBehaviour
         }
     }
 
-    private void DecideCrouchOrStanding()
+    public void DecideCrouchOrStanding()
     {
         _unitAnim.SetBool(_isWalkingHash, false);
         if (GetCurrentNode().CoveredFromLeft)
@@ -325,7 +327,7 @@ public class Unit : MonoBehaviour
         //    _unitAnim.SetTrigger(_landHash);
         //    UnapplyJumpPhysics();
         //}
-        Vector2 landingCheckPoint = new Vector2(transform.position.x, transform.position.y - Grid.NodeRadius * 2);
+        Vector2 landingCheckPoint = new Vector2(transform.position.x, transform.position.y - Grid.NodeRadius * 1.5f);
         Debug.DrawLine(transform.position, landingCheckPoint);
         Debug.Log("checking");
         Debug.Log(Physics2D.Linecast(transform.position, landingCheckPoint, Grid.WalkableMask));
@@ -406,7 +408,7 @@ public class Unit : MonoBehaviour
             _underJumpPhysics = true;
             _rb.isKinematic = false;
             _rb.gravityScale = 1;
-            _rb.velocity = new Vector2(0, 4.5f);
+            _rb.velocity = new Vector2(0, 7f);
             Debug.Log(_underJumpPhysics);
         }
     }
