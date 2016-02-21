@@ -143,7 +143,7 @@ public class Grid : MonoBehaviour
                     Gizmos.color = Color.blue;
                     draw = true;
                 }
-                else if (n.AtLadderEnd)
+                else if (n.OnLadder)
                 {
                     Gizmos.color = Color.grey;
                     draw = true;

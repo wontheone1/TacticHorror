@@ -108,14 +108,22 @@ public class Pathfinding : MonoBehaviour
         for (int i = 1; i < path.Count; i++)
         {
             Vector2 directionNew = new Vector2(path[i - 1].GridX - path[i].GridX, path[i - 1].GridY - path[i].GridY);
-            if (directionNew != directionOld)
+            if ((directionNew != directionOld && !path[i].JumpThroughable)
+                || (path[i-1].Walkable && path[i].JumpThroughable))
             {
-                waypoints.Add(path[i - 1]);
-                //waypoints.Add(path[i]);
+                if (!waypoints.Contains(path[i - 1]))
+                    waypoints.Add(path[i - 1]);
+                // waypoints.Add(path[i]);
+            } else if ((path[i - 1].JumpThroughable && path[i].Walkable))
+            {
+                path[i].ToJumpTo = true;
+                if (!waypoints.Contains(path[i]))
+                    waypoints.Add(path[i]);
             }
             directionOld = directionNew;
         }
-        waypoints.Add(path[path.Count - 1]);
+        if (!waypoints.Contains(path[path.Count - 1]))
+            waypoints.Add(path[path.Count - 1]);
         return waypoints;
     }
 
