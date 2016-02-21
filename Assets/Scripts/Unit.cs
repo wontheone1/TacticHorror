@@ -19,10 +19,10 @@ public class Unit : MonoBehaviour
     //Animator
     private AnimatorStateInfo _stateInfo;
     private Animator _unitAnim;
-    private const float WalkingSpeed = 4f;
-    private const float ClimbingSpeed = 2.5f;
-    private const float PrejumpLandingSpeed = 0.7f;
-    private const float JumpSpeed = 5f;
+    private const float WalkingSpeed = 4.5f;
+    private const float ClimbingSpeed = 3f;
+    private const float PrejumpSpeed = 0.5f;
+    private const float JumpLandingSpeed = 5f;
     private float _speed; // _speed for animation
     private List<Node> _path;
     private bool _succesful;
@@ -266,8 +266,11 @@ public class Unit : MonoBehaviour
                 && _stateInfo.shortNameHash != _walkStateHash);
                 while (Vector2.Distance(transform.position, _currentWayPoint.WorldPosition) > 0.1)
                 {
+                    Debug.Log("moving");
                     _stateInfo = _unitAnim.GetCurrentAnimatorStateInfo(0);
                     DetectJumpOrLandCondition(_stateInfo);
+                    if (_stateInfo.shortNameHash != _walkStateHash && _stateInfo.shortNameHash != _climbStateHash)
+                        break;
                     DecideSpeedAccordingToAnimationState(_stateInfo);
                     transform.position = Vector2.MoveTowards(transform.position,
                        _currentWayPoint.WorldPosition, _speed * Time.deltaTime);
@@ -286,7 +289,6 @@ public class Unit : MonoBehaviour
             _path = new List<Node>();
             GameController.UnitMoving = _unitMoving = false;
             DecideCrouchOrStanding();
-            _unitAnim.SetBool(_isWalkingHash, false);
         }
     }
 
@@ -311,22 +313,45 @@ public class Unit : MonoBehaviour
 
     public void DetectJumpOrLandCondition(AnimatorStateInfo state)
     {
+        //if (GetCurrentNode().JumpThroughable && !GetCurrentNode().Walkable &&
+        //    state.shortNameHash == _walkStateHash)
+        //{
+        //    // FlipFaceDirection();
+        //    _unitAnim.SetTrigger(_jumpHash);
+        //}
+        //else if (GetCurrentNode().Walkable && state.shortNameHash == _midJumpStateHash)
+        //{
+        //    // FlipFaceDirection();
+        //    _unitAnim.SetTrigger(_landHash);
+        //    UnapplyJumpPhysics();
+        //}
+        Vector2 landingCheckPoint = new Vector2(transform.position.x, transform.position.y - Grid.NodeRadius * 2);
+        Debug.DrawLine(transform.position, landingCheckPoint);
+        Debug.Log("checking");
+        Debug.Log(Physics2D.Linecast(transform.position, landingCheckPoint, Grid.WalkableMask));
         if (GetCurrentNode().JumpThroughable && !GetCurrentNode().Walkable &&
-            state.shortNameHash == _walkStateHash)
+    state.shortNameHash == _walkStateHash)
         {
             // FlipFaceDirection();
+            Debug.Log("trigger jump");
             _unitAnim.SetTrigger(_jumpHash);
-        } else if (GetCurrentNode().Walkable && state.shortNameHash == _midJumpStateHash)
+            
+            ApplyJumpPhysics();
+        }
+        else if (Physics2D.Linecast(transform.position, landingCheckPoint, Grid.WalkableMask) 
+            && state.shortNameHash == _midJumpStateHash)
         {
+            Debug.Log("Landing Checked");
             // FlipFaceDirection();
             _unitAnim.SetTrigger(_landHash);
             UnapplyJumpPhysics();
         }
-        DecideSpeedAccordingToAnimationState(_stateInfo);
+        // DecideSpeedAccordingToAnimationState(_stateInfo);
     }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
+        Debug.Log("collision Detected.");
         if (coll.gameObject.tag == "ground")
         {
             _unitAnim.SetTrigger(_landHash);
@@ -355,6 +380,7 @@ public class Unit : MonoBehaviour
         {
             _unitAnim.SetTrigger(_goUpLadderHash);
         }
+        _unitAnim.SetBool(_undercoverHash, false);
         DecideSpeedAccordingToAnimationState(_unitAnim.GetCurrentAnimatorStateInfo(0));
     }
 
@@ -373,23 +399,27 @@ public class Unit : MonoBehaviour
 
     private void ApplyJumpPhysics()
     {
+        Debug.Log(_underJumpPhysics);
         if (!_underJumpPhysics)
         {
+            Debug.Log("apply");
             _underJumpPhysics = true;
             _rb.isKinematic = false;
             _rb.gravityScale = 1;
             _rb.velocity = new Vector2(0, 4.5f);
+            Debug.Log(_underJumpPhysics);
         }
     }
 
     private void UnapplyJumpPhysics()
     {
-        
+        Debug.Log("unapply");
         if (_underJumpPhysics)
         {
             _underJumpPhysics = false;
             _rb.isKinematic = true;
             _rb.gravityScale = 0;
+            _rb.velocity = Vector2.zero;
         }
     }
 
@@ -401,15 +431,24 @@ public class Unit : MonoBehaviour
         {
             _speed = 0f;
         }
-        else if (state.shortNameHash == _preJumpStateHash || state.shortNameHash == _landingStateHash)
+        else if (state.shortNameHash == _preJumpStateHash)
         {
-            _speed = PrejumpLandingSpeed;
-            UnapplyJumpPhysics();
+            Debug.Log("prejump state");
+            _speed = PrejumpSpeed;
+            // UnapplyJumpPhysics();
         }
         else if (state.shortNameHash == _midJumpStateHash)
         {
-            _speed = JumpSpeed;
-            ApplyJumpPhysics();
+            Debug.Log("Midjump state");
+            _speed = JumpLandingSpeed;
+            _unitAnim.SetBool(_isWalkingHash, false);
+            // ApplyJumpPhysics();
+        }
+        else if (state.shortNameHash == _landingStateHash)
+        {
+            Debug.Log("Landing state");
+            _speed = JumpLandingSpeed;
+            UnapplyJumpPhysics();
         }
         else if (state.shortNameHash == _climbStateHash)
         {
@@ -417,6 +456,7 @@ public class Unit : MonoBehaviour
         }
         else if (state.shortNameHash == _walkStateHash)
         {
+            Debug.Log("walking state");
             _speed = WalkingSpeed;
         }
     }

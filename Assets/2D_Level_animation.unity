@@ -153,7 +153,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 44753039}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c886269076b78084e8a974a213c0d06a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -739,7 +739,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 381511074}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c886269076b78084e8a974a213c0d06a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -1822,7 +1822,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1094345762}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c886269076b78084e8a974a213c0d06a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -2085,7 +2085,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1144839192}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c886269076b78084e8a974a213c0d06a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -2700,7 +2700,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1427919377}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c886269076b78084e8a974a213c0d06a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -2823,6 +2823,30 @@ Prefab:
     - target: {fileID: 6135026, guid: a7e896dfd04a42d4bb849dd191a7b4a1, type: 2}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141544, guid: a7e896dfd04a42d4bb849dd191a7b4a1, type: 2}
+      propertyPath: m_UsedByEffector
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135026, guid: a7e896dfd04a42d4bb849dd191a7b4a1, type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135026, guid: a7e896dfd04a42d4bb849dd191a7b4a1, type: 2}
+      propertyPath: m_Size.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135026, guid: a7e896dfd04a42d4bb849dd191a7b4a1, type: 2}
+      propertyPath: m_Offset.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084156, guid: a7e896dfd04a42d4bb849dd191a7b4a1, type: 2}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135026, guid: a7e896dfd04a42d4bb849dd191a7b4a1, type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7e896dfd04a42d4bb849dd191a7b4a1, type: 2}
