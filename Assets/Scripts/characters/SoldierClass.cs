@@ -4,7 +4,7 @@ public class SoldierClass : Unit
     protected override void Initialize()
     {
         UnitCount++;
-        MaxActionPoint = ActionPoint = 2500;
+        MaxActionPoint = ActionPoint = 100;
         MaxHp = Hp = 5;
         MaxAp = Ap = 5;
         MaxMp = Mp = 5;

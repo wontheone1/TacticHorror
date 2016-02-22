@@ -272,6 +272,7 @@ public class Unit : MonoBehaviour
                 DecideSpeedAccordingToAnimationState(_stateInfo);
                 if (_stateInfo.shortNameHash == _walkStateHash)
                 {
+                    Debug.Log("walking");
                     moveToward = new Vector2(_currentWayPoint.WorldPosition.x, transform.position.y);
                     while (transform.position != moveToward)
                     {
@@ -292,13 +293,12 @@ public class Unit : MonoBehaviour
                     }
                     break;
                 }
-                if (_stateInfo.shortNameHash == _midJumpStateHash
-                    || _stateInfo.shortNameHash == _landingStateHash)
+                if (_stateInfo.shortNameHash == _midJumpStateHash)
                 {
                     moveToward = new Vector2(_currentWayPoint.WorldPosition.x, transform.position.y);
                     float yVelocity = 1.5f;
-                    while ((Math.Abs(transform.position.x - _currentWayPoint.WorldPosition.x) > 0.05f)
-                        || (Math.Abs(transform.position.y - _currentWayPoint.WorldPosition.y) > 0.05f))
+                    while ((Math.Abs(transform.position.x - _currentWayPoint.WorldPosition.x) > 0.1f)
+                        || (Math.Abs(transform.position.y - _currentWayPoint.WorldPosition.y) > 0.1f))
                     {
                         moveToward = new Vector2(moveToward.x, moveToward.y + yVelocity);
                         if (moveToward.y < _currentWayPoint.WorldPosition.y)
@@ -307,7 +307,7 @@ public class Unit : MonoBehaviour
                    moveToward, (float) Math.Sqrt((_speed*_speed)+(yVelocity*yVelocity)) * Time.deltaTime);
                         transform.position = Vector2.MoveTowards(transform.position,
                    _currentWayPoint.WorldPosition, 0.1f * Time.deltaTime);
-                        if (Vector2.Distance(transform.position, _currentWayPoint.WorldPosition) < 1.5)
+                        if (Vector2.Distance(transform.position, _currentWayPoint.WorldPosition) < 1)
                         {
                             Debug.Log("landtriggerrrrr");
                             _unitAnim.SetTrigger(_landHash);
@@ -316,12 +316,26 @@ public class Unit : MonoBehaviour
                         yVelocity-=Time.deltaTime*8;
                         yield return null;
                     }
+                    Debug.Log("out of loop");
                     GetCurrentNode().ToJumpTo = false; // clear up the path jump to property
+                    do
+                    {
+                        yield return new WaitForSeconds(1);
+                        _stateInfo = _unitAnim.GetCurrentAnimatorStateInfo(0);
+                        transform.position = GetCurrentNode().WorldPosition;
+                        _speed = 0f;
+                        Debug.Log("in the loop");
+                        yield return null;
+                    } while (_stateInfo.shortNameHash == _landingStateHash);
                     break;
                 }
-                transform.position = Vector2.MoveTowards(transform.position,
+                while (_stateInfo.shortNameHash == _preJumpStateHash)
+                {
+                    _stateInfo = _unitAnim.GetCurrentAnimatorStateInfo(0);
+                    transform.position = Vector2.MoveTowards(transform.position,
                    new Vector2(_currentWayPoint.WorldPosition.x, transform.position.y), _speed * Time.deltaTime);
-                yield return null;
+                    yield return null;
+                }
                 FMODUnity.RuntimeManager.PlayOneShot(WalkEvent);
             }
             FinishWalkingOrCliming(_unitAnim.GetCurrentAnimatorStateInfo(0));
