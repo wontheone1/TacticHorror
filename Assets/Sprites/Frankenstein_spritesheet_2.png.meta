@@ -1,0 +1,557 @@
+fileFormatVersion: 2
+guid: b0ec76b591d4f1f4e96c7884065e7db9
+timeCreated: 1456166442
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Frankenstein_spritesheet_2_0
+    21300002: Frankenstein_spritesheet_2_1
+    21300004: Frankenstein_spritesheet_2_2
+    21300006: Frankenstein_spritesheet_2_3
+    21300008: Frankenstein_spritesheet_2_4
+    21300010: Frankenstein_spritesheet_2_5
+    21300012: Frankenstein_spritesheet_2_6
+    21300014: Frankenstein_spritesheet_2_7
+    21300016: Frankenstein_spritesheet_2_8
+    21300018: Frankenstein_spritesheet_2_9
+    21300020: Frankenstein_spritesheet_2_10
+    21300022: Frankenstein_spritesheet_2_11
+    21300024: Frankenstein_spritesheet_2_12
+    21300026: Frankenstein_spritesheet_2_13
+    21300028: Frankenstein_spritesheet_2_14
+    21300030: Frankenstein_spritesheet_2_15
+    21300032: Frankenstein_spritesheet_2_16
+    21300034: Frankenstein_spritesheet_2_17
+    21300036: Frankenstein_spritesheet_2_18
+    21300038: Frankenstein_spritesheet_2_19
+    21300040: Frankenstein_spritesheet_2_20
+    21300042: Frankenstein_spritesheet_2_21
+    21300044: Frankenstein_spritesheet_2_22
+    21300046: Frankenstein_spritesheet_2_23
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 30
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Frankenstein_spritesheet_2_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 687
+        width: 36
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 58.5}
+        - {x: -18, y: -6.5}
+        - {x: 18, y: -6.5}
+        - {x: 18, y: 58.5}
+    - name: Frankenstein_spritesheet_2_1
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 687
+        width: 37
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.5, y: 58.5}
+        - {x: -18.5, y: -2.5}
+        - {x: -13.5, y: -6.5}
+        - {x: 14.5, y: -6.5}
+        - {x: 15.5, y: -3.5}
+        - {x: 18.5, y: 17.5}
+        - {x: 18.5, y: 58.5}
+    - name: Frankenstein_spritesheet_2_2
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 687
+        width: 35
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.5, y: 59.400024}
+        - {x: -17.5, y: 59.400024}
+        - {x: -17.5, y: -5.5999756}
+        - {x: -15.5, y: -6.5999756}
+        - {x: 15.5, y: -6.5999756}
+        - {x: 15.5, y: -5.5999756}
+        - {x: 17.5, y: 12.400024}
+        - {x: 17.5, y: 56.400024}
+    - name: Frankenstein_spritesheet_2_3
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 687
+        width: 40
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20, y: 58.5}
+        - {x: -16, y: 58.5}
+        - {x: -20, y: 53.5}
+        - {x: -20, y: -0.5}
+        - {x: -16, y: -6.5}
+        - {x: 15, y: -6.5}
+        - {x: 18, y: -3.5}
+        - {x: 14, y: 20.5}
+        - {x: 20, y: 33.5}
+    - name: Frankenstein_spritesheet_2_4
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 687
+        width: 43
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 59.400024}
+        - {x: -18.5, y: 52.400024}
+        - {x: -21.5, y: 44.400024}
+        - {x: -21.5, y: 10.400024}
+        - {x: -17.5, y: 7.4000244}
+        - {x: -15.5, y: -0.5999756}
+        - {x: -12.5, y: -6.5999756}
+        - {x: 15.5, y: -6.5999756}
+        - {x: 15.5, y: -4.5999756}
+        - {x: 21.5, y: -0.5999756}
+        - {x: 21.5, y: 59.400024}
+    - name: Frankenstein_spritesheet_2_5
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 687
+        width: 58
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: -3.7999878}
+        - {x: 29, y: -0.7999878}
+        - {x: 29, y: 34.200012}
+        - {x: 19, y: 61.200012}
+        - {x: -12, y: 61.200012}
+        - {x: -24, y: 43.200012}
+        - {x: -29, y: 30.200012}
+        - {x: -29, y: 5.200012}
+        - {x: -16, y: -6.799988}
+        - {x: 3, y: -6.799988}
+        - {x: 4, y: -5.799988}
+        - {x: 4, y: -3.7999878}
+        - {x: 2, y: -1.7999878}
+    - name: Frankenstein_spritesheet_2_6
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 687
+        width: 49
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2.5, y: 2.2999878}
+        - {x: 2.5, y: -5.700012}
+        - {x: 3.5, y: -6.700012}
+        - {x: 24.5, y: -6.700012}
+        - {x: 24.5, y: 15.299988}
+        - {x: 17.5, y: 50.299988}
+        - {x: 15.5, y: 55.299988}
+        - {x: 14.5, y: 58.299988}
+        - {x: 12.5, y: 60.299988}
+        - {x: -2.5, y: 60.299988}
+        - {x: -9.5, y: 56.299988}
+        - {x: -19.5, y: 44.299988}
+        - {x: -24.5, y: 32.299988}
+        - {x: -24.5, y: -0.7000122}
+        - {x: -18.5, y: -6.700012}
+        - {x: 1.5, y: -6.700012}
+        - {x: 2.5, y: -5.700012}
+        - {x: 2.5, y: -3.7000122}
+        - {x: 0.5, y: -1.7000122}
+    - name: Frankenstein_spritesheet_2_7
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 687
+        width: 42
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: -6.5}
+        - {x: 21, y: -6.5}
+        - {x: 21, y: 55.5}
+        - {x: 15, y: 58.5}
+        - {x: -7, y: 58.5}
+        - {x: -16, y: 50.5}
+        - {x: -21, y: 44.5}
+        - {x: -21, y: 11.5}
+        - {x: -20, y: 9.5}
+        - {x: -17, y: 8.5}
+        - {x: -13, y: 8.5}
+        - {x: -14, y: 8.5}
+        - {x: -17, y: 7.5}
+        - {x: -20, y: 4.5}
+        - {x: -21, y: -0.5}
+        - {x: -16, y: -6.5}
+        - {x: -1, y: -6.5}
+        - {x: -3, y: -1.5}
+        - {x: -2, y: -1.5}
+        - {x: 0, y: -5.5}
+    - name: Frankenstein_spritesheet_2_8
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 591
+        width: 34
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 60.299988}
+        - {x: -17, y: 57.299988}
+        - {x: -17, y: -6.700012}
+        - {x: 17, y: -6.700012}
+        - {x: 17, y: 60.299988}
+    - name: Frankenstein_spritesheet_2_9
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 591
+        width: 37
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7.5, y: 61.200012}
+        - {x: -18.5, y: 55.200012}
+        - {x: -18.5, y: 1.2000122}
+        - {x: -11.5, y: -6.799988}
+        - {x: 18.5, y: -6.799988}
+        - {x: 18.5, y: 61.200012}
+    - name: Frankenstein_spritesheet_2_10
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 591
+        width: 55
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 27.5, y: 26.299988}
+        - {x: 21.5, y: 60.299988}
+        - {x: -17.5, y: 60.299988}
+        - {x: -26.5, y: 40.299988}
+        - {x: -27.5, y: 33.299988}
+        - {x: -27.5, y: 6.299988}
+        - {x: -17.5, y: -6.700012}
+        - {x: 7.5, y: -6.700012}
+        - {x: 7.5, y: -4.700012}
+        - {x: 11.5, y: -6.700012}
+        - {x: 27.5, y: -4.700012}
+    - name: Frankenstein_spritesheet_2_11
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 591
+        width: 44
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 60.299988}
+        - {x: -22, y: 50.299988}
+        - {x: -22, y: 1.2999878}
+        - {x: -18, y: -6.700012}
+        - {x: 22, y: -6.700012}
+        - {x: 22, y: 60.299988}
+    - name: Frankenstein_spritesheet_2_12
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 591
+        width: 35
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.5, y: 59.400024}
+        - {x: -17.5, y: 51.400024}
+        - {x: -17.5, y: 7.4000244}
+        - {x: -16.5, y: -2.5999756}
+        - {x: -12.5, y: -6.5999756}
+        - {x: 17.5, y: -6.5999756}
+        - {x: 17.5, y: 59.400024}
+    - name: Frankenstein_spritesheet_2_13
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 591
+        width: 34
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 59.400024}
+        - {x: -9, y: 59.400024}
+        - {x: -17, y: 54.400024}
+        - {x: -17, y: 8.400024}
+        - {x: -13, y: -6.5999756}
+        - {x: 15, y: -6.5999756}
+        - {x: 16, y: -3.5999756}
+        - {x: 17, y: 11.400024}
+        - {x: 17, y: 58.400024}
+    - name: Frankenstein_spritesheet_2_14
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 591
+        width: 36
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 60.299988}
+        - {x: -18, y: 52.299988}
+        - {x: -18, y: 2.2999878}
+        - {x: -15, y: -6.700012}
+        - {x: 18, y: -6.700012}
+        - {x: 18, y: 44.299988}
+        - {x: 14, y: 60.299988}
+    - name: Frankenstein_spritesheet_2_15
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 591
+        width: 39
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19.5, y: 6.200012}
+        - {x: 19.5, y: 61.200012}
+        - {x: -19.5, y: 61.200012}
+        - {x: -19.5, y: 0.2000122}
+        - {x: -18.5, y: -6.799988}
+        - {x: 14.5, y: -6.799988}
+    - name: Frankenstein_spritesheet_2_16
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 495
+        width: 38
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 65.70001}
+        - {x: -19, y: 55.700012}
+        - {x: -19, y: -1.2999878}
+        - {x: -18, y: -7.299988}
+        - {x: 17, y: -7.299988}
+        - {x: 19, y: 2.7000122}
+        - {x: 19, y: 65.70001}
+    - name: Frankenstein_spritesheet_2_17
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 495
+        width: 36
+        height: 70
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 63}
+        - {x: -18, y: 61}
+        - {x: -18, y: -7}
+        - {x: 14, y: -7}
+        - {x: 18, y: 17}
+        - {x: 18, y: 63}
+    - name: Frankenstein_spritesheet_2_18
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 495
+        width: 43
+        height: 69
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.5, y: 62.100006}
+        - {x: -21.5, y: 57.100006}
+        - {x: -21.5, y: -6.899994}
+        - {x: 14.5, y: -6.899994}
+        - {x: 21.5, y: 13.100006}
+        - {x: 21.5, y: 55.100006}
+        - {x: 13.5, y: 62.100006}
+    - name: Frankenstein_spritesheet_2_19
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 495
+        width: 39
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.5, y: 68.399994}
+        - {x: -19.5, y: 1.3999939}
+        - {x: -16.5, y: -7.600006}
+        - {x: 16.5, y: -7.600006}
+        - {x: 19.5, y: 10.399994}
+        - {x: 19.5, y: 67.399994}
+        - {x: 15.5, y: 68.399994}
+      - - {x: -15.5, y: -2.600006}
+        - {x: -12.5, y: -1.6000061}
+        - {x: -12.5, y: 1.3999939}
+        - {x: -15.5, y: 2.399994}
+        - {x: -17.5, y: 0.3999939}
+    - name: Frankenstein_spritesheet_2_20
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 495
+        width: 40
+        height: 74
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 66.600006}
+        - {x: -20, y: 54.600006}
+        - {x: -20, y: -4.399994}
+        - {x: -18, y: -7.399994}
+        - {x: 16, y: -7.399994}
+        - {x: 20, y: 3.600006}
+        - {x: 20, y: 50.600006}
+        - {x: 12, y: 66.600006}
+    - name: Frankenstein_spritesheet_2_21
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 495
+        width: 42
+        height: 77
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 69.29999}
+        - {x: -21, y: 21.299988}
+        - {x: -17, y: -7.700012}
+        - {x: 8, y: -7.700012}
+        - {x: 21, y: 22.299988}
+        - {x: 21, y: 60.299988}
+        - {x: 14, y: 69.29999}
+    - name: Frankenstein_spritesheet_2_22
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 495
+        width: 43
+        height: 77
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.5, y: 69.29999}
+        - {x: -21.5, y: 63.299988}
+        - {x: -21.5, y: 13.299988}
+        - {x: -16.5, y: -7.700012}
+        - {x: 1.5, y: -7.700012}
+        - {x: 21.5, y: 14.299988}
+        - {x: 21.5, y: 50.299988}
+        - {x: 12.5, y: 69.29999}
+    - name: Frankenstein_spritesheet_2_23
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 494
+        width: 43
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14.5, y: 68.399994}
+        - {x: -7.5, y: 68.399994}
+        - {x: -21.5, y: 54.399994}
+        - {x: -21.5, y: 11.399994}
+        - {x: -19.5, y: -7.600006}
+        - {x: 5.5, y: -7.600006}
+        - {x: 20.5, y: -2.600006}
+        - {x: 21.5, y: 8.399994}
+        - {x: 21.5, y: 67.399994}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

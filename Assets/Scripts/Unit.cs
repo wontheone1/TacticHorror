@@ -340,6 +340,7 @@ public class Unit : MonoBehaviour
             FinishWalkingOrCliming(_unitAnim.GetCurrentAnimatorStateInfo(0));
         }
         _path = new List<Node>();
+        Debug.Log("finish moving");
         GameController.UnitMoving = _unitMoving = false;
         DecideCrouchOrStanding();
     }
@@ -349,12 +350,12 @@ public class Unit : MonoBehaviour
         _unitAnim.SetBool(_isWalkingHash, false);
         if (GetCurrentNode().CoveredFromLeft)
         {
-            transform.localScale = _rightScale;
+            transform.localScale = _leftScale; 
             _unitAnim.SetBool(_undercoverHash, true);
         }
         else if (GetCurrentNode().CoveredFromRight)
         {
-            transform.localScale = _leftScale;
+            transform.localScale = _rightScale;
             _unitAnim.SetBool(_undercoverHash, true);
         }
         else
@@ -370,8 +371,10 @@ public class Unit : MonoBehaviour
 
     private void DecideWalkingOrClimbOrJump(Node currentWayPoint)
     {
+        _unitAnim.SetBool(_undercoverHash, false);
         if (IsClimbing(currentWayPoint))
         {
+            Debug.Log("trigger go up");
             _unitAnim.SetTrigger(_goUpLadderHash);
         }
         else if (IsJumping(currentWayPoint))
@@ -384,7 +387,6 @@ public class Unit : MonoBehaviour
         {
             _unitAnim.SetBool(_isWalkingHash, true);
         }
-        _unitAnim.SetBool(_undercoverHash, false);
         DecideSpeedAccordingToAnimationState(_unitAnim.GetCurrentAnimatorStateInfo(0));
     }
 
