@@ -189,6 +189,7 @@ public class Unit : MonoBehaviour
 
     public virtual void Die()
     {
+        GetCurrentNode().Occupied = false;
         _unitAnim.SetTrigger(_killedHash);
         _gameController.TextBoxManager.EventHandler(Unitname, "Die");
         FMODUnity.RuntimeManager.PlayOneShot(DieEvent, transform.position);
@@ -252,6 +253,7 @@ public class Unit : MonoBehaviour
     private IEnumerator FollowPath()
     {
         GameController.UnitMoving = _unitMoving = true;
+        GetCurrentNode().Occupied = false;
         // ReSharper disable once ForCanBeConvertedToForeach
         for (int i = 0; i < _path.Count; i++)
         {
@@ -343,6 +345,7 @@ public class Unit : MonoBehaviour
         Debug.Log("finish moving");
         GameController.UnitMoving = _unitMoving = false;
         DecideCrouchOrStanding();
+        GetCurrentNode().Occupied = true;
     }
 
     public void DecideCrouchOrStanding()

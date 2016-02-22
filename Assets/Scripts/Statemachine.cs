@@ -70,10 +70,12 @@ public class Statemachine : MonoBehaviour
         foreach (var unit in _gameController.EnemyUnits)
         {
             unit.DecideCrouchOrStanding();
+            unit.GetCurrentNode().Occupied = true;
         }
         foreach (var unit in _gameController.PlayerUnits)
         {
             unit.DecideCrouchOrStanding();
+            unit.GetCurrentNode().Occupied = true;
         }
         try
         {

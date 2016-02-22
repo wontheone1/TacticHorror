@@ -213,13 +213,16 @@ public class GameController : MonoBehaviour
             Collider2D c1 = c;
             foreach (Unit activeUnit in _activeUnits.Where(activeUnit => activeUnit.transform == c1.transform))
             {
-                _unitSelected = true;
-                _activeUnit.DeletePath();
-                _activeUnit = activeUnit;
-                camMovePath.Add(_grid.NodeFromWorldPoint(_activeUnit.transform.position));
-                CameraMovementManager.RequestCamMove(camMovePath);
-                DebugText.text = _activeUnit.name;
-                return;
+                if (activeUnit.IsMovementPossible())
+                {
+                    _unitSelected = true;
+                    _activeUnit.DeletePath();
+                    _activeUnit = activeUnit;
+                    camMovePath.Add(_grid.NodeFromWorldPoint(_activeUnit.transform.position));
+                    CameraMovementManager.RequestCamMove(camMovePath);
+                    DebugText.text = _activeUnit.name;
+                    return;
+                }
             }
         }
     }

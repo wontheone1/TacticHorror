@@ -29,7 +29,8 @@ public class Pathfinding : MonoBehaviour
         bool pathSuccess = false;
         Node startNode = _grid.NodeFromWorldPoint(startPos);
         Node targetNode = _grid.NodeFromWorldPoint(targetPos);
-        if (startNode.Walkable && targetNode.Walkable && !targetNode.InMidOfFloor)
+        if (startNode.Walkable && targetNode.Walkable 
+            && !targetNode.InMidOfFloor && !targetNode.Occupied)
         {
             Heap<Node> openSet = new Heap<Node>(_grid.MaxSize);
             HashSet<Node> closedSet = new HashSet<Node>();
