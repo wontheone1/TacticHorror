@@ -23,6 +23,10 @@ public class Pathfinding : MonoBehaviour
 
     IEnumerator FindPath(Vector2 startPos, Vector2 targetPos, int actionPoint)
     {
+        foreach (Node n in _grid.Nodes)
+        {
+            n.ToJumpTo = false;
+        }
         Stopwatch sw = new Stopwatch();
         sw.Start();
         List<Node> path = new List<Node>();
