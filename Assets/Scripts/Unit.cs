@@ -272,7 +272,6 @@ public class Unit : MonoBehaviour
                 DecideSpeedAccordingToAnimationState(_stateInfo);
                 if (_stateInfo.shortNameHash == _walkStateHash)
                 {
-                    Debug.Log("walking");
                     moveToward = new Vector2(_currentWayPoint.WorldPosition.x, transform.position.y);
                     while (transform.position != moveToward)
                     {
@@ -364,14 +363,9 @@ public class Unit : MonoBehaviour
         }
     }
 
-    public bool IsHorizontalMovement(Node currentWaypoint)
-    {
-        return (_currentWayPoint.GridY == GetCurrentNode().GridY);
-    }
-
     public bool IsClimbing(Node currentWayPoint)
     {
-        return currentWayPoint.OnLadder && GetCurrentNode().OnLadder;
+        return currentWayPoint.OnLadder && GetCurrentNode().OnLadder && (currentWayPoint.GridY != GetCurrentNode().GridY);
     }
 
     private void DecideWalkingOrClimbOrJump(Node currentWayPoint)
