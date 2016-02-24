@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: 68020b1ce6aa0d442875fd5fda884b51
-timeCreated: 1455823980
+guid: 51141c35527483c4a991840b9d4014ea
+timeCreated: 1456254100
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: healtbar_squares_0
+    21300002: healtbar_squares_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,7 +28,7 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
@@ -49,7 +51,29 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: healtbar_squares_0
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 15
+        width: 7
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: healtbar_squares_1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 6
+        width: 59
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 

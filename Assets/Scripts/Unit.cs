@@ -112,9 +112,12 @@ public class Unit : MonoBehaviour
         Node targetUnitNode = targetUnit.GetCurrentNode();
         if (_pathfinding.GetDistance(thisUnitNode, targetUnitNode) <= AttackRange
             && (targetUnit.GetCurrentNode().GridY == GetCurrentNode().GridY))
+        {
             _targetUnit = targetUnit;
+            DecideFaceDirection(_targetUnit.GetCurrentNode());
+        }
         else
-            Debug.Log("the unit is out of attack range");
+            _gameController.DebugText.text = "The unit is out of range.";
     }
 
     public void UnsetAttackTarget()
@@ -126,7 +129,6 @@ public class Unit : MonoBehaviour
     {
         if (_targetUnit != null)
         {
-            _unitAnim.SetTrigger(_attackHash);
             StartCoroutine("AttackAnimation");
             FMODUnity.RuntimeManager.PlayOneShot(AttackEvent);
             List<Node> camMoveRequest = new List<Node> { GetCurrentNode(), _targetUnit.GetCurrentNode() };
@@ -146,7 +148,7 @@ public class Unit : MonoBehaviour
     // ReSharper disable once UnusedMember.Local
     private IEnumerator AttackAnimation()
     {
-
+        _unitAnim.SetTrigger(_attackHash);
         bool projectileHit = false;
         _stateInfo = _unitAnim.GetCurrentAnimatorStateInfo(0);
         GameObject currentProjectile = Instantiate((GameObject)Resources.Load("projectile")
