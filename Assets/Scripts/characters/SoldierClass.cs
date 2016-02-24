@@ -6,7 +6,7 @@ public class SoldierClass : Unit
         UnitCount++;
         MaxActionPoint = ActionPoint = 100;
         MaxHp = Hp = 5;
-        MaxAp = Ap = 5;
+        Ap = 5;
         MaxMp = Mp = 5;
         AttackRange = 50;
         Unitname = "Soldier" + UnitCount;

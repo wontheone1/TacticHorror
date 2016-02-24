@@ -5,8 +5,8 @@ public class FrankenClass : Unit
     protected override void Initialize()
     {
         MaxActionPoint = ActionPoint = 100;
-        MaxHp = Hp = 5;
-        MaxAp = Ap = 5;
+        MaxHp = Hp = 15;
+        Ap = 5;
         MaxMp = Mp = 5;
         AttackRange = 50;
         Unitname = "Frankenstein";

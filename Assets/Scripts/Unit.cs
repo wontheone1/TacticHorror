@@ -26,15 +26,17 @@ public class Unit : MonoBehaviour
     private float _speed; // _speed for animation
     private List<Node> _path;
     private bool _succesful;
-    protected int MaxActionPoint; //movement point + other action
-    protected int MaxHp; // health point
-    protected int MaxAp; // attack point
-    protected int MaxMp; // mana
-    protected int AttackRange; //attack Range
-    protected int ActionPoint; //movement point + other action
-    protected int Hp; // health point
-    protected int Ap; // attack point
-    protected int Mp; // mana
+
+    // Stats
+    public int MaxActionPoint; //movement point + other action
+    public int MaxHp; // health point
+    public int MaxMp; // mana
+    public int AttackRange; //attack Range
+    public int ActionPoint; //movement point + other action
+    public int Hp; // health point
+    public int Ap; // attack point
+    public int Mp; // mana
+
     protected Grid Grid;
     private Node _currentWayPoint;
     private Pathfinding _pathfinding;
@@ -72,6 +74,7 @@ public class Unit : MonoBehaviour
     private readonly int _midJumpStateHash = Animator.StringToHash("midJump");
     private readonly int _landingStateHash = Animator.StringToHash("landing");
     private readonly int _attackingStateHash = Animator.StringToHash("attacking");
+    private readonly int _followAttackStateHash = Animator.StringToHash("followAttack");
 
     protected virtual void Awake()
     {
@@ -131,8 +134,6 @@ public class Unit : MonoBehaviour
         {
             StartCoroutine("AttackAnimation");
             FMODUnity.RuntimeManager.PlayOneShot(AttackEvent);
-            List<Node> camMoveRequest = new List<Node> { GetCurrentNode(), _targetUnit.GetCurrentNode() };
-            CameraMovementManager.RequestCamMove(camMoveRequest);
             ActionPoint = 0;
         }
     }
@@ -143,6 +144,8 @@ public class Unit : MonoBehaviour
         {
             _targetUnit.TakeDamage(Ap);
         }
+        if (!_gameController.SelectNextUnit())
+            _gameController.EndTurn();
     }
 
     // ReSharper disable once UnusedMember.Local
@@ -150,27 +153,35 @@ public class Unit : MonoBehaviour
     {
         _unitAnim.SetTrigger(_attackHash);
         bool projectileHit = false;
-        _stateInfo = _unitAnim.GetCurrentAnimatorStateInfo(0);
-        GameObject currentProjectile = Instantiate((GameObject)Resources.Load("projectile")
+        while (true)
+        {
+            if (_unitAnim.GetCurrentAnimatorStateInfo(0).shortNameHash == _followAttackStateHash)
+                break;
+            Debug.Log("In while loop");
+            yield return null;
+        }
+        GameObject currentProjectile = Instantiate((GameObject)Resources.Load("rock")
             , transform.FindChild("spawnPosition").position
             , Quaternion.identity) as GameObject;
         if (currentProjectile != null)
         {
-            currentProjectile.SetActive(true);
-            currentProjectile.GetComponent<Renderer>().sortingLayerName = "foreground";
+            Vector3 moveTo;
             while (true)
             {
                 if (currentProjectile.transform.position != _targetUnit.transform.position)
                 {
                     currentProjectile.transform.position =
                         Vector3.MoveTowards(currentProjectile.transform.position, _targetUnit.transform.position, 6 * Time.deltaTime);
+                    moveTo = new Vector3(currentProjectile.transform.position.x, currentProjectile.transform.position.y,
+                        Camera.main.transform.position.z);
+                    Camera.main.transform.position = moveTo;
                 }
                 else
                 {
                     Destroy(currentProjectile);
                     projectileHit = true;
                 }
-                if ((_stateInfo.shortNameHash != _attackingStateHash) && projectileHit)
+                if (projectileHit)
                     break;
                 yield return null;
             }
@@ -307,7 +318,7 @@ public class Unit : MonoBehaviour
                         if (moveToward.y < _currentWayPoint.WorldPosition.y)
                             moveToward.y = _currentWayPoint.WorldPosition.y;
                         transform.position = Vector2.MoveTowards(transform.position,
-                   moveToward, (float) Math.Sqrt((_speed*_speed)+(yVelocity*yVelocity)) * Time.deltaTime);
+                   moveToward, (float)Math.Sqrt((_speed * _speed) + (yVelocity * yVelocity)) * Time.deltaTime);
                         transform.position = Vector2.MoveTowards(transform.position,
                    _currentWayPoint.WorldPosition, 0.1f * Time.deltaTime);
                         if (Vector2.Distance(transform.position, _currentWayPoint.WorldPosition) < 1)
@@ -316,7 +327,7 @@ public class Unit : MonoBehaviour
                             _unitAnim.SetTrigger(_landHash);
                             _speed = LandingSpeed;
                         }
-                        yVelocity-=Time.deltaTime*8;
+                        yVelocity -= Time.deltaTime * 8;
                         yield return null;
                     }
                     Debug.Log("out of loop");
@@ -344,7 +355,6 @@ public class Unit : MonoBehaviour
             FinishWalkingOrCliming(_unitAnim.GetCurrentAnimatorStateInfo(0));
         }
         _path = new List<Node>();
-        Debug.Log("finish moving");
         GameController.UnitMoving = _unitMoving = false;
         DecideCrouchOrStanding();
         GetCurrentNode().Occupied = true;
@@ -355,7 +365,7 @@ public class Unit : MonoBehaviour
         _unitAnim.SetBool(_isWalkingHash, false);
         if (GetCurrentNode().CoveredFromLeft)
         {
-            transform.localScale = _leftScale; 
+            transform.localScale = _leftScale;
             _unitAnim.SetBool(_undercoverHash, true);
         }
         else if (GetCurrentNode().CoveredFromRight)
@@ -379,12 +389,10 @@ public class Unit : MonoBehaviour
         _unitAnim.SetBool(_undercoverHash, false);
         if (IsClimbing(currentWayPoint))
         {
-            Debug.Log("trigger go up");
             _unitAnim.SetTrigger(_goUpLadderHash);
         }
         else if (IsJumping(currentWayPoint))
         {
-            Debug.Log("set trigger jump");
             _unitAnim.SetTrigger(_jumpHash);
             _unitAnim.SetBool(_isWalkingHash, false);
         }

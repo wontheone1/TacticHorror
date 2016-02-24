@@ -147,18 +147,6 @@ public class GameController : MonoBehaviour
         List<Node> camMovePath = new List<Node>();
         int currentUnitIndex = _activeUnits.IndexOf(_activeUnit);
         camMovePath.Add(_grid.NodeFromWorldPoint(Camera.main.gameObject.transform.position));
-        // if unit is last one in the list change to the first unit.
-        //if (currentUnitIndex == _activeUnits.Count - 1)
-        //{
-        //    if (_activeUnits[0].IsMovementPossible())
-        //    {   
-        //        _activeUnit = _activeUnits[0];
-        //        camMovePath.Add(_grid.NodeFromWorldPoint(_activeUnit.transform.position));
-        //        CameraMovementManager.RequestCamMove(camMovePath);
-        //        return true;
-        //    }
-        //    currentUnitIndex = 1;
-        //}
         for (int i = 0; i < _activeUnits.Count; i++)
         {
             
@@ -190,10 +178,9 @@ public class GameController : MonoBehaviour
 
                 if (_activeUnit.TargetUnit == c.gameObject.GetComponent<Unit>())
                 {
+                    // attack target will result in select next available unit or end turn
                     _activeUnit.AttackTarget();
                     DebugText.text = "Attacked: " + _activeUnit.TargetUnit.Unitname;
-                    if (!SelectNextUnit())
-                        EndTurn();
                     return;
                 }
                 _activeUnit.SetAttackTarget(opponent);

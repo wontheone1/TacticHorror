@@ -84,12 +84,10 @@ public class TextBoxManager : MonoBehaviour
 
         if (Dialogue.DocumentElement != null)
         {
-            Debug.Log("hello");
             foreach (XmlNode node in Dialogue.DocumentElement)
             {
                 if (node.Attributes != null)
                 {
-                    Debug.Log("hello");
                     _lines.Add(new Entry(node.Attributes[0].Value, int.Parse(node.Attributes[1].Value), node.InnerText));
                 }
             }

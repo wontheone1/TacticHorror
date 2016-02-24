@@ -756,7 +756,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ' follow_attack'
+  m_Name: followAttack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1016,7 +1016,7 @@ AnimatorStateMachine:
     m_Position: {x: 492, y: -132, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110239336}
-    m_Position: {x: 276, y: -132, z: 0}
+    m_Position: {x: 264, y: -132, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
