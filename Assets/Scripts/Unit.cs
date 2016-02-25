@@ -18,7 +18,7 @@ public class Unit : MonoBehaviour
     public readonly float LandingSpeed = 1f;
 
     // general variables
-    public static int UnitCount = 0;
+    // public static int UnitCount = 0;
     public string Unitname;
     public bool IsDead;
     public Unit TargetUnit;
@@ -41,8 +41,7 @@ public class Unit : MonoBehaviour
 
     // other objects
     protected Grid Grid;
-    
-    // private Pathfinding _pathfinding;
+    protected HealthBar healthBar;
     private UnitController _unitController;
 
     protected int MaxActionPoint
@@ -85,6 +84,11 @@ public class Unit : MonoBehaviour
         get { return projectileName; }
     }
 
+    public HealthBar HealthBar
+    {
+        get { return healthBar; }
+    }
+
     /// <summary>
     /// string Hash for animators... (optimization)
     /// </summary>
@@ -119,6 +123,11 @@ public class Unit : MonoBehaviour
         _leftScale.x *= -1;
     }
 
+    protected virtual void Start()
+    {
+        if (healthBar != null)
+            healthBar.FillBar(Hp);
+    }
     //protected virtual void Update()
     //{
     //}
@@ -164,7 +173,7 @@ public class Unit : MonoBehaviour
     {
         return ActionPoint > 10;
     }
-    
+
     public List<Node> StartMoving()
     {
         return _unitController.StartMoving();

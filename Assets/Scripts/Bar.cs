@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
-{
+public class Bar : MonoBehaviour {
+
     private Image barImage;
     private List<GameObject> bars = new List<GameObject>();
 
@@ -12,10 +12,10 @@ public class HealthBar : MonoBehaviour
     private float barHeight;
     private float barSpacing = 5f;
 
-    protected string barPrefabName = "RedBar";
-    protected string barStartingPositionName = "HealthBarStartPos";
-    protected int verticalOrientation = 1;
-    protected int horizontalOrientation = 0;
+    protected string barPrefabName;
+    protected string barStartingPositionName;
+    protected int verticalOrientation;
+    protected int horizontalOrientation;
 
     protected virtual void Start()
     {

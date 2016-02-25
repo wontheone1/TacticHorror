@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class UnitController : MonoBehaviour
 {
-    
+
     private AnimatorStateInfo _stateInfo;
     public Unit Unit;
     public Animator UnitAnim;
@@ -104,7 +104,7 @@ public class UnitController : MonoBehaviour
         UnitAnim.SetTrigger(Unit.AttackHash);
         bool projectileHit = false;
         while (true)
-        {   
+        {
             // wait until attack animation ends and follow_attack state starts
             if (UnitAnim.GetCurrentAnimatorStateInfo(0).shortNameHash == Unit.FollowAttackStateHash)
                 break;
@@ -147,6 +147,9 @@ public class UnitController : MonoBehaviour
         if (damage > 0)
         {
             Unit.Hp -= damage;
+            Mathf.Clamp(Unit.Hp, 0, Unit.MaxHp);
+            if (Unit.HealthBar != null)
+                Unit.HealthBar.FillBar(Unit.Hp);
             FMODUnity.RuntimeManager.PlayOneShot(Unit.GetHitEvent);
             if (Unit.Hp <= 0)
                 _gameController.KillUnit(Unit);

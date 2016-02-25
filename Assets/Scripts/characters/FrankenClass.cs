@@ -1,10 +1,16 @@
 ﻿ // ReSharper disable once CheckNamespace
+
+using UnityEngine;
+
 public class FrankenClass : Unit
 {
+    public static int UnitCount = 0;
 
     protected override void Awake()
     {
         base.Awake();
+        UnitCount++;
+
         _maxActionPoint = ActionPoint = 100;
         _maxHp = Hp = 15;
         _ap = 5;
@@ -20,6 +26,9 @@ public class FrankenClass : Unit
         GetHitEvent = "event:/Characters/Frankenstein/frank_hitted";
         AttackEvent = "event:/Characters/Frankenstein/frank_punch";
         JumpEvent = "event:/Characters/Frankenstein/frank_jump";
+
+        Debug.Log("FrankenStatus" + UnitCount);
+        healthBar = GameObject.Find("FrankenStatus" + UnitCount).GetComponent<HealthBar>();
     }
 
 }

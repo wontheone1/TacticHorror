@@ -1,7 +1,7 @@
 ﻿// ReSharper disable once CheckNamespace
 public class SoldierClass : Unit
 {
-    
+    public static int UnitCount = 0;
 
     protected override void Awake()
     {
