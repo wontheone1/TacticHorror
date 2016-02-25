@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
-public class GreenBar : MonoBehaviour {
+public class GreenBar : Bar
+{
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    protected override void Start()
+    {
+        barPrefabName = "GreenBar";
+        barStartingPositionName = "ActionBarStartPos";
+        verticalOrientation = 0;
+        horizontalOrientation = 1;
+        base.Start();
+    }
+
 }
