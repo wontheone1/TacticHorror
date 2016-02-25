@@ -1,28 +1,35 @@
 ﻿ // ReSharper disable once CheckNamespace
+
+using UnityEngine;
+
 public class FrankenClass : Unit
 {
+    public static int UnitCount = 0;
 
-    protected override void Initialize()
+    protected override void Awake()
     {
-        MaxActionPoint = ActionPoint = 100;
-        MaxHp = Hp = 5;
-        MaxAp = Ap = 5;
-        MaxMp = Mp = 5;
-        AttackRange = 50;
+        base.Awake();
+        UnitCount++;
+
+        _maxActionPoint = ActionPoint = 100;
+        _maxHp = Hp = 15;
+        _ap = 5;
+        _attackRange = 50;
+
         Unitname = "Frankenstein";
+        projectileName = "rock";
 
         // FMOD Events assign
         DieEvent = "event:/Characters/Frankenstein/frank_die";
         WalkEvent = "event:/Characters/Frankenstein/frank_walk";
         LadderUpdownEvent = "event:/Characters/Frankenstein/frank_up_down_ladder";
         GetHitEvent = "event:/Characters/Frankenstein/frank_hitted";
-        AttackEvent = "event:/Characters/Frankenstein/frank_sucking";
+        AttackEvent = "event:/Characters/Frankenstein/frank_punch";
         JumpEvent = "event:/Characters/Frankenstein/frank_jump";
-    }
-    protected override void Awake()
-    {
-        base.Awake();
-        Initialize();
+
+        Debug.Log("FrankenStatus" + UnitCount);
+        HealthBar = GameObject.Find("FrankenStatus" + UnitCount).GetComponent<HealthBar>();
+        GreenBar = GameObject.Find("FrankenStatus" + UnitCount).GetComponent<GreenBar>();
     }
 
 }

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
@@ -9,125 +8,158 @@ public class Unit : MonoBehaviour
     /// store FMOD events
     /// </summary>
     //[FMODUnity.EventRef]
-    protected string LadderUpdownEvent, WalkEvent, DieEvent, GetHitEvent, AttackEvent, JumpEvent;
+    public string LadderUpdownEvent, WalkEvent, DieEvent, GetHitEvent, AttackEvent, JumpEvent;
 
-    //Animator
-    private AnimatorStateInfo _stateInfo;
-    private Animator _unitAnim;
-    public static int UnitCount = 0;
+    //Animation
+    public readonly float WalkingSpeed = 4.5f;
+    public readonly float ClimbingSpeed = 3f;
+    public readonly float PrejumpSpeed = 1f;
+    public readonly float MidJumpLandingSpeed = 5f;
+    public readonly float LandingSpeed = 1f;
+
+    // general variables
+    // public static int UnitCount = 0;
     public string Unitname;
-    private const float WalkingSpeed = 4f;
-    private const float ClimbingSpeed = 2.5f;
-    private float _speed; // _speed for animation
-    private List<Node> _path;
-    private bool _succesful;
-    protected int MaxActionPoint; //movement point + other action
-    protected int MaxHp; // health point
-    protected int MaxAp; // attack point
-    protected int MaxMp; // mana
-    protected int AttackRange; //attack Range
-    protected int ActionPoint; //movement point + other action
-    protected int Hp; // health point
-    protected int Ap; // attack point
-    protected int Mp; // mana
-    protected Grid Grid;
-    private Node _currentWayPoint;
-    private Pathfinding _pathfinding;
-    private GameController _gameController;
-    private bool _unitMoving;
-    private Unit _targetUnit;
-    private int _movementCostToDestination;
+    public bool IsDead;
+    public Unit TargetUnit;
+    public bool UnitMoving;
+    public List<Node> Path;
+    public Node CurrentWayPoint;
+    public bool Succesful;
+    public float Speed; // _speed for animation
+    public int MovementCostToDestination;
+    protected string projectileName = "rock";
     private Vector3 _rightScale, _leftScale;
-    
-    public Unit TargetUnit
+
+    // Stats 
+    protected int _maxActionPoint; //movement point + other action
+    protected int _maxHp; // health point
+    protected int _attackRange; //attack Range
+    public int ActionPoint; //movement point + other action
+    public int Hp; // health point
+    protected int _ap; // attack point
+
+    // other objects
+    protected Grid Grid;
+    public HealthBar HealthBar { get; set; }
+    public GreenBar GreenBar { get; set; }
+    private UnitController _unitController;
+
+    protected int MaxActionPoint
     {
-        get { return _targetUnit; }
+        get { return _maxActionPoint; }
     }
+
+    public int MaxHp
+    {
+        get { return _maxHp; }
+    }
+
+    public int AttackRange
+    {
+        get { return _attackRange; }
+    }
+
+    public Vector3 RightScale
+    {
+        get { return _rightScale; }
+    }
+
+    public Vector3 LeftScale
+    {
+        get { return _leftScale; }
+    }
+
+    public int Ap
+    {
+        get { return _ap; }
+    }
+
+    public UnitController UnitController
+    {
+        get { return _unitController; }
+    }
+
+    public string ProjectileName
+    {
+        get { return projectileName; }
+    }
+    
 
     /// <summary>
     /// string Hash for animators... (optimization)
     /// </summary>
-    
-    private readonly int _isWalkingHash = Animator.StringToHash("isWalking");
-    private readonly int _goUpLadderHash = Animator.StringToHash("goUpLadder");
-    private readonly int _goOutLadderHash = Animator.StringToHash("goOutLadder");
-    private readonly int _turnStateHash = Animator.StringToHash("turn");
-    private readonly int _turnBackStateHash = Animator.StringToHash("turnBack");
-    private readonly int _climbStateHash = Animator.StringToHash("climb");
-    private readonly int _walkStateHash = Animator.StringToHash("walk");
-    private readonly int _idleStateHash = Animator.StringToHash("idle");
+    public readonly int AttackHash = Animator.StringToHash("attack");
+    public readonly int JumpHash = Animator.StringToHash("jump");
+    public readonly int LandHash = Animator.StringToHash("land");
+    public readonly int KilledHash = Animator.StringToHash("killed");
+    public readonly int UndercoverHash = Animator.StringToHash("undercover");
+    public readonly int IsWalkingHash = Animator.StringToHash("isWalking");
+    public readonly int GoUpLadderHash = Animator.StringToHash("goUpLadder");
+    public readonly int GoOutLadderHash = Animator.StringToHash("goOutLadder");
+    public readonly int TurnStateHash = Animator.StringToHash("turn");
+    public readonly int TurnBackStateHash = Animator.StringToHash("turnBack");
+    public readonly int ClimbStateHash = Animator.StringToHash("climb");
+    public readonly int WalkStateHash = Animator.StringToHash("walk");
+    public readonly int IdleStateHash = Animator.StringToHash("idle");
+    public readonly int DieStateHash = Animator.StringToHash("die");
+    public readonly int CrouchStateHash = Animator.StringToHash("crouch");
+    public readonly int PreJumpStateHash = Animator.StringToHash("preJump");
+    public readonly int MidJumpStateHash = Animator.StringToHash("midJump");
+    public readonly int LandingStateHash = Animator.StringToHash("landing");
+    // private readonly int _attackingStateHash = Animator.StringToHash("attacking");
+    public readonly int FollowAttackStateHash = Animator.StringToHash("followAttack");
 
     protected virtual void Awake()
     {
-        _unitAnim = GetComponent<Animator>();
+        _unitController = gameObject.AddComponent<UnitController>();
+        _unitController.Unit = this;
+        _unitController.UnitAnim = this.GetComponent<Animator>();
         Grid = GameObject.FindWithTag("MainCamera").GetComponent<Grid>();
-        _pathfinding = GameObject.FindWithTag("MainCamera").GetComponent<Pathfinding>();
-        _gameController = GameObject.FindWithTag("MainCamera").GetComponent<GameController>();
         _leftScale = _rightScale = transform.localScale;
         _leftScale.x *= -1;
     }
 
-    protected virtual void Initialize()
+    protected virtual void Start()
     {
+        if (HealthBar != null)
+            HealthBar.FillBar(Hp);
+        UnitController.UpdateGreenBar();
     }
-
-    protected virtual void Update()
-    {
-    }
+    //protected virtual void Update()
+    //{
+    //}
 
     //delete units _path, used before switching units and switching turn, function is called from Grid-script
     public void DeletePath()
     {
-        if (!_unitMoving)
-            _path = null;
+        if (!UnitMoving)
+            Path = null;
     }
 
     public void RequestPath(Vector2 target)
     {
-        if (IsMovementPossible() && GameController.UnitMoving == false)
-            PathRequestManager.RequestPath(transform.position, target, ActionPoint, OnPathFound);
+        UnitController.RequestPath(target);
     }
 
     public void SetAttackTarget(Unit targetUnit)
     {
-        Node thisUnitNode = GetCurrentNode();
-        Node targetUnitNode = targetUnit.GetCurrentNode();
-        if (_pathfinding.GetDistance(thisUnitNode, targetUnitNode) <= AttackRange)
-            _targetUnit = targetUnit;
-        else
-            Debug.Log("the unit is out of attack range");
-    }
-
-    public void UnsetAttackTarget()
-    {
-        _targetUnit = null;
+        _unitController.SetAttackTarget(targetUnit);
     }
 
     public void AttackTarget()
     {
-        if (_targetUnit != null)
-        {
-            _targetUnit.TakeDamage(Ap);
-            FMODUnity.RuntimeManager.PlayOneShot(AttackEvent);
-            ActionPoint = 0;
-        }
+        _unitController.AttackTarget();
     }
 
     public void TakeDamage(int damage)
     {
-        if (damage > 0)
-        {
-            Hp -= damage;
-            FMODUnity.RuntimeManager.PlayOneShot(GetHitEvent);
-            if (Hp <= 0)
-                _gameController.KillUnit(this);
-        }
+        _unitController.TakeDamage(damage);
     }
 
     public virtual void Die()
     {
-        _gameController.TextBoxManager.EventHandler(Unitname, "Die");
-        FMODUnity.RuntimeManager.PlayOneShot(DieEvent, transform.position);
+        _unitController.Die();
     }
 
     public Node GetCurrentNode()
@@ -140,159 +172,36 @@ public class Unit : MonoBehaviour
         return ActionPoint > 10;
     }
 
-    public void OnPathFound(List<Node> newPath, bool pathSuccessful, int movementCost)
-    {
-        if (pathSuccessful)
-        {
-            //mark _path _succesful
-            _succesful = true;
-            _path = newPath;
-            if (_path.Count > 0)
-            {
-                DecideFaceDirection(_path[0]);
-            }
-            _movementCostToDestination = movementCost;
-        }
-    }
-
-    public void DecideFaceDirection(Node faceTo)
-    {
-        transform.localScale = faceTo.WorldPosition.x < transform.position.x ? _leftScale : _rightScale;
-    }
-    
-    /// move unit when method is called by gameController, _succesful boolean check before moving
     public List<Node> StartMoving()
     {
-        if (_succesful && _path != null)
-        {
-            StopCoroutine("FollowPath");
-            _succesful = false;
-            StartCoroutine("FollowPath");
-            ActionPoint -= _movementCostToDestination;
-            return _path;
-        }
-        return null;
+        return _unitController.StartMoving();
     }
 
     public void ReplenishActionPoint()
     {
-        ActionPoint = MaxActionPoint;
-    }
-
-    // ReSharper disable once UnusedMember.Local
-    private IEnumerator FollowPath()
-    {
-        GameController.UnitMoving = _unitMoving = true;
-        if (_path.Count > 0)
-        {
-            foreach (Node n in _path)
-            {
-                _currentWayPoint = n;
-                DecideFaceDirection(_currentWayPoint);
-                DecideWalkingOrClimb(_currentWayPoint);
-                do
-                {
-                    _stateInfo = _unitAnim.GetCurrentAnimatorStateInfo(0);
-                    yield return null;
-                } while (_stateInfo.shortNameHash != _climbStateHash
-                && _stateInfo.shortNameHash != _walkStateHash);
-                while (Vector2.Distance(transform.position, _currentWayPoint.WorldPosition) > 0.1)
-                {
-                    DecideSpeedAccordingToAnimationState(_unitAnim.GetCurrentAnimatorStateInfo(0));
-                    _stateInfo = _unitAnim.GetCurrentAnimatorStateInfo(0);
-                    transform.position = Vector2.MoveTowards(transform.position,
-                       _currentWayPoint.WorldPosition, _speed * Time.deltaTime);
-                    yield return null;
-                    FMODUnity.RuntimeManager.PlayOneShot(WalkEvent);
-                }
-                FinishWalkingOrCliming(_unitAnim.GetCurrentAnimatorStateInfo(0));
-                do
-                {
-                    _stateInfo = _unitAnim.GetCurrentAnimatorStateInfo(0);
-                    yield return null;
-                } while (_stateInfo.shortNameHash == _climbStateHash 
-                || _stateInfo.shortNameHash == _walkStateHash);
-            }
-            // When finished moving, clear up 
-            _path = new List<Node>();
-            GameController.UnitMoving = _unitMoving = false;
-            _unitAnim.SetBool(_isWalkingHash, false);
-        }
-    }
-
-    public bool IsHorizontalMovement(Node currentWaypoint)
-    {
-        return (_currentWayPoint.GridY == GetCurrentNode().GridY);
-    }
-
-    public bool IsClimbing(Node currentWayPoint)
-    {
-        return (currentWayPoint.GridY != GetCurrentNode().GridY) && !GetCurrentNode().JumpThroughable;
-    }
-
-    private void DecideWalkingOrClimb(Node currentWayPoint)
-    {
-        if (IsHorizontalMovement(currentWayPoint))
-        {
-            _unitAnim.SetBool(_isWalkingHash, true);
-        }
-        else if (IsClimbing(currentWayPoint))
-        {
-            _unitAnim.SetTrigger(_goUpLadderHash);
-        }
-        DecideSpeedAccordingToAnimationState(_unitAnim.GetCurrentAnimatorStateInfo(0));
-    }
-
-    private void FinishWalkingOrCliming(AnimatorStateInfo state)
-    {
-        if (state.shortNameHash == _climbStateHash)
-        {
-            _unitAnim.SetTrigger(_goOutLadderHash);
-        }
-        else if (state.shortNameHash == _walkStateHash)
-        {
-            _unitAnim.SetBool(_isWalkingHash, false);
-        }
-        DecideSpeedAccordingToAnimationState(_unitAnim.GetCurrentAnimatorStateInfo(0));
-    }
-
-    private void DecideSpeedAccordingToAnimationState(AnimatorStateInfo state)
-    {
-        if (state.shortNameHash == _turnStateHash ||
-            state.shortNameHash == _turnBackStateHash ||
-            state.shortNameHash == _idleStateHash)
-        {
-            _speed = 0f;
-        }
-        else if (state.shortNameHash == _climbStateHash)
-        {
-            _speed = ClimbingSpeed;
-        }
-        else if (state.shortNameHash == _walkStateHash)
-        {
-            _speed = WalkingSpeed;
-        }
+        ActionPoint = IsDead ? 0 : _maxActionPoint;
+        UnitController.UpdateGreenBar();
     }
 
     public bool HasPath()
     {
-        if (_path != null)
-            return _path.Count > 0;
+        if (Path != null)
+            return Path.Count > 0;
         else
             return false;
     }
 
     public void OnDrawGizmos()
     {
-        if (_path != null)
+        if (Path != null)
         {
-            foreach (Node n in _path)
+            foreach (Node n in Path)
             {
                 Gizmos.color = Color.white;
                 Gizmos.DrawCube(n.WorldPosition, new Vector3(0.2f, 0.2f, 0.2f));
                 Gizmos.color = Color.green;
-                if (_currentWayPoint != null)
-                    Gizmos.DrawCube(_currentWayPoint.WorldPosition, new Vector3(0.3f, 0.3f, 0.3f));
+                if (CurrentWayPoint != null)
+                    Gizmos.DrawCube(CurrentWayPoint.WorldPosition, new Vector3(0.3f, 0.3f, 0.3f));
             }
         }
     }

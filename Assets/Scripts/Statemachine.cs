@@ -67,6 +67,16 @@ public class Statemachine : MonoBehaviour
     public void StartGame()
     {
         _curState = State.Player;
+        foreach (var unit in _gameController.EnemyUnits)
+        {
+            unit.UnitController.DecideCrouchOrStanding();
+            unit.GetCurrentNode().Occupied = true;
+        }
+        foreach (var unit in _gameController.PlayerUnits)
+        {
+            unit.UnitController.DecideCrouchOrStanding();
+            unit.GetCurrentNode().Occupied = true;
+        }
         try
         {
             foreach (GameObject variable in ObjectsHiddenBeforeGameStarts)
@@ -132,6 +142,7 @@ public class Statemachine : MonoBehaviour
                 camMovePath.Add(_grid.NodeFromWorldPoint(_gameController.ActiveUnit.transform.position));
                 CameraMovementManager.RequestCamMove(camMovePath);
                 ReplenishActionPoints();
+                UnsetTargetUnits();
                 break;
 
             case State.Enemy:
@@ -145,6 +156,7 @@ public class Statemachine : MonoBehaviour
                 camMovePath.Add(_grid.NodeFromWorldPoint(_gameController.ActiveUnit.transform.position));
                 CameraMovementManager.RequestCamMove(camMovePath);
                 ReplenishActionPoints();
+                UnsetTargetUnits();
                 break;
 
             case State.Lose:
@@ -172,6 +184,13 @@ public class Statemachine : MonoBehaviour
         {
             unit.ReplenishActionPoint();
             unit.DeletePath();
+        }
+    }
+    public void UnsetTargetUnits()
+    {
+        foreach (var unit in _gameController.ActiveUnits)
+        {
+            unit.UnitController.UnsetAttackTarget();
         }
     }
 }

@@ -13,7 +13,7 @@ public class Grid : MonoBehaviour
     public LayerMask LadderEndLayerMask;
     public Vector2 GridWorldSize;
     public float NodeRadius;
-    Node[,] _grid;
+    public Node[,] Nodes;
     float _nodeDiameter;
     int _gridSizeX, _gridSizeY;
     Vector2 _worldBottomLeft;
@@ -38,7 +38,7 @@ public class Grid : MonoBehaviour
     //creates Grid in start of the game
     void CreateGrid()
     {
-        _grid = new Node[_gridSizeX, _gridSizeY];
+        Nodes = new Node[_gridSizeX, _gridSizeY];
 
         bool walkable, throughable, blocked, coveredFromLeft, coveredFromRight, inMidFloor, atLadderEnd;
         float detectionLength = 0.7f;
@@ -49,12 +49,16 @@ public class Grid : MonoBehaviour
                 Vector3 worldPoint = _worldBottomLeft + Vector2.right * (x * _nodeDiameter + NodeRadius) + Vector2.up * (y * _nodeDiameter + NodeRadius);
                 walkable = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, WalkableMask)) || (Physics.CheckSphere(worldPoint, NodeRadius, WalkableMask));
                 throughable = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, JumpThrouable));
-                blocked = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, BlockedMask));
+                if (throughable)
+                    walkable = false;
                 coveredFromLeft = Physics2D.Raycast(worldPoint, Vector2.left, _nodeDiameter, BlockedMask).collider != null;
                 coveredFromRight = Physics2D.Raycast(worldPoint, Vector2.right, _nodeDiameter, BlockedMask).collider != null;
+                blocked = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, BlockedMask));
+                if (blocked)
+                    coveredFromRight = coveredFromLeft = false;
                 inMidFloor = (Physics2D.OverlapCircle(worldPoint, NodeRadius*detectionLength, MidFloorLayerMask));
                 atLadderEnd = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, LadderEndLayerMask));
-                _grid[x, y] = new Node(walkable, worldPoint, x, y, throughable, blocked, coveredFromLeft, coveredFromRight, false, inMidFloor, atLadderEnd);
+                Nodes[x, y] = new Node(walkable, worldPoint, x, y, throughable, blocked, coveredFromLeft, coveredFromRight, false, inMidFloor, atLadderEnd);
             }
         }
     }
@@ -77,7 +81,7 @@ public class Grid : MonoBehaviour
                     checkY = node.GridY + y;
                     if (checkY >= 0 && checkY < _gridSizeY)
                         //if (checkMovable(node, Grid[node.GridX, checkY]) || checkMovable(Grid[node.GridX, checkY], node))
-                        neighbours.Add(_grid[node.GridX, checkY]);
+                        neighbours.Add(Nodes[node.GridX, checkY]);
                 }
             }
             else
@@ -85,7 +89,7 @@ public class Grid : MonoBehaviour
                 checkX = node.GridX + x;
                 if (checkX >= 0 && checkX < _gridSizeX)
                     //if (checkMovable(node, Grid[checkX, node.GridY]) || checkMovable(Grid[checkX, node.GridY], node))
-                    neighbours.Add(_grid[checkX, node.GridY]);
+                    neighbours.Add(Nodes[checkX, node.GridY]);
             }
         }
         return neighbours;
@@ -106,12 +110,12 @@ public class Grid : MonoBehaviour
             x = _gridSizeX - 1;
         if (Math.Abs(percentY - 1) < 0.001)
             y = _gridSizeY - 1;
-        return _grid[x, y];
+        return Nodes[x, y];
     }
 
     public void ResetFcosts()
     {
-        foreach (Node n in _grid)
+        foreach (Node n in Nodes)
         {
             n.GCost = 0;
             n.HCost = 0;
@@ -122,41 +126,41 @@ public class Grid : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(Vector3.zero, new Vector3(GridWorldSize.x, GridWorldSize.y, 0.1f));
-        if (_grid != null && DisplayGridGizmos)
+        if (Nodes != null && DisplayGridGizmos)
         {
             bool draw;
-            foreach (Node n in _grid)
+            foreach (Node n in Nodes)
             {
                 draw = false;
 
-                if (n.AtLadderEnd)
+                if (n.InMidOfFloor)
+                {
+                    Gizmos.color = Color.cyan;
+                    draw = true;
+                }
+                else if (n.CoveredFromLeft || n.CoveredFromRight)
+                {
+                    Gizmos.color = Color.blue;
+                    draw = true;
+                }
+                else if (n.OnLadder)
                 {
                     Gizmos.color = Color.grey;
                     draw = true;
                 }
-                else if (n.Blocked || n.Occupied)
+                //else if (n.Blocked || n.Occupied)
+                //{
+                //    Gizmos.color = Color.red;
+                //    draw = true;
+                //}
+                else if (n.Walkable)
                 {
-                    Gizmos.color = Color.red;
-                    draw = true;
-                    
-                } else if (n.CoveredFromLeft || n.CoveredFromRight)
-                {
-                    Gizmos.color = Color.blue;
+                    Gizmos.color = Color.white;
                     draw = true;
                 }
                 else if (n.JumpThroughable)
                 {
                     Gizmos.color = Color.green;
-                    draw = true;
-                }
-                else if (n.InMidOfFloor)
-                {
-                    Gizmos.color = Color.cyan;
-                    draw = true;
-                }
-                else if (n.Walkable)
-                {
-                    Gizmos.color = Color.white;
                     draw = true;
                 }
                 if (draw)

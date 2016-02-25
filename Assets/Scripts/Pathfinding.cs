@@ -23,13 +23,18 @@ public class Pathfinding : MonoBehaviour
 
     IEnumerator FindPath(Vector2 startPos, Vector2 targetPos, int actionPoint)
     {
+        foreach (Node n in _grid.Nodes)
+        {
+            n.ToJumpTo = false;
+        }
         Stopwatch sw = new Stopwatch();
         sw.Start();
         List<Node> path = new List<Node>();
         bool pathSuccess = false;
         Node startNode = _grid.NodeFromWorldPoint(startPos);
         Node targetNode = _grid.NodeFromWorldPoint(targetPos);
-        if (startNode.Walkable && targetNode.Walkable && !targetNode.InMidOfFloor)
+        if (startNode.Walkable && targetNode.Walkable 
+            && !targetNode.InMidOfFloor && !targetNode.Occupied)
         {
             Heap<Node> openSet = new Heap<Node>(_grid.MaxSize);
             HashSet<Node> closedSet = new HashSet<Node>();
@@ -50,6 +55,8 @@ public class Pathfinding : MonoBehaviour
                     if ((!neighbour.Walkable && !neighbour.JumpThroughable) || closedSet.Contains(neighbour))
                         continue;
                     if (!neighbour.Walkable && (currentNode.GridY < neighbour.GridY))
+                        continue;
+                    if (neighbour.JumpThroughable && currentNode.InMidOfFloor)
                         continue;
 
                     int newMovementCostToNeighbour = currentNode.GCost + GetDistance(currentNode, neighbour);
@@ -102,18 +109,24 @@ public class Pathfinding : MonoBehaviour
     {
         List<Node> waypoints = new List<Node>();
         Vector2 directionOld = new Vector2(path[0].GridX - path[1].GridX, path[0].GridY - path[1].GridY);
-        // waypoints.Add(path[0]); /// add first path in case path.Count is just 1
         for (int i = 1; i < path.Count; i++)
         {
             Vector2 directionNew = new Vector2(path[i - 1].GridX - path[i].GridX, path[i - 1].GridY - path[i].GridY);
-            if (directionNew != directionOld)
+            if ((directionNew != directionOld && !path[i].JumpThroughable)
+                || (path[i-1].Walkable && path[i].JumpThroughable))
             {
-                waypoints.Add(path[i - 1]);
-                //waypoints.Add(path[i]);
+                if (!waypoints.Contains(path[i - 1]))
+                    waypoints.Add(path[i - 1]);
+            } else if ((path[i - 1].JumpThroughable && path[i].Walkable))
+            {
+                path[i].ToJumpTo = true;
+                if (!waypoints.Contains(path[i]))
+                    waypoints.Add(path[i]);
             }
             directionOld = directionNew;
         }
-        waypoints.Add(path[path.Count - 1]);
+        if (!waypoints.Contains(path[path.Count - 1]))
+            waypoints.Add(path[path.Count - 1]);
         return waypoints;
     }
 

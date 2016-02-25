@@ -51,7 +51,7 @@ public class GameController : MonoBehaviour
             return _textBoxManager;
         }
     }
-    
+
     // ReSharper disable once UnusedMember.Local
     void Awake()
     {
@@ -59,12 +59,25 @@ public class GameController : MonoBehaviour
         {
             DebugText = GameObject.Find("Debug Text").GetComponent<Text>();
         }
-        catch (Exception e) { Debug.Log(e);}
+        catch (Exception e) { Debug.Log(e); }
         _statemachine = GetComponent<Statemachine>();
         _grid = GetComponent<Grid>();
         _endButton = GameObject.Find("EndTurnButton").GetComponent<Button>();
         _endButton.onClick.AddListener(EndTurn);
         _textBoxManager = GetComponent<TextBoxManager>();
+        for (int i = 0;
+            i < GameObject.Find("Players").transform.childCount;
+            i++)
+        {
+            PlayerUnits.Add(GameObject.Find("Players").transform.GetChild(i).GetComponent<Unit>());
+        }
+
+        for (int i = 0;
+            i < GameObject.Find("Enemies").transform.childCount;
+            i++)
+        {
+            EnemyUnits.Add(GameObject.Find("Enemies").transform.GetChild(i).GetComponent<Unit>());
+        }
     }
 
     public void EndTurn()
@@ -76,13 +89,16 @@ public class GameController : MonoBehaviour
 
     public void ClearPaths()
     {
-        foreach(Unit unit in ActiveUnits)
+        foreach (Unit unit in ActiveUnits)
         {
             unit.DeletePath();
         }
     }
-    
+
     // ReSharper disable once UnusedMember.Local
+    /// <summary>
+    /// take user input only when Unit and camera are not moving and there is _activeUnit
+    /// </summary>
     void Update()
     {
         if (!UnitMoving && !CameraMovement.CameraIsMoving && _activeUnit != null)
@@ -96,13 +112,13 @@ public class GameController : MonoBehaviour
         {
             SelectNextUnit();
         }
-
-        // Select units only when user is not moving the camera
-		if (Input.GetMouseButtonDown(0) && !_disableRayCast)
+        // remember mouseButtonDown position (not to order anything if its a drag)
+        if (Input.GetMouseButtonDown(0) && !_disableRayCast)
         {
             _originalClickPos = Input.mousePosition;
         }
 
+        // select units only when user is not moving the camera
         if (Input.GetMouseButtonUp(0) && _originalClickPos != null && !_disableRayCast)
         {
             if (Vector3.Distance(Input.mousePosition, _originalClickPos) < 0.05)
@@ -134,23 +150,12 @@ public class GameController : MonoBehaviour
         List<Node> camMovePath = new List<Node>();
         int currentUnitIndex = _activeUnits.IndexOf(_activeUnit);
         camMovePath.Add(_grid.NodeFromWorldPoint(Camera.main.gameObject.transform.position));
-        // if unit is last one in the list change to the first unit.
-        if (currentUnitIndex == _activeUnits.Count - 1)
+        for (int i = 0; i < _activeUnits.Count; i++)
         {
-            if (_activeUnits[0].IsMovementPossible())
-            {   
-                _activeUnit = _activeUnits[0];
-                camMovePath.Add(_grid.NodeFromWorldPoint(_activeUnit.transform.position));
-                CameraMovementManager.RequestCamMove(camMovePath);
-                return true;
-            }
-            currentUnitIndex = 1;
-        }
-        for (int i = (currentUnitIndex + 1); i < _activeUnits.Count; i++)
-        {
-            if (_activeUnits[i].IsMovementPossible())
+
+            if (_activeUnits[(currentUnitIndex + 1 + i) % _activeUnits.Count].IsMovementPossible())
             {
-                _activeUnit = _activeUnits[i];
+                _activeUnit = _activeUnits[(currentUnitIndex + 1 + i) % _activeUnits.Count];
                 camMovePath.Add(_grid.NodeFromWorldPoint(_activeUnit.transform.position));
                 CameraMovementManager.RequestCamMove(camMovePath);
                 return true;
@@ -159,11 +164,24 @@ public class GameController : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     private void SelectUnitByClick()
     {
         Vector2 v = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Collider2D[] col = Physics2D.OverlapPointAll(v);
-        if (col.Length <= 0) return;
+        if (col.Length == 0) return;
+        CheckOpponentClicked(col);
+        CheckFriendlyUnitClicked(col);
+    }
+
+    /// <summary>
+    /// Check if an opponent unit is clicked, if TargetUnit is already selected, attack the TargetUnit
+    /// otherwise 
+    /// </summary>
+    private void CheckOpponentClicked(Collider2D[] col)
+    {
         foreach (Collider2D c in col)
         {
             // if an opponent unit is clicked, select it as target
@@ -174,64 +192,84 @@ public class GameController : MonoBehaviour
                 _unitSelected = true;
                 _activeUnit.DeletePath();
 
+                // Attack the target if TargetUnit is already selected
                 if (_activeUnit.TargetUnit == c.gameObject.GetComponent<Unit>())
                 {
+                    // attack target will result in selection of next available unit or end turn
+                    DebugText.text = "Attacked: " + _activeUnit.TargetUnit.Unitname;
                     _activeUnit.AttackTarget();
-                    DebugText.text = "Attacked: " + _activeUnit.TargetUnit.name;
-                    if (!SelectNextUnit())
-                        EndTurn();
                     return;
                 }
                 _activeUnit.SetAttackTarget(opponent);
-
+                // when unit is out of range(so TargetUnit is null), don't set the text
                 if (_activeUnit.TargetUnit == null) continue;
-                DebugText.text = "Target: " + _activeUnit.TargetUnit.name;
+                DebugText.text = "Target: " + _activeUnit.TargetUnit.Unitname;
                 return;
             }
-
             // if no opponent was clicked, unset target
-            _activeUnit.UnsetAttackTarget();
+            _activeUnit.UnitController.UnsetAttackTarget();
+        }
+    }
 
-            List<Node> camMovePath = new List<Node>
-            {
-                _grid.NodeFromWorldPoint(Camera.main.gameObject.transform.position)
-            };
+    /// <summary>
+    /// Check if a friendly unit is clicked, and set activeUnit to the clicked unit,
+    /// only if the unit is possible to move(has action points left)
+    /// </summary>
+    /// <param name="col"></param>
+    private void CheckFriendlyUnitClicked(Collider2D[] col)
+    {
+        foreach (Collider2D c in col)
+        {
+
             // select clicked unit
             Collider2D c1 = c;
             foreach (Unit activeUnit in _activeUnits.Where(activeUnit => activeUnit.transform == c1.transform))
             {
-                _unitSelected = true;
-                _activeUnit.DeletePath();
-                _activeUnit = activeUnit;
-                camMovePath.Add(_grid.NodeFromWorldPoint(_activeUnit.transform.position));
-                CameraMovementManager.RequestCamMove(camMovePath);
-                DebugText.text = _activeUnit.name;
-                return;
+                if (activeUnit.IsMovementPossible())
+                {
+                    _unitSelected = true;
+                    _activeUnit.DeletePath();
+                    _activeUnit = activeUnit; List<Node> camMovePath = new List<Node>
+                    {
+                        _grid.NodeFromWorldPoint(Camera.main.gameObject.transform.position),
+                        _grid.NodeFromWorldPoint(_activeUnit.transform.position)
+                    };
+                    CameraMovementManager.RequestCamMove(camMovePath);
+                    DebugText.text = _activeUnit.name;
+                    return;
+                }
             }
         }
     }
 
     /// <summary>
-    /// if clicked the same tile, move Unit there, otherwise find new path for active unit
+    /// if clicked the same tile, move Unit there, 
+    /// otherwise find new path to the clicked tile for active unit
     /// </summary>
     private void FindPathForUnit()
     {
         _mousePosition = Input.mousePosition;
         _mousePosition.z = -transform.position.z;
         _mousePosition = Camera.main.ScreenToWorldPoint(_mousePosition);
+        // if a tile is clicked and _activeUnit already has a path, move the unit
         if (_clickedNode != null && _activeUnit.HasPath())
         {
+            // check if previously clicked node is the same node as currently clicked node
             if (_clickedNode.WorldPosition == _grid.NodeFromWorldPoint(_mousePosition).WorldPosition)
             {
-                MoveUnit();
+                StartCoroutine(MoveUnitCoroutine());
                 return;
             }
-                 
         }
+        // otheriwse, 
         _clickedNode = _grid.NodeFromWorldPoint(_mousePosition);
-        _activeUnit.RequestPath(_mousePosition);
+        _activeUnit.RequestPath(_clickedNode.WorldPosition);
     }
 
+    /// <summary>
+    /// Kill unit and remove it from array, check win or lose condition
+    /// </summary>
+    /// <param name="unit"></param>
     public void KillUnit(Unit unit)
     {
         DebugText.text = unit.Unitname + " was killed.";
@@ -239,18 +277,12 @@ public class GameController : MonoBehaviour
         PlayerUnits.Remove(unit);
         EnemyUnits.Remove(unit);
         unit.Die();
-        Destroy(unit.gameObject);
+        // Destroy(unit.gameObject);
 
         if (PlayerUnits.Count == 0)
             _statemachine.LoseGame();
         else if (EnemyUnits.Count == 0)
             _statemachine.WinGame();
-    }
-
-    //function which move-button calls, this function disables raycasting and moves active unit
-    public void MoveUnit()
-    {
-        StartCoroutine(MoveUnitCoroutine());
     }
 
     private IEnumerator MoveUnitCoroutine()

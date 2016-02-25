@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class TextBoxManager : MonoBehaviour
 {
-    public GameObject TextBox,EnemySpeakerPanel, PlayerSpeakerPanel;
+    public GameObject TextBox, EnemySpeakerPanel, PlayerSpeakerPanel;
     public Text EnemySpeaker, PlayerSpeaker, TheText;
     public Image EnemyImage, PlayerImage;
     public TextAsset TextFile;
@@ -43,24 +43,25 @@ public class TextBoxManager : MonoBehaviour
             EventName = eventName;
         }
     }
-    
+
     // ReSharper disable once UnusedMember.Local
     private void Awake()
     {
-        
+
         try
         {
             TextBox = GameObject.Find("DialoguePanel");
-            EnemySpeakerPanel = GameObject.Find("EnemySpeakerPanel");
-            PlayerSpeakerPanel = GameObject.Find("PlayerSpeakerPanel");
-            EnemySpeaker = GameObject.Find("EnemySpeaker").GetComponent<Text>();
-            PlayerSpeaker = GameObject.Find("PlayerSpeaker").GetComponent<Text>();
-            EnemyImage = GameObject.Find("EnemyImage").GetComponent<Image>();
-            PlayerImage = GameObject.Find("PlayerImage").GetComponent<Image>();
+            EnemySpeakerPanel = GameObject.Find("enemySpeakerPanel");
+            PlayerSpeakerPanel = GameObject.Find("playerSpeakerPanel");
+            EnemySpeaker = GameObject.Find("enemySpeaker").GetComponent<Text>();
+            PlayerSpeaker = GameObject.Find("playerSpeaker").GetComponent<Text>();
+            EnemyImage = GameObject.Find("enemyImage").GetComponent<Image>();
+            PlayerImage = GameObject.Find("playerImage").GetComponent<Image>();
             TheText = GameObject.Find("Dialogue").GetComponent<Text>();
         }
-        catch (Exception)
+        catch (Exception exception)
         {
+            Debug.Log(exception);
             TextBoxActive = false;
         }
         _statemachine = GetComponent<Statemachine>();
@@ -82,11 +83,16 @@ public class TextBoxManager : MonoBehaviour
         }
 
         if (Dialogue.DocumentElement != null)
+        {
             foreach (XmlNode node in Dialogue.DocumentElement)
             {
                 if (node.Attributes != null)
+                {
                     _lines.Add(new Entry(node.Attributes[0].Value, int.Parse(node.Attributes[1].Value), node.InnerText));
+                }
             }
+        }
+            
         if (EndAtLine == 0)
         {
             EndAtLine = _lines.Count - 1;
@@ -124,7 +130,7 @@ public class TextBoxManager : MonoBehaviour
                         PlayerImage.sprite = ImageResourcesManager.GetInstance().ReturnSprite(_lines[CurrentLine].Speaker);
                     }
                     catch (Exception e) { Debug.Log(e); }
-                    
+
                 }
                 else if (_lines[CurrentLine].Team == 2)
                 {
