@@ -18,6 +18,28 @@ public class UnitController : MonoBehaviour
         _gameController = GameObject.FindWithTag("MainCamera").GetComponent<GameController>();
     }
 
+    public void RequestPath(Vector2 target)
+    {
+        if (Unit.IsMovementPossible() && GameController.UnitMoving == false)
+            PathRequestManager.RequestPath(transform.position, target, Unit.ActionPoint, OnPathFound);
+        UnsetAttackTarget();
+    }
+
+    public void OnPathFound(List<Node> newPath, bool pathSuccessful, int movementCost)
+    {
+        if (pathSuccessful)
+        {
+            //mark _path _succesful
+            Unit.Succesful = true;
+            Unit.Path = newPath;
+            if (Unit.Path.Count > 0)
+            {
+                DecideFaceDirection(Unit.Path[0]);
+            }
+            Unit.MovementCostToDestination = movementCost;
+        }
+    }
+
     /// <summary>
     /// if a unit is in attack range and on the same floor, set TargetUnit 
     /// </summary>
@@ -233,7 +255,8 @@ public class UnitController : MonoBehaviour
                     Unit.GetCurrentNode().ToJumpTo = false; // clear up the path JumpTo property
                     do
                     {
-                        // yield return new WaitForSeconds(1);
+                        // Don't let it bounce when jump cross and walk
+                        yield return new WaitForSeconds(1);
                         _stateInfo = UnitAnim.GetCurrentAnimatorStateInfo(0);
                         Unit.transform.position = Unit.GetCurrentNode().WorldPosition;
                         Unit.Speed = 0f;

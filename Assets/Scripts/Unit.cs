@@ -27,11 +27,9 @@ public class Unit : MonoBehaviour
     public Node CurrentWayPoint;
     public bool Succesful;
     public float Speed; // _speed for animation
+    public int MovementCostToDestination;
     protected string projectileName = "rock";
-
-    private int _movementCostToDestination;
     private Vector3 _rightScale, _leftScale;
-    
 
     // Stats 
     protected int _maxActionPoint; //movement point + other action
@@ -75,11 +73,6 @@ public class Unit : MonoBehaviour
     public int Ap
     {
         get { return _ap; }
-    }
-
-    public int MovementCostToDestination
-    {
-        get { return _movementCostToDestination; }
     }
 
     public UnitController UnitController
@@ -139,9 +132,7 @@ public class Unit : MonoBehaviour
 
     public void RequestPath(Vector2 target)
     {
-        if (IsMovementPossible() && GameController.UnitMoving == false)
-            PathRequestManager.RequestPath(transform.position, target, ActionPoint, OnPathFound);
-        UnitController.UnsetAttackTarget();
+        UnitController.RequestPath(target);
     }
 
     public void SetAttackTarget(Unit targetUnit)
@@ -172,21 +163,6 @@ public class Unit : MonoBehaviour
     public bool IsMovementPossible()
     {
         return ActionPoint > 10;
-    }
-
-    public void OnPathFound(List<Node> newPath, bool pathSuccessful, int movementCost)
-    {
-        if (pathSuccessful)
-        {
-            //mark _path _succesful
-            Succesful = true;
-            Path = newPath;
-            if (Path.Count > 0)
-            {
-                _unitController.DecideFaceDirection(Path[0]);
-            }
-            _movementCostToDestination = movementCost;
-        }
     }
     
     public List<Node> StartMoving()
