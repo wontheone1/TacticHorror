@@ -96,6 +96,7 @@ GameObject:
   - 222: {fileID: 15147632}
   - 114: {fileID: 15147631}
   - 114: {fileID: 15147633}
+  - 114: {fileID: 15147634}
   m_Layer: 5
   m_Name: FrankenStatus1
   m_TagString: Untagged
@@ -165,6 +166,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a6f262db878bb34e842691a0e308794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &15147634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 15147629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921f35500d3d7694bbce1f16fe2e25c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &45637279
@@ -788,6 +800,7 @@ GameObject:
   - 222: {fileID: 534327198}
   - 114: {fileID: 534327197}
   - 114: {fileID: 534327196}
+  - 114: {fileID: 534327199}
   m_Layer: 5
   m_Name: FrankenStatus3
   m_TagString: Untagged
@@ -859,6 +872,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534327194}
+--- !u!114 &534327199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534327194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921f35500d3d7694bbce1f16fe2e25c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &569198189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,6 +1408,7 @@ GameObject:
   - 222: {fileID: 1313577529}
   - 114: {fileID: 1313577528}
   - 114: {fileID: 1313577527}
+  - 114: {fileID: 1313577530}
   m_Layer: 5
   m_Name: FrankenStatus4
   m_TagString: Untagged
@@ -1455,6 +1480,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1313577525}
+--- !u!114 &1313577530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1313577525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921f35500d3d7694bbce1f16fe2e25c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1339560273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,6 +1565,7 @@ GameObject:
   - 222: {fileID: 1483676767}
   - 114: {fileID: 1483676766}
   - 114: {fileID: 1483676765}
+  - 114: {fileID: 1483676768}
   m_Layer: 5
   m_Name: FrankenStatus2
   m_TagString: Untagged
@@ -1600,6 +1637,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1483676763}
+--- !u!114 &1483676768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1483676763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921f35500d3d7694bbce1f16fe2e25c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1510941099
 Prefab:
   m_ObjectHideFlags: 0

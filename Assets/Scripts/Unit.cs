@@ -41,7 +41,8 @@ public class Unit : MonoBehaviour
 
     // other objects
     protected Grid Grid;
-    protected HealthBar healthBar;
+    public HealthBar HealthBar { get; set; }
+    public GreenBar GreenBar { get; set; }
     private UnitController _unitController;
 
     protected int MaxActionPoint
@@ -83,11 +84,7 @@ public class Unit : MonoBehaviour
     {
         get { return projectileName; }
     }
-
-    public HealthBar HealthBar
-    {
-        get { return healthBar; }
-    }
+    
 
     /// <summary>
     /// string Hash for animators... (optimization)
@@ -125,8 +122,9 @@ public class Unit : MonoBehaviour
 
     protected virtual void Start()
     {
-        if (healthBar != null)
-            healthBar.FillBar(Hp);
+        if (HealthBar != null)
+            HealthBar.FillBar(Hp);
+        UnitController.UpdateGreenBar();
     }
     //protected virtual void Update()
     //{
@@ -182,6 +180,7 @@ public class Unit : MonoBehaviour
     public void ReplenishActionPoint()
     {
         ActionPoint = IsDead ? 0 : _maxActionPoint;
+        UnitController.UpdateGreenBar();
     }
 
     public bool HasPath()

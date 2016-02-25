@@ -77,6 +77,7 @@ public class UnitController : MonoBehaviour
             StartCoroutine("AttackAnimation");
             FMODUnity.RuntimeManager.PlayOneShot(Unit.AttackEvent);
             Unit.ActionPoint = 0;
+            UpdateGreenBar();
         }
     }
 
@@ -173,6 +174,7 @@ public class UnitController : MonoBehaviour
             Unit.Succesful = false;
             StartCoroutine("FollowPath");
             Unit.ActionPoint -= Unit.MovementCostToDestination;
+            UpdateGreenBar();
             return Unit.Path;
         }
         return null;
@@ -398,4 +400,9 @@ public class UnitController : MonoBehaviour
         Unit.transform.localScale = Unit.transform.localPosition == Unit.LeftScale ? Unit.RightScale : Unit.LeftScale;
     }
 
+    public void UpdateGreenBar()
+    {
+        if (Unit.GreenBar != null)
+            Unit.GreenBar.FillBar(Unit.ActionPoint/10);
+    }
 }

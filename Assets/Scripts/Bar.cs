@@ -12,10 +12,10 @@ public class Bar : MonoBehaviour {
     private float barHeight;
     private float barSpacing = 5f;
 
-    protected string barPrefabName;
-    protected string barStartingPositionName;
-    protected int verticalOrientation;
-    protected int horizontalOrientation;
+    protected string barPrefabName { get; set; }
+    protected string barStartingPositionName { get; set; }
+    protected int verticalOrientation { get; set; }
+    protected int horizontalOrientation { get; set; }
 
     protected virtual void Start()
     {
@@ -24,7 +24,7 @@ public class Bar : MonoBehaviour {
         barHeight = barImage.sprite.bounds.size.y;
     }
 
-    public void FillBar(int n)
+    public virtual void FillBar(int n)
     {
         foreach (GameObject bar in bars)
         {

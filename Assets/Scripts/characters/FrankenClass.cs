@@ -28,7 +28,8 @@ public class FrankenClass : Unit
         JumpEvent = "event:/Characters/Frankenstein/frank_jump";
 
         Debug.Log("FrankenStatus" + UnitCount);
-        healthBar = GameObject.Find("FrankenStatus" + UnitCount).GetComponent<HealthBar>();
+        HealthBar = GameObject.Find("FrankenStatus" + UnitCount).GetComponent<HealthBar>();
+        GreenBar = GameObject.Find("FrankenStatus" + UnitCount).GetComponent<GreenBar>();
     }
 
 }
