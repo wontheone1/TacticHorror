@@ -1,17 +1,11 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
-
-public class GreenBar : Bar
+﻿public class GreenBar : Bar
 {
-
-    protected override void Start()
+    protected override void Awake()
     {
         barPrefabName = "GreenBar";
         barStartingPositionName = "ActionBarStartPos";
         verticalOrientation = 0;
         horizontalOrientation = 1;
-        base.Start();
+        base.Awake();
     }
-
 }

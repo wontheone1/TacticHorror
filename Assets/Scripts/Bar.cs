@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
@@ -17,7 +16,7 @@ public class Bar : MonoBehaviour {
     protected int verticalOrientation { get; set; }
     protected int horizontalOrientation { get; set; }
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         barImage = ((GameObject)Resources.Load(barPrefabName)).GetComponent<Image>();
         barWidth = barImage.sprite.bounds.size.x;
@@ -39,7 +38,7 @@ public class Bar : MonoBehaviour {
             barPos = new Vector3(barStartPos.x + barWidth + (i * (barWidth + barSpacing) * horizontalOrientation)
                 , barStartPos.y + (i * (barHeight + barSpacing) * verticalOrientation)
                 , barPos.z);
-
+            Debug.Log(barPrefabName);
             bars.Add((GameObject)Instantiate((GameObject)Resources.Load(barPrefabName)
                 , barPos
                 , Quaternion.identity));
