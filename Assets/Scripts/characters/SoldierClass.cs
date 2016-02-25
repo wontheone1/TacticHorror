@@ -1,15 +1,20 @@
 ﻿// ReSharper disable once CheckNamespace
 public class SoldierClass : Unit
 {
-    protected override void Initialize()
+    
+
+    protected override void Awake()
     {
+        base.Awake();
         UnitCount++;
-        MaxActionPoint = ActionPoint = 100;
-        MaxHp = Hp = 5;
-        Ap = 5;
-        MaxMp = Mp = 5;
-        AttackRange = 50;
+        _maxActionPoint = ActionPoint = 100;
+        _maxHp = Hp = 5;
+        _ap = 5;
+        _attackRange = 50;
+
+        projectileName = "rocket";
         Unitname = "Soldier" + UnitCount;
+
         DieEvent = "event:/Characters/Soldier/soldier_counter_attack";
         WalkEvent = "event:/Characters/Soldier/soldier_walk";
         LadderUpdownEvent = "event:/Characters/Soldier/soldier_up_down_ladder";
@@ -17,14 +22,4 @@ public class SoldierClass : Unit
         AttackEvent = "event:/Characters/Soldier/soldier_shoot";
     }
 
-    protected override void Awake()
-    {
-        base.Awake();
-        Initialize();
-    }
-
-    public override void Die()
-    {
-        base.Die();
-    }
 }

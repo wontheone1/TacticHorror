@@ -2,14 +2,16 @@
 public class FrankenClass : Unit
 {
 
-    protected override void Initialize()
+    protected override void Awake()
     {
-        MaxActionPoint = ActionPoint = 100;
-        MaxHp = Hp = 15;
-        Ap = 5;
-        MaxMp = Mp = 5;
-        AttackRange = 50;
+        base.Awake();
+        _maxActionPoint = ActionPoint = 100;
+        _maxHp = Hp = 15;
+        _ap = 5;
+        _attackRange = 50;
+
         Unitname = "Frankenstein";
+        projectileName = "rock";
 
         // FMOD Events assign
         DieEvent = "event:/Characters/Frankenstein/frank_die";
@@ -18,11 +20,6 @@ public class FrankenClass : Unit
         GetHitEvent = "event:/Characters/Frankenstein/frank_hitted";
         AttackEvent = "event:/Characters/Frankenstein/frank_punch";
         JumpEvent = "event:/Characters/Frankenstein/frank_jump";
-    }
-    protected override void Awake()
-    {
-        base.Awake();
-        Initialize();
     }
 
 }

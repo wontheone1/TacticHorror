@@ -96,6 +96,9 @@ public class GameController : MonoBehaviour
     }
     
     // ReSharper disable once UnusedMember.Local
+    /// <summary>
+    /// take user input only when Unit and camera are not moving and there is _activeUnit
+    /// </summary>
     void Update()
     {
         if (!UnitMoving && !CameraMovement.CameraIsMoving && _activeUnit != null)
@@ -109,13 +112,13 @@ public class GameController : MonoBehaviour
         {
             SelectNextUnit();
         }
-
-        // Select units only when user is not moving the camera
+        // remember mouseButtonDown position (not to order anything if its a drag)
 		if (Input.GetMouseButtonDown(0) && !_disableRayCast)
         {
             _originalClickPos = Input.mousePosition;
         }
 
+        // select units only when user is not moving the camera
         if (Input.GetMouseButtonUp(0) && _originalClickPos != null && !_disableRayCast)
         {
             if (Vector3.Distance(Input.mousePosition, _originalClickPos) < 0.05)
@@ -161,11 +164,24 @@ public class GameController : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     private void SelectUnitByClick()
     {
         Vector2 v = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Collider2D[] col = Physics2D.OverlapPointAll(v);
-        if (col.Length <= 0) return;
+        if (col.Length == 0) return;
+        CheckOpponentClicked(col);
+        CheckFriendlyUnitClicked(col);
+    }
+
+    /// <summary>
+    /// Check if an opponent unit is clicked, if TargetUnit is already selected, attack the TargetUnit
+    /// otherwise 
+    /// </summary>
+    private void CheckOpponentClicked(Collider2D[] col)
+    {
         foreach (Collider2D c in col)
         {
             // if an opponent unit is clicked, select it as target
@@ -179,8 +195,8 @@ public class GameController : MonoBehaviour
                 if (_activeUnit.TargetUnit == c.gameObject.GetComponent<Unit>())
                 {
                     // attack target will result in select next available unit or end turn
-                    _activeUnit.AttackTarget();
                     DebugText.text = "Attacked: " + _activeUnit.TargetUnit.Unitname;
+                    _activeUnit.AttackTarget();
                     return;
                 }
                 _activeUnit.SetAttackTarget(opponent);
@@ -189,10 +205,15 @@ public class GameController : MonoBehaviour
                 DebugText.text = "Target: " + _activeUnit.TargetUnit.Unitname;
                 return;
             }
-
             // if no opponent was clicked, unset target
-            _activeUnit.UnsetAttackTarget();
+            _activeUnit.UnitController.UnsetAttackTarget();
+        }
+    }
 
+    private void CheckFriendlyUnitClicked(Collider2D[] col)
+    {
+        foreach (Collider2D c in col)
+        {
             List<Node> camMovePath = new List<Node>
             {
                 _grid.NodeFromWorldPoint(Camera.main.gameObject.transform.position)
