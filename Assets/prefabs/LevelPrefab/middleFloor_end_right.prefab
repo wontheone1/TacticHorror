@@ -25,9 +25,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 432732}
   - 212: {fileID: 21281352}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: middleFloorSTONE_back_end_right
-  m_TagString: Untagged
+  m_TagString: blockView
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: blockView
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 140992}

@@ -18,8 +18,9 @@ using UnityEngine;
 /// </summary>
 public class FOVRecurse : MonoBehaviour
 {
-    public Size MapSize { get; set; }
-    public int[,] map { get; private set; }
+    private Grid _grid;
+
+    public bool[,] map { get; private set; }
 
     /// <summary>
     /// Radius of the player's circle of vision
@@ -29,38 +30,25 @@ public class FOVRecurse : MonoBehaviour
     /// <summary>
     /// List of points visible to the player
     /// </summary>
-    public List<Point> VisiblePoints { get; private set; }  // Cells the player can see
+    public List<Node> VisiblePoints { get; private set; }  // Cells the player can see
 
-    private Point player;
-    public Point Player { get { return player; } set { player = value; } }
+    private Node unit;
+    public Node Unit { get { return unit; } set { unit = value; } }
 
     /// <summary>
     /// The octants which a player can see
     /// </summary>
     List<int> VisibleOctants = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
 
-    public FOVRecurse()
+    // ReSharper disable once UnusedMember.Local
+    void Awake()
     {
-        MapSize = new Size(100, 100);
-        map = new int[MapSize.Width, MapSize.Height];
-        VisualRange = 5;
-    }
-
-
-    /// <summary>
-    /// Move the player in the specified direction provided the cell is valid and empty
-    /// </summary>
-    /// <param name="pX">X offset</param>
-    /// <param name="pY">Y Offset</param>
-    public void movePlayer(int pX, int pY)
-    {
-        if (Point_Valid(player.X + pX, player.Y + pY)
-            && Point_Get(player.X + pX, player.Y + pY) == 0)
-        {
-            player.Offset(pX, pY);
-            GetVisibleCells();
-            playerMoved();
-        }
+        _grid = GetComponent<Grid>();
+        map = new bool[(int)_grid.GridWorldSize.x, (int)_grid.GridWorldSize.y];
+        VisualRange = 8;
+        
+            
+        
     }
 
     #region map point code
@@ -83,7 +71,7 @@ public class FOVRecurse : MonoBehaviour
     /// <param name="_x"></param>
     /// <param name="_y"></param>
     /// <returns>Cell value</returns>
-    public int Point_Get(int _x, int _y)
+    public bool Point_Get(int _x, int _y)
     {
         return map[_x, _y];
     }
@@ -94,7 +82,7 @@ public class FOVRecurse : MonoBehaviour
     /// <param name="_x"></param>
     /// <param name="_y"></param>
     /// <param name="_val"></param>
-    public void Point_Set(int _x, int _y, int _val)
+    public void Point_Set(int _x, int _y, bool _val)
     {
         if (Point_Valid(_x, _y))
             map[_x, _y] = _val;
@@ -120,7 +108,7 @@ public class FOVRecurse : MonoBehaviour
     /// </summary>
     public void GetVisibleCells()
     {
-        VisiblePoints = new List<Point>() { Player };
+        VisiblePoints = new List<Node>() { Unit };
         foreach (int o in VisibleOctants)
             ScanOctant(1, o, 1.0, 0.0);
 
@@ -144,30 +132,31 @@ public class FOVRecurse : MonoBehaviour
         {
 
             case 1: //nnw
-                y = player.Y - pDepth;
+                y = unit.GridY - pDepth;
                 if (y < 0) return;
 
-                x = player.X - Convert.ToInt32((pStartSlope * Convert.ToDouble(pDepth)));
+                x = unit.GridX - Convert.ToInt32((pStartSlope * Convert.ToDouble(pDepth)));
                 if (x < 0) x = 0;
 
-                while (GetSlope(x, y, player.X, player.Y, false) >= pEndSlope)
+                while (GetSlope(x, y, unit.GridX, unit.GridY, false) >= pEndSlope)
                 {
-                    if (GetVisDistance(x, y, player.X, player.Y) <= visrange2)
+                    if (GetVisDistance(x, y, unit.GridX, unit.GridY) <= visrange2)
                     {
-                        if (map[x, y] == 1) //current cell blocked
+                        if (map[x, y]) //current cell blocked
                         {
-                            if (x - 1 >= 0 && map[x - 1, y] == 0) //prior cell within range AND open...
+                            if (x - 1 >= 0 && !map[x - 1, y]) //prior cell within range AND open...
                                                                   //...incremenet the depth, adjust the endslope and recurse
-                                ScanOctant(pDepth + 1, pOctant, pStartSlope, GetSlope(x - 0.5, y + 0.5, player.X, player.Y, false));
+                                ScanOctant(pDepth + 1, pOctant, pStartSlope,
+                                    GetSlope(x - 0.5, y + 0.5, unit.GridX, unit.GridY, false));
                         }
                         else
                         {
 
-                            if (x - 1 >= 0 && map[x - 1, y] == 1) //prior cell within range AND open...
+                            if (x - 1 >= 0 && map[x - 1, y]) //prior cell within range AND open...
                                                                   //..adjust the startslope
-                                pStartSlope = GetSlope(x - 0.5, y - 0.5, player.X, player.Y, false);
+                                pStartSlope = GetSlope(x - 0.5, y - 0.5, unit.GridX, unit.GridY, false);
 
-                            VisiblePoints.Add(new Point(x, y));
+                            VisiblePoints.Add(_grid.Nodes[x,y]);
                         }
                     }
                     x++;
@@ -177,27 +166,27 @@ public class FOVRecurse : MonoBehaviour
 
             case 2: //nne
 
-                y = player.Y - pDepth;
+                y = unit.GridY - pDepth;
                 if (y < 0) return;
 
-                x = player.X + Convert.ToInt32((pStartSlope * Convert.ToDouble(pDepth)));
+                x = unit.GridX + Convert.ToInt32((pStartSlope * Convert.ToDouble(pDepth)));
                 if (x >= map.GetLength(0)) x = map.GetLength(0) - 1;
 
-                while (GetSlope(x, y, player.X, player.Y, false) <= pEndSlope)
+                while (GetSlope(x, y, unit.GridX, unit.GridY, false) <= pEndSlope)
                 {
-                    if (GetVisDistance(x, y, player.X, player.Y) <= visrange2)
+                    if (GetVisDistance(x, y, unit.GridX, unit.GridY) <= visrange2)
                     {
-                        if (map[x, y] == 1)
+                        if (map[x, y])
                         {
-                            if (x + 1 < map.GetLength(0) && map[x + 1, y] == 0)
-                                ScanOctant(pDepth + 1, pOctant, pStartSlope, GetSlope(x + 0.5, y + 0.5, player.X, player.Y, false));
+                            if (x + 1 < map.GetLength(0) && !map[x + 1, y])
+                                ScanOctant(pDepth + 1, pOctant, pStartSlope, GetSlope(x + 0.5, y + 0.5, unit.GridX, unit.GridY, false));
                         }
                         else
                         {
-                            if (x + 1 < map.GetLength(0) && map[x + 1, y] == 1)
-                                pStartSlope = -GetSlope(x + 0.5, y - 0.5, player.X, player.Y, false);
+                            if (x + 1 < map.GetLength(0) && map[x + 1, y])
+                                pStartSlope = -GetSlope(x + 0.5, y - 0.5, unit.GridX, unit.GridY, false);
 
-                            VisiblePoints.Add(new Point(x, y));
+                            VisiblePoints.Add(_grid.Nodes[x, y]);
                         }
                     }
                     x--;
@@ -207,29 +196,29 @@ public class FOVRecurse : MonoBehaviour
 
             case 3:
 
-                x = player.X + pDepth;
+                x = unit.GridX + pDepth;
                 if (x >= map.GetLength(0)) return;
 
-                y = player.Y - Convert.ToInt32((pStartSlope * Convert.ToDouble(pDepth)));
+                y = unit.GridY - Convert.ToInt32((pStartSlope * Convert.ToDouble(pDepth)));
                 if (y < 0) y = 0;
 
-                while (GetSlope(x, y, player.X, player.Y, true) <= pEndSlope)
+                while (GetSlope(x, y, unit.GridX, unit.GridY, true) <= pEndSlope)
                 {
 
-                    if (GetVisDistance(x, y, player.X, player.Y) <= visrange2)
+                    if (GetVisDistance(x, y, unit.GridX, unit.GridY) <= visrange2)
                     {
 
-                        if (map[x, y] == 1)
+                        if (map[x, y])
                         {
-                            if (y - 1 >= 0 && map[x, y - 1] == 0)
-                                ScanOctant(pDepth + 1, pOctant, pStartSlope, GetSlope(x - 0.5, y - 0.5, player.X, player.Y, true));
+                            if (y - 1 >= 0 && !map[x, y - 1])
+                                ScanOctant(pDepth + 1, pOctant, pStartSlope, GetSlope(x - 0.5, y - 0.5, unit.GridX, unit.GridY, true));
                         }
                         else
                         {
-                            if (y - 1 >= 0 && map[x, y - 1] == 1)
-                                pStartSlope = -GetSlope(x + 0.5, y - 0.5, player.X, player.Y, true);
+                            if (y - 1 >= 0 && map[x, y - 1])
+                                pStartSlope = -GetSlope(x + 0.5, y - 0.5, unit.GridX, unit.GridY, true);
 
-                            VisiblePoints.Add(new Point(x, y));
+                            VisiblePoints.Add(_grid.Nodes[x, y]);
                         }
                     }
                     y++;
@@ -239,29 +228,29 @@ public class FOVRecurse : MonoBehaviour
 
             case 4:
 
-                x = player.X + pDepth;
+                x = unit.GridX + pDepth;
                 if (x >= map.GetLength(0)) return;
 
-                y = player.Y + Convert.ToInt32((pStartSlope * Convert.ToDouble(pDepth)));
+                y = unit.GridY + Convert.ToInt32((pStartSlope * Convert.ToDouble(pDepth)));
                 if (y >= map.GetLength(1)) y = map.GetLength(1) - 1;
 
-                while (GetSlope(x, y, player.X, player.Y, false) >= pEndSlope)
+                while (GetSlope(x, y, unit.GridX, unit.GridY, false) >= pEndSlope)
                 {
 
-                    if (GetVisDistance(x, y, player.X, player.Y) <= visrange2)
+                    if (GetVisDistance(x, y, unit.GridX, unit.GridY) <= visrange2)
                     {
 
-                        if (map[x, y] == 1)
+                        if (map[x, y])
                         {
-                            if (y + 1 < map.GetLength(1) && map[x, y + 1] == 0)
-                                ScanOctant(pDepth + 1, pOctant, pStartSlope, GetSlope(x - 0.5, y + 0.5, player.X, player.Y, true));
+                            if (y + 1 < map.GetLength(1) && !map[x, y + 1])
+                                ScanOctant(pDepth + 1, pOctant, pStartSlope, GetSlope(x - 0.5, y + 0.5, unit.GridX, unit.GridY, true));
                         }
                         else
                         {
-                            if (y + 1 < map.GetLength(1) && map[x, y + 1] == 1)
-                                pStartSlope = GetSlope(x + 0.5, y + 0.5, player.X, player.Y, true);
+                            if (y + 1 < map.GetLength(1) && map[x, y + 1])
+                                pStartSlope = GetSlope(x + 0.5, y + 0.5, unit.GridX, unit.GridY, true);
 
-                            VisiblePoints.Add(new Point(x, y));
+                            VisiblePoints.Add(_grid.Nodes[x, y]);
                         }
                     }
                     y--;
@@ -271,29 +260,29 @@ public class FOVRecurse : MonoBehaviour
 
             case 5:
 
-                y = player.Y + pDepth;
+                y = unit.GridY + pDepth;
                 if (y >= map.GetLength(1)) return;
 
-                x = player.X + Convert.ToInt32((pStartSlope * Convert.ToDouble(pDepth)));
+                x = unit.GridX + Convert.ToInt32((pStartSlope * Convert.ToDouble(pDepth)));
                 if (x >= map.GetLength(0)) x = map.GetLength(0) - 1;
 
-                while (GetSlope(x, y, player.X, player.Y, false) >= pEndSlope)
+                while (GetSlope(x, y, unit.GridX, unit.GridY, false) >= pEndSlope)
                 {
-                    if (GetVisDistance(x, y, player.X, player.Y) <= visrange2)
+                    if (GetVisDistance(x, y, unit.GridX, unit.GridY) <= visrange2)
                     {
 
-                        if (map[x, y] == 1)
+                        if (map[x, y])
                         {
-                            if (x + 1 < map.GetLength(1) && map[x + 1, y] == 0)
-                                ScanOctant(pDepth + 1, pOctant, pStartSlope, GetSlope(x + 0.5, y - 0.5, player.X, player.Y, false));
+                            if (x + 1 < map.GetLength(1) && !map[x + 1, y])
+                                ScanOctant(pDepth + 1, pOctant, pStartSlope, GetSlope(x + 0.5, y - 0.5, unit.GridX, unit.GridY, false));
                         }
                         else
                         {
                             if (x + 1 < map.GetLength(1)
-                                    && map[x + 1, y] == 1)
-                                pStartSlope = GetSlope(x + 0.5, y + 0.5, player.X, player.Y, false);
+                                    && map[x + 1, y])
+                                pStartSlope = GetSlope(x + 0.5, y + 0.5, unit.GridX, unit.GridY, false);
 
-                            VisiblePoints.Add(new Point(x, y));
+                            VisiblePoints.Add(_grid.Nodes[x, y]);
                         }
                     }
                     x--;
@@ -303,29 +292,29 @@ public class FOVRecurse : MonoBehaviour
 
             case 6:
 
-                y = player.Y + pDepth;
+                y = unit.GridY + pDepth;
                 if (y >= map.GetLength(1)) return;
 
-                x = player.X - Convert.ToInt32((pStartSlope * Convert.ToDouble(pDepth)));
+                x = unit.GridX - Convert.ToInt32((pStartSlope * Convert.ToDouble(pDepth)));
                 if (x < 0) x = 0;
 
-                while (GetSlope(x, y, player.X, player.Y, false) <= pEndSlope)
+                while (GetSlope(x, y, unit.GridX, unit.GridY, false) <= pEndSlope)
                 {
-                    if (GetVisDistance(x, y, player.X, player.Y) <= visrange2)
+                    if (GetVisDistance(x, y, unit.GridX, unit.GridY) <= visrange2)
                     {
 
-                        if (map[x, y] == 1)
+                        if (map[x, y])
                         {
-                            if (x - 1 >= 0 && map[x - 1, y] == 0)
-                                ScanOctant(pDepth + 1, pOctant, pStartSlope, GetSlope(x - 0.5, y - 0.5, player.X, player.Y, false));
+                            if (x - 1 >= 0 && !map[x - 1, y])
+                                ScanOctant(pDepth + 1, pOctant, pStartSlope, GetSlope(x - 0.5, y - 0.5, unit.GridX, unit.GridY, false));
                         }
                         else
                         {
                             if (x - 1 >= 0
-                                    && map[x - 1, y] == 1)
-                                pStartSlope = -GetSlope(x - 0.5, y + 0.5, player.X, player.Y, false);
+                                    && map[x - 1, y])
+                                pStartSlope = -GetSlope(x - 0.5, y + 0.5, unit.GridX, unit.GridY, false);
 
-                            VisiblePoints.Add(new Point(x, y));
+                            VisiblePoints.Add(_grid.Nodes[x, y]);
                         }
                     }
                     x++;
@@ -335,29 +324,29 @@ public class FOVRecurse : MonoBehaviour
 
             case 7:
 
-                x = player.X - pDepth;
+                x = unit.GridX - pDepth;
                 if (x < 0) return;
 
-                y = player.Y + Convert.ToInt32((pStartSlope * Convert.ToDouble(pDepth)));
+                y = unit.GridY + Convert.ToInt32((pStartSlope * Convert.ToDouble(pDepth)));
                 if (y >= map.GetLength(1)) y = map.GetLength(1) - 1;
 
-                while (GetSlope(x, y, player.X, player.Y, true) <= pEndSlope)
+                while (GetSlope(x, y, unit.GridX, unit.GridY, true) <= pEndSlope)
                 {
 
-                    if (GetVisDistance(x, y, player.X, player.Y) <= visrange2)
+                    if (GetVisDistance(x, y, unit.GridX, unit.GridY) <= visrange2)
                     {
 
-                        if (map[x, y] == 1)
+                        if (map[x, y])
                         {
-                            if (y + 1 < map.GetLength(1) && map[x, y + 1] == 0)
-                                ScanOctant(pDepth + 1, pOctant, pStartSlope, GetSlope(x + 0.5, y + 0.5, player.X, player.Y, true));
+                            if (y + 1 < map.GetLength(1) && !map[x, y + 1])
+                                ScanOctant(pDepth + 1, pOctant, pStartSlope, GetSlope(x + 0.5, y + 0.5, unit.GridX, unit.GridY, true));
                         }
                         else
                         {
-                            if (y + 1 < map.GetLength(1) && map[x, y + 1] == 1)
-                                pStartSlope = -GetSlope(x - 0.5, y + 0.5, player.X, player.Y, true);
+                            if (y + 1 < map.GetLength(1) && map[x, y + 1])
+                                pStartSlope = -GetSlope(x - 0.5, y + 0.5, unit.GridX, unit.GridY, true);
 
-                            VisiblePoints.Add(new Point(x, y));
+                            VisiblePoints.Add(_grid.Nodes[x, y]);
                         }
                     }
                     y--;
@@ -367,30 +356,30 @@ public class FOVRecurse : MonoBehaviour
 
             case 8: //wnw
 
-                x = player.X - pDepth;
+                x = unit.GridX - pDepth;
                 if (x < 0) return;
 
-                y = player.Y - Convert.ToInt32((pStartSlope * Convert.ToDouble(pDepth)));
+                y = unit.GridY - Convert.ToInt32((pStartSlope * Convert.ToDouble(pDepth)));
                 if (y < 0) y = 0;
 
-                while (GetSlope(x, y, player.X, player.Y, true) >= pEndSlope)
+                while (GetSlope(x, y, unit.GridX, unit.GridY, true) >= pEndSlope)
                 {
 
-                    if (GetVisDistance(x, y, player.X, player.Y) <= visrange2)
+                    if (GetVisDistance(x, y, unit.GridX, unit.GridY) <= visrange2)
                     {
 
-                        if (map[x, y] == 1)
+                        if (map[x, y])
                         {
-                            if (y - 1 >= 0 && map[x, y - 1] == 0)
-                                ScanOctant(pDepth + 1, pOctant, pStartSlope, GetSlope(x + 0.5, y - 0.5, player.X, player.Y, true));
+                            if (y - 1 >= 0 && !map[x, y - 1])
+                                ScanOctant(pDepth + 1, pOctant, pStartSlope, GetSlope(x + 0.5, y - 0.5, unit.GridX, unit.GridY, true));
 
                         }
                         else
                         {
-                            if (y - 1 >= 0 && map[x, y - 1] == 1)
-                                pStartSlope = GetSlope(x - 0.5, y - 0.5, player.X, player.Y, true);
+                            if (y - 1 >= 0 && map[x, y - 1])
+                                pStartSlope = GetSlope(x - 0.5, y - 0.5, unit.GridX, unit.GridY, true);
 
-                            VisiblePoints.Add(new Point(x, y));
+                            VisiblePoints.Add(_grid.Nodes[x, y]);
                         }
                     }
                     y++;
@@ -410,7 +399,7 @@ public class FOVRecurse : MonoBehaviour
         else if (y >= map.GetLength(1))
             y = map.GetLength(1) - 1;
 
-        if (pDepth < VisualRange & map[x, y] == 0)
+        if (pDepth < VisualRange & !map[x, y])
             ScanOctant(pDepth + 1, pOctant, pStartSlope, pEndSlope);
 
     }
