@@ -11,12 +11,14 @@ public class Grid : MonoBehaviour
     public LayerMask BlockedMask;
     public LayerMask MidFloorLayerMask;
     public LayerMask LadderEndLayerMask;
+    public LayerMask BlockViewLayerMask;
     public Vector2 GridWorldSize;
     public float NodeRadius;
     public Node[,] Nodes;
     float _nodeDiameter;
     int _gridSizeX, _gridSizeY;
     Vector2 _worldBottomLeft;
+    FOVRecurse fov;
 
     // ReSharper disable once UnusedMember.Local
     void Awake()
@@ -26,6 +28,14 @@ public class Grid : MonoBehaviour
         _gridSizeY = Mathf.RoundToInt(GridWorldSize.y / _nodeDiameter);
         _worldBottomLeft = Vector2.zero - (Vector2.right * GridWorldSize.x / 2) - (Vector2.up * GridWorldSize.y / 2);
         CreateGrid();
+        fov = GetComponent<FOVRecurse>();
+        for (int y = 0; y < GridWorldSize.y; y++)
+        {
+            for (int x = 0; x < GridWorldSize.x; x++)
+            {
+                fov.Point_Set(x, y, Nodes[x,y].BlockView);
+            }
+        }
     }
 
     public int MaxSize
@@ -40,7 +50,7 @@ public class Grid : MonoBehaviour
     {
         Nodes = new Node[_gridSizeX, _gridSizeY];
 
-        bool walkable, throughable, blocked, coveredFromLeft, coveredFromRight, inMidFloor, atLadderEnd;
+        bool walkable, throughable, blocked, coveredFromLeft, coveredFromRight, inMidFloor, atLadderEnd, BlockView;
         float detectionLength = 0.7f;
         for (int x = 0; x < _gridSizeX; x++)
         {
@@ -53,12 +63,14 @@ public class Grid : MonoBehaviour
                     walkable = false;
                 coveredFromLeft = Physics2D.Raycast(worldPoint, Vector2.left, _nodeDiameter, BlockedMask).collider != null;
                 coveredFromRight = Physics2D.Raycast(worldPoint, Vector2.right, _nodeDiameter, BlockedMask).collider != null;
-                blocked = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, BlockedMask));
+                blocked = Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, BlockedMask);
                 if (blocked)
                     coveredFromRight = coveredFromLeft = false;
-                inMidFloor = (Physics2D.OverlapCircle(worldPoint, NodeRadius*detectionLength, MidFloorLayerMask));
-                atLadderEnd = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, LadderEndLayerMask));
-                Nodes[x, y] = new Node(walkable, worldPoint, x, y, throughable, blocked, coveredFromLeft, coveredFromRight, false, inMidFloor, atLadderEnd);
+                inMidFloor = Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, MidFloorLayerMask);
+                atLadderEnd = Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, LadderEndLayerMask);
+                Collider2D viewCollider = Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, LadderEndLayerMask);
+                BlockView = viewCollider.tag.Equals("blockView");
+                Nodes[x, y] = new Node(walkable, worldPoint, x, y, throughable, blocked, coveredFromLeft, coveredFromRight, false, inMidFloor, atLadderEnd, BlockView);
             }
         }
     }
@@ -106,7 +118,7 @@ public class Grid : MonoBehaviour
         int x = (int)((_gridSizeX) * percentX);
         int y = (int)((_gridSizeY) * percentY);
         // prevent out of array range error, this way is more accurate 
-	    if (Math.Abs(percentX - 1) < 0.001)
+        if (Math.Abs(percentX - 1) < 0.001)
             x = _gridSizeX - 1;
         if (Math.Abs(percentY - 1) < 0.001)
             y = _gridSizeY - 1;

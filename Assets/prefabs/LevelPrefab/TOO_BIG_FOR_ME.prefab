@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 469386}
   m_Layer: 0
   m_Name: ONE_TOO_SMALL (2)
-  m_TagString: Untagged
+  m_TagString: blockView
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,7 +184,7 @@ GameObject:
   - 4: {fileID: 490818}
   m_Layer: 0
   m_Name: ONE_TOO_SMALL (1)
-  m_TagString: Untagged
+  m_TagString: blockView
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -503,7 +503,7 @@ GameObject:
   - 4: {fileID: 475342}
   m_Layer: 0
   m_Name: ONE_TOO_SMALL
-  m_TagString: Untagged
+  m_TagString: blockView
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2241,7 +2241,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: blockView
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 121350}

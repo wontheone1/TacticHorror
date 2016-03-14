@@ -77,9 +77,9 @@ namespace map
             Random r  =new Random();
 
             //randomly place the player on an empty cell
-            while (fov.Point_Get(fov.Player.X, fov.Player.Y) != 0)
+            while (fov.Point_Get(fov.Unit.X, fov.Unit.Y) != 0)
             {
-                fov.Player = new Point(r.Next(0, fov.MapSize.Width),
+                fov.Unit = new Point(r.Next(0, fov.MapSize.Width),
                                         r.Next(0, fov.MapSize.Height));
             }
          
@@ -155,8 +155,8 @@ namespace map
 
             int GVOriginX, GVOriginY;
 
-            GVOriginX = fov.Player.X - iViewWidth / 2;
-            GVOriginY = fov.Player.Y - iViewHeight / 2;
+            GVOriginX = fov.Unit.X - iViewWidth / 2;
+            GVOriginY = fov.Unit.Y - iViewHeight / 2;
 
             if (GVOriginX < 0)
                 GVOriginX = 0;
@@ -186,8 +186,8 @@ namespace map
                         }
 
             //draw the bPlayer bitmap in the specified point
-            e.Graphics.DrawImage(bPlayer, new Point((fov.Player.X - GVOriginX) * iTileWidth  
-                                                , (fov.Player.Y - GVOriginY) * iTileHeight ));
+            e.Graphics.DrawImage(bPlayer, new Point((fov.Unit.X - GVOriginX) * iTileWidth  
+                                                , (fov.Unit.Y - GVOriginY) * iTileHeight ));
 
         }
     }
