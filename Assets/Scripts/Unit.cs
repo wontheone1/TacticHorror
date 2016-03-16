@@ -21,6 +21,7 @@ public class Unit : MonoBehaviour
     // public static int UnitCount = 0;
     public string Unitname;
     public bool IsDead;
+	public bool inCover;
     public Unit TargetUnit;
     public bool UnitMoving;
     public List<Node> Path;
@@ -37,7 +38,8 @@ public class Unit : MonoBehaviour
     protected int _attackRange; //attack Range
     public int ActionPoint; //movement point + other action
     public int Hp; // health point
-    protected int _ap; // attack point
+    protected int _apMax; // attack point
+	protected int _apMin; // attack point
 
     // other objects
     protected Grid Grid;
@@ -70,10 +72,14 @@ public class Unit : MonoBehaviour
         get { return _leftScale; }
     }
 
-    public int Ap
+    public int ApMax
     {
-        get { return _ap; }
+        get { return _apMax; }
     }
+	public int ApMin
+	{
+		get { return _apMin; }
+	}
 
     public UnitController UnitController
     {
@@ -84,7 +90,7 @@ public class Unit : MonoBehaviour
     {
         get { return projectileName; }
     }
-    
+
 
     /// <summary>
     /// string Hash for animators... (optimization)
