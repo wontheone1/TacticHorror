@@ -7,7 +7,8 @@ public class VampireClass : Unit
         base.Awake();
         _maxActionPoint = ActionPoint = 100;
         _maxHp = Hp = 5;
-        _ap = 5;
+        _apMax = 2;
+		_apMin = 6;
         _attackRange = 30;
 
         Unitname = "Vampire";

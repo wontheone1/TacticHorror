@@ -731,11 +731,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22491318, guid: 9f926baa41604814b8e164eefeba193c, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -11
+      value: 224
       objectReference: {fileID: 0}
     - target: {fileID: 22491318, guid: 9f926baa41604814b8e164eefeba193c, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 227
+      value: 213.17
       objectReference: {fileID: 0}
     - target: {fileID: 22491318, guid: 9f926baa41604814b8e164eefeba193c, type: 2}
       propertyPath: m_LocalScale.x
@@ -1263,7 +1263,7 @@ Prefab:
       objectReference: {fileID: 1430269550}
     - target: {fileID: 168622, guid: 3d9d3a5324741364db2e1c561ac6a6f1, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11411286, guid: 3d9d3a5324741364db2e1c561ac6a6f1, type: 2}
       propertyPath: m_UiScaleMode
@@ -2531,6 +2531,14 @@ Prefab:
     - target: {fileID: 11466820, guid: 5c13c7a84f0895f4192c9b2d2443b234, type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11409970, guid: 5c13c7a84f0895f4192c9b2d2443b234, type: 2}
+      propertyPath: TextBoxActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11409970, guid: 5c13c7a84f0895f4192c9b2d2443b234, type: 2}
+      propertyPath: DialogueDone
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5c13c7a84f0895f4192c9b2d2443b234, type: 2}
