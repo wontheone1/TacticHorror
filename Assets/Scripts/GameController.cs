@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     private bool _unitSelected;
     private Vector3 _originalClickPos;
     private bool _disableRayCast;
+    FOVRecurse fov;
 
     // getters and setters
     public List<Unit> ActiveUnits
@@ -78,6 +79,7 @@ public class GameController : MonoBehaviour
         {
             EnemyUnits.Add(GameObject.Find("Enemies").transform.GetChild(i).GetComponent<Unit>());
         }
+        fov = GetComponent<FOVRecurse>();
     }
 
     public void EndTurn()
@@ -301,5 +303,18 @@ public class GameController : MonoBehaviour
         if (!_activeUnit.IsMovementPossible())
             if (!SelectNextUnit())
                 EndTurn();
+    }
+
+    public void ShowVisibleUnits()
+    {
+        fov.GetVisibleCells();
+        foreach (Unit opponent in _opponentUnits)
+        {
+            opponent.transform.gameObject.SetActive(fov.VisiblePoints.Contains(opponent.GetCurrentNode()));
+        }
+        foreach (Unit unit in _activeUnits)
+        {
+            unit.transform.gameObject.SetActive(fov.VisiblePoints.Contains(unit.GetCurrentNode()));
+        }
     }
 }

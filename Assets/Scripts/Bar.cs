@@ -35,10 +35,10 @@ public class Bar : MonoBehaviour {
         barPos = barStartPos = barStartPosTransfrom.position;
         for (int i = 0; i < n; i++)
         {
-            barPos = new Vector3(barStartPos.x + barWidth + (i * (barWidth + barSpacing) * horizontalOrientation)
-                , barStartPos.y + (i * (barHeight + barSpacing) * verticalOrientation)
+            barPos = new Vector3(barStartPos.x + barWidth + (i * (barWidth + barSpacing * 1.35f) * horizontalOrientation)
+                , barStartPos.y + (i * (barHeight + barSpacing * 0.75f) * verticalOrientation)
                 , barPos.z);
-            Debug.Log(barPrefabName);
+            //Debug.Log(barPrefabName);
             bars.Add((GameObject)Instantiate((GameObject)Resources.Load(barPrefabName)
                 , barPos
                 , Quaternion.identity));

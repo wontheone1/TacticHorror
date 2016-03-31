@@ -11,11 +11,13 @@ public class UnitController : MonoBehaviour
     public Animator UnitAnim;
     private Pathfinding _pathfinding;
     private GameController _gameController;
+    private Grid _grid;
 
     protected virtual void Awake()
     {
         _pathfinding = GameObject.FindWithTag("MainCamera").GetComponent<Pathfinding>();
         _gameController = GameObject.FindWithTag("MainCamera").GetComponent<GameController>();
+        _grid = GameObject.FindWithTag("MainCamera").GetComponent<Grid>();
     }
 
     public void RequestPath(Vector2 target)
@@ -285,6 +287,7 @@ public class UnitController : MonoBehaviour
         GameController.UnitMoving = Unit.UnitMoving = false;
         DecideCrouchOrStanding();
         Unit.GetCurrentNode().Occupied = true;
+        _grid.DrawFOW();
     }
 
     /// <summary>
@@ -393,6 +396,7 @@ public class UnitController : MonoBehaviour
     public void DecideFaceDirection(Node faceTo)
     {
         Unit.transform.localScale = faceTo.WorldPosition.x < Unit.transform.position.x ? Unit.LeftScale : Unit.RightScale;
+        _grid.DrawFOW();
     }
 
     public void FlipFaceDirection()

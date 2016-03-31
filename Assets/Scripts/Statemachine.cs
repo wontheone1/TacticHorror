@@ -9,6 +9,7 @@ public class Statemachine : MonoBehaviour
     public Text StateText;
     private GameController _gameController;
     private CameraMovement _cameraMovement;
+    private FOVRecurse _fov;
     private readonly string winEvent = "event:/Music/victory";
     private readonly string loseEvent = "event:/Music/defeat";
     private Grid _grid;
@@ -56,6 +57,7 @@ public class Statemachine : MonoBehaviour
             }
         }
         _grid = GetComponent<Grid>();
+        _fov = GetComponent<FOVRecurse>();
     }
     
     // ReSharper disable once UnusedMember.Local
@@ -124,7 +126,7 @@ public class Statemachine : MonoBehaviour
 
     public void ImplementCurrentState()
     {
-        List<Node> camMovePath;
+        
         switch (_curState)
         {
             case State.SceneStart:
@@ -135,12 +137,9 @@ public class Statemachine : MonoBehaviour
                 //players turn
                 //change active unit to Player Unit
                 StateText.text = "Player turn";
-                camMovePath = new List<Node> {_grid.NodeFromWorldPoint(Camera.main.gameObject.transform.position)};
-                _gameController.ActiveUnits = _gameController.PlayerUnits;
-                _gameController.ActiveUnit = _gameController.PlayerUnits[0];
-                _gameController.OpponentUnits = _gameController.EnemyUnits;
-                camMovePath.Add(_grid.NodeFromWorldPoint(_gameController.ActiveUnit.transform.position));
-                CameraMovementManager.RequestCamMove(camMovePath);
+                SetActiveUnitsOpponentUnits(_gameController.PlayerUnits, _gameController.EnemyUnits);
+                _grid.DrawFOW();
+                CameraToCurrentActiveUnit();
                 ReplenishActionPoints();
                 UnsetTargetUnits();
                 break;
@@ -149,12 +148,9 @@ public class Statemachine : MonoBehaviour
                 //enemys turn
                 //change active unit to enemyunit
                 StateText.text = "Enemy turn";
-                camMovePath = new List<Node> {_grid.NodeFromWorldPoint(Camera.main.gameObject.transform.position)};
-                _gameController.ActiveUnits = _gameController.EnemyUnits;
-                _gameController.ActiveUnit = _gameController.EnemyUnits[0];
-                _gameController.OpponentUnits = _gameController.PlayerUnits;
-                camMovePath.Add(_grid.NodeFromWorldPoint(_gameController.ActiveUnit.transform.position));
-                CameraMovementManager.RequestCamMove(camMovePath);
+                SetActiveUnitsOpponentUnits(_gameController.EnemyUnits, _gameController.PlayerUnits);
+                _grid.DrawFOW();
+                CameraToCurrentActiveUnit();
                 ReplenishActionPoints();
                 UnsetTargetUnits();
                 break;
@@ -173,6 +169,23 @@ public class Statemachine : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    private void SetActiveUnitsOpponentUnits(List<Unit> playerUnits, List<Unit> enemyUnits)
+    {
+        _gameController.ActiveUnits = playerUnits;
+        _gameController.ActiveUnit = playerUnits[0];
+        _gameController.OpponentUnits = enemyUnits;
+        _fov.SetActiveUnits();
+    }
+
+    void CameraToCurrentActiveUnit()
+    {
+        List<Node> camMovePath;
+        camMovePath = new List<Node> { _grid.NodeFromWorldPoint(Camera.main.gameObject.transform.position) };
+        camMovePath.Add(_grid.NodeFromWorldPoint(_gameController.ActiveUnit.transform.position));
+        CameraMovementManager.RequestCamMove(camMovePath);
+
     }
 
     /// <summary>
