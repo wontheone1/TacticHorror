@@ -19,6 +19,7 @@ GameObject:
   - 222: {fileID: 22271098}
   - 114: {fileID: 11466820}
   - 114: {fileID: 11482816}
+  - 114: {fileID: 11469754}
   m_Layer: 0
   m_Name: A_
   m_TagString: MainCamera
@@ -46,7 +47,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.7077193
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -71,20 +72,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d70fbe22dfbc644fbe9715d85ca667e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 0}
-  enemySpeakerPanel: {fileID: 0}
-  playerSpeakerPanel: {fileID: 0}
-  enemySpeaker: {fileID: 0}
-  playerSpeaker: {fileID: 0}
-  enemyImage: {fileID: 0}
-  playerImage: {fileID: 0}
-  theText: {fileID: 0}
-  textFile: {fileID: 4900000, guid: a729baf28a527344b92c88b8c66c1a8c, type: 3}
-  textLines: []
-  currentLine: 0
-  endAtLine: 0
-  dialogueDone: 0
-  showingEvent: 0
+  TextBox: {fileID: 0}
+  EnemySpeakerPanel: {fileID: 0}
+  PlayerSpeakerPanel: {fileID: 0}
+  EnemySpeaker: {fileID: 0}
+  PlayerSpeaker: {fileID: 0}
+  TheText: {fileID: 0}
+  EnemyImage: {fileID: 0}
+  PlayerImage: {fileID: 0}
+  TextFile: {fileID: 0}
+  TextLines: []
+  CurrentLine: 0
+  EndAtLine: 0
+  DialogueDone: 0
+  ShowingEvent: 0
+  TextBoxActive: 1
 --- !u!114 &11428650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,17 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6b9cc685a160846a9f4d5aa39a7164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugText: {fileID: 0}
-  playerUnits:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  enemyUnits:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  DebugText: {fileID: 0}
+  PlayerUnits: []
+  EnemyUnits: []
 --- !u!114 &11466820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,6 +121,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11469754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 222f5c15d3b8fa7439d6d34380ef5553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11473662
@@ -140,8 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730e2babdfeef9b4fa69541bda495570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectsHiddenBeforeGameStarts:
-  - {fileID: 0}
+  ObjectsHiddenBeforeGameStarts: []
   StateText: {fileID: 0}
 --- !u!114 &11474730
 MonoBehaviour:
@@ -154,40 +158,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17f7479d5337594482fa844ceb8bc1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayGridGizmos: 1
+  DisplayGridGizmos: 1
   UnwalkableMask:
     serializedVersion: 2
     m_Bits: 256
   WalkableMask:
     serializedVersion: 2
     m_Bits: 512
-  JumpStartable:
-    serializedVersion: 2
-    m_Bits: 1024
-  JumpFinishable:
-    serializedVersion: 2
-    m_Bits: 4096
   JumpThrouable:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 1024
   BlockedMask:
     serializedVersion: 2
-    m_Bits: 8192
-  CoverLayerMask:
+    m_Bits: 2048
+  MidFloorLayerMask:
     serializedVersion: 2
     m_Bits: 16384
-  OccumpiedMask:
+  LadderEndLayerMask:
     serializedVersion: 2
     m_Bits: 32768
-  gridWorldSize: {x: 30, y: 30}
-  nodeRadius: 0.9
+  BlockViewLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  GridWorldSize: {x: 60, y: 40}
+  NodeRadius: 0.9
+  FOW_Square: {fileID: 0}
 --- !u!114 &11482816
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177932}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -221,9 +223,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba0bd023c8e0e4478cbb2117c5d1166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 4
-  panSpeed: 0
-  zoomSpeed: 4
+  TurnSpeed: 4
+  PanSpeed: 0
+  ZoomSpeed: 4
 --- !u!222 &22271098
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -244,7 +246,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.029, y: 0.01}
+  m_AnchoredPosition: {x: -40.64, y: -7.97}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &100100000
