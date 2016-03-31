@@ -90,12 +90,51 @@ public class UnitController : MonoBehaviour
     {
         if (Unit.TargetUnit != null)
         {
-            Unit.TargetUnit.TakeDamage(Unit.Ap);
+			if (missChanceCalculation ()) {
+				Unit.TargetUnit.TakeDamage (randomizeDamage ());
+			}
         }
         GameController.UnitMoving = Unit.UnitMoving = false;
         if (!_gameController.SelectNextUnit())
             _gameController.EndTurn();
     }
+
+
+	private int randomizeDamage(){
+		System.Random rnd = new System.Random ();
+		int rngDamage = rnd.Next(Unit.ApMin, Unit.ApMax);
+		Debug.Log("Randomized damage was: " + rngDamage);
+		return rngDamage;
+	}
+
+	private bool missChanceCalculation(){
+
+		int attackingDistance = _pathfinding.GetDistance(Unit.GetCurrentNode(), Unit.TargetUnit.GetCurrentNode());
+		Debug.Log ("target distance: " + attackingDistance);
+		int chanceToHit = 100 - attackingDistance;
+
+		//checking if target is in cover
+		if ((Unit.TargetUnit.inCover == true) && !((Unit.transform.localScale == Unit.RightScale && Unit.TargetUnit.transform.localScale == Unit.TargetUnit.RightScale) || 
+			(Unit.transform.localScale == Unit.LeftScale && Unit.TargetUnit.transform.localScale == Unit.TargetUnit.LeftScale))) {
+			chanceToHit = chanceToHit / 2;
+			Debug.Log ("target is in cover");
+		}
+		Debug.Log ("chance to hit: " + chanceToHit);
+
+		//randomizing a number between 0 and 100, attack hits if chanceToHit is higher than randomized number
+		System.Random rnd = new System.Random ();
+		int rngChance = rnd.Next (0, 100);
+		Debug.Log ("rnd chance: " + rngChance);
+
+		if (chanceToHit >= rngChance) {
+			return true;
+		}
+		else {
+			Debug.Log ("Attack missed");
+			return false;
+		}
+
+	}
 
     // ReSharper disable once UnusedMember.Local
     /// <summary>
@@ -389,17 +428,23 @@ public class UnitController : MonoBehaviour
         UnitAnim.SetBool(Unit.IsWalkingHash, false);
         if (Unit.GetCurrentNode().CoveredFromLeft)
         {
+			Unit.inCover = true;
             Unit.transform.localScale = Unit.LeftScale;
             UnitAnim.SetBool(Unit.UndercoverHash, true);
+
         }
         else if (Unit.GetCurrentNode().CoveredFromRight)
         {
+			Unit.inCover = true;
             Unit.transform.localScale = Unit.RightScale;
             UnitAnim.SetBool(Unit.UndercoverHash, true);
+
         }
         else
         {
+			Unit.inCover = false;
             UnitAnim.SetBool(Unit.UndercoverHash, false);
+
         }
     }
 

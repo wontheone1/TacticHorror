@@ -13,7 +13,8 @@ public class FrankenClass : Unit
 
         _maxActionPoint = ActionPoint = 100;
         _maxHp = Hp = 15;
-        _ap = 5;
+        _apMin = 3;
+		_apMax = 8;
         _attackRange = 50;
 
         Unitname = "Frankenstein";
