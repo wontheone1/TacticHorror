@@ -88,7 +88,7 @@ MonoBehaviour:
   - {fileID: 11417794}
   - {fileID: 11407380}
   MasterBankRef: {fileID: 11433666}
-  stringsBankWriteTime: 635909665380044468
+  stringsBankWriteTime: 635914954108010738
 --- !u!114 &11400076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3013,7 +3013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Plugins\Tactic Horror\Build\Desktop\sfx.bank
-  lastModified: 635909665382239658
+  lastModified: 635914954109091770
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -5198,7 +5198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Plugins\Tactic Horror\Build\Desktop\master Bank.bank
-  lastModified: 635909665380245013
+  lastModified: 635914954107760501
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -9365,7 +9365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Plugins\Tactic Horror\Build\Desktop\music.bank
-  lastModified: 635909665381062051
+  lastModified: 635914954108831524
   LoadResult: 0
   FileSizes:
   - Name: Desktop
