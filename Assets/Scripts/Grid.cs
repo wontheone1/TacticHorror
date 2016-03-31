@@ -15,6 +15,9 @@ public class Grid : MonoBehaviour
     public Vector2 GridWorldSize;
     public float NodeRadius;
     public Node[,] Nodes;
+    public GameObject FOW_Square;
+    public GameObject[,] FOW_Squares;
+    private GameController _gameController;
     float _nodeDiameter;
     int _gridSizeX, _gridSizeY;
     Vector2 _worldBottomLeft;
@@ -23,17 +26,32 @@ public class Grid : MonoBehaviour
     // ReSharper disable once UnusedMember.Local
     void Awake()
     {
+        fov = GetComponent<FOVRecurse>();
+        _gameController = GetComponent<GameController>();
+        FOW_Square = (GameObject)Resources.Load("FOW_Square");
         _nodeDiameter = NodeRadius * 2;
         _gridSizeX = Mathf.RoundToInt(GridWorldSize.x / _nodeDiameter);
         _gridSizeY = Mathf.RoundToInt(GridWorldSize.y / _nodeDiameter);
         _worldBottomLeft = Vector2.zero - (Vector2.right * GridWorldSize.x / 2) - (Vector2.up * GridWorldSize.y / 2);
         CreateGrid();
-        fov = GetComponent<FOVRecurse>();
-        for (int y = 0; y < GridWorldSize.y; y++)
+        for (int y = 0; y < _gridSizeY; y++)
         {
-            for (int x = 0; x < GridWorldSize.x; x++)
+            for (int x = 0; x < _gridSizeX; x++)
             {
-                fov.Point_Set(x, y, Nodes[x,y].BlockView);
+                FOW_Squares[x, y] = Instantiate(FOW_Square
+        , Nodes[x, y].WorldPosition
+        , Quaternion.identity) as GameObject;
+            }
+        }
+    }
+
+    void Start()
+    {
+        for (int y = 0; y < _gridSizeY; y++)
+        {
+            for (int x = 0; x < _gridSizeX; x++)
+            {
+                fov.Point_Set(x, y, Nodes[x, y].BlockView);
             }
         }
     }
@@ -45,12 +63,24 @@ public class Grid : MonoBehaviour
             return _gridSizeX * _gridSizeY;
         }
     }
+
+    public int GridSizeX
+    {
+        get { return _gridSizeX; }
+    }
+
+    public int GridSizeY
+    {
+        get { return _gridSizeY; }
+    }
+
     //creates Grid in start of the game
     void CreateGrid()
     {
         Nodes = new Node[_gridSizeX, _gridSizeY];
+        FOW_Squares = new GameObject[_gridSizeX, _gridSizeY];
 
-        bool walkable, throughable, blocked, coveredFromLeft, coveredFromRight, inMidFloor, atLadderEnd, BlockView;
+        bool walkable, throughable, blocked, coveredFromLeft, coveredFromRight, inMidFloor, atLadderEnd, blockView;
         float detectionLength = 0.7f;
         for (int x = 0; x < _gridSizeX; x++)
         {
@@ -69,8 +99,11 @@ public class Grid : MonoBehaviour
                 inMidFloor = Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, MidFloorLayerMask);
                 atLadderEnd = Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, LadderEndLayerMask);
                 Collider2D viewCollider = Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, LadderEndLayerMask);
-                BlockView = viewCollider.tag.Equals("blockView");
-                Nodes[x, y] = new Node(walkable, worldPoint, x, y, throughable, blocked, coveredFromLeft, coveredFromRight, false, inMidFloor, atLadderEnd, BlockView);
+                if (viewCollider != null)
+                    blockView = viewCollider.tag.Equals("blockView");
+                else
+                    blockView = false;
+                Nodes[x, y] = new Node(walkable, worldPoint, x, y, throughable, blocked, coveredFromLeft, coveredFromRight, false, inMidFloor, atLadderEnd, blockView);
             }
         }
     }
@@ -179,5 +212,40 @@ public class Grid : MonoBehaviour
                     Gizmos.DrawWireCube(n.WorldPosition, new Vector3(1, 1, 0f) * (_nodeDiameter - .1f));
             }
         }
+    }
+
+    public int[] GetNodeCoord(Node currentNode)
+    {
+        for (int y = 0; y < GridSizeY; y++)
+        {
+            for (int x = 0; x < GridSizeX; x++)
+            {
+                if (Nodes[x, y].Equals(currentNode))
+                    return new[] { x, y };
+            }
+        }
+        return new[] { -1, -1 };
+    }
+
+
+    public void DrawFOW()
+    {
+        fov.GetVisibleCells();
+
+        for (int y = 0; y < _gridSizeY; y++)
+        {
+            for (int x = 0; x < _gridSizeX; x++)
+            {
+                if (fov.VisiblePoints.Contains(Nodes[x, y]))
+                {
+                    FOW_Squares[x, y].SetActive(false);
+                }
+                else
+                {
+                    FOW_Squares[x, y].SetActive(true);
+                }
+            }
+        }
+        _gameController.ShowVisibleUnits();
     }
 }
