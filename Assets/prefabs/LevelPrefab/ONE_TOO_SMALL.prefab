@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21286758}
   m_Layer: 0
   m_Name: middleFloorSTONE_front
-  m_TagString: blockView
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,7 @@ GameObject:
   - 212: {fileID: 21237512}
   m_Layer: 0
   m_Name: middleFloorSTONE_front (5)
-  m_TagString: blockView
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,7 +122,7 @@ GameObject:
   - 212: {fileID: 21296066}
   m_Layer: 0
   m_Name: middleFloorSTONE_front (1)
-  m_TagString: blockView
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,7 +170,7 @@ GameObject:
   - 212: {fileID: 21294084}
   m_Layer: 0
   m_Name: middleFloorSTONE_front (2)
-  m_TagString: blockView
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,7 +186,7 @@ GameObject:
   - 212: {fileID: 21240102}
   m_Layer: 0
   m_Name: middleFloorSTONE_front (3)
-  m_TagString: blockView
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,7 +202,7 @@ GameObject:
   - 212: {fileID: 21200658}
   m_Layer: 0
   m_Name: middleFloorSTONE_front (4)
-  m_TagString: blockView
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -741,11 +741,7 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_TagString
-      value: blockView
-      objectReference: {fileID: 0}
+    m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 145342}
