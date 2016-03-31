@@ -29,7 +29,7 @@ public class Unit : MonoBehaviour
     public float Speed; // _speed for animation
     public int MovementCostToDestination;
     protected string projectileName = "rock";
-    private Vector3 _rightScale, _leftScale;
+    private Vector3 _rightScale = Vector3.one, _leftScale = new Vector3(-1, 1, 1);
 
     // Stats 
     protected int _maxActionPoint; //movement point + other action
@@ -116,8 +116,6 @@ public class Unit : MonoBehaviour
         _unitController.Unit = this;
         _unitController.UnitAnim = this.GetComponent<Animator>();
         Grid = GameObject.FindWithTag("MainCamera").GetComponent<Grid>();
-        _leftScale = _rightScale = transform.localScale;
-        _leftScale.x *= -1;
     }
 
     protected virtual void Start()
@@ -126,9 +124,6 @@ public class Unit : MonoBehaviour
             HealthBar.FillBar(Hp);
         UnitController.UpdateGreenBar();
     }
-    //protected virtual void Update()
-    //{
-    //}
 
     //delete units _path, used before switching units and switching turn, function is called from Grid-script
     public void DeletePath()
@@ -189,6 +184,12 @@ public class Unit : MonoBehaviour
             return Path.Count > 0;
         else
             return false;
+    }
+
+
+    public float GetLocalScaleX()
+    {
+        return transform.localScale.x;
     }
 
     public void OnDrawGizmos()
