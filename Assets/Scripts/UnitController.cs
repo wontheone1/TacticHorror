@@ -154,6 +154,7 @@ public class UnitController : MonoBehaviour
             if (Unit.HealthBar != null)
                 Unit.HealthBar.FillBar(Unit.Hp);
             FMODUnity.RuntimeManager.PlayOneShot(Unit.GetHitEvent);
+            UnitAnim.SetTrigger(Unit.GetHitHash);
             if (Unit.Hp <= 0)
                 _gameController.KillUnit(Unit);
         }
@@ -235,8 +236,9 @@ public class UnitController : MonoBehaviour
                     }
                     break;
                 }
-                // if midJumpState, move to the landing point while applying custom gravity effect
-                if (_stateInfo.shortNameHash == Unit.MidJumpStateHash)
+                // if JumpFalling or JumpRising move to the landing point while applying custom gravity effect
+                if (_stateInfo.shortNameHash == Unit.JumpFallingStateHash ||
+                    _stateInfo.shortNameHash == Unit.JumpRisingStateHash)
                 {
                     moveToward = new Vector2(Unit.CurrentWayPoint.WorldPosition.x, Unit.transform.position.y);
                     float yVelocity = 1.5f;
@@ -244,10 +246,14 @@ public class UnitController : MonoBehaviour
                         || (Math.Abs(Unit.transform.position.y - Unit.CurrentWayPoint.WorldPosition.y) > 0.1f))
                     {
                         moveToward = new Vector2(moveToward.x, moveToward.y + yVelocity);
+
+                        // prevent it from falling
                         if (moveToward.y < Unit.CurrentWayPoint.WorldPosition.y)
                             moveToward.y = Unit.CurrentWayPoint.WorldPosition.y;
+
                         Unit.transform.position = Vector2.MoveTowards(Unit.transform.position,
                    moveToward, (float)Math.Sqrt((Unit.Speed * Unit.Speed) + (yVelocity * yVelocity)) * Time.deltaTime);
+                        // adjust unit position to current way point a little bit
                         Unit.transform.position = Vector2.MoveTowards(Unit.transform.position,
                    Unit.CurrentWayPoint.WorldPosition, 0.1f * Time.deltaTime);
                         // trigger land when near landing point
@@ -256,7 +262,10 @@ public class UnitController : MonoBehaviour
                             UnitAnim.SetTrigger(Unit.LandHash);
                             Unit.Speed = Unit.LandingSpeed;
                         }
+                        // negative acceleration (gravity)
                         yVelocity -= Time.deltaTime * 8;
+                        if (yVelocity < 0)
+                            UnitAnim.SetTrigger(Unit.StartedFallingHash);
                         yield return null;
                     }
                     Unit.GetCurrentNode().ToJumpTo = false; // clear up the path JumpTo property
@@ -350,7 +359,8 @@ public class UnitController : MonoBehaviour
             Unit.Speed = Unit.PrejumpSpeed;
             // UnapplyJumpPhysics();
         }
-        else if (state.shortNameHash == Unit.MidJumpStateHash)
+        else if (state.shortNameHash == Unit.JumpRisingStateHash 
+            || state.shortNameHash == Unit.JumpFallingStateHash)
         {
             Unit.Speed = Unit.MidJumpLandingSpeed;
             UnitAnim.SetBool(Unit.IsWalkingHash, false);
