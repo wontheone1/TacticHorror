@@ -8,7 +8,7 @@ public class SoldierClass : Unit
         base.Awake();
         UnitCount++;
         _maxActionPoint = ActionPoint = 100;
-        _maxHp = Hp = 5;
+        _maxHp = Hp = 15;
         _apMax = 1;
 		_apMin = 10;
         _attackRange = 50;

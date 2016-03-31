@@ -98,11 +98,12 @@ public class Grid : MonoBehaviour
                     coveredFromRight = coveredFromLeft = false;
                 inMidFloor = Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, MidFloorLayerMask);
                 atLadderEnd = Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, LadderEndLayerMask);
-                Collider2D viewCollider = Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, LadderEndLayerMask);
-                if (viewCollider != null)
-                    blockView = viewCollider.tag.Equals("blockView");
-                else
-                    blockView = false;
+                //Collider2D viewCollider = Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, LadderEndLayerMask);
+                //if (viewCollider != null)
+                //    blockView = viewCollider.tag.Equals("blockView");
+                //else
+                //    blockView = false;
+                blockView = false;
                 Nodes[x, y] = new Node(walkable, worldPoint, x, y, throughable, blocked, coveredFromLeft, coveredFromRight, false, inMidFloor, atLadderEnd, blockView);
             }
         }
