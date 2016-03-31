@@ -1,0 +1,1178 @@
+fileFormatVersion: 2
+guid: 788e0d1ffc4c98541b56e27e1b287db6
+timeCreated: 1459440020
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: soldier_idle_walking_crouch_hit_dodge_die_shoot_0
+    21300002: soldier_idle_walking_crouch_hit_dodge_die_shoot_1
+    21300004: soldier_idle_walking_crouch_hit_dodge_die_shoot_2
+    21300006: soldier_idle_walking_crouch_hit_dodge_die_shoot_3
+    21300008: soldier_idle_walking_crouch_hit_dodge_die_shoot_4
+    21300010: soldier_idle_walking_crouch_hit_dodge_die_shoot_5
+    21300012: soldier_idle_walking_crouch_hit_dodge_die_shoot_6
+    21300014: soldier_idle_walking_crouch_hit_dodge_die_shoot_7
+    21300016: soldier_idle_walking_crouch_hit_dodge_die_shoot_8
+    21300018: soldier_idle_walking_crouch_hit_dodge_die_shoot_9
+    21300020: soldier_idle_walking_crouch_hit_dodge_die_shoot_10
+    21300022: soldier_idle_walking_crouch_hit_dodge_die_shoot_11
+    21300024: soldier_idle_walking_crouch_hit_dodge_die_shoot_12
+    21300026: soldier_idle_walking_crouch_hit_dodge_die_shoot_13
+    21300028: soldier_idle_walking_crouch_hit_dodge_die_shoot_14
+    21300030: soldier_idle_walking_crouch_hit_dodge_die_shoot_15
+    21300032: soldier_idle_walking_crouch_hit_dodge_die_shoot_16
+    21300034: soldier_idle_walking_crouch_hit_dodge_die_shoot_17
+    21300036: soldier_idle_walking_crouch_hit_dodge_die_shoot_18
+    21300038: soldier_idle_walking_crouch_hit_dodge_die_shoot_19
+    21300040: soldier_idle_walking_crouch_hit_dodge_die_shoot_20
+    21300042: soldier_idle_walking_crouch_hit_dodge_die_shoot_21
+    21300044: soldier_idle_walking_crouch_hit_dodge_die_shoot_22
+    21300046: soldier_idle_walking_crouch_hit_dodge_die_shoot_23
+    21300048: soldier_idle_walking_crouch_hit_dodge_die_shoot_24
+    21300050: soldier_idle_walking_crouch_hit_dodge_die_shoot_25
+    21300052: soldier_idle_walking_crouch_hit_dodge_die_shoot_26
+    21300054: soldier_idle_walking_crouch_hit_dodge_die_shoot_27
+    21300056: soldier_idle_walking_crouch_hit_dodge_die_shoot_28
+    21300058: soldier_idle_walking_crouch_hit_dodge_die_shoot_29
+    21300060: soldier_idle_walking_crouch_hit_dodge_die_shoot_30
+    21300062: soldier_idle_walking_crouch_hit_dodge_die_shoot_31
+    21300064: soldier_idle_walking_crouch_hit_dodge_die_shoot_32
+    21300066: soldier_idle_walking_crouch_hit_dodge_die_shoot_33
+    21300068: soldier_idle_walking_crouch_hit_dodge_die_shoot_34
+    21300070: soldier_idle_walking_crouch_hit_dodge_die_shoot_35
+    21300072: soldier_idle_walking_crouch_hit_dodge_die_shoot_36
+    21300074: soldier_idle_walking_crouch_hit_dodge_die_shoot_37
+    21300076: soldier_idle_walking_crouch_hit_dodge_die_shoot_38
+    21300078: soldier_idle_walking_crouch_hit_dodge_die_shoot_39
+    21300080: soldier_idle_walking_crouch_hit_dodge_die_shoot_40
+    21300082: soldier_idle_walking_crouch_hit_dodge_die_shoot_41
+    21300084: soldier_idle_walking_crouch_hit_dodge_die_shoot_42
+    21300086: soldier_idle_walking_crouch_hit_dodge_die_shoot_43
+    21300088: soldier_idle_walking_crouch_hit_dodge_die_shoot_44
+    21300090: soldier_idle_walking_crouch_hit_dodge_die_shoot_45
+    21300092: soldier_idle_walking_crouch_hit_dodge_die_shoot_46
+    21300094: soldier_idle_walking_crouch_hit_dodge_die_shoot_47
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 30
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 495
+        width: 44
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 54}
+        - {x: -15, y: 54}
+        - {x: -22, y: 43}
+        - {x: -22, y: -6}
+        - {x: 12, y: -6}
+        - {x: 22, y: 6}
+        - {x: 22, y: 17}
+        - {x: 20, y: 22}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 494
+        width: 44
+        height: 59
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 53.100006}
+        - {x: -22, y: 42.100006}
+        - {x: -22, y: -5.899994}
+        - {x: 14, y: -5.899994}
+        - {x: 22, y: 1.1000061}
+        - {x: 22, y: 18.100006}
+        - {x: -3, y: 53.100006}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_2
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 495
+        width: 43
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.5, y: 54}
+        - {x: -21.5, y: 45}
+        - {x: -21.5, y: -6}
+        - {x: 21.5, y: -6}
+        - {x: 21.5, y: 20}
+        - {x: -1.5, y: 54}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_3
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 495
+        width: 43
+        height: 61
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3.5, y: 54.899994}
+        - {x: -21.5, y: 54.899994}
+        - {x: -21.5, y: -6.100006}
+        - {x: 1.5, y: -6.100006}
+        - {x: 1.5, y: -5.100006}
+        - {x: 21.5, y: 3.899994}
+        - {x: 21.5, y: 22.899994}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_4
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 495
+        width: 42
+        height: 62
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 55.799988}
+        - {x: -21, y: -1.2000122}
+        - {x: -18, y: -6.200012}
+        - {x: 7, y: -6.200012}
+        - {x: 21, y: 8.799988}
+        - {x: 21, y: 27.799988}
+        - {x: -1, y: 55.799988}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_5
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 495
+        width: 42
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: -6}
+        - {x: 21, y: 3}
+        - {x: 21, y: 32}
+        - {x: 3, y: 54}
+        - {x: -21, y: 54}
+        - {x: -21, y: -6}
+        - {x: -5, y: -6}
+        - {x: -5, y: -4}
+        - {x: -4, y: -6}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_6
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 495
+        width: 46
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 54}
+        - {x: -23, y: 40}
+        - {x: -23, y: -6}
+        - {x: 22, y: -6}
+        - {x: 23, y: -5}
+        - {x: 23, y: 29}
+        - {x: 3, y: 54}
+      - - {x: 9, y: -5}
+        - {x: 12, y: -4}
+        - {x: 12, y: -1}
+        - {x: 9, y: 0}
+        - {x: 7, y: -2}
+      - - {x: 7, y: 1}
+        - {x: 10, y: 2}
+        - {x: 10, y: 5}
+        - {x: 7, y: 6}
+        - {x: 5, y: 4}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_7
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 495
+        width: 45
+        height: 62
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22.5, y: -6.200012}
+        - {x: 22.5, y: -6.200012}
+        - {x: 22.5, y: 30.799988}
+        - {x: 6.5, y: 55.799988}
+        - {x: -18.5, y: 55.799988}
+        - {x: -22.5, y: 48.799988}
+      - - {x: 7.5, y: -5.200012}
+        - {x: 10.5, y: -4.200012}
+        - {x: 10.5, y: -1.2000122}
+        - {x: 7.5, y: -0.2000122}
+        - {x: 5.5, y: -2.2000122}
+      - - {x: 5.5, y: 0.7999878}
+        - {x: 8.5, y: 1.7999878}
+        - {x: 8.5, y: 4.799988}
+        - {x: 5.5, y: 5.799988}
+        - {x: 3.5, y: 3.7999878}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_8
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 398
+        width: 45
+        height: 62
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.5, y: 55.799988}
+        - {x: -22.5, y: 50.799988}
+        - {x: -22.5, y: 5.799988}
+        - {x: -20.5, y: -6.200012}
+        - {x: 0.5, y: -6.200012}
+        - {x: 22.5, y: 8.799988}
+        - {x: 22.5, y: 34.799988}
+        - {x: 4.5, y: 55.799988}
+      - - {x: 7.5, y: -5.200012}
+        - {x: 10.5, y: -4.200012}
+        - {x: 10.5, y: -1.2000122}
+        - {x: 7.5, y: -0.2000122}
+        - {x: 5.5, y: -2.2000122}
+      - - {x: 5.5, y: 0.7999878}
+        - {x: 8.5, y: 1.7999878}
+        - {x: 8.5, y: 4.799988}
+        - {x: 5.5, y: 5.799988}
+        - {x: 3.5, y: 3.7999878}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_9
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 398
+        width: 45
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22.5, y: 9}
+        - {x: 22.5, y: 26}
+        - {x: 1.5, y: 54}
+        - {x: -17.5, y: 54}
+        - {x: -22.5, y: 35}
+        - {x: -22.5, y: -6}
+        - {x: -7.5, y: -6}
+        - {x: -7.5, y: -5}
+        - {x: -5.5, y: -6}
+        - {x: 10.5, y: -6}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_10
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 400
+        width: 43
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1.5, y: 54}
+        - {x: -14.5, y: 54}
+        - {x: -21.5, y: 40}
+        - {x: -21.5, y: -6}
+        - {x: 21.5, y: -6}
+        - {x: 21.5, y: 32}
+        - {x: 4.5, y: 53}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_11
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 400
+        width: 43
+        height: 61
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 54.899994}
+        - {x: -21.5, y: 44.899994}
+        - {x: -21.5, y: -6.100006}
+        - {x: 2.5, y: -6.100006}
+        - {x: 21.5, y: 4.899994}
+        - {x: 21.5, y: 23.899994}
+        - {x: 4.5, y: 54.899994}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_12
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 398
+        width: 42
+        height: 62
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19, y: 55.799988}
+        - {x: -21, y: 41.799988}
+        - {x: -21, y: 3.7999878}
+        - {x: -18, y: -6.200012}
+        - {x: 4, y: -6.200012}
+        - {x: 21, y: 1.7999878}
+        - {x: 21, y: 22.799988}
+        - {x: 5, y: 55.799988}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_13
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 398
+        width: 42
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: -6}
+        - {x: 21, y: 3}
+        - {x: 21, y: 31}
+        - {x: 1, y: 54}
+        - {x: -21, y: 54}
+        - {x: -21, y: -6}
+        - {x: -5, y: -6}
+        - {x: -5, y: -4}
+        - {x: -4, y: -6}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_14
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 398
+        width: 46
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19, y: 54}
+        - {x: -23, y: 50}
+        - {x: -23, y: -6}
+        - {x: 23, y: -6}
+        - {x: 23, y: 27}
+        - {x: 4, y: 54}
+      - - {x: 9, y: -5}
+        - {x: 12, y: -4}
+        - {x: 12, y: -1}
+        - {x: 9, y: 0}
+        - {x: 7, y: -2}
+      - - {x: 7, y: 1}
+        - {x: 10, y: 2}
+        - {x: 10, y: 5}
+        - {x: 7, y: 6}
+        - {x: 5, y: 4}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_15
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 398
+        width: 45
+        height: 62
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.5, y: 55.799988}
+        - {x: -22.5, y: 50.799988}
+        - {x: -22.5, y: -6.200012}
+        - {x: 12.5, y: -6.200012}
+        - {x: 22.5, y: 7.799988}
+        - {x: 22.5, y: 36.799988}
+        - {x: -2.5, y: 55.799988}
+      - - {x: 7.5, y: -5.200012}
+        - {x: 10.5, y: -4.200012}
+        - {x: 10.5, y: -1.2000122}
+        - {x: 7.5, y: -0.2000122}
+        - {x: 5.5, y: -2.2000122}
+      - - {x: 5.5, y: 0.7999878}
+        - {x: 8.5, y: 1.7999878}
+        - {x: 8.5, y: 4.799988}
+        - {x: 5.5, y: 5.799988}
+        - {x: 3.5, y: 3.7999878}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_16
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 303
+        width: 45
+        height: 62
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 55.799988}
+        - {x: -18.5, y: 54.799988}
+        - {x: -22.5, y: 46.799988}
+        - {x: -22.5, y: -6.200012}
+        - {x: 14.5, y: -6.200012}
+        - {x: 22.5, y: -3.2000122}
+        - {x: 22.5, y: 34.799988}
+        - {x: 4.5, y: 55.799988}
+      - - {x: 7.5, y: -5.200012}
+        - {x: 10.5, y: -4.200012}
+        - {x: 10.5, y: -1.2000122}
+        - {x: 7.5, y: -0.2000122}
+        - {x: 5.5, y: -2.2000122}
+      - - {x: 5.5, y: 0.7999878}
+        - {x: 8.5, y: 1.7999878}
+        - {x: 8.5, y: 4.799988}
+        - {x: 5.5, y: 5.799988}
+        - {x: 3.5, y: 3.7999878}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_17
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 303
+        width: 45
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22.5, y: 10}
+        - {x: 22.5, y: 25}
+        - {x: 0.5, y: 53}
+        - {x: -1.5, y: 54}
+        - {x: -15.5, y: 54}
+        - {x: -16.5, y: 51}
+        - {x: -22.5, y: 35}
+        - {x: -22.5, y: -6}
+        - {x: -7.5, y: -6}
+        - {x: -7.5, y: -5}
+        - {x: -5.5, y: -6}
+        - {x: 10.5, y: -6}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_18
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 303
+        width: 47
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.5, y: 50.399994}
+        - {x: -23.5, y: 40.399994}
+        - {x: -23.5, y: -5.600006}
+        - {x: 6.5, y: -5.600006}
+        - {x: 23.5, y: 10.399994}
+        - {x: 23.5, y: 21.399994}
+        - {x: -0.5, y: 50.399994}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_19
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 303
+        width: 47
+        height: 52
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -0.5, y: 46.799988}
+        - {x: -23.5, y: 46.799988}
+        - {x: -23.5, y: -5.200012}
+        - {x: 16.5, y: -5.200012}
+        - {x: 23.5, y: -2.2000122}
+        - {x: 23.5, y: 21.799988}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_20
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 302
+        width: 52
+        height: 51
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 45.899994}
+        - {x: -24, y: 25.899994}
+        - {x: -26, y: 8.899994}
+        - {x: -26, y: -5.100006}
+        - {x: 10, y: -5.100006}
+        - {x: 26, y: 11.899994}
+        - {x: 26, y: 22.899994}
+        - {x: 3, y: 45.899994}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_21
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 303
+        width: 45
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22.5, y: -2}
+        - {x: 22.5, y: 30}
+        - {x: 8.5, y: 54}
+        - {x: -20.5, y: 54}
+        - {x: -22.5, y: 41}
+        - {x: -22.5, y: -6}
+        - {x: -9.5, y: -6}
+        - {x: -9.5, y: -4}
+        - {x: -6.5, y: -6}
+        - {x: 17.5, y: -6}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_22
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 302
+        width: 40
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 54}
+        - {x: -20, y: 43}
+        - {x: -20, y: -6}
+        - {x: 14, y: -6}
+        - {x: 20, y: 21}
+        - {x: 20, y: 45}
+        - {x: 1, y: 54}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_23
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 303
+        width: 40
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: -6}
+        - {x: 20, y: 5}
+        - {x: 20, y: 47}
+        - {x: 13, y: 54}
+        - {x: -20, y: 54}
+        - {x: -20, y: -6}
+        - {x: -9, y: -6}
+        - {x: -9, y: -4}
+        - {x: -6, y: 3}
+        - {x: -5, y: -6}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_24
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 208
+        width: 40
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 54}
+        - {x: -19, y: 54}
+        - {x: -20, y: 45}
+        - {x: -20, y: -6}
+        - {x: 14, y: -6}
+        - {x: 20, y: 28}
+        - {x: 20, y: 41}
+        - {x: 16, y: 42}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_25
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 206
+        width: 45
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22.5, y: 8}
+        - {x: 22.5, y: 27}
+        - {x: -0.5, y: 54}
+        - {x: -20.5, y: 54}
+        - {x: -22.5, y: 41}
+        - {x: -22.5, y: -6}
+        - {x: -9.5, y: -6}
+        - {x: -9.5, y: -4}
+        - {x: -6.5, y: -6}
+        - {x: 14.5, y: -6}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_26
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 206
+        width: 45
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22.5, y: -1}
+        - {x: 22.5, y: 32}
+        - {x: 10.5, y: 54}
+        - {x: -17.5, y: 54}
+        - {x: -22.5, y: 46}
+        - {x: -22.5, y: -6}
+        - {x: -9.5, y: -6}
+        - {x: -9.5, y: -4}
+        - {x: -6.5, y: -6}
+        - {x: 16.5, y: -6}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_27
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 206
+        width: 42
+        height: 61
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21, y: 54.899994}
+        - {x: -19, y: 54.899994}
+        - {x: -21, y: 43.899994}
+        - {x: -21, y: -6.100006}
+        - {x: 21, y: -6.100006}
+      - - {x: 7, y: 14.899994}
+        - {x: 10, y: 15.899994}
+        - {x: 10, y: 18.899994}
+        - {x: 7, y: 19.899994}
+        - {x: 5, y: 17.899994}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_28
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 205
+        width: 41
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.5, y: 54}
+        - {x: -20.5, y: 43}
+        - {x: -20.5, y: -6}
+        - {x: 20.5, y: -6}
+        - {x: 20.5, y: 16}
+        - {x: 5.5, y: 54}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_29
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 206
+        width: 37
+        height: 62
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4.5, y: 44.800003}
+        - {x: 0.5, y: 41.800003}
+        - {x: -0.5, y: 38.800003}
+        - {x: 0.5, y: 48.800003}
+        - {x: -1.5, y: 52.800003}
+        - {x: -4.5, y: 55.800003}
+        - {x: -15.5, y: 55.800003}
+        - {x: -18.5, y: 51.800003}
+        - {x: -18.5, y: 11.800003}
+        - {x: -12.5, y: -6.199997}
+        - {x: 11.5, y: -6.199997}
+        - {x: 16.5, y: -4.199997}
+        - {x: 18.5, y: -2.199997}
+        - {x: 18.5, y: 15.800003}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_30
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 205
+        width: 54
+        height: 51
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: 45.899994}
+        - {x: -27, y: 10.899994}
+        - {x: -23, y: 4.899994}
+        - {x: -9, y: -5.100006}
+        - {x: 27, y: -5.100006}
+        - {x: 27, y: 26.899994}
+        - {x: 8, y: 45.899994}
+      - - {x: 9, y: 21.899994}
+        - {x: 12, y: 22.899994}
+        - {x: 12, y: 25.899994}
+        - {x: 9, y: 26.899994}
+        - {x: 7, y: 24.899994}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_31
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 206
+        width: 74
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 32, y: 15.100006}
+        - {x: 28, y: 28.100006}
+        - {x: -28, y: 28.100006}
+        - {x: -37, y: 14.100006}
+        - {x: -37, y: -3.899994}
+        - {x: 32, y: -3.899994}
+        - {x: 37, y: -1.8999939}
+        - {x: 37, y: 6.100006}
+        - {x: 31, y: 7.100006}
+      - - {x: -26, y: 22.100006}
+        - {x: -24, y: 21.100006}
+        - {x: -21, y: 22.100006}
+        - {x: -21, y: 27.100006}
+        - {x: -22, y: 30.100006}
+        - {x: -25, y: 30.100006}
+        - {x: -26, y: 28.100006}
+      - - {x: -18, y: 26.100006}
+        - {x: -15, y: 27.100006}
+        - {x: -15, y: 30.100006}
+        - {x: -18, y: 31.100006}
+        - {x: -20, y: 29.100006}
+      - - {x: -11, y: 31.100006}
+        - {x: -8, y: 32.100006}
+        - {x: -8, y: 35.100006}
+        - {x: -13, y: 35.100006}
+        - {x: -13, y: 33.100006}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_32
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 106
+        width: 74
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_33
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 107
+        width: 74
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_34
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 106
+        width: 74
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_35
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 105
+        width: 74
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_36
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 109
+        width: 48
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 54}
+        - {x: -24, y: 36}
+        - {x: -24, y: -6}
+        - {x: 10, y: -6}
+        - {x: 24, y: 10}
+        - {x: 24, y: 25}
+        - {x: 1, y: 54}
+      - - {x: 20, y: 10}
+        - {x: 23, y: 11}
+        - {x: 23, y: 14}
+        - {x: 20, y: 15}
+        - {x: 18, y: 13}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_37
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 109
+        width: 49
+        height: 59
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16.5, y: 53.1}
+        - {x: -20.5, y: 53.1}
+        - {x: -24.5, y: 49.1}
+        - {x: -24.5, y: -5.9000015}
+        - {x: 7.5, y: -5.9000015}
+        - {x: 24.5, y: 28.099998}
+        - {x: 24.5, y: 48.1}
+      - - {x: 19.5, y: 10.099998}
+        - {x: 22.5, y: 11.099998}
+        - {x: 22.5, y: 14.099998}
+        - {x: 19.5, y: 15.099998}
+        - {x: 17.5, y: 13.099998}
+      - - {x: -3.5, y: 23.099998}
+        - {x: -4.5, y: 22.099998}
+        - {x: -4.5, y: 18.099998}
+        - {x: -1.5, y: 15.099998}
+        - {x: 2.5, y: 15.099998}
+        - {x: 4.5, y: 16.099998}
+        - {x: 4.5, y: 19.099998}
+        - {x: 2.5, y: 22.099998}
+        - {x: -1.5, y: 23.099998}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_38
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 109
+        width: 49
+        height: 58
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.5, y: 52.199997}
+        - {x: -24.5, y: 41.199997}
+        - {x: -24.5, y: -5.800003}
+        - {x: 14.5, y: -5.800003}
+        - {x: 24.5, y: 4.199997}
+        - {x: 24.5, y: 44.199997}
+        - {x: 1.5, y: 52.199997}
+      - - {x: 19.5, y: 10.199997}
+        - {x: 22.5, y: 11.199997}
+        - {x: 22.5, y: 14.199997}
+        - {x: 19.5, y: 15.199997}
+        - {x: 17.5, y: 13.199997}
+      - - {x: -3.5, y: 23.199997}
+        - {x: -4.5, y: 22.199997}
+        - {x: -4.5, y: 18.199997}
+        - {x: -1.5, y: 15.199997}
+        - {x: 2.5, y: 15.199997}
+        - {x: 4.5, y: 16.199997}
+        - {x: 4.5, y: 19.199997}
+        - {x: 2.5, y: 22.199997}
+        - {x: -1.5, y: 23.199997}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_39
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 109
+        width: 74
+        height: 69
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 62.1}
+        - {x: -37, y: 46.1}
+        - {x: -37, y: -6.9000015}
+        - {x: 9, y: -6.9000015}
+        - {x: 22, y: -4.9000015}
+        - {x: 37, y: 16.099998}
+        - {x: 37, y: 60.1}
+        - {x: 31, y: 62.1}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_40
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 15
+        width: 56
+        height: 58
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 52.2}
+        - {x: -22, y: 52.2}
+        - {x: -28, y: 41.2}
+        - {x: -28, y: -5.799999}
+        - {x: 15, y: -5.799999}
+        - {x: 28, y: 5.200001}
+        - {x: 28, y: 41.2}
+        - {x: 25, y: 44.2}
+      - - {x: 16, y: 10.200001}
+        - {x: 19, y: 11.200001}
+        - {x: 19, y: 14.200001}
+        - {x: 16, y: 15.200001}
+        - {x: 14, y: 13.200001}
+      - - {x: -7, y: 23.2}
+        - {x: -8, y: 22.2}
+        - {x: -8, y: 18.2}
+        - {x: -5, y: 15.200001}
+        - {x: -1, y: 15.200001}
+        - {x: 1, y: 16.2}
+        - {x: 1, y: 19.2}
+        - {x: -1, y: 22.2}
+        - {x: -5, y: 23.2}
+      - - {x: 22, y: 43.2}
+        - {x: 25, y: 44.2}
+        - {x: 25, y: 47.2}
+        - {x: 22, y: 48.2}
+        - {x: 20, y: 46.2}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_41
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 14
+        width: 74
+        height: 69
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 11.1}
+        - {x: -18, y: 19.1}
+        - {x: -17, y: 20.1}
+        - {x: -17, y: 19.1}
+        - {x: -15, y: 16.1}
+        - {x: -5, y: 8.1}
+        - {x: 17, y: 0.10000038}
+        - {x: 37, y: 17.1}
+        - {x: 37, y: 52.1}
+        - {x: 29, y: 62.1}
+        - {x: -7, y: 62.1}
+        - {x: -27, y: 56.1}
+        - {x: -36, y: 41.1}
+        - {x: -37, y: 39.1}
+        - {x: -37, y: -6.8999996}
+        - {x: -6, y: -6.8999996}
+        - {x: -8, y: -1.8999996}
+        - {x: -10, y: 6.1000004}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_42
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 15
+        width: 53
+        height: 58
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22.5, y: 52.2}
+        - {x: -26.5, y: 50.2}
+        - {x: -26.5, y: -5.799999}
+        - {x: 15.5, y: -5.799999}
+        - {x: 26.5, y: 3.2000008}
+        - {x: 26.5, y: 46.2}
+        - {x: 14.5, y: 52.2}
+      - - {x: 17.5, y: 10.200001}
+        - {x: 20.5, y: 11.200001}
+        - {x: 20.5, y: 14.200001}
+        - {x: 17.5, y: 15.200001}
+        - {x: 15.5, y: 13.200001}
+      - - {x: -5.5, y: 23.2}
+        - {x: -6.5, y: 22.2}
+        - {x: -6.5, y: 18.2}
+        - {x: -3.5, y: 15.200001}
+        - {x: 0.5, y: 15.200001}
+        - {x: 2.5, y: 16.2}
+        - {x: 2.5, y: 19.2}
+        - {x: 0.5, y: 22.2}
+        - {x: -3.5, y: 23.2}
+      - - {x: 16.5, y: 42.2}
+        - {x: 19.5, y: 43.2}
+        - {x: 19.5, y: 46.2}
+        - {x: 16.5, y: 47.2}
+        - {x: 14.5, y: 45.2}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_43
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 52
+        width: 9
+        height: 13
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_44
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 15
+        width: 74
+        height: 69
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 20.1}
+        - {x: -17, y: 19.1}
+        - {x: -15, y: 17.1}
+        - {x: -5, y: 8.1}
+        - {x: 17, y: 0.10000038}
+        - {x: 37, y: 17.1}
+        - {x: 37, y: 60.1}
+        - {x: 32, y: 62.1}
+        - {x: -18, y: 62.1}
+        - {x: -37, y: 46.1}
+        - {x: -37, y: -6.8999996}
+        - {x: -4, y: -6.8999996}
+        - {x: -5, y: 8.1}
+        - {x: -15, y: 17.1}
+        - {x: -18, y: 19.1}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_45
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 12
+        width: 57
+        height: 58
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.5, y: 52.2}
+        - {x: -28.5, y: 41.2}
+        - {x: -28.5, y: -5.799999}
+        - {x: 11.5, y: -5.799999}
+        - {x: 28.5, y: 18.2}
+        - {x: 28.5, y: 48.2}
+        - {x: 7.5, y: 52.2}
+      - - {x: 15.5, y: 10.200001}
+        - {x: 18.5, y: 11.200001}
+        - {x: 18.5, y: 14.200001}
+        - {x: 15.5, y: 15.200001}
+        - {x: 13.5, y: 13.200001}
+      - - {x: -7.5, y: 23.2}
+        - {x: -8.5, y: 22.2}
+        - {x: -8.5, y: 18.2}
+        - {x: -5.5, y: 15.200001}
+        - {x: -1.5, y: 15.200001}
+        - {x: 0.5, y: 16.2}
+        - {x: 0.5, y: 19.2}
+        - {x: -1.5, y: 22.2}
+        - {x: -5.5, y: 23.2}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_46
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 15
+        width: 53
+        height: 59
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25.5, y: 53.1}
+        - {x: -26.5, y: 47.1}
+        - {x: -26.5, y: -5.8999996}
+        - {x: 4.5, y: -5.8999996}
+        - {x: 5.5, y: -1.8999996}
+        - {x: 26.5, y: 29.1}
+        - {x: 26.5, y: 53.1}
+      - - {x: 17.5, y: 10.1}
+        - {x: 20.5, y: 11.1}
+        - {x: 20.5, y: 14.1}
+        - {x: 17.5, y: 15.1}
+        - {x: 15.5, y: 13.1}
+      - - {x: -5.5, y: 23.1}
+        - {x: -6.5, y: 22.1}
+        - {x: -6.5, y: 18.1}
+        - {x: -3.5, y: 15.1}
+        - {x: 0.5, y: 15.1}
+        - {x: 2.5, y: 16.1}
+        - {x: 2.5, y: 19.1}
+        - {x: 0.5, y: 22.1}
+        - {x: -3.5, y: 23.1}
+    - name: soldier_idle_walking_crouch_hit_dodge_die_shoot_47
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 12
+        width: 51
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.5, y: 54}
+        - {x: -25.5, y: 36}
+        - {x: -25.5, y: -6}
+        - {x: 8.5, y: -6}
+        - {x: 25.5, y: 13}
+        - {x: 25.5, y: 43}
+        - {x: 20.5, y: 54}
+      - - {x: 18.5, y: 10}
+        - {x: 21.5, y: 11}
+        - {x: 21.5, y: 14}
+        - {x: 18.5, y: 15}
+        - {x: 16.5, y: 13}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
