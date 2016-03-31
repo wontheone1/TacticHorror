@@ -167,11 +167,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 10640776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
   m_LocalPosition: {x: -15.398109, y: 5.663551, z: 0}
-=======
-  m_LocalPosition: {x: -11.849771, y: -4.219401, z: 0}
->>>>>>> JumpBugFix
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1846494347}
@@ -179,13 +175,8 @@ Transform:
   - {fileID: 4919635}
   - {fileID: 1841642557}
   - {fileID: 243261009}
-<<<<<<< HEAD
   m_Father: {fileID: 1652809915}
   m_RootOrder: 1
-=======
-  m_Father: {fileID: 0}
-  m_RootOrder: 73
->>>>>>> JumpBugFix
 --- !u!1 &15147629
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +396,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 303143373}
     m_Modifications:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
@@ -415,17 +405,6 @@ Prefab:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.8828611
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 27.447193
-      objectReference: {fileID: 0}
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -12.765813
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -449,11 +428,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 2
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 127846, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_Name
@@ -462,13 +437,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &47620025 stripped
 Transform:
   m_PrefabParentObject: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_PrefabInternal: {fileID: 47620024}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &52758661
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +501,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-<<<<<<< HEAD
 --- !u!1 &62543386
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,8 +530,6 @@ Transform:
   - {fileID: 492621947}
   m_Father: {fileID: 0}
   m_RootOrder: 9
-=======
->>>>>>> JumpBugFix
 --- !u!1 &64401239
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +595,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1220168846}
     m_Modifications:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -636,17 +604,6 @@ Prefab:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.8791876
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 31.920084
-      objectReference: {fileID: 0}
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -12.762139
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.z
@@ -679,13 +636,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &66224112 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_PrefabInternal: {fileID: 66224111}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &77295435
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,7 +705,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1952692562}
     m_Modifications:
     - target: {fileID: 405414, guid: 7440d83d99fcc86489a926402b045d36, type: 2}
@@ -761,17 +714,6 @@ Prefab:
     - target: {fileID: 405414, guid: 7440d83d99fcc86489a926402b045d36, type: 2}
       propertyPath: m_LocalPosition.y
       value: -7.0597553
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 405414, guid: 7440d83d99fcc86489a926402b045d36, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 28.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 405414, guid: 7440d83d99fcc86489a926402b045d36, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -16.942707
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 405414, guid: 7440d83d99fcc86489a926402b045d36, type: 2}
       propertyPath: m_LocalPosition.z
@@ -795,11 +737,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 405414, guid: 7440d83d99fcc86489a926402b045d36, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 3
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 405414, guid: 7440d83d99fcc86489a926402b045d36, type: 2}
       propertyPath: m_LocalScale.x
@@ -808,19 +746,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7440d83d99fcc86489a926402b045d36, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &81483272 stripped
 Transform:
   m_PrefabParentObject: {fileID: 405414, guid: 7440d83d99fcc86489a926402b045d36, type: 2}
   m_PrefabInternal: {fileID: 81483271}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &100208460
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 224064892}
     m_Modifications:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
@@ -830,17 +764,6 @@ Prefab:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 7.657243
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -7.4795256
-      objectReference: {fileID: 0}
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -2.225709
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -864,11 +787,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 6
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 112814, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_Name
@@ -877,13 +796,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &100208461 stripped
 Transform:
   m_PrefabParentObject: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_PrefabInternal: {fileID: 100208460}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &116853878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,7 +983,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1952692562}
     m_Modifications:
     - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
@@ -1077,17 +992,6 @@ Prefab:
     - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
       propertyPath: m_LocalPosition.y
       value: -7.063978
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -7.1409774
-      objectReference: {fileID: 0}
-    - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -16.94693
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1111,11 +1015,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 2
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 182504, guid: 5391add57b806804d86353285794619b, type: 2}
       propertyPath: m_Name
@@ -1124,13 +1024,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5391add57b806804d86353285794619b, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &131007505 stripped
 Transform:
   m_PrefabParentObject: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
   m_PrefabInternal: {fileID: 131007504}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &145789380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,7 +1093,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1687846065}
     m_Modifications:
     - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
@@ -1206,17 +1102,6 @@ Prefab:
     - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
       propertyPath: m_LocalPosition.y
       value: 5.168756
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 29.126093
-      objectReference: {fileID: 0}
-    - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -4.7141957
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1240,11 +1125,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 2
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 189138, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
       propertyPath: m_Name
@@ -1253,19 +1134,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &146342989 stripped
 Transform:
   m_PrefabParentObject: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
   m_PrefabInternal: {fileID: 146342988}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &151583230
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1220168846}
     m_Modifications:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -1275,17 +1152,6 @@ Prefab:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.y
       value: 5.1723824
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -12.796333
-      objectReference: {fileID: 0}
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -4.7105694
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1309,28 +1175,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 13
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &151583231 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_PrefabInternal: {fileID: 151583230}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &158014412
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1220168846}
     m_Modifications:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -1340,17 +1198,6 @@ Prefab:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.y
       value: 1.2238827
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -22.325542
-      objectReference: {fileID: 0}
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -8.659069
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1374,11 +1221,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 3
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 140992, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_Name
@@ -1387,19 +1230,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &158014413 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_PrefabInternal: {fileID: 158014412}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &168214751
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 303143373}
     m_Modifications:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
@@ -1409,17 +1248,6 @@ Prefab:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 5.1819515
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -10.751
-      objectReference: {fileID: 0}
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -4.701
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1443,22 +1271,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 0
-=======
-      value: 17
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &168214752 stripped
 Transform:
   m_PrefabParentObject: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_PrefabInternal: {fileID: 168214751}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &203013984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,7 +1312,6 @@ RectTransform:
   m_AnchoredPosition: {x: 39.7, y: -24.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
 --- !u!1 &224064891
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,8 +1349,6 @@ Transform:
   - {fileID: 455284181}
   m_Father: {fileID: 0}
   m_RootOrder: 7
-=======
->>>>>>> JumpBugFix
 --- !u!1 &238541202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,7 +1570,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00971e74c5384e74eafd0eadede046c0, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!1 &303143372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1796,14 +1613,11 @@ Transform:
   - {fileID: 2076588450}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &319652167
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 303143373}
     m_Modifications:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
@@ -1813,17 +1627,6 @@ Prefab:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 5.1723824
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -27.728949
-      objectReference: {fileID: 0}
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -4.7105694
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1847,11 +1650,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 13
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 127846, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_Name
@@ -1860,13 +1659,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &319652168 stripped
 Transform:
   m_PrefabParentObject: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_PrefabInternal: {fileID: 319652167}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &322147370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,7 +1787,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 224064892}
     m_Modifications:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
@@ -2001,17 +1796,6 @@ Prefab:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 3.6245618
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -26.900238
-      objectReference: {fileID: 0}
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -6.25839
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2035,11 +1819,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 5
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 112814, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_Name
@@ -2048,19 +1828,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &361355739 stripped
 Transform:
   m_PrefabParentObject: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_PrefabInternal: {fileID: 361355738}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &375247938
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 901901504}
     m_Modifications:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
@@ -2070,17 +1846,6 @@ Prefab:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.y
       value: 13.178817
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 8.839508
-      objectReference: {fileID: 0}
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.2958653
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2104,11 +1869,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 10
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 180512, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_Name
@@ -2117,19 +1878,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &375247939 stripped
 Transform:
   m_PrefabParentObject: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_PrefabInternal: {fileID: 375247938}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &395018814
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 901901504}
     m_Modifications:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
@@ -2139,17 +1896,6 @@ Prefab:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.y
       value: 1.4111938
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -21.646807
-      objectReference: {fileID: 0}
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -8.471758
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2173,11 +1919,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 9
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 180512, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_Name
@@ -2186,13 +1928,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &395018815 stripped
 Transform:
   m_PrefabParentObject: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_PrefabInternal: {fileID: 395018814}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &395852870
 GameObject:
   m_ObjectHideFlags: 0
@@ -2437,19 +2176,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 425148, guid: e7bc3e94b8c7ce241a12bc15997af496, type: 2}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 425148, guid: e7bc3e94b8c7ce241a12bc15997af496, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
-=======
-      value: -0.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 425148, guid: e7bc3e94b8c7ce241a12bc15997af496, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.01
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 425148, guid: e7bc3e94b8c7ce241a12bc15997af496, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2473,11 +2204,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425148, guid: e7bc3e94b8c7ce241a12bc15997af496, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 13
-=======
-      value: 64
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 109354, guid: e7bc3e94b8c7ce241a12bc15997af496, type: 2}
       propertyPath: m_IsActive
@@ -2491,7 +2218,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 901901504}
     m_Modifications:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
@@ -2501,17 +2227,6 @@ Prefab:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.762228
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.2418306
-      objectReference: {fileID: 0}
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -12.64518
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2535,11 +2250,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 8
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 180512, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_Name
@@ -2548,19 +2259,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &446601357 stripped
 Transform:
   m_PrefabParentObject: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_PrefabInternal: {fileID: 446601356}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &448859598
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1687846065}
     m_Modifications:
     - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
@@ -2570,17 +2277,6 @@ Prefab:
     - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
       propertyPath: m_LocalPosition.y
       value: 1.2363968
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -24.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -8.646555
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2604,11 +2300,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 3
-=======
-      value: 6
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
       propertyPath: m_LocalScale.x
@@ -2617,19 +2309,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &448859599 stripped
 Transform:
   m_PrefabParentObject: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
   m_PrefabInternal: {fileID: 448859598}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &455284180
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 224064892}
     m_Modifications:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
@@ -2639,17 +2327,6 @@ Prefab:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 11.519394
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -16.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.6364425
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2673,11 +2350,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 9
-=======
-      value: 25
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 112814, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_Name
@@ -2686,19 +2359,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &455284181 stripped
 Transform:
   m_PrefabParentObject: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_PrefabInternal: {fileID: 455284180}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &465554100
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 901901504}
     m_Modifications:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
@@ -2708,17 +2377,6 @@ Prefab:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.y
       value: 5.3748403
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 20.073298
-      objectReference: {fileID: 0}
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -4.5081115
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2742,11 +2400,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 7
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 180512, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_Name
@@ -2755,13 +2409,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &465554101 stripped
 Transform:
   m_PrefabParentObject: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_PrefabInternal: {fileID: 465554100}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &468869857
 GameObject:
   m_ObjectHideFlags: 0
@@ -2886,7 +2537,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1220168846}
     m_Modifications:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -2896,17 +2546,6 @@ Prefab:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.y
       value: 1.199419
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 30.080824
-      objectReference: {fileID: 0}
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -8.683533
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2930,17 +2569,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 0
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 140992, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_Name
       value: middleFloor_end_right (13)
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 180280, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_Layer
       value: 9
@@ -2952,11 +2586,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_PrefabInternal: {fileID: 484903488}
-=======
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-  m_IsPrefabParent: 0
->>>>>>> JumpBugFix
 --- !u!1 &487067359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3039,23 +2668,14 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 492621946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
   m_LocalPosition: {x: 14.001618, y: 21.357014, z: -0.0625}
-=======
-  m_LocalPosition: {x: 17.549957, y: 11.474061, z: -0.0625}
->>>>>>> JumpBugFix
   m_LocalScale: {x: 90.277336, y: 40, z: 1}
   m_Children:
   - {fileID: 593645487}
   - {fileID: 1993670067}
   - {fileID: 873032500}
-<<<<<<< HEAD
   m_Father: {fileID: 62543387}
   m_RootOrder: 1
-=======
-  m_Father: {fileID: 0}
-  m_RootOrder: 69
->>>>>>> JumpBugFix
 --- !u!1 &505179385
 GameObject:
   m_ObjectHideFlags: 0
@@ -3121,7 +2741,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1220168846}
     m_Modifications:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -3131,17 +2750,6 @@ Prefab:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.y
       value: 9.107831
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 24.279787
-      objectReference: {fileID: 0}
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.7751206
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3165,11 +2773,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 2
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 140992, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_Name
@@ -3178,13 +2782,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &507931233 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_PrefabInternal: {fileID: 507931232}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &517643195
 Prefab:
   m_ObjectHideFlags: 0
@@ -3451,7 +3052,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 901901504}
     m_Modifications:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
@@ -3461,17 +3061,6 @@ Prefab:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.y
       value: 5.421594
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -11.800154
-      objectReference: {fileID: 0}
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -4.4613576
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3495,11 +3084,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 6
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 180512, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_Name
@@ -3508,13 +3093,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &556797310 stripped
 Transform:
   m_PrefabParentObject: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_PrefabInternal: {fileID: 556797309}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &569198189
 GameObject:
   m_ObjectHideFlags: 0
@@ -3544,15 +3126,9 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
   m_AnchoredPosition: {x: -29.98624, y: -30.420795}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.42860335, y: 0.5533039}
-=======
-  m_AnchoredPosition: {x: -16, y: -51.4}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.56846553, y: 0.34351316}
->>>>>>> JumpBugFix
 --- !u!1 &593645486
 GameObject:
   m_ObjectHideFlags: 0
@@ -3635,11 +3211,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 616384057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
   m_LocalPosition: {x: -15.341733, y: -2.4052038, z: 0}
-=======
-  m_LocalPosition: {x: -11.793394, y: -12.288156, z: 0}
->>>>>>> JumpBugFix
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1600281774}
@@ -3647,13 +3219,8 @@ Transform:
   - {fileID: 836082498}
   - {fileID: 145789381}
   - {fileID: 1830606863}
-<<<<<<< HEAD
   m_Father: {fileID: 1652809915}
   m_RootOrder: 4
-=======
-  m_Father: {fileID: 0}
-  m_RootOrder: 76
->>>>>>> JumpBugFix
 --- !u!1 &623376087
 GameObject:
   m_ObjectHideFlags: 0
@@ -3757,7 +3324,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1220168846}
     m_Modifications:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -3767,17 +3333,6 @@ Prefab:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.9125175
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 25.91
-      objectReference: {fileID: 0}
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -12.795469
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3801,11 +3356,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 14
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 140992, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_Name
@@ -3814,13 +3365,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &673819025 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_PrefabInternal: {fileID: 673819024}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &678938043
 GameObject:
   m_ObjectHideFlags: 0
@@ -4214,7 +3762,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 303143373}
     m_Modifications:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
@@ -4224,17 +3771,6 @@ Prefab:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 9.094876
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -23.696203
-      objectReference: {fileID: 0}
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.7880757
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4258,11 +3794,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 9
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 127846, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_Name
@@ -4271,13 +3803,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &801112948 stripped
 Transform:
   m_PrefabParentObject: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_PrefabInternal: {fileID: 801112947}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &803894542
 GameObject:
   m_ObjectHideFlags: 0
@@ -4462,7 +3991,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1220168846}
     m_Modifications:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -4472,17 +4000,6 @@ Prefab:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.y
       value: 12.996264
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 7.534345
-      objectReference: {fileID: 0}
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.113313
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4506,11 +4023,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 4
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 140992, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_Name
@@ -4519,19 +4032,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &855150716 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_PrefabInternal: {fileID: 855150715}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &860419397
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1220168846}
     m_Modifications:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -4541,17 +4050,6 @@ Prefab:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.y
       value: 13.008508
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -24.189829
-      objectReference: {fileID: 0}
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.1255562
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4575,11 +4073,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 6
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 140992, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_Name
@@ -4588,13 +4082,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &860419398 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_PrefabInternal: {fileID: 860419397}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &863376810
 GameObject:
   m_ObjectHideFlags: 0
@@ -4663,7 +4154,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1220168846}
     m_Modifications:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -4673,17 +4163,6 @@ Prefab:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.8770485
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -12.76
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4707,11 +4186,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 5
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 140992, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_Name
@@ -4720,13 +4195,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &874139987 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_PrefabInternal: {fileID: 874139986}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &887401009
 GameObject:
   m_ObjectHideFlags: 0
@@ -4806,7 +4278,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1220168846}
     m_Modifications:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -4816,17 +4287,6 @@ Prefab:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.8981142
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -8.394808
-      objectReference: {fileID: 0}
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -12.781066
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4850,11 +4310,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 7
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 140992, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_Name
@@ -4863,19 +4319,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &887960492 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_PrefabInternal: {fileID: 887960491}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &894903681
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 303143373}
     m_Modifications:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
@@ -4885,17 +4337,6 @@ Prefab:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 1.223877
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -27.67575
-      objectReference: {fileID: 0}
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -8.659075
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4919,11 +4360,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 7
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 127846, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_Name
@@ -4932,13 +4369,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &894903682 stripped
 Transform:
   m_PrefabParentObject: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_PrefabInternal: {fileID: 894903681}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &898832941
 GameObject:
   m_ObjectHideFlags: 0
@@ -4961,11 +4395,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 898832941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
   m_LocalPosition: {x: 14.65615, y: -2.4134502, z: 0}
-=======
-  m_LocalPosition: {x: 18.204489, y: -12.296402, z: 0}
->>>>>>> JumpBugFix
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1393836158}
@@ -4973,7 +4403,6 @@ Transform:
   - {fileID: 487067360}
   - {fileID: 33902765}
   - {fileID: 1895444380}
-<<<<<<< HEAD
   m_Father: {fileID: 1652809915}
   m_RootOrder: 3
 --- !u!1 &901901503
@@ -5015,10 +4444,6 @@ Transform:
   - {fileID: 1334098736}
   m_Father: {fileID: 0}
   m_RootOrder: 5
-=======
-  m_Father: {fileID: 0}
-  m_RootOrder: 75
->>>>>>> JumpBugFix
 --- !u!1 &906002461
 GameObject:
   m_ObjectHideFlags: 0
@@ -5083,7 +4508,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1687846065}
     m_Modifications:
     - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
@@ -5093,17 +4517,6 @@ Prefab:
     - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.8944416
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 29.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -12.777393
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5127,11 +4540,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 0
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 189138, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
       propertyPath: m_Name
@@ -5144,13 +4553,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &914314276 stripped
 Transform:
   m_PrefabParentObject: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
   m_PrefabInternal: {fileID: 914314275}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &915804811
 GameObject:
   m_ObjectHideFlags: 0
@@ -5290,7 +4696,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 224064892}
     m_Modifications:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
@@ -5300,17 +4705,6 @@ Prefab:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.y
       value: -4.4141665
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 10.6368475
-      objectReference: {fileID: 0}
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -14.297118
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5334,11 +4728,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 4
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 112814, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_Name
@@ -5347,19 +4737,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &933819849 stripped
 Transform:
   m_PrefabParentObject: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_PrefabInternal: {fileID: 933819848}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &941257220
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 303143373}
     m_Modifications:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
@@ -5369,17 +4755,6 @@ Prefab:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.881299
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -27.709402
-      objectReference: {fileID: 0}
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -12.764251
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5403,11 +4778,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 14
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 127846, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_Name
@@ -5416,13 +4787,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &941257221 stripped
 Transform:
   m_PrefabParentObject: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_PrefabInternal: {fileID: 941257220}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &947970028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5488,7 +4856,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1220168846}
     m_Modifications:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -5498,17 +4865,6 @@ Prefab:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.y
       value: 9.137014
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -25.346642
-      objectReference: {fileID: 0}
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.7459376
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5532,11 +4888,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 12
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 140992, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_Name
@@ -5545,13 +4897,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &950781643 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_PrefabInternal: {fileID: 950781642}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &964417407
 Prefab:
   m_ObjectHideFlags: 0
@@ -5589,11 +4938,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 426956, guid: 171018919c259ff46bab1dc9b521a7a8, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 13
-=======
-      value: 17
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 21277428, guid: 171018919c259ff46bab1dc9b521a7a8, type: 2}
       propertyPath: m_Enabled
@@ -5643,7 +4988,6 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -6.03
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 9595960, guid: 171018919c259ff46bab1dc9b521a7a8, type: 2}
       propertyPath: m_Controller
       value: 
@@ -5680,8 +5024,6 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 788e0d1ffc4c98541b56e27e1b287db6,
         type: 3}
-=======
->>>>>>> JumpBugFix
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 171018919c259ff46bab1dc9b521a7a8, type: 2}
   m_IsPrefabParent: 0
@@ -6002,7 +5344,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 303143373}
     m_Modifications:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
@@ -6012,17 +5353,6 @@ Prefab:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 13.020743
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -3.6523368
-      objectReference: {fileID: 0}
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.1377914
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6046,11 +5376,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 8
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 127846, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_Name
@@ -6059,19 +5385,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1055497078 stripped
 Transform:
   m_PrefabParentObject: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_PrefabInternal: {fileID: 1055497077}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &1056633068
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 224064892}
     m_Modifications:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
@@ -6081,17 +5403,6 @@ Prefab:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.y
       value: -4.407048
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 3.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -14.29
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6115,11 +5426,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 7
-=======
-      value: 4
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 112814, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_Name
@@ -6128,13 +5435,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1056633069 stripped
 Transform:
   m_PrefabParentObject: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_PrefabInternal: {fileID: 1056633068}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1063566403
 GameObject:
   m_ObjectHideFlags: 0
@@ -6558,11 +5862,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422100, guid: a7e896dfd04a42d4bb849dd191a7b4a1, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 12
-=======
-      value: 15
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 21221830, guid: a7e896dfd04a42d4bb849dd191a7b4a1, type: 2}
       propertyPath: m_Enabled
@@ -6620,7 +5920,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1220168846}
     m_Modifications:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -6630,17 +5929,6 @@ Prefab:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.y
       value: 13.008505
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -5.5127063
-      objectReference: {fileID: 0}
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.1255534
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6664,11 +5952,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 10
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 140992, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_Name
@@ -6677,13 +5961,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1181660975 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_PrefabInternal: {fileID: 1181660974}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1181916093
 GameObject:
   m_ObjectHideFlags: 0
@@ -6914,7 +6195,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 303143373}
     m_Modifications:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
@@ -6924,17 +6204,6 @@ Prefab:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 13.020743
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 9.749649
-      objectReference: {fileID: 0}
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.1377914
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6958,11 +6227,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 6
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 127846, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_Name
@@ -6971,19 +6236,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1196622722 stripped
 Transform:
   m_PrefabParentObject: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_PrefabInternal: {fileID: 1196622721}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &1197659158
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 303143373}
     m_Modifications:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
@@ -6993,17 +6254,6 @@ Prefab:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 1.2575321
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -20.710388
-      objectReference: {fileID: 0}
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -8.62542
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7027,11 +6277,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 10
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 127846, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_Name
@@ -7040,13 +6286,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1197659159 stripped
 Transform:
   m_PrefabParentObject: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_PrefabInternal: {fileID: 1197659158}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1198989947
 GameObject:
   m_ObjectHideFlags: 0
@@ -7107,11 +6350,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 2
-=======
-  m_RootOrder: 77
->>>>>>> JumpBugFix
 --- !u!1 &1204842766
 GameObject:
   m_ObjectHideFlags: 0
@@ -7236,7 +6475,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 224064892}
     m_Modifications:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
@@ -7246,17 +6484,6 @@ Prefab:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.y
       value: -0.4758854
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 20.998207
-      objectReference: {fileID: 0}
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -10.358837
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7280,11 +6507,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 3
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 112814, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_Name
@@ -7293,7 +6516,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1206319321 stripped
 Transform:
   m_PrefabParentObject: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
@@ -7341,8 +6563,6 @@ Transform:
   - {fileID: 1919613776}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1226761951
 GameObject:
   m_ObjectHideFlags: 0
@@ -7585,7 +6805,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 303143373}
     m_Modifications:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
@@ -7595,17 +6814,6 @@ Prefab:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 5.1609354
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 21.165094
-      objectReference: {fileID: 0}
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -4.7220163
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7629,11 +6837,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 12
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 127846, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_Name
@@ -7642,19 +6846,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1306219774 stripped
 Transform:
   m_PrefabParentObject: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_PrefabInternal: {fileID: 1306219773}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &1323298054
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1220168846}
     m_Modifications:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -7664,17 +6864,6 @@ Prefab:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.y
       value: 5.1744156
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 19.07571
-      objectReference: {fileID: 0}
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -4.708536
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7698,11 +6887,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 11
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 140992, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_Name
@@ -7711,13 +6896,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1323298055 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_PrefabInternal: {fileID: 1323298054}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1324329848
 GameObject:
   m_ObjectHideFlags: 0
@@ -7782,7 +6964,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 901901504}
     m_Modifications:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
@@ -7792,17 +6973,6 @@ Prefab:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.6062737
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 26.656193
-      objectReference: {fileID: 0}
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -12.489225
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7826,11 +6996,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 11
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 180512, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_Name
@@ -7839,13 +7005,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1334098736 stripped
 Transform:
   m_PrefabParentObject: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_PrefabInternal: {fileID: 1334098735}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1336483524
 GameObject:
   m_ObjectHideFlags: 0
@@ -8028,7 +7191,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1687846065}
     m_Modifications:
     - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
@@ -8038,17 +7200,6 @@ Prefab:
     - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
       propertyPath: m_LocalPosition.y
       value: 9.147871
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -27.758532
-      objectReference: {fileID: 0}
-    - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.73508024
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8081,19 +7232,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1349398928 stripped
 Transform:
   m_PrefabParentObject: {fileID: 463714, guid: e15fd0da779fbf4459cfd4974a70ac94, type: 2}
   m_PrefabInternal: {fileID: 1349398927}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &1375438239
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 224064892}
     m_Modifications:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
@@ -8103,17 +7250,6 @@ Prefab:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.y
       value: -4.3920355
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -19.18153
-      objectReference: {fileID: 0}
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -14.274987
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8137,28 +7273,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 2
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1375438240 stripped
 Transform:
   m_PrefabParentObject: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_PrefabInternal: {fileID: 1375438239}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &1390750576
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 224064892}
     m_Modifications:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
@@ -8168,17 +7296,6 @@ Prefab:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.y
       value: -0.28704834
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -3.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -10.17
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8211,13 +7328,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1390750577 stripped
 Transform:
   m_PrefabParentObject: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_PrefabInternal: {fileID: 1390750576}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1393836157
 GameObject:
   m_ObjectHideFlags: 0
@@ -8288,7 +7402,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1952692562}
     m_Modifications:
     - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
@@ -8298,17 +7411,6 @@ Prefab:
     - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
       propertyPath: m_LocalPosition.y
       value: -7.063965
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 10.892065
-      objectReference: {fileID: 0}
-    - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -16.946917
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8341,7 +7443,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5391add57b806804d86353285794619b, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1438984664 stripped
 Transform:
   m_PrefabParentObject: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
@@ -8361,14 +7462,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222f5c15d3b8fa7439d6d34380ef5553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &1452019762
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 901901504}
     m_Modifications:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
@@ -8378,17 +7476,6 @@ Prefab:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.y
       value: 5.5123715
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 20.023535
-      objectReference: {fileID: 0}
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -4.37058
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8412,28 +7499,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 5
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1452019763 stripped
 Transform:
   m_PrefabParentObject: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_PrefabInternal: {fileID: 1452019762}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &1464891388
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 901901504}
     m_Modifications:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
@@ -8443,17 +7522,6 @@ Prefab:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.6970186
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -7.3984632
-      objectReference: {fileID: 0}
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -12.57997
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8477,11 +7545,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 4
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 180512, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_Name
@@ -8490,13 +7554,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1464891389 stripped
 Transform:
   m_PrefabParentObject: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_PrefabInternal: {fileID: 1464891388}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1489677592
 GameObject:
   m_ObjectHideFlags: 0
@@ -8681,7 +7742,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 901901504}
     m_Modifications:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
@@ -8691,17 +7751,6 @@ Prefab:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.y
       value: 13.196279
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -23.224216
-      objectReference: {fileID: 0}
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.313327
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8725,11 +7774,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 3
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 180512, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_Name
@@ -8738,13 +7783,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1599248905 stripped
 Transform:
   m_PrefabParentObject: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_PrefabInternal: {fileID: 1599248904}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1600281773
 GameObject:
   m_ObjectHideFlags: 0
@@ -8810,7 +7852,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 901901504}
     m_Modifications:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
@@ -8820,17 +7861,6 @@ Prefab:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.y
       value: 9.331865
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 25.179684
-      objectReference: {fileID: 0}
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.55108607
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8854,11 +7884,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 2
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 180512, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_Name
@@ -8867,19 +7893,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1609511550 stripped
 Transform:
   m_PrefabParentObject: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_PrefabInternal: {fileID: 1609511549}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &1610325895
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 303143373}
     m_Modifications:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
@@ -8889,17 +7911,6 @@ Prefab:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.8812847
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 2.3056102
-      objectReference: {fileID: 0}
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -12.764236
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8923,11 +7934,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 5
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 127846, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_Name
@@ -8936,19 +7943,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1610325896 stripped
 Transform:
   m_PrefabParentObject: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_PrefabInternal: {fileID: 1610325895}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &1613731544
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 303143373}
     m_Modifications:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
@@ -8958,17 +7961,6 @@ Prefab:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 13.025577
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -30.138573
-      objectReference: {fileID: 0}
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.1426246
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8992,11 +7984,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 11
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 127846, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_Name
@@ -9005,19 +7993,15 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1613731545 stripped
 Transform:
   m_PrefabParentObject: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_PrefabInternal: {fileID: 1613731544}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &1636041765
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1652809915}
     m_Modifications:
     - target: {fileID: 498780, guid: 10d7483a37e7f1c47b16a49151f93099, type: 2}
@@ -9027,17 +8011,6 @@ Prefab:
     - target: {fileID: 498780, guid: 10d7483a37e7f1c47b16a49151f93099, type: 2}
       propertyPath: m_LocalPosition.y
       value: 1.732048
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 498780, guid: 10d7483a37e7f1c47b16a49151f93099, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -4.235201
-      objectReference: {fileID: 0}
-    - target: {fileID: 498780, guid: 10d7483a37e7f1c47b16a49151f93099, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -8.150904
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 498780, guid: 10d7483a37e7f1c47b16a49151f93099, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9061,11 +8034,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498780, guid: 10d7483a37e7f1c47b16a49151f93099, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 5
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 145342, guid: 10d7483a37e7f1c47b16a49151f93099, type: 2}
       propertyPath: m_Name
@@ -9082,13 +8051,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10d7483a37e7f1c47b16a49151f93099, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1636041766 stripped
 Transform:
   m_PrefabParentObject: {fileID: 498780, guid: 10d7483a37e7f1c47b16a49151f93099, type: 2}
   m_PrefabInternal: {fileID: 1636041765}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1637995570
 GameObject:
   m_ObjectHideFlags: 0
@@ -9118,15 +8084,9 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
   m_AnchoredPosition: {x: 29.528229, y: -17.506935}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.39828175, y: 0.5699309}
-=======
-  m_AnchoredPosition: {x: 39.7, y: -24.5}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
->>>>>>> JumpBugFix
 --- !u!1 &1639336565
 GameObject:
   m_ObjectHideFlags: 0
@@ -9223,7 +8183,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1952692562}
     m_Modifications:
     - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
@@ -9233,17 +8192,6 @@ Prefab:
     - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
       propertyPath: m_LocalPosition.y
       value: -7.0662823
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -25.172295
-      objectReference: {fileID: 0}
-    - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -16.949234
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9267,16 +8215,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 0
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5391add57b806804d86353285794619b, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1650210434 stripped
 Transform:
   m_PrefabParentObject: {fileID: 473246, guid: 5391add57b806804d86353285794619b, type: 2}
@@ -9314,8 +8257,6 @@ Transform:
   - {fileID: 1636041766}
   m_Father: {fileID: 0}
   m_RootOrder: 8
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1662065856
 GameObject:
   m_ObjectHideFlags: 0
@@ -9774,7 +8715,6 @@ Transform:
   - {fileID: 1028169430}
   m_Father: {fileID: 1921650462}
   m_RootOrder: 1
-<<<<<<< HEAD
 --- !u!1 &1687846064
 GameObject:
   m_ObjectHideFlags: 0
@@ -9806,14 +8746,11 @@ Transform:
   - {fileID: 448859599}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &1695153025
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 303143373}
     m_Modifications:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
@@ -9823,17 +8760,6 @@ Prefab:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.8981142
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -6.4936304
-      objectReference: {fileID: 0}
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -12.781066
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9866,13 +8792,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1695153026 stripped
 Transform:
   m_PrefabParentObject: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_PrefabInternal: {fileID: 1695153025}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1697691226
 GameObject:
   m_ObjectHideFlags: 0
@@ -9937,7 +8860,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 224064892}
     m_Modifications:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
@@ -9947,17 +8869,6 @@ Prefab:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 3.6338887
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 7.2430983
-      objectReference: {fileID: 0}
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -6.249063
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9981,11 +8892,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 0
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 112814, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_Name
@@ -9994,13 +8901,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1708770188 stripped
 Transform:
   m_PrefabParentObject: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_PrefabInternal: {fileID: 1708770187}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1721121860
 GameObject:
   m_ObjectHideFlags: 0
@@ -10541,7 +9445,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1220168846}
     m_Modifications:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -10551,17 +9454,6 @@ Prefab:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.y
       value: 5.157952
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 31.543
-      objectReference: {fileID: 0}
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -4.725
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.z
@@ -10585,11 +9477,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 8
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 140992, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_Name
@@ -10598,13 +9486,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1857643044 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_PrefabInternal: {fileID: 1857643043}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1864028853
 GameObject:
   m_ObjectHideFlags: 0
@@ -10730,7 +9615,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 901901504}
     m_Modifications:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
@@ -10740,17 +9624,6 @@ Prefab:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.y
       value: 13.256355
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -4.5664697
-      objectReference: {fileID: 0}
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.3734038
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.z
@@ -10783,13 +9656,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1889976587 stripped
 Transform:
   m_PrefabParentObject: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_PrefabInternal: {fileID: 1889976586}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1891028042
 GameObject:
   m_ObjectHideFlags: 0
@@ -10929,7 +9799,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 901901504}
     m_Modifications:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
@@ -10939,17 +9808,6 @@ Prefab:
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.y
       value: 9.266711
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -24.460756
-      objectReference: {fileID: 0}
-    - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.6162405
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_LocalPosition.z
@@ -10973,11 +9831,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 0
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 180512, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
       propertyPath: m_Name
@@ -10986,13 +9840,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1897174299 stripped
 Transform:
   m_PrefabParentObject: {fileID: 486794, guid: 10cbf51d922ffe74583d000ca1d03f88, type: 2}
   m_PrefabInternal: {fileID: 1897174298}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1909806348
 GameObject:
   m_ObjectHideFlags: 0
@@ -11085,7 +9936,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1220168846}
     m_Modifications:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -11095,17 +9945,6 @@ Prefab:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.y
       value: 13.013952
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 29.162
-      objectReference: {fileID: 0}
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.131
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.z
@@ -11129,11 +9968,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 15
-=======
-      value: 11
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 140992, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_Name
@@ -11142,13 +9977,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1919613776 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_PrefabInternal: {fileID: 1919613775}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1921650461
 GameObject:
   m_ObjectHideFlags: 0
@@ -11171,29 +10003,19 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1921650461}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
   m_LocalPosition: {x: 11.496236, y: 25.267931, z: -0.0625}
-=======
-  m_LocalPosition: {x: 15.044575, y: 15.384979, z: -0.0625}
->>>>>>> JumpBugFix
   m_LocalScale: {x: 90.277336, y: 40, z: 1}
   m_Children:
   - {fileID: 1910955872}
   - {fileID: 1687160547}
   - {fileID: 863376811}
-<<<<<<< HEAD
   m_Father: {fileID: 62543387}
   m_RootOrder: 0
-=======
-  m_Father: {fileID: 0}
-  m_RootOrder: 68
->>>>>>> JumpBugFix
 --- !u!1001 &1924968570
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 1220168846}
     m_Modifications:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -11203,17 +10025,6 @@ Prefab:
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.y
       value: 9.087358
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 31.768011
-      objectReference: {fileID: 0}
-    - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.7955934
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_LocalPosition.z
@@ -11237,11 +10048,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 9
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 140992, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
       propertyPath: m_Name
@@ -11250,7 +10057,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1924968571 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413752, guid: 01fdca920a3435d4db0585e8bf76b665, type: 2}
@@ -11286,8 +10092,6 @@ Transform:
   - {fileID: 81483272}
   m_Father: {fileID: 0}
   m_RootOrder: 10
-=======
->>>>>>> JumpBugFix
 --- !u!1 &1978321671
 GameObject:
   m_ObjectHideFlags: 0
@@ -11444,7 +10248,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 303143373}
     m_Modifications:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
@@ -11454,17 +10257,6 @@ Prefab:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 13.008508
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -22.21931
-      objectReference: {fileID: 0}
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.1255562
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -11488,11 +10280,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 4
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 127846, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_Name
@@ -11501,13 +10289,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &2021764095 stripped
 Transform:
   m_PrefabParentObject: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_PrefabInternal: {fileID: 2021764094}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &2027169256
 GameObject:
   m_ObjectHideFlags: 0
@@ -11727,7 +10512,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 303143373}
     m_Modifications:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
@@ -11737,17 +10521,6 @@ Prefab:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 9.14807
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -30.171875
-      objectReference: {fileID: 0}
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.73488164
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -11771,11 +10544,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 3
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 127846, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_Name
@@ -11784,13 +10553,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &2056329129 stripped
 Transform:
   m_PrefabParentObject: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_PrefabInternal: {fileID: 2056329128}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &2057223891
 GameObject:
   m_ObjectHideFlags: 0
@@ -11861,7 +10627,6 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 303143373}
     m_Modifications:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
@@ -11871,17 +10636,6 @@ Prefab:
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 9.101437
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 26.300453
-      objectReference: {fileID: 0}
-    - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.781515
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -11905,11 +10659,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 15
-=======
-      value: 1
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 127846, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
       propertyPath: m_Name
@@ -11918,13 +10668,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &2076588450 stripped
 Transform:
   m_PrefabParentObject: {fileID: 477666, guid: 86d7d0d8fd07b7842974f11d65fceaa5, type: 2}
   m_PrefabInternal: {fileID: 2076588449}
-=======
->>>>>>> JumpBugFix
 --- !u!1001 &2101079032
 Prefab:
   m_ObjectHideFlags: 0
@@ -12126,19 +10873,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11474730, guid: 5c13c7a84f0895f4192c9b2d2443b234, type: 2}
       propertyPath: GridWorldSize.x
-<<<<<<< HEAD
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 11474730, guid: 5c13c7a84f0895f4192c9b2d2443b234, type: 2}
       propertyPath: GridWorldSize.y
       value: 40
-=======
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 11474730, guid: 5c13c7a84f0895f4192c9b2d2443b234, type: 2}
-      propertyPath: GridWorldSize.y
-      value: 35
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 11474730, guid: 5c13c7a84f0895f4192c9b2d2443b234, type: 2}
       propertyPath: NodeRadius
@@ -12336,11 +11075,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2120649485}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
   m_LocalPosition: {x: 19.43253, y: 1.6869936, z: 0}
-=======
-  m_LocalPosition: {x: 22.98087, y: -8.195958, z: 0}
->>>>>>> JumpBugFix
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2114623889}
@@ -12348,19 +11083,13 @@ Transform:
   - {fileID: 1808625523}
   - {fileID: 77295436}
   - {fileID: 52758662}
-<<<<<<< HEAD
   m_Father: {fileID: 1652809915}
   m_RootOrder: 2
-=======
-  m_Father: {fileID: 0}
-  m_RootOrder: 74
->>>>>>> JumpBugFix
 --- !u!1001 &2125235822
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD
     m_TransformParent: {fileID: 224064892}
     m_Modifications:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
@@ -12370,17 +11099,6 @@ Prefab:
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 11.628864
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 4.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.745913
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -12404,11 +11122,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 8
-=======
-      value: 25
->>>>>>> JumpBugFix
       objectReference: {fileID: 0}
     - target: {fileID: 112814, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
       propertyPath: m_Name
@@ -12417,13 +11131,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &2125235823 stripped
 Transform:
   m_PrefabParentObject: {fileID: 430732, guid: d08a2e20c70059446bc55902d9e6c8b5, type: 2}
   m_PrefabInternal: {fileID: 2125235822}
-=======
->>>>>>> JumpBugFix
 --- !u!1 &2132373578
 GameObject:
   m_ObjectHideFlags: 0
@@ -12520,11 +11231,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2141965912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
   m_LocalPosition: {x: 11.8082695, y: 5.659488, z: 0}
-=======
-  m_LocalPosition: {x: 15.356608, y: -4.2234635, z: 0}
->>>>>>> JumpBugFix
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1684037703}
@@ -12532,10 +11239,5 @@ Transform:
   - {fileID: 987169909}
   - {fileID: 505179386}
   - {fileID: 735811239}
-<<<<<<< HEAD
   m_Father: {fileID: 1652809915}
   m_RootOrder: 0
-=======
-  m_Father: {fileID: 0}
-  m_RootOrder: 72
->>>>>>> JumpBugFix
