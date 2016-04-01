@@ -85,7 +85,6 @@ public class GameController : MonoBehaviour
              Instantiate((GameObject)Resources.Load("selectionUI")
         , PlayerUnits[0].transform.position + new Vector3(0.4f, 3.0f, 0)
         , Quaternion.identity) as GameObject;
-        Debug.Log(SelectionUI.transform.position);
     }
 
     public void EndTurn()
