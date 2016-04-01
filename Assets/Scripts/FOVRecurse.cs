@@ -52,10 +52,16 @@ public class FOVRecurse : MonoBehaviour
     //List<int> VisibleOctantsWhenFacingDown = new List<int>() { 5, 6 };
 
     // ReSharper disable once UnusedMember.Local
-    void Awake()
+    //void Awake()
+    //{
+       
+    //}
+    // ReSharper disable once UnusedMember.Local
+    void Start()
     {
         _grid = GetComponent<Grid>();
-        map = new bool[(int)_grid.GridSizeX, (int)_grid.GridSizeY];
+        // Debug.Log("_grid.GridSizeX:" + _grid.GridSizeX + ", _grid.GridSizeY:" + _grid.GridSizeY);
+        map = new bool[_grid.GridSizeX, _grid.GridSizeY];
         VisualRange = 8;
         gameController = GetComponent<GameController>();
     }
@@ -431,6 +437,8 @@ public class FOVRecurse : MonoBehaviour
             y = 0;
         else if (y >= map.GetLength(1))
             y = map.GetLength(1) - 1;
+
+        // Debug.Log("x:"+x+",y:"+y);
 
         if (pDepth < VisualRange & !map[x, y])
             ScanOctant(pDepth + 1, pOctant, pStartSlope, pEndSlope, unitPos);

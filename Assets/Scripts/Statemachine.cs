@@ -110,6 +110,7 @@ public class Statemachine : MonoBehaviour
             _curState = State.Player;
         }
         ImplementCurrentState();
+        _gameController.ShowSelectionUI();
     }
 
     public void WinGame()

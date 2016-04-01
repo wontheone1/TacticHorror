@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
     private Vector3 _originalClickPos;
     private bool _disableRayCast;
     FOVRecurse fov;
+    public GameObject SelectionUI;
 
     // getters and setters
     public List<Unit> ActiveUnits
@@ -80,6 +81,11 @@ public class GameController : MonoBehaviour
             EnemyUnits.Add(GameObject.Find("Enemies").transform.GetChild(i).GetComponent<Unit>());
         }
         fov = GetComponent<FOVRecurse>();
+        SelectionUI =
+             Instantiate((GameObject)Resources.Load("selectionUI")
+        , PlayerUnits[0].transform.position + new Vector3(0.4f, 3.0f, 0)
+        , Quaternion.identity) as GameObject;
+        Debug.Log(SelectionUI.transform.position);
     }
 
     public void EndTurn()
@@ -163,6 +169,7 @@ public class GameController : MonoBehaviour
                 return true;
             }
         }
+        ShowSelectionUI();
         return false;
     }
 
@@ -176,6 +183,7 @@ public class GameController : MonoBehaviour
         if (col.Length == 0) return;
         CheckOpponentClicked(col);
         CheckFriendlyUnitClicked(col);
+        ShowSelectionUI();
     }
 
     /// <summary>
@@ -316,5 +324,14 @@ public class GameController : MonoBehaviour
         {
             unit.transform.gameObject.SetActive(fov.VisiblePoints.Contains(unit.GetCurrentNode()));
         }
+    }
+
+    public void ShowSelectionUI()
+    {
+        Debug.Log("ui");
+        // selectionUI.SetActive(true);
+        SelectionUI.transform.position =
+            ActiveUnit.transform.position + new Vector3(0.4f, 3.0f, 0);
+        Debug.Log(SelectionUI.transform.position);
     }
 }
