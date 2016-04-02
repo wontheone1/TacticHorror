@@ -12,7 +12,9 @@ public class GameController : MonoBehaviour
     private Button _endButton;
     private Grid _grid;
     private Node _clickedNode;
+    private List<Node> _NodesInMovementRange; 
     private Statemachine _statemachine;
+    private Pathfinding _pathfinding;
     public Text DebugText;
     private Unit _activeUnit;
     private List<Unit> _activeUnits;
@@ -48,10 +50,7 @@ public class GameController : MonoBehaviour
 
     public TextBoxManager TextBoxManager
     {
-        get
-        {
-            return _textBoxManager;
-        }
+        get { return _textBoxManager; }
     }
 
     // ReSharper disable once UnusedMember.Local
@@ -61,7 +60,10 @@ public class GameController : MonoBehaviour
         {
             DebugText = GameObject.Find("Debug Text").GetComponent<Text>();
         }
-        catch (Exception e) { Debug.Log(e); }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
         _statemachine = GetComponent<Statemachine>();
         _grid = GetComponent<Grid>();
         _endButton = GameObject.Find("EndTurnButton").GetComponent<Button>();
@@ -82,9 +84,10 @@ public class GameController : MonoBehaviour
         }
         fov = GetComponent<FOVRecurse>();
         SelectionUI =
-             Instantiate((GameObject)Resources.Load("selectionUI")
-        , PlayerUnits[0].transform.position + new Vector3(0.4f, 3.0f, 0)
-        , Quaternion.identity) as GameObject;
+            Instantiate((GameObject) Resources.Load("selectionUI")
+                , PlayerUnits[0].transform.position + new Vector3(0.4f, 3.0f, 0)
+                , Quaternion.identity) as GameObject;
+        _pathfinding = GetComponent<Pathfinding>();
     }
 
     public void EndTurn()
@@ -160,15 +163,16 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < _activeUnits.Count; i++)
         {
 
-            if (_activeUnits[(currentUnitIndex + 1 + i) % _activeUnits.Count].IsMovementPossible())
+            if (_activeUnits[(currentUnitIndex + 1 + i)%_activeUnits.Count].IsMovementPossible())
             {
-                _activeUnit = _activeUnits[(currentUnitIndex + 1 + i) % _activeUnits.Count];
+                _activeUnit = _activeUnits[(currentUnitIndex + 1 + i)%_activeUnits.Count];
                 camMovePath.Add(_grid.NodeFromWorldPoint(_activeUnit.transform.position));
                 CameraMovementManager.RequestCamMove(camMovePath);
                 return true;
             }
         }
         ShowSelectionUI();
+        ShowTilesInMovementRange();
         return false;
     }
 
@@ -183,6 +187,7 @@ public class GameController : MonoBehaviour
         CheckOpponentClicked(col);
         CheckFriendlyUnitClicked(col);
         ShowSelectionUI();
+        ShowTilesInMovementRange();
     }
 
     /// <summary>
@@ -238,7 +243,8 @@ public class GameController : MonoBehaviour
                 {
                     _unitSelected = true;
                     _activeUnit.DeletePath();
-                    _activeUnit = activeUnit; List<Node> camMovePath = new List<Node>
+                    _activeUnit = activeUnit;
+                    List<Node> camMovePath = new List<Node>
                     {
                         _grid.NodeFromWorldPoint(Camera.main.gameObject.transform.position),
                         _grid.NodeFromWorldPoint(_activeUnit.transform.position)
@@ -327,10 +333,51 @@ public class GameController : MonoBehaviour
 
     public void ShowSelectionUI()
     {
-        Debug.Log("ui");
-        // selectionUI.SetActive(true);
         SelectionUI.transform.position =
             ActiveUnit.transform.position + new Vector3(0.4f, 3.0f, 0);
-        Debug.Log(SelectionUI.transform.position);
+    }
+
+    public void ShowTilesInMovementRange()
+    {
+        _NodesInMovementRange = new List<Node>();
+        GetMovableNeighborNodes(ActiveUnit.ActionPoint/10, ActiveUnit.GetCurrentNode());
+        foreach (var movableTileHighlighter in _grid.Movable_tile_highlighters)
+        {
+            movableTileHighlighter.SetActive(false);
+        }
+        foreach (Node node in _NodesInMovementRange)
+        {
+            if(node.Walkable && !node.OnLadder)
+            _grid.Movable_tile_highlighters[_grid.GetNodeCoord(node)[0], _grid.GetNodeCoord(node)[1]]
+                    .SetActive(true);
+        }
+    }
+
+    private void GetMovableNeighborNodes(int leftMovementRange, Node currentNode)
+    {
+        if (leftMovementRange < 0)
+            return;
+        int[] currentNodeCoord = _grid.GetNodeCoord(currentNode);
+        for (int y = currentNodeCoord[1] - 1; y <= currentNodeCoord[1] + 1; y++)
+        {
+            if (!_NodesInMovementRange.Contains(_grid.Nodes[currentNodeCoord[0], y])
+                && (_grid.Nodes[currentNodeCoord[0], y].Walkable
+                    || _grid.Nodes[currentNodeCoord[0], y].JumpThroughable))
+            {
+                _NodesInMovementRange.Add(_grid.Nodes[currentNodeCoord[0], y]);
+                GetMovableNeighborNodes(leftMovementRange - 1, _grid.Nodes[currentNodeCoord[0], y]);
+            }
+
+        }
+        for (int x = currentNodeCoord[0] - 1; x <= currentNodeCoord[0] + 1; x++)
+        {
+            if (!_NodesInMovementRange.Contains(_grid.Nodes[x, currentNodeCoord[1]])
+                && (_grid.Nodes[x, currentNodeCoord[1]].Walkable
+                    || _grid.Nodes[x, currentNodeCoord[1]].JumpThroughable))
+            {
+                _NodesInMovementRange.Add(_grid.Nodes[x, currentNodeCoord[1]]);
+                GetMovableNeighborNodes(leftMovementRange - 1, _grid.Nodes[x, currentNodeCoord[1]]);
+            }
+        }
     }
 }

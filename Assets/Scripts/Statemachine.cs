@@ -111,6 +111,7 @@ public class Statemachine : MonoBehaviour
         }
         ImplementCurrentState();
         _gameController.ShowSelectionUI();
+        _gameController.ShowTilesInMovementRange();
     }
 
     public void WinGame()

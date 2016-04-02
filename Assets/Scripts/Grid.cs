@@ -17,6 +17,8 @@ public class Grid : MonoBehaviour
     public Node[,] Nodes;
     public GameObject FOW_Square;
     public GameObject[,] FOW_Squares;
+    public GameObject Movable_tile_highlighter;
+    public GameObject[,] Movable_tile_highlighters;
     private GameController _gameController;
     float _nodeDiameter;
     int _gridSizeX, _gridSizeY;
@@ -28,12 +30,14 @@ public class Grid : MonoBehaviour
     {
         fov = GetComponent<FOVRecurse>();
         _gameController = GetComponent<GameController>();
-        FOW_Square = (GameObject)Resources.Load("FOW_Square");
+        FOW_Square = (GameObject) Resources.Load("FOW_Square");
         _nodeDiameter = NodeRadius * 2;
         _gridSizeX = Mathf.RoundToInt(GridWorldSize.x / _nodeDiameter);
         _gridSizeY = Mathf.RoundToInt(GridWorldSize.y / _nodeDiameter);
         _worldBottomLeft = Vector2.zero - (Vector2.right * GridWorldSize.x / 2) - (Vector2.up * GridWorldSize.y / 2);
         CreateGrid();
+        // make FOW_Squares
+        FOW_Squares = new GameObject[_gridSizeX, _gridSizeY];
         for (int y = 0; y < _gridSizeY; y++)
         {
             for (int x = 0; x < _gridSizeX; x++)
@@ -41,6 +45,19 @@ public class Grid : MonoBehaviour
                 FOW_Squares[x, y] = Instantiate(FOW_Square
         , Nodes[x, y].WorldPosition
         , Quaternion.identity) as GameObject;
+            }
+        }
+        // make Movable_tile_highlighter
+        Movable_tile_highlighter = (GameObject)Resources.Load("Movable_tile_highlighter");
+        Movable_tile_highlighters = new GameObject[_gridSizeX, _gridSizeY];
+        for (int y = 0; y < _gridSizeY; y++)
+        {
+            for (int x = 0; x < _gridSizeX; x++)
+            {
+                Movable_tile_highlighters[x, y] = Instantiate(Movable_tile_highlighter
+        , Nodes[x, y].WorldPosition
+        , Quaternion.identity) as GameObject;
+                Movable_tile_highlighters[x, y].SetActive(false);
             }
         }
     }
@@ -78,7 +95,7 @@ public class Grid : MonoBehaviour
     void CreateGrid()
     {
         Nodes = new Node[_gridSizeX, _gridSizeY];
-        FOW_Squares = new GameObject[_gridSizeX, _gridSizeY];
+       
 
         bool walkable, throughable, blocked, coveredFromLeft, coveredFromRight, inMidFloor, atLadderEnd, blockView;
         float detectionLength = 0.7f;
@@ -87,7 +104,7 @@ public class Grid : MonoBehaviour
             for (int y = 0; y < _gridSizeY; y++)
             {
                 Vector3 worldPoint = _worldBottomLeft + Vector2.right * (x * _nodeDiameter + NodeRadius) + Vector2.up * (y * _nodeDiameter + NodeRadius);
-                walkable = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, WalkableMask)) || (Physics.CheckSphere(worldPoint, NodeRadius, WalkableMask));
+                walkable = Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, WalkableMask);
                 throughable = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, JumpThrouable));
                 if (throughable)
                     walkable = false;
@@ -179,27 +196,28 @@ public class Grid : MonoBehaviour
             {
                 draw = false;
 
-                if (n.InMidOfFloor)
-                {
-                    Gizmos.color = Color.cyan;
-                    draw = true;
-                }
-                else if (n.CoveredFromLeft || n.CoveredFromRight)
-                {
-                    Gizmos.color = Color.blue;
-                    draw = true;
-                }
-                else if (n.OnLadder)
-                {
-                    Gizmos.color = Color.grey;
-                    draw = true;
-                }
+                //if (n.InMidOfFloor)
+                //{
+                //    Gizmos.color = Color.cyan;
+                //    draw = true;
+                //}
+                //else if (n.CoveredFromLeft || n.CoveredFromRight)
+                //{
+                //    Gizmos.color = Color.blue;
+                //    draw = true;
+                //}
+                //else if (n.OnLadder)
+                //{
+                //    Gizmos.color = Color.grey;
+                //    draw = true;
+                //}
                 //else if (n.Blocked || n.Occupied)
                 //{
                 //    Gizmos.color = Color.red;
                 //    draw = true;
                 //}
-                else if (n.Walkable)
+                // else 
+                if (n.Walkable)
                 {
                     Gizmos.color = Color.white;
                     draw = true;
