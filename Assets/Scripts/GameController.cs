@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     private Button _endButton;
     private Grid _grid;
     private Node _clickedNode;
-    private List<Node> _NodesInMovementRange; 
+    private List<Node> _NodesInMovementRange;
     private Statemachine _statemachine;
     private Pathfinding _pathfinding;
     public Text DebugText;
@@ -84,7 +84,7 @@ public class GameController : MonoBehaviour
         }
         fov = GetComponent<FOVRecurse>();
         SelectionUI =
-            Instantiate((GameObject) Resources.Load("selectionUI")
+            Instantiate((GameObject)Resources.Load("selectionUI")
                 , PlayerUnits[0].transform.position + new Vector3(0.4f, 3.0f, 0)
                 , Quaternion.identity) as GameObject;
         _pathfinding = GetComponent<Pathfinding>();
@@ -163,9 +163,9 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < _activeUnits.Count; i++)
         {
 
-            if (_activeUnits[(currentUnitIndex + 1 + i)%_activeUnits.Count].IsMovementPossible())
+            if (_activeUnits[(currentUnitIndex + 1 + i) % _activeUnits.Count].IsMovementPossible())
             {
-                _activeUnit = _activeUnits[(currentUnitIndex + 1 + i)%_activeUnits.Count];
+                _activeUnit = _activeUnits[(currentUnitIndex + 1 + i) % _activeUnits.Count];
                 camMovePath.Add(_grid.NodeFromWorldPoint(_activeUnit.transform.position));
                 CameraMovementManager.RequestCamMove(camMovePath);
                 return true;
@@ -340,15 +340,15 @@ public class GameController : MonoBehaviour
     public void ShowTilesInMovementRange()
     {
         _NodesInMovementRange = new List<Node>();
-        GetMovableNeighborNodes(ActiveUnit.ActionPoint/10, ActiveUnit.GetCurrentNode());
+        GetMovableNeighborNodes(ActiveUnit.ActionPoint / 10, ActiveUnit.GetCurrentNode());
         foreach (var movableTileHighlighter in _grid.Movable_tile_highlighters)
         {
             movableTileHighlighter.SetActive(false);
         }
         foreach (Node node in _NodesInMovementRange)
         {
-            if(node.Walkable && !node.OnLadder)
-            _grid.Movable_tile_highlighters[_grid.GetNodeCoord(node)[0], _grid.GetNodeCoord(node)[1]]
+            if (node.Walkable)//&& !node.OnLadder)
+                _grid.Movable_tile_highlighters[_grid.GetNodeCoord(node)[0], _grid.GetNodeCoord(node)[1]]
                     .SetActive(true);
         }
     }
