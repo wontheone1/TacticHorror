@@ -105,7 +105,8 @@ public class Grid : MonoBehaviour
             {
                 Vector3 worldPoint = _worldBottomLeft + Vector2.right * (x * _nodeDiameter + NodeRadius) + Vector2.up * (y * _nodeDiameter + NodeRadius);
                 walkable = Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, WalkableMask);
-                //if (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, UnwalkableMask))
+                if (Physics2D.OverlapCircle(worldPoint, NodeRadius*detectionLength, UnwalkableMask))
+                    walkable = false;
                 throughable = (Physics2D.OverlapCircle(worldPoint, NodeRadius * detectionLength, JumpThrouable));
                 // below 2 lines are questionable
                 if (throughable)

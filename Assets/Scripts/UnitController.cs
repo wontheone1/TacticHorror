@@ -259,6 +259,7 @@ public class UnitController : MonoBehaviour
                     {
                         Unit.transform.position = Vector2.MoveTowards(Unit.transform.position,
                    moveToward, Unit.Speed * Time.deltaTime);
+                        _gameController.ShowSelectionUI();
                         yield return null;
                     }
                     break;
@@ -271,6 +272,7 @@ public class UnitController : MonoBehaviour
                     {
                         Unit.transform.position = Vector2.MoveTowards(Unit.transform.position,
                    moveToward, Unit.Speed * Time.deltaTime);
+                        _gameController.ShowSelectionUI();
                         yield return null;
                     }
                     break;
@@ -305,6 +307,7 @@ public class UnitController : MonoBehaviour
                         yVelocity -= Time.deltaTime * 8;
                         if (yVelocity < 0)
                             UnitAnim.SetTrigger(Unit.StartedFallingHash);
+                        _gameController.ShowSelectionUI();
                         yield return null;
                     }
                     Unit.GetCurrentNode().ToJumpTo = false; // clear up the path JumpTo property
