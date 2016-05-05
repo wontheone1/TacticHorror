@@ -2,6 +2,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine.UI;
 
 public class UnitController : MonoBehaviour
 {
@@ -12,9 +14,15 @@ public class UnitController : MonoBehaviour
     private Pathfinding _pathfinding;
     private GameController _gameController;
     private Grid _grid;
+	public Text HitText;
+	public Text HitChanceText;
 
     protected virtual void Awake()
     {
+		HitText = GameObject.Find("HitText").GetComponent<Text>();
+		HitChanceText = GameObject.Find("HitChanceText").GetComponent<Text>();
+		HitText.text = "";
+		HitChanceText.text = "";
         _pathfinding = GameObject.FindWithTag("MainCamera").GetComponent<Pathfinding>();
         _gameController = GameObject.FindWithTag("MainCamera").GetComponent<GameController>();
         _grid = GameObject.FindWithTag("MainCamera").GetComponent<Grid>();
@@ -55,6 +63,7 @@ public class UnitController : MonoBehaviour
         {
             Unit.TargetUnit = targetUnit;
             DecideFaceDirection(Unit.TargetUnit.GetCurrentNode());
+			missChanceCalculation ();
         }
         else
         {
@@ -66,6 +75,7 @@ public class UnitController : MonoBehaviour
     public void UnsetAttackTarget()
     {
         Unit.TargetUnit = null;
+		HitChanceText.text = "";
     }
 
     /// <summary>
@@ -93,16 +103,29 @@ public class UnitController : MonoBehaviour
 			if (missChanceCalculation ()) {
 				Unit.TargetUnit.TakeDamage (randomizeDamage ());
 			}
+			else {
+				HitChanceText.text = "";
+				HitText.text = "Attack missed";
+				StartCoroutine (RemoveText (HitText));
+
+			}
         }
         GameController.UnitMoving = Unit.UnitMoving = false;
         if (!_gameController.SelectNextUnit())
             _gameController.EndTurn();
     }
+	IEnumerator RemoveText(Text text){
+		yield return new WaitForSeconds (2);
+		text.text = "";
+	}
 
 
 	private int randomizeDamage(){
 		System.Random rnd = new System.Random ();
 		int rngDamage = rnd.Next(Unit.ApMin, Unit.ApMax);
+		HitChanceText.text = "";
+		HitText.text = "Attack damage was "+rngDamage;
+		StartCoroutine (RemoveText (HitText));
 		Debug.Log("Randomized damage was: " + rngDamage);
 		return rngDamage;
 	}
@@ -119,7 +142,7 @@ public class UnitController : MonoBehaviour
 			chanceToHit = chanceToHit / 2;
 			Debug.Log ("target is in cover");
 		}
-		Debug.Log ("chance to hit: " + chanceToHit);
+		HitChanceText.text = "chance to hit: " + chanceToHit;
 
 		//randomizing a number between 0 and 100, attack hits if chanceToHit is higher than randomized number
 		System.Random rnd = new System.Random ();
