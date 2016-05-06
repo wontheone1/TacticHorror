@@ -4,8 +4,8 @@
     {
         barPrefabName = "RedBar";
         barStartingPositionName = "HealthBarStartPos";
-        verticalOrientation = 1;
-        horizontalOrientation = 0;
+        verticalOrientation = 0;
+        horizontalOrientation = 1;
         base.Awake();
     }
 }

@@ -9,8 +9,8 @@ public class SoldierClass : Unit
         UnitCount++;
         _maxActionPoint = ActionPoint = 100;
         _maxHp = Hp = 15;
-        _apMax = 1;
-		_apMin = 10;
+        _apMax = 10;
+		_apMin = 1;
         _attackRange = 50;
 
         projectileName = "rocket";

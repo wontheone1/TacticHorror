@@ -132,7 +132,7 @@ public class Unit : MonoBehaviour
     protected virtual void Start()
     {
         if (HealthBar != null)
-            HealthBar.FillBar(Hp);
+            HealthBar.FillBar(Hp, _maxHp);
         UnitController.UpdateGreenBar();
     }
 

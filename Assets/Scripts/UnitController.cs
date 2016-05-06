@@ -214,7 +214,7 @@ public class UnitController : MonoBehaviour
             Unit.Hp -= damage;
             Mathf.Clamp(Unit.Hp, 0, Unit.MaxHp);
             if (Unit.HealthBar != null)
-                Unit.HealthBar.FillBar(Unit.Hp);
+                Unit.HealthBar.FillBar(Unit.Hp, Unit.MaxHp);
             FMODUnity.RuntimeManager.PlayOneShot(Unit.GetHitEvent);
             UnitAnim.SetTrigger(Unit.GetHitHash);
             if (Unit.Hp <= 0)
@@ -488,6 +488,6 @@ public class UnitController : MonoBehaviour
     public void UpdateGreenBar()
     {
         if (Unit.GreenBar != null)
-            Unit.GreenBar.FillBar(Unit.ActionPoint/10);
+            Unit.GreenBar.FillBar(Unit.ActionPoint/10, Unit.ActionPoint / 10);
     }
 }

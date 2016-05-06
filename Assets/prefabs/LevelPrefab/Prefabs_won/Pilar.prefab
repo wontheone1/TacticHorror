@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440634}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pilar
   m_TagString: blockView
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.54, y: 3.98, z: 0}
+  m_LocalPosition: {x: -1.09, y: 7.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 412764}
@@ -100,7 +100,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0.000000059604645, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 1.19}
+  m_Size: {x: 0.1, y: 0.9}
 --- !u!61 &6154650
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -114,7 +114,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 1.19}
+  m_Size: {x: 0.1, y: 0.9}
 --- !u!212 &21233516
 SpriteRenderer:
   m_ObjectHideFlags: 1
