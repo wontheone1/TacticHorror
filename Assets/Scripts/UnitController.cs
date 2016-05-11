@@ -17,12 +17,13 @@ public class UnitController : MonoBehaviour
 	public Text HitText;
 	public Text HitChanceText;
 
+
     protected virtual void Awake()
     {
 		HitText = GameObject.Find("HitText").GetComponent<Text>();
 		HitChanceText = GameObject.Find("HitChanceText").GetComponent<Text>();
-		HitText.text = "";
-		HitChanceText.text = "";
+		HitText.text = HitChanceText.text = "";
+
         _pathfinding = GameObject.FindWithTag("MainCamera").GetComponent<Pathfinding>();
         _gameController = GameObject.FindWithTag("MainCamera").GetComponent<GameController>();
         _grid = GameObject.FindWithTag("MainCamera").GetComponent<Grid>();
@@ -124,9 +125,9 @@ public class UnitController : MonoBehaviour
 		System.Random rnd = new System.Random ();
 		int rngDamage = rnd.Next(Unit.ApMin, Unit.ApMax);
 		HitChanceText.text = "";
-		HitText.text = "Attack damage was "+rngDamage;
+		HitText.transform.position = Unit.TargetUnit.GetCurrentNode ().WorldPosition + new Vector2 (0, 1.5f);
+		HitText.text = ""+rngDamage;
 		StartCoroutine (RemoveText (HitText));
-		Debug.Log("Randomized damage was: " + rngDamage);
 		return rngDamage;
 	}
 
@@ -142,7 +143,7 @@ public class UnitController : MonoBehaviour
 			chanceToHit = chanceToHit / 2;
 			Debug.Log ("target is in cover");
 		}
-		HitChanceText.text = "chance to hit: " + chanceToHit;
+		HitChanceText.text = "chance to hit: " + chanceToHit + " % \nDamage: " + Unit.ApMin + "-" + Unit.ApMax + "\nEnemyHP: " + Unit.TargetUnit.Hp;
 
 		//randomizing a number between 0 and 100, attack hits if chanceToHit is higher than randomized number
 		System.Random rnd = new System.Random ();

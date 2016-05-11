@@ -2,6 +2,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Collections;
+using System.Linq;
+
 
 public class Statemachine : MonoBehaviour
 {
@@ -135,13 +138,13 @@ public class Statemachine : MonoBehaviour
                 _cameraMovement.CameraDisabled = true;
                 break;
 
-            case State.Player:
+		case State.Player:
                 //players turn
                 //change active unit to Player Unit
-                StateText.text = "Player turn";
-                SetActiveUnitsOpponentUnits(_gameController.PlayerUnits, _gameController.EnemyUnits);
-                _grid.DrawFOW();
-                CameraToCurrentActiveUnit();
+				StateText.text = "Player turn";
+				SetActiveUnitsOpponentUnits (_gameController.PlayerUnits, _gameController.EnemyUnits);
+				_grid.DrawFOW ();
+				CameraToCurrentActiveUnit();
                 ReplenishActionPoints();
                 UnsetTargetUnits();
                 break;

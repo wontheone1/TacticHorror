@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     private Node _clickedNode;
     private List<Node> _NodesInMovementRange;
     private Statemachine _statemachine;
+	private UnitController _unitController;
     private Pathfinding _pathfinding;
     public Text DebugText;
     private Unit _activeUnit;
@@ -28,6 +29,11 @@ public class GameController : MonoBehaviour
     private bool _disableRayCast;
     FOVRecurse fov;
     public GameObject SelectionUI;
+
+	public Text aptext1;
+	public Text aptext2;
+	public Text aptext3;
+	public Text aptext4;
 
     // getters and setters
     public List<Unit> ActiveUnits
@@ -65,10 +71,17 @@ public class GameController : MonoBehaviour
             Debug.Log(e);
         }
         _statemachine = GetComponent<Statemachine>();
+		_unitController = GetComponent<UnitController> ();
         _grid = GetComponent<Grid>();
         _endButton = GameObject.Find("EndTurnButton").GetComponent<Button>();
         _endButton.onClick.AddListener(EndTurn);
         _textBoxManager = GetComponent<TextBoxManager>();
+		aptext1 = GameObject.Find("aptext1").GetComponent<Text>();
+		aptext2 = GameObject.Find("aptext2").GetComponent<Text>();
+		aptext3 = GameObject.Find("aptext3").GetComponent<Text>();
+		aptext4 = GameObject.Find("aptext4").GetComponent<Text>();
+		aptext1.text = aptext2.text = aptext3.text = aptext4.text = "";
+
         for (int i = 0;
             i < GameObject.Find("Players").transform.childCount;
             i++)
@@ -117,6 +130,7 @@ public class GameController : MonoBehaviour
 
     public void Activities()
     {
+		UpdateApUI ();
         // change _activeUnit using 'tab' key
         if (Input.GetKeyUp(KeyCode.Tab))
         {
@@ -167,6 +181,7 @@ public class GameController : MonoBehaviour
             {
                 _activeUnit = _activeUnits[(currentUnitIndex + 1 + i) % _activeUnits.Count];
                 camMovePath.Add(_grid.NodeFromWorldPoint(_activeUnit.transform.position));
+
                 CameraMovementManager.RequestCamMove(camMovePath);
                 return true;
             }
@@ -380,4 +395,10 @@ public class GameController : MonoBehaviour
             }
         }
     }
+	public void UpdateApUI(){
+		aptext1.text = ""+ PlayerUnits[0].ActionPoint/10;
+		aptext2.text = ""+ PlayerUnits[1].ActionPoint/10;
+		aptext3.text = ""+ PlayerUnits[2].ActionPoint/10;
+		aptext4.text = ""+ PlayerUnits[3].ActionPoint/10;
+	}
 }
