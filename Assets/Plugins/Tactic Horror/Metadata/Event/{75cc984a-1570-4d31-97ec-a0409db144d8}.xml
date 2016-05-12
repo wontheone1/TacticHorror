@@ -60,7 +60,7 @@
     <object class="MarkerTrack" id="{24274a21-74ac-4081-a70e-10979c0a6ef7}"/>
     <object class="GroupTrack" id="{feb3af94-ff87-4e4f-b8c7-0e147292d025}">
         <relationship name="modules">
-            <destination>{bdcfd04d-c818-4422-b865-514d3cf43c0c}</destination>
+            <destination>{a2d4856b-4170-494b-8534-b2f625ae857f}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{49fffa0f-9edc-4112-87fc-0f8c56bb74b5}</destination>
@@ -68,13 +68,10 @@
     </object>
     <object class="Timeline" id="{078b1f91-81fc-42d3-b2dd-c8c8a33b67a1}">
         <relationship name="modules">
-            <destination>{bdcfd04d-c818-4422-b865-514d3cf43c0c}</destination>
+            <destination>{a2d4856b-4170-494b-8534-b2f625ae857f}</destination>
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{b57f1db7-14ec-443d-9de1-9952f02b4f8e}">
-        <property name="pitch">
-            <value>12</value>
-        </property>
         <relationship name="effectChain">
             <destination>{2d1041fc-65b3-45db-8c80-c98436212f0e}</destination>
         </relationship>
@@ -91,16 +88,15 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{5f4e5b16-fdeb-4f98-a269-f52d749273ba}"/>
-    <object class="SingleSound" id="{bdcfd04d-c818-4422-b865-514d3cf43c0c}">
+    <object class="SingleSound" id="{a2d4856b-4170-494b-8534-b2f625ae857f}">
         <property name="start">
             <value>0</value>
         </property>
         <property name="length">
-            <value>1.2631519274376417</value>
+            <value>2.0666666666666669</value>
         </property>
-        <property name="name"/>
         <relationship name="audioFile">
-            <destination>{5c0184c0-1970-421d-ae65-db3ef5bf00d2}</destination>
+            <destination>{2cfbe07a-31eb-4a9e-a25a-8a1f63f97575}</destination>
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{49fffa0f-9edc-4112-87fc-0f8c56bb74b5}">

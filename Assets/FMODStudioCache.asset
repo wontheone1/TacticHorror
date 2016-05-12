@@ -43,7 +43,6 @@ MonoBehaviour:
   - {fileID: 11487892}
   - {fileID: 11405196}
   - {fileID: 11439268}
-  - {fileID: 11432542}
   - {fileID: 11482810}
   - {fileID: 11471722}
   - {fileID: 11432454}
@@ -60,7 +59,6 @@ MonoBehaviour:
   - {fileID: 11448568}
   - {fileID: 11494740}
   - {fileID: 11460360}
-  - {fileID: 11477602}
   - {fileID: 11460658}
   - {fileID: 11488648}
   - {fileID: 11407400}
@@ -82,13 +80,10 @@ MonoBehaviour:
   - {fileID: 11432902}
   - {fileID: 11428812}
   - {fileID: 11445070}
-  - {fileID: 11457726}
-  - {fileID: 11465692}
-  - {fileID: 11480488}
-  - {fileID: 11417794}
-  - {fileID: 11407380}
+  - {fileID: 11404232}
+  - {fileID: 11437198}
   MasterBankRef: {fileID: 11433666}
-  stringsBankWriteTime: 635914954108010738
+  stringsBankWriteTime: 635986922642084191
 --- !u!114 &11400076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,6 +450,27 @@ MonoBehaviour:
   guid: 93752f56c883c54f8ba1ec2c6f78eb80
   Banks:
   - {fileID: 11419228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11404232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Frankenstein/frank_dodge
+  guid: 3e88047ae473e44099c06105c2096b4b
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1980,7 +1996,7 @@ MonoBehaviour:
   - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -3013,11 +3029,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Plugins\Tactic Horror\Build\Desktop\sfx.bank
-  lastModified: 635914954109091770
+  lastModified: 635983144430619624
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 147648
+    Value: 256672
   Exists: 1
 --- !u!114 &11429090
 MonoBehaviour:
@@ -4021,6 +4037,27 @@ MonoBehaviour:
   guid: 8a1f22265df2d14cb6deb61d6fd1d39b
   Banks:
   - {fileID: 11419228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &11437198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Characters/Frankenstein/frank_throw
+  guid: 9e66ad002285794f9ef1559decf12289
+  Banks:
+  - {fileID: 11429080}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -5198,7 +5235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Plugins\Tactic Horror\Build\Desktop\master Bank.bank
-  lastModified: 635914954107760501
+  lastModified: 635986922642274970
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -5887,6 +5924,20 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11458438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Enemies
+  Min: 0
+  Max: 1
 --- !u!114 &11458590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9365,11 +9416,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Plugins\Tactic Horror\Build\Desktop\music.bank
-  lastModified: 635914954108831524
-  LoadResult: 0
+  lastModified: 635986922642623169
+  LoadResult: 13
   FileSizes:
   - Name: Desktop
-    Value: 4133472
+    Value: 10992
   Exists: 1
 --- !u!114 &11496220
 MonoBehaviour:

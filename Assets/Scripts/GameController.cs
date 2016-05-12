@@ -183,6 +183,8 @@ public class GameController : MonoBehaviour
                 camMovePath.Add(_grid.NodeFromWorldPoint(_activeUnit.transform.position));
 
                 CameraMovementManager.RequestCamMove(camMovePath);
+                ShowSelectionUI();
+                ShowTilesInMovementRange();
                 return true;
             }
         }

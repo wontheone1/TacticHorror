@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{c7762a0b-f79c-4eb9-8cf1-ddbadbb28fab}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>16</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/Beginning_hi-hat {31f5d0bf-284d-414f-80e6-e2ddfb3b2f5d}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{be0f6824-1d7c-4317-8232-cc835796f669}</destination>
+        </relationship>
+    </object>
+</objects>

@@ -66,7 +66,7 @@ public class Statemachine : MonoBehaviour
     // ReSharper disable once UnusedMember.Local
     private void Start()
     {
-        ImplementCurrentState();
+        // ImplementCurrentState();
     }
 
     public void StartGame()
@@ -136,6 +136,7 @@ public class Statemachine : MonoBehaviour
         {
             case State.SceneStart:
                 _cameraMovement.CameraDisabled = true;
+                
                 break;
 
 		case State.Player:
@@ -144,7 +145,8 @@ public class Statemachine : MonoBehaviour
 				StateText.text = "Player turn";
 				SetActiveUnitsOpponentUnits (_gameController.PlayerUnits, _gameController.EnemyUnits);
 				_grid.DrawFOW ();
-				CameraToCurrentActiveUnit();
+                _gameController.ShowTilesInMovementRange();
+                CameraToCurrentActiveUnit();
                 ReplenishActionPoints();
                 UnsetTargetUnits();
                 break;
@@ -155,6 +157,7 @@ public class Statemachine : MonoBehaviour
                 StateText.text = "Enemy turn";
                 SetActiveUnitsOpponentUnits(_gameController.EnemyUnits, _gameController.PlayerUnits);
                 _grid.DrawFOW();
+                _gameController.ShowTilesInMovementRange();
                 CameraToCurrentActiveUnit();
                 ReplenishActionPoints();
                 UnsetTargetUnits();
@@ -190,7 +193,6 @@ public class Statemachine : MonoBehaviour
         camMovePath = new List<Node> { _grid.NodeFromWorldPoint(Camera.main.gameObject.transform.position) };
         camMovePath.Add(_grid.NodeFromWorldPoint(_gameController.ActiveUnit.transform.position));
         CameraMovementManager.RequestCamMove(camMovePath);
-
     }
 
     /// <summary>

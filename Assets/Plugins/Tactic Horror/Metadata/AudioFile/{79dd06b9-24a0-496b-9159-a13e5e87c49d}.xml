@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{79dd06b9-24a0-496b-9159-a13e5e87c49d}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.80000000000000004</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/frankenstein_cover_uncover2 {b3d0f09b-3e84-4158-80e8-beee803486c5}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{be0f6824-1d7c-4317-8232-cc835796f669}</destination>
+        </relationship>
+    </object>
+</objects>
