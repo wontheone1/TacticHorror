@@ -15,7 +15,7 @@
             <value>0</value>
         </property>
         <property name="uiLastRulerScaleRatio">
-            <value>0.0095997712978845035</value>
+            <value>0.0046445366528354076</value>
         </property>
     </object>
     <object class="EventMixerMaster" id="{643dbf53-d27b-49f1-a9a8-0d0f16fcd3a1}">
@@ -31,7 +31,6 @@
         </property>
     </object>
     <object class="EventMixerGroup" id="{3ee3c31b-e477-4776-bf2f-12ae0f01ed1a}"/>
-    <object class="LoopRegion" id="{3f83af9a-1aa9-4b01-994f-fb746e361dd2}"/>
     <object class="MixerBusEffectChain" id="{f67eaf5e-1f3c-4b12-86db-1d74a91a91da}"/>
     <object class="MixerBusPanner" id="{7fd9fb71-e3a1-46d0-af66-47f03d855c25}"/>
     <object class="MixerBusFader" id="{ceeafe1a-965b-4f6c-a072-76b504d4cc5b}"/>

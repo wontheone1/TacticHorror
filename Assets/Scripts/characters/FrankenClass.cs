@@ -25,7 +25,7 @@ public class FrankenClass : Unit
         WalkEvent = "event:/Characters/Frankenstein/frank_walk";
         LadderUpdownEvent = "event:/Characters/Frankenstein/frank_up_down_ladder";
         GetHitEvent = "event:/Characters/Frankenstein/frank_hitted";
-        AttackEvent = "event:/Characters/Frankenstein/frank_punch";
+        AttackEvent = "event:/Characters/Frankenstein/frank_throw";
         JumpEvent = "event:/Characters/Frankenstein/frank_jump";
 
        // Debug.Log("FrankenStatus" + UnitCount);

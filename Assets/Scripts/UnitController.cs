@@ -263,6 +263,7 @@ public class UnitController : MonoBehaviour
             DecideFaceDirection(Unit.CurrentWayPoint);
             DecideWalkingOrClimbOrJump(Unit.CurrentWayPoint);
             Vector3 moveToward;
+            FMODUnity.RuntimeManager.PlayOneShot(Unit.WalkEvent);
             while (true)
             {
                 // if turn, or turnBack state, wait until the state finishes without moving
@@ -354,7 +355,7 @@ public class UnitController : MonoBehaviour
                    new Vector2(Unit.CurrentWayPoint.WorldPosition.x, Unit.transform.position.y), Unit.Speed * Time.deltaTime);
                     yield return null;
                 }
-                FMODUnity.RuntimeManager.PlayOneShot(Unit.WalkEvent);
+                // FMODUnity.RuntimeManager.PlayOneShot(Unit.WalkEvent);
             }
             FinishWalkingOrCliming(UnitAnim.GetCurrentAnimatorStateInfo(0));
         }

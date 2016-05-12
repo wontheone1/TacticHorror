@@ -11,7 +11,6 @@
 [LOG] Thread::initThread                       : Initializing FMOD (WASAPI) feeder thread.  priority 0
 [LOG] Thread::initThread                       : - Stacksize 0.  Stack pointer 0000000000000000 : usesemaphore = 0 : sleeptime = 0
 [LOG] Thread::callback                         : * FMOD (WASAPI) feeder thread started
-[LOG] Thread::initThread                       : Initializing FMOD mixer thread.  priority 2
 [LOG] OutputWASAPI::feederUpdate               : WASAPI feeder thread set to 'Audio' characteristic
 [LOG] Thread::initThread                       : - Stacksize 49152.  Stack pointer 0000000000000000 : usesemaphore = 1 : sleeptime = 0
 [LOG] Thread::callback                         : * FMOD mixer thread started
@@ -29,12 +28,305 @@
 [ERR] FMOD_OS_File_Open                        : GetLastError = 00000020 (filename = Assets\Plugins\Tactic Horror\Build\Desktop\music.bank)
 [ERR] BankLoader::openBankFile                 : Failed to open file 'Assets\Plugins\Tactic Horror\Build\Desktop\music.bank'
 [LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
-[LOG] SystemI::mixerResume                     : Resuming output.
-[LOG] Thread::callback                         : * FMOD Studio update thread finished
-[LOG] Thread::close                            : FMOD Studio update thread thread destroyed
+[ERR] FMOD_OS_File_Open                        : GetLastError = 00000020 (filename = Assets\Plugins\Tactic Horror\Build\Desktop\sfx.bank)
+[ERR] BankLoader::openBankFile                 : Failed to open file 'Assets\Plugins\Tactic Horror\Build\Desktop\sfx.bank'
+[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
+[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
+[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
+[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {4b3c848f-2d5c-4718-9ff2-f85c74d8b3e6}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithSends: {718deb32-5420-496a-bca7-d1f868f0e45a}
 [LOG] Thread::callback                         : * FMOD Studio load thread finished
 [LOG] Thread::close                            : FMOD Studio load thread thread destroyed
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] LiveUpdate::release                      : 
 [LOG] SystemI::close                           : 
 [LOG] SystemI::close                           : Stop all sounds
@@ -52,5 +344,8 @@
 [LOG] SystemI::close                           : Free emulated output.
 [LOG] SystemI::close                           : Free channel pool.
 [LOG] SystemI::close                           : Remove miscllaneous DSP stuff.
+[LOG] Global::decRef                           : Shut down streamer and FMOD_NONBLOCKING and FileSystem thread.
+[LOG] Global::decRef                           : Shut down file system.
 [LOG] SystemI::close                           : done.
 
+[LOG] System::create                           : Header version = 1.07.06. Current version = 1.07.06.
