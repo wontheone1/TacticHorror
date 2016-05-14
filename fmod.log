@@ -10,8 +10,8 @@
 [LOG] Thread::initThread                       : Initializing FMOD (WASAPI) feeder thread.  priority 0
 [LOG] Thread::initThread                       : - Stacksize 0.  Stack pointer 0000000000000000 : usesemaphore = 0 : sleeptime = 0
 [LOG] Thread::callback                         : * FMOD (WASAPI) feeder thread started
+[LOG] OutputWASAPI::feederUpdate               : WASAPI feeder thread set to 'Audio' characteristic
 [LOG] Thread::initThread                       : Initializing FMOD mixer thread.  priority 2
-istic
 [LOG] Thread::initThread                       : - Stacksize 49152.  Stack pointer 0000000000000000 : usesemaphore = 1 : sleeptime = 0
 [LOG] Thread::callback                         : * FMOD mixer thread started
 [LOG] SystemI::init                            : Set up emulated output
@@ -39,139 +39,142 @@ istic
 [LOG] Thread::initThread                       : Initializing FMOD nonblocking thread (0).  priority 1
 [LOG] Thread::initThread                       : - Stacksize 81920.  Stack pointer 0000000000000000 : usesemaphore = 1 : sleeptime = 0
 [LOG] Thread::callback                         : * FMOD nonblocking thread (0) started
-[LOG] SystemI::createSound                     : setdata soundi = 000000003053AF48 : node = 00000000302B2D10
-[LOG] SystemI::createSound                     : add node to async list : head = 0000000030161830.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000003053AF48
-.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-ls 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     : setdata soundi = 0000000031EE31D8 : node = 0000000031B82C50
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000204616E0.  list count = 0
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+010202
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 2503264
-de = 00000000302B35D0
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 11008
-[LOG] SystemI::createSound                     :     add node to async list : head = 0000000030161830.  list count = 0
+de = 0000000031B83290
+[LOG] SystemI::createSound                     :     add node to async list : head = 00000000204616E0.  list count = 0
 [LOG] SystemI::createSound                     :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000000302B2E18
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-nels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     :     setdata soundi = 000000003053AC28 : node = 000000003037ADE0
-[LOG] SystemI::createSound                     :     add node to async list : head = 0000000030161830.  list count = 1
-[LOG] SystemI::createSound                     :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
- 00000000
-[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
-[LOG] SystemI::createSound                     :     setdata soundi = 000000003053ADB8 : node = 000000003037A520
-[LOG] SystemI::createSample                    :     mode 0a010202 length 768000 samples, lengthbytes 230272
-ount = 2
-[LOG] SystemI::createSample                    :     channels = 2
-ets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
-[LOG] SystemI::createSample                    :     output = 000000003053A908
-  Putting into queue to be opened asynchronously!
-[LOG] OutputSoftware::createSample             :     lengthpcm 768000, lengthbytes 230272, channels 2, format 2, freq 48000, mode 0a01020a
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     :     setdata soundi = 000000003053A138 : node = 000000003037AA20
-[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
-
-[LOG] SystemI::createSound                     : add node to async list : head = 0000000030161830.  list count = 3
-[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-010202
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     :     setdata soundi = 000000003053A2C8 : node = 000000003037AF20
-[LOG] SystemI::createSound                     :     add node to async list : head = 0000000030161830.  list count = 3
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSound                     :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-8 : node = 000000003037A8E0
-[LOG] SystemI::createSound                     :     add node to async list : head = 0000000030161830.  list count = 4
-[LOG] SystemI::createSound                     :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
- 00000000
-[LOG] SystemI::createSound                     :     setdata soundi = 0000000030382298 : node = 000000003037A660
-[LOG] SystemI::createSound                     :     add node to async list : head = 0000000030161830.  list count = 5
-[LOG] SystemI::createSample                    :     channels = 2
-ets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] OutputSoftware::createSample             :     lengthpcm 768000, lengthbytes 150976, channels 2, format 2, freq 48000, mode 0a01020a
-[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
-
-0003037A7A0
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000003053A5E8
- count = 6
-[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-010202
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-ls 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     :     setdata soundi = 0000000030382428 : node = 000000003037B060
-[LOG] SystemI::createSound                     :     add node to async list : head = 0000000030161830.  list count = 6
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
- Horror\Build\Desktop/music.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000003037AEE8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000031B82D58
  to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 nels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     :     setdata soundi = 0000000030382748 : node = 0000000030379EE0
-[LOG] SystemI::createSound                     :     add node to async list : head = 0000000030161830.  list count = 7
+[LOG] SystemI::createSound                     :     setdata soundi = 0000000031EE2D28 : node = 0000000020414970
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+00000000204616E0.  list count = 1
 [LOG] SystemI::createSound                     :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
- 00000000
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
-[LOG] SystemI::createSound                     :     setdata soundi = 00000000303825B8 : node = 0000000030379620
-[LOG] SystemI::createSound                     :     add node to async list : head = 0000000030161830.  list count = 8
+0031EE39A8 : node = 00000000204154B0
+[LOG] SystemI::createSample                    :     mode 0a010202 length 768000 samples, lengthbytes 230272
+ount = 2
 [LOG] SystemI::createSound                     :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-ode 0a01020a
-[LOG] SystemI::createSound                     :     setdata soundi = 0000000030382A68 : node = 000000003037AB60
+[LOG] OutputSoftware::createSample             :     lengthpcm 768000, lengthbytes 230272, channels 2, format 2, freq 48000, mode 0a01020a
+[LOG] SystemI::createSound                     :     setdata soundi = 0000000031EE3688 : node = 0000000020415C30
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] SystemI::createSound                     : add node to async list : head = 0000000030161830.  list count = 9
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000003053ADB8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031EE31D8
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000204616E0.  list count = 3
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2503264
+de = 0000000020415D70
+[LOG] SystemI::createSound                     :     add node to async list : head = 00000000204616E0.  list count = 3
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 11008
+[LOG] SystemI::createSound                     :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000031B83398
+ to be opened asynchronously!
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     :     setdata soundi = 0000000031EE2B98 : node = 0000000020416630
+[LOG] SystemI::createSound                     :     add node to async list : head = 00000000204616E0.  list count = 4
+[LOG] SystemI::createSound                     :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     :     setdata soundi = 0000000020418198 : node = 00000000204159B0
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSample                    :     mode 0a010202 length 768000 samples, lengthbytes 150976
+ount = 5
+[LOG] SystemI::createSound                     :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+ode 0a01020a
+[LOG] SystemI::createSound                     :     setdata soundi = 00000000204179C8 : node = 00000000204155F0
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031EE3368
+nt = 6
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031EE2D28
 .bank : mode 0a010202
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 02
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 ls 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     :     setdata soundi = 0000000030381AC8 : node = 000000003037A2A0
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2503264
+de = 0000000020415EB0
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 11008
-000030161830.  list count = 9
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+0000204616E0.  list count = 6
 [LOG] SystemI::createSound                     :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000003037A628
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020414A78
  to be opened asynchronously!
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-8 : node = 0000000030379760
+[LOG] SystemI::createSound                     :     setdata soundi = 00000000204187D8 : node = 0000000020414AB0
+[LOG] SystemI::createSound                     :     add node to async list : head = 00000000204616E0.  list count = 7
+[LOG] SystemI::createSound                     :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+ 00000000
+[LOG] SystemI::createSound                     :     setdata soundi = 0000000020418328 : node = 0000000020414830
+[LOG] SystemI::createSound                     :     add node to async list : head = 00000000204616E0.  list count = 8
+[LOG] SystemI::createSample                    :     channels = 2
+ets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+ode 0a01020a
+[LOG] SystemI::createSound                     :     setdata soundi = 0000000020417E78 : node = 0000000020415AF0
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031EE2D28
+nt = 9
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+ls 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2503264
+de = 0000000020415730
+[LOG] SystemI::createSound                     :     add node to async list : head = 00000000204616E0.  list count = 9
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+ Horror\Build\Desktop/music.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000000204155B8
+ to be opened asynchronously!
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     :     setdata soundi = 0000000020418E18 : node = 0000000020414BF0
+[LOG] SystemI::createSound                     :     add node to async list : head = 00000000204616E0.  list count = 10
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-0000000030161830.  list count = 10
 [LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
 [LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
 [LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010202 length 768000 samples, lengthbytes 150432
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000003053A908
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
 [LOG] OutputSoftware::createSample             :     lengthpcm 768000, lengthbytes 150432, channels 2, format 2, freq 48000, mode 0a01020a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000003053ADB8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000003053A138
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031EE39A8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031EE3688
 [LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 2503264
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 11008
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000003037AB28
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020415D38
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -181,18 +184,18 @@ ls 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010202 length 768000 samples, lengthbytes 150720
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000003053A908
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
 [LOG] OutputSoftware::createSample             :     lengthpcm 768000, lengthbytes 150720, channels 2, format 2, freq 48000, mode 0a01020a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000003053A138
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000003053A2C8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031EE3688
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031EE3818
 [LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 2503264
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 11008
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000003037B028
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020415E78
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -202,18 +205,18 @@ ls 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010202 length 768000 samples, lengthbytes 159232
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000003053A908
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
 [LOG] OutputSoftware::createSample             :     lengthpcm 768000, lengthbytes 159232, channels 2, format 2, freq 48000, mode 0a01020a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000003053A2C8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000003053AA98
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031EE3818
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031EE2B98
 [LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 2503264
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 11008
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000003037A9E8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020416738
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -223,18 +226,18 @@ ls 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010202 length 768000 samples, lengthbytes 168064
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000003053A908
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
 [LOG] OutputSoftware::createSample             :     lengthpcm 768000, lengthbytes 168064, channels 2, format 2, freq 48000, mode 0a01020a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000003053AA98
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000030382298
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031EE2B98
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000020418198
 [LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 2503264
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 11008
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000003037A768
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020415AB8
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -244,18 +247,18 @@ ls 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010202 length 768000 samples, lengthbytes 174912
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000003053A908
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
 [LOG] OutputSoftware::createSample             :     lengthpcm 768000, lengthbytes 174912, channels 2, format 2, freq 48000, mode 0a01020a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000030382298
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000303828D8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000020418198
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000204179C8
 [LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 2503264
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 11008
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000003037A8A8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000000204156F8
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -265,18 +268,18 @@ ls 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010202 length 768000 samples, lengthbytes 169952
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000003053A908
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
 [LOG] OutputSoftware::createSample             :     lengthpcm 768000, lengthbytes 169952, channels 2, format 2, freq 48000, mode 0a01020a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000303828D8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000030382428
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000204179C8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000020419138
 [LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 2503264
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 11008
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000003037B168
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020415FB8
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -286,18 +289,18 @@ ls 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010202 length 768000 samples, lengthbytes 170560
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000003053A908
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
 [LOG] OutputSoftware::createSample             :     lengthpcm 768000, lengthbytes 170560, channels 2, format 2, freq 48000, mode 0a01020a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000030382428
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000030382748
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000020419138
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000204187D8
 [LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 2503264
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 11008
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000030379FE8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020414BB8
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -307,18 +310,18 @@ ls 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010202 length 768000 samples, lengthbytes 170368
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000003053A908
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
 [LOG] OutputSoftware::createSample             :     lengthpcm 768000, lengthbytes 170368, channels 2, format 2, freq 48000, mode 0a01020a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000030382748
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000303825B8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000204187D8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000020418328
 [LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 2503264
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 11008
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000030379728
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020414938
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -328,18 +331,18 @@ ls 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010202 length 768000 samples, lengthbytes 167488
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000003053A908
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
 [LOG] OutputSoftware::createSample             :     lengthpcm 768000, lengthbytes 167488, channels 2, format 2, freq 48000, mode 0a01020a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000303825B8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000030382A68
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000020418328
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000020417E78
 [LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 2503264
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 11008
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000003037AC68
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020415BF8
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -349,18 +352,18 @@ ls 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010202 length 768000 samples, lengthbytes 176672
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000003053A908
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
 [LOG] OutputSoftware::createSample             :     lengthpcm 768000, lengthbytes 176672, channels 2, format 2, freq 48000, mode 0a01020a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000030382A68
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000030381AC8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000020417E78
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000020417CE8
 [LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 2503264
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 11008
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000003037A3A8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020415838
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -370,18 +373,18 @@ ls 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010202 length 384000 samples, lengthbytes 85728
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000003053A908
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
 [LOG] OutputSoftware::createSample             :     lengthpcm 384000, lengthbytes 85728, channels 2, format 2, freq 48000, mode 0a01020a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000030381AC8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000030382D88
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000020417CE8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000020418E18
 [LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/music.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 2503264
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 11008
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000030379868
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020414CF8
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -391,24 +394,26 @@ ls 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010202 length 768000 samples, lengthbytes 145280
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000003053A908
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
 [LOG] OutputSoftware::createSample             :     lengthpcm 768000, lengthbytes 145280, channels 2, format 2, freq 48000, mode 0a01020a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000030382D88
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000020418E18
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SystemI::mixerSuspend                    : Suspending output.
+[LOG] SystemI::mixerResume                     : Resuming output.
 [LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
 [LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     : setdata soundi = 000000001E4E08D8 : node = 000000003037B420
-[LOG] SystemI::createSound                     : add node to async list : head = 0000000030161830.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001E4E08D8
+[LOG] SystemI::createSound                     : setdata soundi = 0000000031C46438 : node = 0000000020415870
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000204616E0.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031C46438
 [LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 183360
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 74272
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000003037B528
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020415978
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -416,78 +421,510 @@ ls 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
 [LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
-[LOG] SystemI::createSample                    :     mode 0a010202 length 60631 samples, lengthbytes 704
+[LOG] SystemI::createSample                    :     mode 0a010202 length 233600 samples, lengthbytes 23136
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 000000003053A908
-[LOG] OutputSoftware::createSample             :     lengthpcm 60631, lengthbytes 704, channels 2, format 2, freq 48000, mode 0a01020a
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+[LOG] OutputSoftware::createSample             :     lengthpcm 233600, lengthbytes 23136, channels 2, format 2, freq 48000, mode 0a01020a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001E4E08D8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031C46438
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[LOG] SoundI::release                          : (null) (000000001E4E08D8)
-[LOG] SoundI::release                          : release subsounds. (000000001E4E08D8)
-[LOG] SoundI::release                          :     (null) (000000001E4E0298)
-[LOG] SoundI::release                          : release codec. (000000001E4E08D8)
-[LOG] SoundI::release                          : (null) (000000003053AF48)
-[LOG] SoundI::release                          : release subsounds. (000000003053AF48)
-[LOG] SoundI::release                          :     (null) (000000003053A778)
-[LOG] SoundI::release                          : release codec. (000000003053AF48)
-[LOG] SoundI::release                          : (null) (000000003053A5E8)
-[LOG] SoundI::release                          : release subsounds. (000000003053A5E8)
-[LOG] SoundI::release                          :     (null) (0000000030381938)
-[LOG] SoundI::release                          : release codec. (000000003053A5E8)
-[LOG] SoundI::release                          : (null) (000000003053AC28)
-[LOG] SoundI::release                          : release subsounds. (000000003053AC28)
-[LOG] SoundI::release                          :     (null) (0000000030382BF8)
-[LOG] SoundI::release                          : release codec. (000000003053AC28)
-[LOG] SoundI::release                          : (null) (000000003053ADB8)
-[LOG] SoundI::release                          : release subsounds. (000000003053ADB8)
-[LOG] SoundI::release                          :     (null) (0000000030382F18)
-[LOG] SoundI::release                          : release codec. (000000003053ADB8)
-[LOG] SoundI::release                          : (null) (000000003053A138)
-[LOG] SoundI::release                          : release subsounds. (000000003053A138)
-[LOG] SoundI::release                          :     (null) (00000000303830A8)
-[LOG] SoundI::release                          : release codec. (000000003053A138)
-[LOG] SoundI::release                          : (null) (000000003053A2C8)
-[LOG] SoundI::release                          : release subsounds. (000000003053A2C8)
-[LOG] SoundI::release                          :     (null) (0000000030382108)
-[LOG] SoundI::release                          : release codec. (000000003053A2C8)
-[LOG] SoundI::release                          : (null) (000000003053AA98)
-[LOG] SoundI::release                          : release subsounds. (000000003053AA98)
-[LOG] SoundI::release                          :     (null) (0000000030383238)
-[LOG] SoundI::release                          : release codec. (000000003053AA98)
-[LOG] SoundI::release                          : (null) (0000000030382298)
-[LOG] SoundI::release                          : release subsounds. (0000000030382298)
-[LOG] SoundI::release                          :     (null) (00000000303833C8)
-[LOG] SoundI::release                          : release codec. (0000000030382298)
-[LOG] SoundI::release                          : (null) (00000000303828D8)
-[LOG] SoundI::release                          : release subsounds. (00000000303828D8)
-[LOG] SoundI::release                          :     (null) (0000000030381618)
-[LOG] SoundI::release                          : release codec. (00000000303828D8)
-[LOG] SoundI::release                          : (null) (0000000030382428)
-[LOG] SoundI::release                          : release subsounds. (0000000030382428)
-[LOG] SoundI::release                          :     (null) (00000000303817A8)
-[LOG] SoundI::release                          : release codec. (0000000030382428)
-[LOG] SoundI::release                          : (null) (0000000030382748)
-[LOG] SoundI::release                          : release subsounds. (0000000030382748)
-[LOG] SoundI::release                          :     (null) (0000000030381C58)
-[LOG] SoundI::release                          : release codec. (0000000030382748)
-[LOG] SoundI::release                          : (null) (00000000303825B8)
-[LOG] SoundI::release                          : release subsounds. (00000000303825B8)
-[LOG] SoundI::release                          :     (null) (0000000030381DE8)
-[LOG] SoundI::release                          : release codec. (00000000303825B8)
-[LOG] SoundI::release                          : (null) (0000000030382A68)
-[LOG] SoundI::release                          : release subsounds. (0000000030382A68)
-[LOG] SoundI::release                          :     (null) (0000000030381F78)
-[LOG] SoundI::release                          : release codec. (0000000030382A68)
-[LOG] SoundI::release                          : (null) (0000000030381AC8)
-[LOG] SoundI::release                          : release subsounds. (0000000030381AC8)
-[LOG] SoundI::release                          :     (null) (000000001E4DEFD8)
-[LOG] SoundI::release                          : release codec. (0000000030381AC8)
-[LOG] SoundI::release                          : (null) (0000000030382D88)
-[LOG] SoundI::release                          : release subsounds. (0000000030382D88)
-[LOG] SoundI::release                          :     (null) (000000001E4E0748)
-[LOG] SoundI::release                          : release codec. (0000000030382D88)
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     : setdata soundi = 0000000031C462A8 : node = 0000000020415FF0
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000204616E0.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031C462A8
+[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 183360
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 74272
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000000204160F8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSample                    :     mode 0a010202 length 68800 samples, lengthbytes 12000
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+[LOG] OutputSoftware::createSample             :     lengthpcm 68800, lengthbytes 12000, channels 2, format 2, freq 48000, mode 0a01020a
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031C462A8
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     : setdata soundi = 0000000031C473D8 : node = 0000000020414D30
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000204616E0.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031C473D8
+[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 183360
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 74272
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020414E38
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SoundI::release                          :     (null) (0000000031C462A8)
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SoundI::release                          :         (null) (0000000031C47568)
+[LOG] SoundI::release                          :     release codec. (0000000031C462A8)
+ lengthbytes 9280
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+[LOG] OutputSoftware::createSample             :     lengthpcm 60631, lengthbytes 9280, channels 2, format 2, freq 48000, mode 0a01020a
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031C473D8
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SoundI::release                          : (null) (0000000031C46438)
+[LOG] SoundI::release                          : release subsounds. (0000000031C46438)
+[LOG] SoundI::release                          :     (null) (0000000031C45F88)
+[LOG] SoundI::release                          : release codec. (0000000031C46438)
+[LOG] SoundI::release                          : (null) (0000000031C473D8)
+[LOG] SoundI::release                          : release subsounds. (0000000031C473D8)
+[LOG] SoundI::release                          :     (null) (0000000031C462A8)
+[LOG] SoundI::release                          : release codec. (0000000031C473D8)
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     : setdata soundi = 0000000031C46758 : node = 0000000020414D30
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000204616E0.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031C46758
+[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 183360
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 74272
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020414E38
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSample                    :     mode 0a010202 length 68800 samples, lengthbytes 12000
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+[LOG] OutputSoftware::createSample             :     lengthpcm 68800, lengthbytes 12000, channels 2, format 2, freq 48000, mode 0a01020a
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031C46758
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SoundI::release                          : (null) (0000000031C46758)
+[LOG] SoundI::release                          : release subsounds. (0000000031C46758)
+[LOG] SoundI::release                          :     (null) (0000000031C46D98)
+[LOG] SoundI::release                          : release codec. (0000000031C46758)
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     : setdata soundi = 0000000031C46758 : node = 0000000020415FF0
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000204616E0.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031C46758
+[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 183360
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 74272
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000000204160F8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSample                    :     mode 0a010202 length 60631 samples, lengthbytes 9280
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+[LOG] OutputSoftware::createSample             :     lengthpcm 60631, lengthbytes 9280, channels 2, format 2, freq 48000, mode 0a01020a
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031C46758
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SoundI::release                          : (null) (0000000031C46758)
+[LOG] SoundI::release                          : release subsounds. (0000000031C46758)
+[LOG] SoundI::release                          :     (null) (0000000031C45948)
+[LOG] SoundI::release                          : release codec. (0000000031C46758)
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     : setdata soundi = 0000000031C46758 : node = 0000000020415870
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000204616E0.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031C46758
+[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 183360
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 74272
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020415978
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSample                    :     mode 0a010202 length 68800 samples, lengthbytes 12000
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+[LOG] OutputSoftware::createSample             :     lengthpcm 68800, lengthbytes 12000, channels 2, format 2, freq 48000, mode 0a01020a
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031C46758
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SoundI::release                          : (null) (0000000031C46758)
+[LOG] SoundI::release                          : release subsounds. (0000000031C46758)
+[LOG] SoundI::release                          :     (null) (0000000031C45AD8)
+[LOG] SoundI::release                          : release codec. (0000000031C46758)
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     : setdata soundi = 0000000031C462A8 : node = 0000000020414D30
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000204616E0.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031C462A8
+[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 183360
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 74272
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020414E38
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSample                    :     mode 0a010202 length 233600 samples, lengthbytes 23136
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+[LOG] OutputSoftware::createSample             :     lengthpcm 233600, lengthbytes 23136, channels 2, format 2, freq 48000, mode 0a01020a
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031C462A8
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     : setdata soundi = 0000000031C45F88 : node = 00000000204150F0
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000204616E0.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031C45F88
+[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 183360
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 74272
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000000204151F8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSample                    :     mode 0a010202 length 68800 samples, lengthbytes 12000
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+[LOG] OutputSoftware::createSample             :     lengthpcm 68800, lengthbytes 12000, channels 2, format 2, freq 48000, mode 0a01020a
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031C45F88
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SoundI::release                          : (null) (0000000031C45F88)
+[LOG] SoundI::release                          : release subsounds. (0000000031C45F88)
+[LOG] SoundI::release                          :     (null) (0000000031C46F28)
+[LOG] SoundI::release                          : release codec. (0000000031C45F88)
+[LOG] SoundI::release                          : (null) (0000000031C462A8)
+[LOG] SoundI::release                          : release subsounds. (0000000031C462A8)
+[LOG] SoundI::release                          :     (null) (0000000031C473D8)
+[LOG] SoundI::release                          : release codec. (0000000031C462A8)
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     : setdata soundi = 0000000031C46D98 : node = 0000000020415FF0
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000204616E0.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031C46D98
+[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 183360
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 74272
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000000204160F8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSample                    :     mode 0a010202 length 60631 samples, lengthbytes 9280
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+[LOG] OutputSoftware::createSample             :     lengthpcm 60631, lengthbytes 9280, channels 2, format 2, freq 48000, mode 0a01020a
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031C46D98
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SoundI::release                          : (null) (0000000031C46D98)
+[LOG] SoundI::release                          : release subsounds. (0000000031C46D98)
+[LOG] SoundI::release                          :     (null) (0000000031C46438)
+[LOG] SoundI::release                          : release codec. (0000000031C46D98)
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     : setdata soundi = 0000000031C46F28 : node = 0000000020415870
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000204616E0.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031C46F28
+[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 183360
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 74272
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020415978
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSample                    :     mode 0a010202 length 22400 samples, lengthbytes 4864
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+[LOG] OutputSoftware::createSample             :     lengthpcm 22400, lengthbytes 4864, channels 2, format 2, freq 48000, mode 0a01020a
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031C46F28
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SoundI::release                          : (null) (0000000031C46F28)
+[LOG] SoundI::release                          : release subsounds. (0000000031C46F28)
+[LOG] SoundI::release                          :     (null) (0000000031C462A8)
+[LOG] SoundI::release                          : release codec. (0000000031C46F28)
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     : setdata soundi = 0000000031C46438 : node = 00000000204150F0
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000204616E0.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031C46438
+[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 183360
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 74272
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000000204151F8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSample                    :     mode 0a010202 length 60631 samples, lengthbytes 9280
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+[LOG] OutputSoftware::createSample             :     lengthpcm 60631, lengthbytes 9280, channels 2, format 2, freq 48000, mode 0a01020a
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031C46438
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SoundI::release                          : (null) (0000000031C46438)
+[LOG] SoundI::release                          : release subsounds. (0000000031C46438)
+[LOG] SoundI::release                          :     (null) (0000000031C462A8)
+[LOG] SoundI::release                          : release codec. (0000000031C46438)
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     : setdata soundi = 0000000031C473D8 : node = 0000000020414D30
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000204616E0.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031C473D8
+[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 183360
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 74272
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020414E38
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSample                    :     mode 0a010202 length 22400 samples, lengthbytes 4864
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+[LOG] OutputSoftware::createSample             :     lengthpcm 22400, lengthbytes 4864, channels 2, format 2, freq 48000, mode 0a01020a
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031C473D8
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SoundI::release                          : (null) (0000000031C473D8)
+[LOG] SoundI::release                          : release subsounds. (0000000031C473D8)
+[LOG] SoundI::release                          :     (null) (0000000031C46F28)
+[LOG] SoundI::release                          : release codec. (0000000031C473D8)
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     : setdata soundi = 0000000031C45AD8 : node = 0000000020415230
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000204616E0.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031C45AD8
+[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 183360
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 74272
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020415338
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSample                    :     mode 0a010202 length 60631 samples, lengthbytes 9280
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+[LOG] OutputSoftware::createSample             :     lengthpcm 60631, lengthbytes 9280, channels 2, format 2, freq 48000, mode 0a01020a
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031C45AD8
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SoundI::release                          : (null) (0000000031C45AD8)
+[LOG] SoundI::release                          : release subsounds. (0000000031C45AD8)
+[LOG] SoundI::release                          :     (null) (0000000031C46A78)
+[LOG] SoundI::release                          : release codec. (0000000031C45AD8)
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     : setdata soundi = 0000000031C473D8 : node = 0000000020415FF0
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000204616E0.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031C473D8
+[LOG] SystemI::createSound                     : filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+ls 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     :     setdata soundi = 0000000031C45948 : node = 0000000020416130
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 74272
+0000204616E0.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000000204160F8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSample                    :     mode 0a010202 length 22400 samples, lengthbytes 4864
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+[LOG] OutputSoftware::createSample             :     lengthpcm 22400, lengthbytes 4864, channels 2, format 2, freq 48000, mode 0a01020a
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031C473D8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000031C45948
+[LOG] SystemI::createSoundInternal             :     filename = Assets\Plugins\Tactic Horror\Build\Desktop/sfx.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady :     Loading delay exceeded, sound may play at incorrect time
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 183360
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 74272
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000020416238
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSample                    :     mode 0a010202 length 83200 samples, lengthbytes 18144
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0000000031EE2EB8
+[LOG] OutputSoftware::createSample             :     lengthpcm 83200, lengthbytes 18144, channels 2, format 2, freq 48000, mode 0a01020a
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000031C45948
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SoundI::release                          : (null) (0000000031C473D8)
+[LOG] SoundI::release                          : release subsounds. (0000000031C473D8)
+[LOG] SoundI::release                          :     (null) (0000000031C46C08)
+[LOG] SoundI::release                          : release codec. (0000000031C473D8)
+[LOG] SoundI::release                          : (null) (0000000031C45948)
+[LOG] SoundI::release                          : release subsounds. (0000000031C45948)
+[LOG] SoundI::release                          :     (null) (0000000031C46A78)
+[LOG] SoundI::release                          : release codec. (0000000031C45948)
+[LOG] SystemI::mixerSuspend                    : Suspending output.
+[LOG] SystemI::mixerResume                     : Resuming output.
+[LOG] SoundI::release                          : (null) (0000000031EE31D8)
+[LOG] SoundI::release                          : release subsounds. (0000000031EE31D8)
+[LOG] SoundI::release                          :     (null) (0000000031EE34F8)
+[LOG] SoundI::release                          : release codec. (0000000031EE31D8)
+[LOG] SoundI::release                          : (null) (0000000031EE3368)
+[LOG] SoundI::release                          : release subsounds. (0000000031EE3368)
+[LOG] SoundI::release                          :     (null) (00000000204192C8)
+[LOG] SoundI::release                          : release codec. (0000000031EE3368)
+[LOG] SoundI::release                          : (null) (0000000031EE2D28)
+[LOG] SoundI::release                          : release subsounds. (0000000031EE2D28)
+[LOG] SoundI::release                          :     (null) (00000000204195E8)
+[LOG] SoundI::release                          : release codec. (0000000031EE2D28)
+[LOG] SoundI::release                          : (null) (0000000031EE39A8)
+[LOG] SoundI::release                          : release subsounds. (0000000031EE39A8)
+[LOG] SoundI::release                          :     (null) (00000000204184B8)
+[LOG] SoundI::release                          : release codec. (0000000031EE39A8)
+[LOG] SoundI::release                          : (null) (0000000031EE3688)
+[LOG] SoundI::release                          : release subsounds. (0000000031EE3688)
+[LOG] SoundI::release                          :     (null) (0000000020419458)
+[LOG] SoundI::release                          : release codec. (0000000031EE3688)
+[LOG] SoundI::release                          : (null) (0000000031EE3818)
+[LOG] SoundI::release                          : release subsounds. (0000000031EE3818)
+[LOG] SoundI::release                          :     (null) (0000000020418AF8)
+[LOG] SoundI::release                          : release codec. (0000000031EE3818)
+[LOG] SoundI::release                          : (null) (0000000031EE2B98)
+[LOG] SoundI::release                          : release subsounds. (0000000031EE2B98)
+[LOG] SoundI::release                          :     (null) (0000000020418FA8)
+[LOG] SoundI::release                          : release codec. (0000000031EE2B98)
+[LOG] SoundI::release                          : (null) (0000000020418198)
+[LOG] SoundI::release                          : release subsounds. (0000000020418198)
+[LOG] SoundI::release                          :     (null) (0000000020418648)
+[LOG] SoundI::release                          : release codec. (0000000020418198)
+[LOG] SoundI::release                          : (null) (00000000204179C8)
+[LOG] SoundI::release                          : release subsounds. (00000000204179C8)
+[LOG] SoundI::release                          :     (null) (0000000020417838)
+[LOG] SoundI::release                          : release codec. (00000000204179C8)
+[LOG] SoundI::release                          : (null) (0000000020419138)
+[LOG] SoundI::release                          : release subsounds. (0000000020419138)
+[LOG] SoundI::release                          :     (null) (0000000020418968)
+[LOG] SoundI::release                          : release codec. (0000000020419138)
+[LOG] SoundI::release                          : (null) (00000000204187D8)
+[LOG] SoundI::release                          : release subsounds. (00000000204187D8)
+[LOG] SoundI::release                          :     (null) (0000000020418C88)
+[LOG] SoundI::release                          : release codec. (00000000204187D8)
+[LOG] SoundI::release                          : (null) (0000000020418328)
+[LOG] SoundI::release                          : release subsounds. (0000000020418328)
+[LOG] SoundI::release                          :     (null) (0000000020418008)
+[LOG] SoundI::release                          : release codec. (0000000020418328)
+[LOG] SoundI::release                          : (null) (0000000020417CE8)
+[LOG] SoundI::release                          : release subsounds. (0000000020417CE8)
+[LOG] SoundI::release                          :     (null) (0000000031C46118)
+[LOG] SoundI::release                          : release codec. (0000000020417CE8)
+[LOG] SoundI::release                          : (null) (0000000020418E18)
+[LOG] SoundI::release                          : release subsounds. (0000000020418E18)
+[LOG] SoundI::release                          :     (null) (0000000031C45DF8)
+[LOG] SoundI::release                          : release codec. (0000000020418E18)
+[LOG] SoundI::release                          : (null) (0000000020417E78)
+[LOG] SoundI::release                          : release subsounds. (0000000020417E78)
+[LOG] SoundI::release                          :     (null) (0000000020417B58)
+[LOG] SoundI::release                          : release codec. (0000000020417E78)
 [LOG] Thread::callback                         : * FMOD Studio update thread finished
 [LOG] Thread::close                            : FMOD Studio update thread thread destroyed
 [LOG] Thread::callback                         : * FMOD Studio load thread finished

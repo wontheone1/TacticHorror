@@ -372,7 +372,7 @@ public class GameController : MonoBehaviour
 
     private void GetMovableNeighborNodes(int leftMovementRange, Node currentNode)
     {
-        if (leftMovementRange < 0)
+        if (leftMovementRange <= 0)
             return;
         int[] currentNodeCoord = _grid.GetNodeCoord(currentNode);
         for (int y = currentNodeCoord[1] - 1; y <= currentNodeCoord[1] + 1; y++)

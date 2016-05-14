@@ -518,7 +518,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 385.73, y: 115.33}
+  m_AnchoredPosition: {x: 330.4, y: 108}
   m_SizeDelta: {x: 201, y: 97.106}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &81001570
@@ -882,7 +882,9 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 127938112}
-  m_Text: Hello World
+  m_Text: '
+
+'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1880,8 +1882,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: 227}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 39, y: 141.55}
+  m_SizeDelta: {x: 132, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &366841426
 MonoBehaviour:
@@ -1905,7 +1907,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -3757,11 +3759,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 478404, guid: fa96dd3e2ca5c3349a82394f5d2e7561, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 18.64
+      value: -1.38
       objectReference: {fileID: 0}
     - target: {fileID: 478404, guid: fa96dd3e2ca5c3349a82394f5d2e7561, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 7.31
+      value: 14.57
       objectReference: {fileID: 0}
     - target: {fileID: 493416, guid: fa96dd3e2ca5c3349a82394f5d2e7561, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3814,7 +3816,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -615.876, y: -235.323}
+  m_AnchoredPosition: {x: -616.15, y: -235.41}
   m_SizeDelta: {x: 201.32, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &973039675
@@ -7978,7 +7980,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 223.99973, y: 93.99997}
+  m_AnchoredPosition: {x: 502, y: -165}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2060243854
